@@ -85,10 +85,11 @@
                 $sezione = $_POST["sezione"];
                 $indirizzo = $_POST["indirizzo"];
 
-                $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo)
-                VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
+                $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
 
-                $result = $db_connection->query("$sql");
+                $db_connection -> query("sql");
+
+
             }
             ?>
         </div>
