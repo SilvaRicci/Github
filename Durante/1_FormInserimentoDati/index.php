@@ -77,29 +77,8 @@
         $sezione = $_POST["sezione"];
         $indirizzo = $_POST["indirizzo"];
 
-        echo "".$nome."".$cognome."".$classe; 
-
-
-        $result = $db_connection->query("SELECT cognome,nome,classe,sezione,indirizzo FROM Studenti");                      
-        $rows = $result->num_rows;                                                                                                                         
-
-        if($rows > 0){  
-        
-            while($row = $result->fetch_assoc()){                                                 
-                    echo "<th scope=."."row".">". "$row[cognome] </th>";
-                    echo "<th scope=."."row".">". "$row[nome] </th>";
-                    echo "<th scope=."."row".">". "$row[classe] </th>";
-                    echo "<th scope=."."row".">". "$row[sezione] </th>";
-                    echo "<th scope=."."row".">". "$row[indirizzo] </th></tr>";      
-                                     
-            }
-        }
-
-        $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo');");
-
-        
-
-        $result->close();                                                                  
+        $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
+                                                             
         $db_connection->close();                                                                             
       }
     ?>

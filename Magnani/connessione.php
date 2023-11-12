@@ -1,6 +1,6 @@
 <?php
 
-$db = "studenti_10_11_2023";                   
+$db = "Magnani";                   
 $db_host = "localhost";         
 $db_user = "root";              
 $db_password = "";              

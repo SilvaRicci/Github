@@ -50,22 +50,29 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="cognome" placeholder="Cognome">
+                    <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
                 </div>
             </div>
 
             <div class="row mt-4">
                 <div class="col">
-                    <input type="text" class="form-control" id="classe" placeholder="Classe">
+                    <select class="form-select" aria-label="Default select example" id="classe" name="classe">
+                        <option selected value="0">Classe</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="sezione" placeholder="Sezione">
+                    <input type="text" class="form-control" id="sezione" name="sezione" placeholder="Sezione">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="indirizzo" placeholder="Indirizzo">
+                    <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Indirizzo">
                 </div>
             </div>
 
@@ -75,8 +82,11 @@
                 </center>
             </div>
 
+
             <?php
             include "connessione.php";
+
+
 
             if (isset($_POST["invia"])) {
                 $nome = $_POST["nome"];
@@ -85,11 +95,18 @@
                 $sezione = $_POST["sezione"];
                 $indirizzo = $_POST["indirizzo"];
 
-                $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
+                //echo "Dati inseriti";
 
-                $db_connection -> query("sql");
+                if($classe == 0){
+                    echo"Errore, classe non inserita";
+                }
+                if($classe != 0){
+                    $db_connection->query("INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')");
+                }
 
+                
 
+                $db_connection->close();
             }
             ?>
         </div>

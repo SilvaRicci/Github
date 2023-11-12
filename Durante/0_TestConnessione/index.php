@@ -50,7 +50,7 @@
   </tbody>
 </table>
 
-        <a href="ricerca.php"> Temp </a>
+        <a href="ricerca.php"> RicercaStudenti(WIP) </a>
 
     </center>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
