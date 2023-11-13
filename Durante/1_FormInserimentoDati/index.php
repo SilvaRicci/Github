@@ -119,8 +119,12 @@
         }
 
         if($isOk){
-          $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
-          echo "Inserimento dei dati nella tabella: 100% completato.";
+          $ok=$db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
+          if($ok==TRUE){
+              echo "Inserimento dei dati nella tabella: 100% completato.";
+          }else{
+              die("Errore: " . $db_connection->connect_error);
+          }
           $db_connection->close();        
         }                                                                     
       }
