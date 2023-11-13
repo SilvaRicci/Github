@@ -19,13 +19,19 @@
       <input type="text" class="form-control" id="nome" name="nome" placeholder="Inserisci nome">
     </div>
   </div>
+</div>
+<div class="col-6 my-2">
   <div class="form-group">
-    <label class="control-label col-sm-2" for="cognome">Cognome:</label>
+    <label class="control-label" for="cognome">Cognome:</label>
     <div class="col-sm-10 my-2">
       <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Inserisci cognome">
     </div>
   </div>
-  <div class="form-group col-md-10 my-2">
+</div>
+</div>
+<div class="row">
+  <div class="col-3">
+  <div class="form-group my-2">
       <label for="classe">Classe</label>
       <select id="classe" name="classe" class="form-control">
         <option selected value="0">Scegli la classe</option>
@@ -36,13 +42,17 @@
         <option value="5">5</option>
       </select>
     </div>
+</div>
+<div class="col-3">
   <div class="form-group">
     <label class="control-label col-sm-2" for="sezione">Sezione:</label>
-    <div class="col-sm-10 my-2">
+    <div class="col-sm-3 my-2">
       <input type="text" class="form-control" id="sezione" name="sezione" placeholder="Inserisci sezione">
     </div>
   </div>
-  <div class="form-group col-md-10">
+</div>
+  <div class="col-3">
+  <div class="form-group">
       <label for="indirizzo">Indirizzo</label>
       <select id="indirizzo" name="indirizzo" class="form-control">
         <option selected value="0">Scegli l'indirizzo</option>
@@ -55,7 +65,9 @@
         <option value="costruzioni">Costruzioni</option>
       </select>
     </div>
-
+</div>
+</div>
+<div class="row">
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-light my-3" id="submit_btn" name="submit_btn">Invia</button>
