@@ -78,15 +78,33 @@
         $indirizzo = $_POST["indirizzo"];
 
         $isOk=true;
-        /*
-        if($nome.is_null()){
+        
+        if($nome==""){
           $isOk=false;
-          echo "Nome non inserito";
-        }*/
+          echo "Nome non inserito <br />";
+        }
+        if($cognome==""){
+          $isOk=false;
+          echo "Cognome non inserito <br />";
+        }
+        if($classe=="0"){
+          $isOk=false;
+          echo "Classe non inserita <br />";
+        }
+        if($sezione==""){
+          $isOk=false;
+          echo "Sezione non inserita <br />";
+        }
+        if($indirizzo=="0"){
+          $isOk=false;
+          echo "Indirizzo non inserito <br />";
+        }
 
         if($isOk){
           $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
-          $db_connection->close();                                                                             
+          echo "Inserimento dei dati nella tabella: 100% completato.";
+          $db_connection->close();        
+        }                                                                     
       }
     ?>
 
