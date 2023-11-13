@@ -13,7 +13,7 @@
   <div class="row mb-4">
     <div class="col">
       <div class="form-outline">
-        <input type="text" id="form6Example1" class="form-control" />
+        <input type="text" id="nome" class="form-control" />
         <label class="form-label" for="form6Example1">Nome</label>
       </div>
     </div>
@@ -33,13 +33,13 @@
 
   <!-- sezione input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example4" class="form-control" />
+    <input type="text" id="sezione" class="form-control" />
     <label class="form-label" for="form6Example4">Sezione</label>
   </div>
 
   <!-- indirizzo input -->
   <div class="form-outline mb-4">
-    <input type="text" id="form6Example5" class="form-control" />
+    <input type="text" id="indirizzo" class="form-control" />
     <label class="form-label" for="form6Example5">Indirizzo</label>
   </div>
 
@@ -48,7 +48,7 @@
 </form>
 <?php
 
-$nome =  $_POST("Nome");
+$nome =  $_POST("nome");
 ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
