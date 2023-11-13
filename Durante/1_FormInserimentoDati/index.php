@@ -77,9 +77,16 @@
         $sezione = $_POST["sezione"];
         $indirizzo = $_POST["indirizzo"];
 
-        $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
-                                                             
-        $db_connection->close();                                                                             
+        $isOk=true;
+        /*
+        if($nome.is_null()){
+          $isOk=false;
+          echo "Nome non inserito";
+        }*/
+
+        if($isOk){
+          $db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
+          $db_connection->close();                                                                             
       }
     ?>
 
