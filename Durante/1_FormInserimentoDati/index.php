@@ -123,7 +123,7 @@
           if($ok==TRUE){
               echo "Inserimento dei dati nella tabella: 100% completato.";
           }else{
-              die("Errore: " . $db_connection->connect_error);
+              die("Errore: " . $db_connection->connect_error);  
           }
           $db_connection->close();        
         }                                                                     
