@@ -104,7 +104,7 @@
                     
                     $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
                     $db_connection->query($sql);
-                    //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->(...)
+                    //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->...
 
                 }
 
