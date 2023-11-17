@@ -101,7 +101,11 @@
                     echo"Errore, classe non inserita";
                 }
                 if($classe != 0){
-                    $db_connection->query("INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')");
+                    
+                    $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
+                    $db_connection->query($sql);
+                    //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->(...)
+
                 }
 
                 
