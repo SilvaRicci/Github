@@ -41,38 +41,22 @@
   </div>
   <div class="form-group">
     <label for="provincia">Provincia</label>
-    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Città">
+    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Provincia">
   </div>
   <div class="form-group">
-    <label for="citta">Città</label>
-    <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
+    <label for="regione">Regione</label>
+    <input type="text" class="form-control" id="regione" name="regione" placeholder="Regione">
   </div>
-  <div class="form-row">
+  <div class="form-group col-md-6">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
     <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+      <label for="confermaPassword">Conferma la password</label>
+      <input type="password" class="form-control" id="confermaPassword" placeholder="Conferma la password">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+
+  <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button>
 </form>
 </div>
 
@@ -80,12 +64,9 @@
       include "connessione.php";  
       if(isset($_POST["submit_btn"])){
                                                                             
-        
-        $nome = $_POST["nome"];
         $cognome = $_POST["cognome"];
-        $classe = $_POST["classe"];
-        $sezione = $_POST["sezione"];
-        $indirizzo = $_POST["indirizzo"];
+        $nome = $_POST["nome"];
+        $indirizzoResidenza = $_POST["indirizzoResidenza"];
 
         $isOk=true;
         
