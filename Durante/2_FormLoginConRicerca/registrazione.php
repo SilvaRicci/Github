@@ -13,21 +13,39 @@
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Nome</label>
-      <input type="email" class="form-control" id="codiceFiscale" placeholder="Email">
+      <label for="codiceFiscale">Codice fiscale</label>
+      <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="cognome">Cognome</label>
+      <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+      <label for="dataNascita">Data di nascita</label>
+      <input type="date" class="form-control" id="dataNascita" name="dataNascita" placeholder="Data di nascita">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="indirizzoResidenza">Indirizzo di residenza</label>
+    <input type="text" class="form-control" id="indirizzoResidenza" name="indirizzoResidenza" placeholder="Indirizzo di residenza">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="citta">Città</label>
+    <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
+  </div>
+  <div class="form-group">
+    <label for="provincia">Provincia</label>
+    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Città">
+  </div>
+  <div class="form-group">
+    <label for="citta">Città</label>
+    <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">

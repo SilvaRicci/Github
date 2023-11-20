@@ -46,7 +46,7 @@
 </head>
 
 <body class="sfondo">
-    <form action="" method="POST">
+    <form action="#" method="POST">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -93,9 +93,11 @@ if (isset($_POST["invia"])) {
     //creo una query che selezioni dal database la rig che ha questo cf e passwors
     $sql = <<<RICERCA
     SELECT * from clienti_20_11_2023
-    where codice_fiscale = $codice_fiscale
-    and password = $password;
+    where codice_fiscale = '$codice_fiscale'
+    and password = '$password';
     RICERCA;
+
+    
 
     if($risultato = $db_connection->query($sql)){
         echo "utente trovato ";
@@ -103,6 +105,6 @@ if (isset($_POST["invia"])) {
         echo "utente non trovato ";
     }
 
-    $db_connection.clo
+    $db_connection->close();
 }
 ?>

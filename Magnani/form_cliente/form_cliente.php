@@ -46,7 +46,7 @@
 </head>
 
 <body class="sfondo">
-    <form action="" method="POST">
+    <form action="#" method="POST">
         <div class="container">
             <div class="row">
                 <div class="col">
