@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body style = "background-color:white">
-    <center><h1>Visualizzazione clienti registrati</h1><br>   
+    <center><h1>Visualizzazione cliente singolo</h1><br>   
     
 <div class="container ml-5">
     <table class="table">
@@ -32,11 +32,14 @@
 
         $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Cliente");                      
         $rows = $result->num_rows;                                                                                                                         
-
+        
         if($rows > 0){  
         
-            while($row = $result->fetch_assoc()){                                                       
-                echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
+            while($row = $result->fetch_assoc()){     
+              echo $val."\n";
+              echo "$row[codiceFiscale]";
+              if($val == "$row[codiceFiscale]"){                                         
+                echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[codiceFiscale] </a> </th>";
                 echo "<th scope=."."row".">". "$row[cognome] </th>";
                 echo "<th scope=."."row".">". "$row[nome] </th>";
                 echo "<th scope=."."row".">". "$row[dataNascita] </th>";
@@ -47,6 +50,7 @@
                 echo "<th scope=."."row".">". "$row[password1] </th>";
                 echo "<th scope=."."row".">". "$row[ripetiPassword] </th></tr>";                             
             }
+          }
         }
 
         $result->close();                                                                               

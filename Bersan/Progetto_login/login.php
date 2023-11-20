@@ -90,6 +90,7 @@
                 Login 
               </button>
               </div>
+              
             </form>
           </div>
         </div>
@@ -98,9 +99,16 @@
   </div>
 </section>
 <!-- Section: Design Block -->
+
     <?php
+    include "connessione.php";
+
     $cf=$_POST["cf"];
     $pass=$_POST["password"];
+
+    $sql=
+    SELECT = frome Clienti 
+    where cf=$cf
 
     echo $cf;
     echo $pass;

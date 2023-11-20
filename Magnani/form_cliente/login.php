@@ -50,14 +50,15 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale" placeholder="Codice fiscale">
+                    <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale"
+                        placeholder="Codice fiscale">
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
             </div>
 
-            
+
 
             <div>
                 <center>
@@ -66,7 +67,7 @@
             </div>
 
 
-            
+
         </div>
     </form>
 
@@ -78,14 +79,19 @@
 
 
 <?php
-            include "connessione.php";
+include "connessione.php";
 
 
 
-            if (isset($_POST["invia"])) {
-                $codice_fiscale = $_POST["codice_fiscale"];
-                $password = $_POST["password"];
+if (isset($_POST["invia"])) {
+    $codice_fiscale = $_POST["codice_fiscale"];
+    $password = $_POST["password"];
 
-                
-            }
-            ?>
+    //creo una query che selezioni dal database la rig che ha questo cf e passwors
+    $sql = <<<RICERCA
+    SELECT * from clienti_20_11_2023
+    where codice
+
+    RICERCA;
+}
+?>
