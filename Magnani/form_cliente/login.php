@@ -50,31 +50,14 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                    <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale" placeholder="Codice fiscale">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
             </div>
 
-            <div class="row mt-4">
-                <div class="col">
-                    <select class="form-select" aria-label="Default select example" id="classe" name="classe">
-                        <option selected value="0">Classe</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" id="sezione" name="sezione" placeholder="Sezione">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Indirizzo">
-                </div>
-            </div>
+            
 
             <div>
                 <center>
@@ -89,28 +72,8 @@
 
 
             if (isset($_POST["invia"])) {
-                $nome = $_POST["nome"];
-                $cognome = $_POST["cognome"];
-                $classe = $_POST["classe"];
-                $sezione = $_POST["sezione"];
-                $indirizzo = $_POST["indirizzo"];
-
-                //echo "Dati inseriti";
-
-                if($classe == 0){
-                    echo"Errore, classe non inserita";
-                }
-                if($classe != 0){
-                    
-                    $sql = "INSERT INTO studenti_10_11_2023 (nome, cognome, classe, sezione, indirizzo) VALUES ('$nome', '$cognome', '$classe', '$sezione', '$indirizzo')";
-                    $db_connection->query($sql);
-                    //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->...
-
-                }
-
-                
-
-                $db_connection->close();
+                $codice_fiscale = $_POST["codice_fiscale"];
+                $password = $_POST[""];
             }
             ?>
         </div>

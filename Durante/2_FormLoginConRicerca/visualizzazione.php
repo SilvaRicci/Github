@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"   >
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Durante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body style = "background-color:white">
-    <center><h1>Studenti</h1><br>   
+    <center><h1>Visualizzazione clienti registrati</h1><br>   
     
 <div class="container ml-5">
     <table class="table">
@@ -30,9 +30,9 @@
 
         include "connessione.php";                                                                      
 
-        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password,ripetiPassword FROM Clienti");                      
+        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Clienti");                      
         $rows = $result->num_rows;                                                                                                                         
-
+        echo "Sono presenti $rows records <br /><br />";   
         if($rows > 0){  
         
             while($row = $result->fetch_assoc()){                                                       
@@ -44,8 +44,8 @@
                 echo "<th scope=."."row".">". "$row[citta] </th>";
                 echo "<th scope=."."row".">". "$row[provincia] </th>";
                 echo "<th scope=."."row".">". "$row[regione] </th>";
-                echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                echo "<th scope=."."row".">". "$row[indirizzo] </th></tr>";                             
+                echo "<th scope=."."row".">". "$row[password] </th>";
+                echo "<th scope=."."row".">". "$row[ripetiPassword] </th></tr>";                             
             }
         }
 

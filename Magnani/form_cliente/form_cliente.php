@@ -46,7 +46,7 @@
 </head>
 
 <body class="sfondo">
-    <form action="#" method="POST">
+    <form action="" method="POST">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -111,7 +111,11 @@
                 $residenza = $_POST["residenza"];
                 $citta = $_POST["citta"];
 
-                $provi
+                $provincia = $_POST["provincia"];
+                $regione = $_POST["regione"];
+
+                $password = $_POST["password"];
+                $ripeti_password = $_POST["ripeti password"];
 
                 //echo "Dati inseriti";
 
