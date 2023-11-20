@@ -50,29 +50,43 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                    <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale" placeholder="Codice fiscale">
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                 </div>
             </div>
 
             <div class="row mt-4">
                 <div class="col">
-                    <select class="form-select" aria-label="Default select example" id="classe" name="classe">
-                        <option selected value="0">Classe</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <input type="date" class="form-control" id="data_nascita" name="data_nascita" placeholder="Data di nascita">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="sezione" name="sezione" placeholder="Sezione">
+                    <input type="text" class="form-control" id="residenza" name="residenza" placeholder="Indirizzo residenza">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Indirizzo">
+                    <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col">
+                    <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Provincia">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="regione" name="regione" placeholder="Regione">
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="ripeti_password" name="ripeti_password" placeholder="Ripeti password">
                 </div>
             </div>
 
