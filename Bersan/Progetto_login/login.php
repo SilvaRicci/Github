@@ -75,7 +75,7 @@
             <form>
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" id="cf" class="form-control" />
+                <input type="text" id="cf" class="form-control" />
                 <label class="form-label" for="form3Example3">Email address</label>
               </div>
 
@@ -106,9 +106,18 @@
     $cf=$_POST["cf"];
     $pass=$_POST["password"];
 
-    $sql=
+    $sql=<<<RICERCA
     SELECT = frome Clienti 
     where cf=$cf
+    and $pass=$password;
+    RICERCA;
+
+    if($risultato=$conn->query($sql))
+    {
+        echo("utente trovato");
+    } else{
+        echo("utente non trovato");
+    }
 
     echo $cf;
     echo $pass;

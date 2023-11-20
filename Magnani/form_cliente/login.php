@@ -90,8 +90,14 @@ if (isset($_POST["invia"])) {
     //creo una query che selezioni dal database la rig che ha questo cf e passwors
     $sql = <<<RICERCA
     SELECT * from clienti_20_11_2023
-    where codice
-
+    where codice_fiscale = $codice_fiscale
+    and password = $password;
     RICERCA;
+
+    if($risultato = $db_connection->query($sql)){
+        echo "\nutente trovato ";
+    }else{
+        echo "\nutente non trovato ";
+    }
 }
 ?>
