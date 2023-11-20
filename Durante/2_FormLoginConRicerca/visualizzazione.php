@@ -30,7 +30,7 @@
 
         include "connessione.php";                                                                      
 
-        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Clienti");                      
+        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Cliente");                      
         $rows = $result->num_rows;                                                                                                                         
         echo "Sono presenti $rows records <br /><br />";   
         if($rows > 0){  

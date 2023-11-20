@@ -75,13 +75,13 @@
             <form>
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" class="form-control" />
+                <input type="email" id="cf" class="form-control" />
                 <label class="form-label" for="form3Example3">Email address</label>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" class="form-control" />
+                <input type="password" id="password" class="form-control" />
                 <label class="form-label" for="form3Example4">Password</label>
               </div>
 
@@ -100,7 +100,11 @@
 <!-- Section: Design Block -->
     <?php
     $cf=$_POST["cf"];
-    
+    $pass=$_POST["password"];
+
+    echo $cf;
+    echo $pass;
+
     ?>
 
 

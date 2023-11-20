@@ -66,16 +66,7 @@
             </div>
 
 
-            <?php
-            include "connessione.php";
-
-
-
-            if (isset($_POST["invia"])) {
-                $codice_fiscale = $_POST["codice_fiscale"];
-                $password = $_POST[""];
-            }
-            ?>
+            
         </div>
     </form>
 
@@ -83,3 +74,18 @@
 </body>
 
 </html>
+
+
+
+<?php
+            include "connessione.php";
+
+
+
+            if (isset($_POST["invia"])) {
+                $codice_fiscale = $_POST["codice_fiscale"];
+                $password = $_POST["password"];
+
+                
+            }
+            ?>
