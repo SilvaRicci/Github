@@ -30,14 +30,13 @@
 
         include "connessione.php";                                                                      
 
+        $val = $_GET["val"];
         $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Cliente");                      
         $rows = $result->num_rows;                                                                                                                         
         
         if($rows > 0){  
         
             while($row = $result->fetch_assoc()){     
-              echo $val."\n";
-              echo "$row[codiceFiscale]";
               if($val == "$row[codiceFiscale]"){                                         
                 echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[codiceFiscale] </a> </th>";
                 echo "<th scope=."."row".">". "$row[cognome] </th>";

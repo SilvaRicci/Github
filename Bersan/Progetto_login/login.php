@@ -72,7 +72,7 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form>
+            <form action="#" method="POST">
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <input type="text" id="cf" class="form-control" />

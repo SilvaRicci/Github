@@ -87,6 +87,9 @@ if (isset($_POST["invia"])) {
     $codice_fiscale = $_POST["codice_fiscale"];
     $password = $_POST["password"];
 
+    echo "cf: " . $codice_fiscale;
+    echo "---------password: " . $password; 
+
     //creo una query che selezioni dal database la rig che ha questo cf e passwors
     $sql = <<<RICERCA
     SELECT * from clienti_20_11_2023
@@ -95,9 +98,11 @@ if (isset($_POST["invia"])) {
     RICERCA;
 
     if($risultato = $db_connection->query($sql)){
-        echo "\nutente trovato ";
+        echo "utente trovato ";
     }else{
-        echo "\nutente non trovato ";
+        echo "utente non trovato ";
     }
+
+    $db_connection.clo
 }
 ?>
