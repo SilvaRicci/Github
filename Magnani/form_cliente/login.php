@@ -99,7 +99,7 @@ if (isset($_POST["invia"])) {
 
     echo "dbschdhcbhdacbsahc: " . $sql;
 
-    if($risultato = $db_connection->query($sql)){
+    if($db_connection->query($sql)){
         echo "utente trovato ";
     }else{
         echo "utente non trovato ";

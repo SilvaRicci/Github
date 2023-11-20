@@ -10,7 +10,7 @@
     <center><br><br><h1>Registrazione Cliente</h1><br>       
     
 <div class="container">
-<form>
+<form action="#" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="codiceFiscale">Codice fiscale</label>
@@ -66,29 +66,51 @@
                                                                             
         $cognome = $_POST["cognome"];
         $nome = $_POST["nome"];
+        $dataNascita = $_POST["dataNascita"];
         $indirizzoResidenza = $_POST["indirizzoResidenza"];
+        $citta = $_POST["citta"];
+        $provincia = $_POST["provincia"];
+        $regione = $_POST["regione"];
+        $password = $_POST["password"];
+        $ripetiPassword = $_POST["ripetiPassword"];
 
         $isOk=true;
         
-        if($nome==""){
-          $isOk=false;
-          echo "Nome non inserito <br />";
-        }
         if($cognome==""){
           $isOk=false;
           echo "Cognome non inserito <br />";
         }
-        if($classe=="0"){
+        if($nome==""){
           $isOk=false;
-          echo "Classe non inserita <br />";
+          echo "Nome non inserito <br />";
         }
-        if($sezione==""){
+        if($dataNascita==""){
           $isOk=false;
-          echo "Sezione non inserita <br />";
+          echo "Data di nascita non inserita <br />";
         }
-        if($indirizzo=="0"){
+        if($indirizzoResidenza==""){
           $isOk=false;
-          echo "Indirizzo non inserito <br />";
+          echo "Indirizzo di residenza non inserito <br />";
+        }
+        if($citta==""){
+          $isOk=false;
+          echo "Città non inserita <br />";
+        }
+        if($provincia==""){
+          $isOk=false;
+          echo "Provincia non inserita <br />";
+        }
+        if($regione==""){
+          $isOk=false;
+          echo "Regione non inserita <br />";
+        }
+        if($indirizzo==""){
+          $isOk=false;
+          echo "Indirizzo di residenza non inserito <br />";
+        }
+        if($indirizzo==""){
+          $isOk=false;
+          echo "Indirizzo di residenza non inserito <br />";
         }
 
         if($isOk){
