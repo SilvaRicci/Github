@@ -104,17 +104,25 @@
           $isOk=false;
           echo "Regione non inserita <br />";
         }
-        if($indirizzo==""){
+        if($password==""){
           $isOk=false;
-          echo "Indirizzo di residenza non inserito <br />";
+          echo "Password non inserita <br />";
         }
-        if($indirizzo==""){
+        if($ripetiPassword=""){
           $isOk=false;
-          echo "Indirizzo di residenza non inserito <br />";
+          echo "Ripeti password non inserita <br />";
         }
+        $isOk2=true;
 
         if($isOk){
-          $ok=$db_connection->query("INSERT INTO Studenti (nome,cognome,classe,sezione,indirizzo) VALUES ('$nome','$cognome','$classe','$sezione','$indirizzo')");
+          if($password!=$ripetiPassword){
+            $isOk2=false;
+            echo "Le due password non coincidono <br />";
+          }
+        }
+
+        if($isOk2){
+          $ok=$db_connection->query("INSERT INTO Cliente (cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword) VALUES //dacabiarmejsgjhsagjhsgjhsgj('$nome','$cognome','$classe','$sezione','$indirizzo')");
           if($ok==TRUE){
               echo "Inserimento dei dati nella tabella: 100% completato.";
           }else{
