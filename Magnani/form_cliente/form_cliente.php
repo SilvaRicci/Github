@@ -103,11 +103,15 @@
 
 
             if (isset($_POST["invia"])) {
-                $nome = $_POST["nome"];
+                $codice_fiscale = $_POST["codice_fiscale"];
                 $cognome = $_POST["cognome"];
-                $classe = $_POST["classe"];
-                $sezione = $_POST["sezione"];
-                $indirizzo = $_POST["indirizzo"];
+                $nome = $_POST["nome"];
+                
+                $data_nascita = $_POST["data_nascita"];
+                $residenza = $_POST["residenza"];
+                $citta = $_POST["citta"];
+
+                $provi
 
                 //echo "Dati inseriti";
 

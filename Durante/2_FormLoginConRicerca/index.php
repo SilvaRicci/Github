@@ -8,7 +8,8 @@
   </head>
   <body style = "background-color:white">
     <center><br><br><h1>Hub azienda</h1><br>       
-        
+        <a href="2_FormLoginConRicerca/registrazione.php"> Registrazione cliente </a>
+        <a href="2_FormLoginConRicerca/visualizzazione.php"> Visualizzazione clienti registrati </a>
     </center>
 
   
