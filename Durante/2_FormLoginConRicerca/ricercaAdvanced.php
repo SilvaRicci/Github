@@ -26,16 +26,31 @@
       echo $rows;
       if($rows > 0){  
         while($row = $result->fetch_assoc()){                                                    
-          echo '<option value='."$row[regione]".'>"$row[regione].'</option>';
+          echo '<option value='."$row[regione]".'>'."$row[regione]".'</option>';
         }
       }
-
-
       echo '</select> </div>';
+
+
+      echo '<div class="form-group my-2">
+    <label for="provincia">Provincia</label>
+    <select id="provincia" name="provincia" class="form-control">
+      <option selected value="0">Scegli la provincia</option>';
+
+      $result = $db_connection->query("SELECT DISTINCT provincia FROM Cliente");                      
+      $rows = $result->num_rows;  
+      echo $rows;
+      if($rows > 0){  
+        while($row = $result->fetch_assoc()){                                                    
+          echo '<option value='."$row[provincia]".'>'."$row[provincia]".'</option>';
+        }
+      }
+      echo '</select> </div>';
+
     ?>
     <div class="form-group col-md-6">
-      <label for="codiceFiscale">Codice fiscale</label>
-      <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
+      <label for="citta">Città</label>
+      <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
     </div>
 
   <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Ricerca</button>
@@ -46,7 +61,9 @@
         
         if (isset($_POST["submit_btn"])) {
             
-            $codiceFiscale = $_POST["codiceFiscale"];
+            $provincia = $_POST["provincia"];
+            $provincia = $_POST["provincia"];
+            $provincia = $_POST["provincia"];
 
             $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
             $rows = $result->num_rows;                                                                                                                         
