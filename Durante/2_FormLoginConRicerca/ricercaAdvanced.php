@@ -102,18 +102,18 @@
                 $rows = $result->num_rows;   
               }
               
-              if($isRegione AND $isProvincia AND $isCitta){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+              if($isRegione){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione')");                      
                 $rows = $result->num_rows;   
               }
 
-              if($isRegione AND $isProvincia AND $isCitta){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+              if($isProvincia){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia')");                      
                 $rows = $result->num_rows;   
               }
 
-              if($isRegione AND $isProvincia AND $isCitta){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+              if($isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (citta = '$citta')");                      
                 $rows = $result->num_rows;   
               }
 
@@ -145,6 +145,8 @@
                     
                 }
             
+            }else{
+              echo "Nessun cliente trovato.";
             }
         }
       }
