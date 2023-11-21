@@ -97,9 +97,10 @@ if (isset($_POST["invia"])) {
     and password = '$password';
     RICERCA;
 
-    echo "dbschdhcbhdacbsahc: " . $sql;
+    $result = $db_connection->query($sql);
+    $rows = $result->num_rows;
 
-    if($db_connection->query($sql)){
+    if($rows > 0){
         echo "utente trovato ";
     }else{
         echo "utente non trovato ";
