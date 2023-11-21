@@ -27,11 +27,12 @@
         include "connessione.php";                                                                      
         
         if (isset($_POST["submit_btn"])) {
-            $codiceFiscale = $_POST("codiceFiscale");
-            echo $codiceFiscale;
+            
+            $codiceFiscale = $_POST["codiceFiscale"];
+
             $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
             $rows = $result->num_rows;                                                                                                                         
-            echo $rows;
+
             if($rows > 0){  
                     echo ' <div class="container ml-5">
                     <table class="table">

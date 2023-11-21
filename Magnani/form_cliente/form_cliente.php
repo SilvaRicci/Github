@@ -117,19 +117,17 @@
                 $password = $_POST["p_password"];
                 $ripeti_password = $_POST["ripeti_password"];
 
-                //echo "Dati inseriti";
+                
 
-                if($classe == 0){
-                    echo"Errore, classe non inserita";
-                }
-                if($classe != 0){
+                
+                
                     
-                    $sql = "INSERT INTO studenti_10_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, p_password, ripeti_password) 
-                    VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citaa', '$provincia', '$regione', '$password', '$ripeti_password')";
+                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, p_password, ripeti_password) 
+                    VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
                     
                     $db_connection->query($sql);
                     //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->...
-                }
+                
 
                 
 
