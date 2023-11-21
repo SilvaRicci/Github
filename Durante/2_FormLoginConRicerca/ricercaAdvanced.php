@@ -83,45 +83,71 @@
             }else{
 
               if($isRegione AND $isProvincia AND $isCitta){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE regione = '$isRegione', provincia = '$isRegione' , citta = '$isCitta'");                      
-                $rows = $result->num_rows;    
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
               }
+
+              if($isRegione AND $isProvincia){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia')");                      
+                $rows = $result->num_rows;   
+              }
+
+              if($isProvincia AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
+              }
+
+              if($isRegione AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
+              }
+              
+              if($isRegione AND $isProvincia AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
+              }
+
+              if($isRegione AND $isProvincia AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
+              }
+
+              if($isRegione AND $isProvincia AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
+                $rows = $result->num_rows;   
+              }
+
+              if($rows > 0){  
+                echo ' <div class="container ml-5">
+                <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Codice fiscale</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data di nascita</th>
+                <th scope="col">Indirizzo di residenza</th>
+                <th scope="col">Città</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Regione</th>
+                </tr>
+            </thead>
+            <tbody>';
+                while($row = $result->fetch_assoc()){                                                    
+                    echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
+                    echo "<th scope=."."row".">". "$row[cognome] </th>";
+                    echo "<th scope=."."row".">". "$row[nome] </th>";
+                    echo "<th scope=."."row".">". "$row[dataNascita] </th>";
+                    echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
+                    echo "<th scope=."."row".">". "$row[citta] </th>";
+                    echo "<th scope=."."row".">". "$row[provincia] </th>";
+                    echo "<th scope=."."row".">". "$row[regione] </th>";    
+                    
+                }
             
             }
-
-            $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
-            $rows = $result->num_rows;                                                                                                                         
-
-            if($rows > 0){  
-                    echo ' <div class="container ml-5">
-                    <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">Codice fiscale</th>
-                    <th scope="col">Cognome</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data di nascita</th>
-                    <th scope="col">Indirizzo di residenza</th>
-                    <th scope="col">Città</th>
-                    <th scope="col">Provincia</th>
-                    <th scope="col">Regione</th>
-                    </tr>
-                </thead>
-                <tbody>';
-                    while($row = $result->fetch_assoc()){                                                    
-                        echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
-                        echo "<th scope=."."row".">". "$row[cognome] </th>";
-                        echo "<th scope=."."row".">". "$row[nome] </th>";
-                        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-                        echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                        echo "<th scope=."."row".">". "$row[citta] </th>";
-                        echo "<th scope=."."row".">". "$row[provincia] </th>";
-                        echo "<th scope=."."row".">". "$row[regione] </th>";    
-                        
-                    }
-            }else{echo "Utente non trovato";}
         }
-        
+      }
         $result->close();                                                                               
         $db_connection->close();                                                                                 
         /*Pagina di ricerca avanzata
