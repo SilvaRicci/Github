@@ -27,39 +27,41 @@
         include "connessione.php";                                                                      
         
         if (isset($_POST["submit_btn"])) {
-        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente");                      
-        $rows = $result->num_rows;                                                                                                                         
-
-        if($rows > 0){  
-                echo ' <div class="container ml-5">
-                <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Codice fiscale</th>
-                  <th scope="col">Cognome</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Data di nascita</th>
-                  <th scope="col">Indirizzo di residenza</th>
-                  <th scope="col">Città</th>
-                  <th scope="col">Provincia</th>
-                  <th scope="col">Regione</th>
-                </tr>
-              </thead>
-              <tbody>';
-                while($row = $result->fetch_assoc()){       
-                    if("$row[codiceFiscale]")                                                
-                    echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
-                    echo "<th scope=."."row".">". "$row[cognome] </th>";
-                    echo "<th scope=."."row".">". "$row[nome] </th>";
-                    echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-                    echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                    echo "<th scope=."."row".">". "$row[citta] </th>";
-                    echo "<th scope=."."row".">". "$row[provincia] </th>";
-                    echo "<th scope=."."row".">". "$row[regione] </th>";                          
-                }
+            $codiceFiscale = $_POST("codiceFiscale");
+            echo $codiceFiscale;
+            $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
+            $rows = $result->num_rows;                                                                                                                         
+            echo $rows;
+            if($rows > 0){  
+                    echo ' <div class="container ml-5">
+                    <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Codice fiscale</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data di nascita</th>
+                    <th scope="col">Indirizzo di residenza</th>
+                    <th scope="col">Città</th>
+                    <th scope="col">Provincia</th>
+                    <th scope="col">Regione</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    while($row = $result->fetch_assoc()){                                                    
+                        echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
+                        echo "<th scope=."."row".">". "$row[cognome] </th>";
+                        echo "<th scope=."."row".">". "$row[nome] </th>";
+                        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
+                        echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
+                        echo "<th scope=."."row".">". "$row[citta] </th>";
+                        echo "<th scope=."."row".">". "$row[provincia] </th>";
+                        echo "<th scope=."."row".">". "$row[regione] </th>";    
+                        
+                    }
             }else{echo "Utente non trovato";}
         }
-
+        
         $result->close();                                                                               
         $db_connection->close();                                                                                 
 
