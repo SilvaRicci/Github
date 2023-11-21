@@ -14,4 +14,18 @@ if($db_connection->connect_error){
     die("\nSi è verificato il seguente problema tecnico: " . $db_connection->connect_error);
 }
 
+/*
+    login --> ✅
+    registrazione --> ✅
+    visualizzazione tutti i dati --> ❌
+    visualizzazione singolo utente --> ❌
+    ricerca per codice fiscale --> ❌
+    ricerca per città, provincia, regione (leggi consegna) --> ❌
+*/
+
+
+
+
 ?>
+
+
