@@ -7,12 +7,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body style = "background-color:white">
-    <center><h1>Visualizzazione clienti tramite ricerca semplice</h1><br>   
+    <center><h1>Visualizzazione clienti tramite ricerca avanzata</h1><br>   
     
 
     <div class="container">
 <form action="#" method="POST">
   <div class="form-row">
+    <?php
+
+      echo '<div class="form-group my-2">
+    <label for="classe">Classe</label>
+    <select id="classe" name="classe" class="form-control">
+      <option selected value="0">Scegli la regione</option>';
+
+
+      
+      echo '</select> </div>';
+    ?>
     <div class="form-group col-md-6">
       <label for="codiceFiscale">Codice fiscale</label>
       <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
@@ -23,7 +34,7 @@
 </div>
 
   <?php
-
+  
         include "connessione.php";                                                                      
         
         if (isset($_POST["submit_btn"])) {
