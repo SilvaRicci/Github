@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="it">
   <head>
-    <meta charset="utf-8"   >
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Durante</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -9,6 +9,7 @@
   <body style = "background-color:white">
     <center><h1>Visualizzazione clienti tramite ricerca avanzata</h1><br>   
     
+    <?php include "connessione.php"; ?>
 
     <div class="container">
 <form action="#" method="POST">
@@ -16,12 +17,20 @@
     <?php
 
       echo '<div class="form-group my-2">
-    <label for="classe">Classe</label>
-    <select id="classe" name="classe" class="form-control">
+    <label for="regione">Regione</label>
+    <select id="regione" name="regione" class="form-control">
       <option selected value="0">Scegli la regione</option>';
 
+      $result = $db_connection->query("SELECT DISTINCT regione FROM Cliente");                      
+      $rows = $result->num_rows;  
+      echo $rows;
+      if($rows > 0){  
+        while($row = $result->fetch_assoc()){                                                    
+          echo '<option value='."$row[regione]".'>"$row[regione].'</option>';
+        }
+      }
 
-      
+
       echo '</select> </div>';
     ?>
     <div class="form-group col-md-6">
@@ -33,9 +42,7 @@
 </form>
 </div>
 
-  <?php
-  
-        include "connessione.php";                                                                      
+  <?php                                                                     
         
         if (isset($_POST["submit_btn"])) {
             
