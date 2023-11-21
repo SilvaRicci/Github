@@ -61,9 +61,33 @@
         
         if (isset($_POST["submit_btn"])) {
             
+            $regione = $_POST["regione"];
             $provincia = $_POST["provincia"];
-            $provincia = $_POST["provincia"];
-            $provincia = $_POST["provincia"];
+            $citta = $_POST["citta"];
+            $isRegione=true;
+            $isProvincia=true;
+            $isCitta=true;
+
+            if($regione==0){
+              $isRegione=false;
+            }
+            if($provincia==0){
+              $isProvincia=false;
+            }
+            if($citta==""){
+              $isCitta=false;
+            }
+
+            if(!$isRegione AND !$isProvincia AND !$isCitta){
+              echo "ao, inserisci qualcosa";
+            }else{
+
+              if($isRegione AND $isProvincia AND $isCitta){
+                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE regione = '$isRegione', provincia = '$isRegione' , citta = '$isCitta'");                      
+                $rows = $result->num_rows;    
+              }
+            
+            }
 
             $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
             $rows = $result->num_rows;                                                                                                                         
