@@ -10,6 +10,9 @@
     <center><br><br><h1>Hub azienda</h1><br>       
         <a href="registrazione.php"> Registrazione cliente </a>
         <a href="visualizzazione.php"> Visualizzazione clienti registrati </a>
+        <a href="login.php"> Login</a>
+        <a href="ricercaSimple.php"> Ricerca semplice</a>
+        <a href="ricercaAdvanced.php"> Ricerca avanzata</a>
     </center>
 
   
