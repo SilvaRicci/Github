@@ -119,13 +119,15 @@
 
                 
 
-                
-                
+                if($password == $ripeti_password){
                     $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password) 
                     VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
                     
-                    //echo "ciao bro";
+                    echo "ciao bro";
                     $db_connection->query($sql);
+                }
+                
+                    
                 
                 
 
