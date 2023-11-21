@@ -83,7 +83,7 @@
 
             <div class="row mt-4">
                 <div class="col">
-                    <input type="text" class="form-control" id="p_password" name="p_password" placeholder="Password">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" id="ripeti_password" name="ripeti_password" placeholder="Ripeti password">
@@ -114,22 +114,21 @@
                 $provincia = $_POST["provincia"];
                 $regione = $_POST["regione"];
 
-                $password = $_POST["p_password"];
+                $password = $_POST["password"];
                 $ripeti_password = $_POST["ripeti_password"];
 
                 
 
                 
                 
-                    
-                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, p_password, ripeti_password) 
+                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password) 
                     VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
                     
+                    //echo "ciao bro";
                     $db_connection->query($sql);
-                    //qualsiasi sia l'operazione sql deve essere lanciata, quindi $db_connection->...
+                
                 
 
-                
 
                 $db_connection->close();
             }
