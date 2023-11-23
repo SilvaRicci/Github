@@ -12,16 +12,6 @@
     color: white;
 }
 
-.visualizzazione {
-    min-width: 700px;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    padding: 20px;
-    background-color: #0E1C36;
-    border-radius: 10px;
-    color: white;
-}
-
 .container button {
     border: none;
     border-radius: 5px;
