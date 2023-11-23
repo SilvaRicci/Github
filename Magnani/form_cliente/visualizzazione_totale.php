@@ -46,7 +46,6 @@
 </head>
 
 <body class="sfondo">
-    <form action="#" method="POST">
         <div class="container">
 
             <table class="table table-hover table-bordered mb-0">
@@ -66,6 +65,7 @@
                 $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password");
                 $rows = $result->num_rows;
 
+                echo "ciaociaociao";
                 
                 if($rows > 0){
                     //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
@@ -110,13 +110,6 @@
                 
                 ?>
             </table>
-
-
-
         </div>
-    </form>
-
-
 </body>
-
 </html>
