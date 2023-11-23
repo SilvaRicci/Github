@@ -215,6 +215,8 @@
                                     <td>$row[regione]</td>
                                 ";
                             }
+                        }else{
+                            echo "Errore";
                         }
 
 
