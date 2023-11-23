@@ -65,23 +65,7 @@
                 <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
             </div>
             <!--Provincia-->
-            <div class="col">
-                    <select class="form-select" aria-label="Default select example" name="provincia">
-                        <option value="0" selected>Provincia</option>
-                        <?php
-                        $indirizzi = $db_connection->query("SELECT DISTINCT provincia FROM clienti_20_11_2023");
-                        $rows_ind = $indirizzi->num_rows;
-                        $ind = 0;
-                        if ($rows_ind > 0) {
-                            while ($row_ind = $indirizzi->fetch_assoc()) {
-                                $ind++;
-                                echo "<option value='$ind'>$row_ind[provincia]</option>";
-                            }
-                        }
-                        $indirizzi->close();
-                        ?>
-                    </select>
-            </div>
+            
             <!--Regione-->
         </div>
         
