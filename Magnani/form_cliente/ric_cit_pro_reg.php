@@ -69,7 +69,7 @@
                     <select class="form-select" aria-label="Default select example" name="provincia">
                         <option value="" selected disabled>Seleziona provincia</option>
                         <?php
-                        include conn
+                        include "connessione.php";
                         $pro = $db_connection->query("SELECT provincia FROM clienti_20_11_2023");
                         $rows_pro = $pro->num_rows;
 
@@ -84,7 +84,24 @@
 
                 </div>
                 <!--Regione-->
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example" name="regione">
+                        <option value="" selected disabled>Seleziona regione</option>
+                        <?php
+                        include "connessione.php";
+                        $reg = $db_connection->query("SELECT regione FROM clienti_20_11_2023");
+                        $rows_reg = $reg->num_rows;
 
+                        if ($rows_reg > 0) {
+                            while ($row_reg = $reg->fetch_assoc()) {
+                                echo "<option value='$row_reg[regione]'>$row_reg[regione]</option>";
+                            }
+                        }
+                        $reg->close();
+                        ?>
+                    </select>
+
+                </div>
             </div>
 
 
@@ -139,7 +156,6 @@
                             <td>$row[regione]</td>
                         ";
                                 }
-
                             }
                         }
                         $result->close();
