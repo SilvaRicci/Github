@@ -76,7 +76,7 @@
                     //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                            <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                            <td><a href='visualizzazione_singolo.php?cfval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
                             <td>$row[cognome]</td>
                             <td>$row[nome]</td>
 
