@@ -66,7 +66,18 @@
                 $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password");
                 $rows = $result->num_rows;
 
-                if($row = $result->fetch_assoc()) //valore true
+                
+                if($rows > 0){
+                    //se ci sono righe row è true, altrimenti false e non fa il for
+                    while($row = $result->fetch_assoc()){
+                        echo "<tr>
+                            <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                            <td>$row</td>
+                        
+                        "
+                    } 
+                }
+                
 
 
                 
