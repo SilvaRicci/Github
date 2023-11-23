@@ -142,19 +142,34 @@
                             //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
                             while ($row = $result->fetch_assoc()) {
 
-                                if ("$row[codice_fiscale]" == "$ric_cf") {
+                                if ("$row[citta]" == "$ric_citta") {
                                     echo "<tr>
-                            <td>$row[codice_fiscale]</td>
-                            <td>$row[cognome]</td>
-                            <td>$row[nome]</td>
+                                        <td>$row[codice_fiscale]</td>
+                                        <td>$row[cognome]</td>
+                                        <td>$row[nome]</td>
 
-                            <td>$row[data_nascita]</td>
-                            <td>$row[residenza]</td>
-                            <td>$row[citta]</td>
+                                        <td>$row[data_nascita]</td>
+                                        <td>$row[residenza]</td>
+                                        <td>$row[citta]</td>
 
-                            <td>$row[provincia]</td>
-                            <td>$row[regione]</td>
-                        ";
+                                        <td>$row[provincia]</td>
+                                        <td>$row[regione]</td>
+                                    ";
+                                }
+
+                                if ("$row[citta]" == "$ric_citta") {
+                                    echo "<tr>
+                                        <td>$row[codice_fiscale]</td>
+                                        <td>$row[cognome]</td>
+                                        <td>$row[nome]</td>
+
+                                        <td>$row[data_nascita]</td>
+                                        <td>$row[residenza]</td>
+                                        <td>$row[citta]</td>
+
+                                        <td>$row[provincia]</td>
+                                        <td>$row[regione]</td>
+                                    ";
                                 }
                             }
                         }
