@@ -17,11 +17,11 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Cognome</label>
-    <input type="email" class="form-control" id="exampleInputEmail1">
+    <input type="text" class="form-control" id="exampleInputEmail1">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Nome</label>
-    <input type="number" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
   </div>
   <div class="form-group">
     <label class="active" for="dateStandard">Data di Nascita</label>
@@ -29,7 +29,27 @@
 </div>
   <div class="form-group">
     <label class="active" for="exampleInputTime">Indirizzo di residenza</label>
-    <input type="time" class="form-control" id="exampleInputTime" min="9:00" max="18:00">
+    <input type=text" class="form-control" id="exampleInputTime" min="9:00" max="18:00">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber">Città</label>
+    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber">Provincia</label>
+    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber">Regione</label>
+    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber">Password</label>
+    <input type="password" data-bs-input class="form-control" id="exampleInputNumber">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputNumber">Ripeti Password</label>
+    <input type="password" data-bs-input class="form-control" id="exampleInputNumber">
   </div>
 </div>
 </form>
