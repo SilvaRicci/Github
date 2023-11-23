@@ -111,16 +111,17 @@
     where cf=$cf
     and $pass=$password;
     RICERCA;
+    
+    $result = $db_connection->query($sql);
+    $rows = $result->num_rows;
 
-    if($risultato=$conn->query($sql))
-    {
-        echo("utente trovato");
-    } else{
-        echo("utente non trovato");
+    if($rows > 0){
+        echo "utente trovato ";
+    }else{
+        echo "utente non trovato ";
     }
 
-    echo $cf;
-    echo $pass;
+    $db_connection->close();
 
     ?>
 
