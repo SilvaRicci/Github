@@ -42,12 +42,22 @@
             border-radius: 10px;
             overflow: hidden;
         }
+
+        .text-vis {
+            font-size: 40px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-bottom: 100px;
+            text-align: center;
+        }
     </style>
 
 </head>
 
 <body class="sfondo">
     <div class="container">
+        <div class="text-vis">
+            Visualizzazione Totale
+        </div>
         <div class="">
             <table class="table table-hover table-bordered rounded mb-0">
                 <tr>
