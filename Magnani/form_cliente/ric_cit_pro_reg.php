@@ -140,21 +140,26 @@
                         $tfregione = true;
 
                         if ($regione == 0) {
-                            $isRegione = false;
+                            $tfregione = false;
                         }
                         if ($provincia == 0) {
-                            $isProvincia = false;
+                            $tfprovincia = false;
                         }
                         if ($citta == "") {
-                            $isCitta = false;
+                            $tfcitta = false;
                         }
 
-                        if($tfcitta && $tfprovincia && $tfregione){
+                        if(!$tfcitta && !$tfprovincia && !$tfregione){
                             echo "Inserire almeno un dato";
                         }
 
-                        if($tfcitta == true && $tfprovincia == true && $tfregione == true){
+                        if(!$tfcitta && !$tfprovincia && !$tfregione){
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta=='$citta' && provincia=='$provincia' && regione=='$regione')");
+                            $rows = $result->num_rows;
+                        }
+
+                        if(!$tfcitta && !$tfprovincia){
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta=='$citta' && provincia=='$provincia')");
                             $rows = $result->num_rows;
                         }
 
