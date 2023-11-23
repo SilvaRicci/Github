@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>input in php</title>
+    <title>visualizzazione totale</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -68,19 +68,29 @@
 
                 
                 if($rows > 0){
-                    //se ci sono righe row è true, altrimenti false e non fa il for
+                    //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
                     while($row = $result->fetch_assoc()){
                         echo "<tr>
                             <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
-                            <td>$row</td>
-                        
-                        "
+                            <td>$row[cognome]</td>
+                            <td>$row[nome]</td>
+
+                            <td>$row[data_nascita]</td>
+                            <td>$row[residenza]</td>
+                            <td>$row[citta]</td>
+
+                            <td>$row[provincia]</td>
+                            <td>$row[regione]</td>
+
+                            <td>$row[password]</td>
+                            <td>$row[ripeti_password]</td>
+                        ";
                     } 
                 }
                 
 
 
-                
+                /*
                     $codice_fiscale = $_POST["codice_fiscale"];
                     $cognome = $_POST["cognome"];
                     $nome = $_POST["nome"];
@@ -94,19 +104,9 @@
 
                     $password = $_POST["password"];
                     $ripeti_password = $_POST["ripeti_password"];
-
-
-
-
-                    
-
-
-
-
-
-
-
-                    $db_connection->close();
+                */
+                $result->close();
+                $db_connection->close();
                 
                 ?>
             </table>
