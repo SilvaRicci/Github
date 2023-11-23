@@ -87,8 +87,8 @@ if (isset($_POST["invia"])) {
     $codice_fiscale = $_POST["codice_fiscale"];
     $password = $_POST["password"];
 
-    echo "cf: " . $codice_fiscale;
-    echo "---------password: " . $password; 
+    //echo "cf: " . $codice_fiscale;
+    //echo "---------password: " . $password; 
 
     //creo una query che selezioni dal database la rig che ha questo cf e passwors
     $sql = <<<RICERCA

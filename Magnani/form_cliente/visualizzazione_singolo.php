@@ -56,7 +56,7 @@
 <body class="sfondo">
     <div class="container">
         <div class="text-vis">
-            Visualizzazione Totale
+            Visualizzazione Singolo
         </div>
         <div class="">
             <table class="table table-hover table-bordered rounded mb-0">
