@@ -200,7 +200,25 @@
 
 
 
-                        if(rows)
+                        if ($rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>
+                                    <td><a href='visualizzazione_singolo.php?cfval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                                    <td>$row[cognome]</td>
+                                    <td>$row[nome]</td>
+
+                                    <td>$row[data_nascita]</td>
+                                    <td>$row[residenza]</td>
+                                    <td>$row[citta]</td>
+
+                                    <td>$row[provincia]</td>
+                                    <td>$row[regione]</td>
+
+                                    <td>$row[password]</td>
+                                    <td>$row[ripeti_password]</td>
+                                ";
+                            }
+                        }
 
 
                         $result->close();

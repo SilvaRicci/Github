@@ -87,7 +87,7 @@
                     while ($row = $result->fetch_assoc()) {
                         if("$row[codice_fiscale]" == $cfval){
                            echo "<tr>
-                            <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                            <td>$row[codice_fiscale]</td>
                             <td>$row[cognome]</td>
                             <td>$row[nome]</td>
 

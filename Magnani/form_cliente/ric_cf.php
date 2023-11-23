@@ -100,17 +100,17 @@
                             
                             if ("$row[codice_fiscale]" == "$ric_cf") {
                                 echo "<tr>
-                            <td>$row[codice_fiscale]</td>
-                            <td>$row[cognome]</td>
-                            <td>$row[nome]</td>
+                                    <td><a href='visualizzazione_singolo.php?cfval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                                    <td>$row[cognome]</td>
+                                    <td>$row[nome]</td>
 
-                            <td>$row[data_nascita]</td>
-                            <td>$row[residenza]</td>
-                            <td>$row[citta]</td>
+                                    <td>$row[data_nascita]</td>
+                                    <td>$row[residenza]</td>
+                                    <td>$row[citta]</td>
 
-                            <td>$row[provincia]</td>
-                            <td>$row[regione]</td>
-                        ";
+                                    <td>$row[provincia]</td>
+                                    <td>$row[regione]</td>
+                                ";
                             }
 
                         }
