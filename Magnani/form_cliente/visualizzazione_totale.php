@@ -16,7 +16,7 @@
         }
 
         .container {
-            width: 700px;
+            min-width: 700px;
             margin-top: 100px;
             margin-bottom: 50px;
             padding: 20px;
@@ -50,19 +50,23 @@
 
             <table class="table table-hover table-bordered mb-0">
                 <tr>
-                    <th scope='row'>ID</th>
+                    <th scope='row'>CF</th>
                     <td>Cognome</td>
                     <td>Nome</td>
-                    <td>Classe</td>
-                    <td>Sezione</td>
-                    <td>Indirizzo</td>
+                    <td>Data di nascita</td>
+                    <td>Residenza</td>
+                    <td>Città</td>
+                    <td>Provincia</td>
+                    <td>Regione</td>
+                    <td>Password</td>
+                    <td>Password ripetuta</td>
                 </tr>
 
 
                 <?php
                 include "connessione.php";
 
-                $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password");
+                $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
                 $rows = $result->num_rows;
 
                 echo "ciaociaociao";
