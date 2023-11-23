@@ -136,72 +136,9 @@
                         $ric_provincia = $_POST["provincia"];
                         $ric_regione = $_POST["regione"];
 
+                        
 
-
-                        if ($rows > 0) {
-                            //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
-                            while ($row = $result->fetch_assoc()) {
-                                
-                                if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
-                                    $result1 = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione FROM Cliente WHERE (citta = '$citta')");
-                                    $rows1 = $result1->num_rows;
-
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "1";
-                                }
-
-                                if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "2";
-                                }
-
-                                if ("$row[citta]" == "$ric_citta" && "$row[regione]" == "$ric_regione") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "3";
-                                }
-
-                                if ("$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "4";
-                                }
-
-                                if ("$row[citta]" == "$ric_citta") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "5";
-                                }
-
-                                if ("$row[provincia]" == "$ric_provincia") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "6";
-                                }
-
-                                if ("$row[regione]" == "$ric_regione") {
-                                    echo "<tr>
-                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
-                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
-                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
-                                    echo "7";
-                                }
-                            }
-                        }
+                        
                         $result->close();
                         $db_connection->close();
                     }
