@@ -143,6 +143,8 @@
                         $tfprovincia = true;
                         $tfregione = true;
 
+                        $temp = false;
+
                         if ($regione == 0) {
                             $tfregione = false;
                         }
@@ -161,49 +163,56 @@
 
 
                         // tutte inserite
-                        if ($tfcitta && $tfprovincia && $tfregione) {
+                        if ($tfcitta && $tfprovincia && $tfregione && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND provincia='$provincia' AND regione='$regione')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
 
                         // solo 2 inserite
-                        if ($tfcitta && $tfprovincia) {
+                        if ($tfcitta && $tfprovincia && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND provincia='$provincia')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
-                        if ($tfcitta && $tfregione) {
+                        if ($tfcitta && $tfregione && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND regione='$regione')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
-                        if ($tfregione && $tfprovincia) {
+                        if ($tfregione && $tfprovincia && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (regione='$regione' AND provincia='$provincia')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
 
                         // solo 1 inserita
-                        if ($tfcitta) {
+                        if ($tfcitta && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
-                        if ($tfprovincia) {
+                        if ($tfprovincia && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (provincia='$provincia')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
-                        if ($tfregione) {
+                        if ($tfregione && !$temp) {
                             $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (regione='$regione')");
                             $rows = $result->num_rows;
+                            $temp = true;
                         }
 
 
 
 
-                        echo $rows;
+                        //echo $rows;
                         if ($rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>

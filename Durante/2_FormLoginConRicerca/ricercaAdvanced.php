@@ -68,6 +68,8 @@
             $isProvincia=true;
             $isCitta=true;
 
+            $ricercaDaEffettuare = true;
+
             if($regione==0){
               $isRegione=false;
             }
@@ -82,37 +84,39 @@
               echo "ao, inserisci qualcosa";
             }else{
 
-              if($isRegione AND $isProvincia AND $isCitta){
+              if($isRegione AND $isProvincia AND $isCitta AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
                 $rows = $result->num_rows;   
+                $ricercaDaEffettuare = false;
               }
 
-              if($isRegione AND $isProvincia){
+              if($isRegione AND $isProvincia AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia')");                      
-                $rows = $result->num_rows;   
+                $rows = $result->num_rows; 
+                $ricercaDaEffettuare = false;  
               }
 
-              if($isProvincia AND $isCitta){
+              if($isProvincia AND $isCitta AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia' AND citta = '$citta')");                      
                 $rows = $result->num_rows;   
               }
 
-              if($isRegione AND $isCitta){
+              if($isRegione AND $isCitta AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND citta = '$citta')");                      
                 $rows = $result->num_rows;   
               }
               
-              if($isRegione){
+              if($isRegione AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione')");                      
                 $rows = $result->num_rows;   
               }
 
-              if($isProvincia){
+              if($isProvincia AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia')");                      
                 $rows = $result->num_rows;   
               }
 
-              if($isCitta){
+              if($isCitta AND $ricercaDaEffettuare){
                 $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (citta = '$citta')");                      
                 $rows = $result->num_rows;   
               }
