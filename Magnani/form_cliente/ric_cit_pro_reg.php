@@ -146,6 +146,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "1";
                                 }
 
                                 else if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia") {
@@ -153,6 +154,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "2";
                                 }
 
                                 else if ("$row[citta]" == "$ric_citta" && "$row[regione]" == "$ric_regione") {
@@ -160,6 +162,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "3";
                                 }
 
                                 else if ("$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
@@ -167,6 +170,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "4";
                                 }
 
                                 else if ("$row[citta]" == "$ric_citta") {
@@ -174,6 +178,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "5";
                                 }
 
                                 else if ("$row[provincia]" == "$ric_provincia") {
@@ -181,6 +186,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "6";
                                 }
 
                                 else if ("$row[regione]" == "$ric_regione") {
@@ -188,6 +194,7 @@
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                        echo "7";
                                 }
                             }
                         }
