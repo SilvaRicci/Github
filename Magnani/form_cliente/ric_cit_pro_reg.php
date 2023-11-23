@@ -162,7 +162,7 @@
 
                         // tutte inserite
                         if ($tfcitta && $tfprovincia && $tfregione) {
-                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' && provincia='$provincia' && regione='$regione')");
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta=='$citta' && provincia='$provincia' && regione='$regione')");
                             $rows = $result->num_rows;
                         }
 
