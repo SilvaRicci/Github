@@ -70,7 +70,7 @@
                         <option value="" selected disabled>Seleziona provincia</option>
                         <?php
                         include "connessione.php";
-                        $pro = $db_connection->query("SELECT provincia FROM clienti_20_11_2023");
+                        $pro = $db_connection->query("SELECT DISTINCT provincia FROM clienti_20_11_2023");
                         $rows_pro = $pro->num_rows;
 
                         if ($rows_pro > 0) {
@@ -89,7 +89,7 @@
                         <option value="" selected disabled>Seleziona regione</option>
                         <?php
                         include "connessione.php";
-                        $reg = $db_connection->query("SELECT regione FROM clienti_20_11_2023");
+                        $reg = $db_connection->query("SELECT DISTINCT regione FROM clienti_20_11_2023");
                         $rows_reg = $reg->num_rows;
 
                         if ($rows_reg > 0) {
@@ -147,49 +147,37 @@
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "1";
-                                }
-
-                                else if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia") {
+                                }else if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "2";
-                                }
-
-                                else if ("$row[citta]" == "$ric_citta" && "$row[regione]" == "$ric_regione") {
+                                }else if ("$row[citta]" == "$ric_citta" && "$row[regione]" == "$ric_regione") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "3";
-                                }
-
-                                else if ("$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
+                                }else if ("$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "4";
-                                }
-
-                                else if ("$row[citta]" == "$ric_citta") {
+                                }else if ("$row[citta]" == "$ric_citta") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "5";
-                                }
-
-                                else if ("$row[provincia]" == "$ric_provincia") {
+                                }else if ("$row[provincia]" == "$ric_provincia") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
                                         <td>$row[provincia]</td><td>$row[regione]</td></tr>";
                                         echo "6";
-                                }
-
-                                else if ("$row[regione]" == "$ric_regione") {
+                                }else if("$row[regione]" == "$ric_regione") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
