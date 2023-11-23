@@ -54,77 +54,79 @@
 </head>
 
 <body class="sfondo">
-<form action="#" method="POST">    
-    <div class="container">
-        <div class="text-vis">
-            Ricerca per Città, Provincia, Regione
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
+    <form action="#" method="POST">
+        <div class="container">
+            <div class="text-vis">
+                Ricerca per Città, Provincia, Regione
             </div>
-            <!--Provincia-->
-            <div class="col">
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" id="citta" name="citta" placeholder="Città">
+                </div>
+                <!--Provincia-->
+                <div class="col">
                     <select class="form-select" aria-label="Default select example" name="provincia">
-                        <option value="0" selected>Seleziona provincia</option>
+                        <option value="" selected disabled>Seleziona provincia</option>
                         <?php
-                        
+                        include conn
+                        $pro = $db_connection->query("SELECT provincia FROM clienti_20_11_2023");
+                        $rows_pro = $pro->num_rows;
 
                         if ($rows_pro > 0) {
                             while ($row_pro = $pro->fetch_assoc()) {
-                                $ind++;
-                                echo "<option value='$ind'>$row_pro[provincia]</option>";
+                                echo "<option value='$row_pro[provincia]'>$row_pro[provincia]</option>";
                             }
                         }
                         $pro->close();
                         ?>
                     </select>
+
+                </div>
+                <!--Regione-->
+
             </div>
-            <!--Regione-->
-            
-        </div>
-        
-
-        <div class="mb-5">
-            <center>
-                <button id="invia" name="invia" type="submit">Invia</button> 
-            </center>
-        </div>
-
-        <div class="">
-            <table class="table table-hover table-bordered rounded mb-0">
-                <tr>
-                    <th scope='row'>CF</th>
-                    <td>Cognome</td>
-                    <td>Nome</td>
-                    <td>Data di nascita</td>
-                    <td>Residenza</td>
-                    <td>Città</td>
-                    <td>Provincia</td>
-                    <td>Regione</td>
-                </tr>
 
 
-                <?php
-                include "connessione.php";
+            <div class="mb-5">
+                <center>
+                    <button id="invia" name="invia" type="submit">Invia</button>
+                </center>
+            </div>
 
-                if (isset($_POST["invia"])){
-                    $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
-                    $rows = $result->num_rows;
+            <div class="">
+                <table class="table table-hover table-bordered rounded mb-0">
+                    <tr>
+                        <th scope='row'>CF</th>
+                        <td>Cognome</td>
+                        <td>Nome</td>
+                        <td>Data di nascita</td>
+                        <td>Residenza</td>
+                        <td>Città</td>
+                        <td>Provincia</td>
+                        <td>Regione</td>
+                    </tr>
 
-                    $ric_citta = $_POST["citta"];
-                    $ric_provincia = $_POST["provincia"];
-                    $ric_regione = $_POST["regione"];
 
-                    
+                    <?php
+                    include "connessione.php";
 
-                    if ($rows > 0) {
-                        //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
-                        while ($row = $result->fetch_assoc()) {
-                            
-                            if ("$row[codice_fiscale]" == "$ric_cf") {
-                                echo "<tr>
+                    if (isset($_POST["invia"])) {
+                        $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
+                        $rows = $result->num_rows;
+
+                        $ric_citta = $_POST["citta"];
+                        $ric_provincia = $_POST["provincia"];
+                        $ric_regione = $_POST["regione"];
+
+
+
+                        if ($rows > 0) {
+                            //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
+                            while ($row = $result->fetch_assoc()) {
+
+                                if ("$row[codice_fiscale]" == "$ric_cf") {
+                                    echo "<tr>
                             <td>$row[codice_fiscale]</td>
                             <td>$row[cognome]</td>
                             <td>$row[nome]</td>
@@ -136,21 +138,21 @@
                             <td>$row[provincia]</td>
                             <td>$row[regione]</td>
                         ";
+                                }
+
                             }
-
                         }
+                        $result->close();
+                        $db_connection->close();
                     }
-                    $result->close();
-                    $db_connection->close();
-                }
 
 
 
-                ?>
-            </table>
+                    ?>
+                </table>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
 
 </html>
