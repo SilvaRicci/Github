@@ -61,7 +61,7 @@
         </div>
 
 
-        <div class="mb-2 w-25">
+        <div class=" w-25">
             <input type="text" class="form-control" id="ric_cf" name="ric_cf" placeholder="Codice fiscale da cercare">
         </div>
 
@@ -92,14 +92,15 @@
 
                     $ric_cf = $_POST["ric_cf"];
 
-                    echo "ciao: " . $ric_cf;
+                    echo "cf: " . $ric_cf;
 
                     if ($rows > 0) {
                         //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
                         while ($row = $result->fetch_assoc()) {
-                            if ("$row[codice_fiscale]" == $ric_cf) {
+                            
+                            if ("$row[codice_fiscale]" == "$ric_cf") {
                                 echo "<tr>
-                            <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
+                            <td>$row[codice_fiscale]</td>
                             <td>$row[cognome]</td>
                             <td>$row[nome]</td>
 
@@ -117,7 +118,7 @@
                     $result->close();
                     $db_connection->close();
                 }
-                
+
 
 
                 ?>
