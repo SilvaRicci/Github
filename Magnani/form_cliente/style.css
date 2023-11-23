@@ -1,0 +1,41 @@
+.sfondo {
+    background-color: #AFCBFF;
+}
+
+.container {
+    width: 700px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #0E1C36;
+    border-radius: 10px;
+    color: white;
+}
+
+.visualizzazione {
+    min-width: 700px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+    background-color: #0E1C36;
+    border-radius: 10px;
+    color: white;
+}
+
+.container button {
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    background-color: white;
+    padding: 6px;
+    width: 60px;
+}
+
+.container button:hover {
+    background-color: #AFCBFF;
+}
+
+.div-tabella {
+    border-radius: 10px;
+    overflow: hidden;
+}

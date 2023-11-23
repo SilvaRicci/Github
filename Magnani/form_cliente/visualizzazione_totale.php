@@ -10,45 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <style>
-        .sfondo {
-            background-color: #AFCBFF;
-        }
-
-        .container {
-            min-width: 700px;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            padding: 20px;
-            background-color: #0E1C36;
-            border-radius: 10px;
-            color: white;
-        }
-
-        .container button {
-            border: none;
-            border-radius: 5px;
-            margin-top: 30px;
-            background-color: white;
-            padding: 6px;
-            width: 60px;
-        }
-
-        .container button:hover {
-            background-color: #AFCBFF;
-        }
-
-        .div-tabella {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body class="sfondo">
-        <div class="container">
-
-            <table class="table table-hover table-bordered mb-0">
+        <div class="visualizzazione">
+            <div class="">
+            <table class="table table-hover table-bordered rounded mb-0">
                 <tr>
                     <th scope='row'>CF</th>
                     <td>Cognome</td>
@@ -69,7 +38,7 @@
                 $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
                 $rows = $result->num_rows;
 
-                echo "ciaociaociao";
+                
                 
                 if($rows > 0){
                     //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
@@ -91,29 +60,11 @@
                         ";
                     } 
                 }
-                
-
-
-                /*
-                    $codice_fiscale = $_POST["codice_fiscale"];
-                    $cognome = $_POST["cognome"];
-                    $nome = $_POST["nome"];
-
-                    $data_nascita = $_POST["data_nascita"];
-                    $residenza = $_POST["residenza"];
-                    $citta = $_POST["citta"];
-
-                    $provincia = $_POST["provincia"];
-                    $regione = $_POST["regione"];
-
-                    $password = $_POST["password"];
-                    $ripeti_password = $_POST["ripeti_password"];
-                */
                 $result->close();
                 $db_connection->close();
-                
                 ?>
             </table>
+            </div>
         </div>
 </body>
 </html>

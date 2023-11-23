@@ -10,39 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <style>
-        .sfondo {
-            background-color: #AFCBFF;
-        }
-
-        .container {
-            width: 700px;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            padding: 20px;
-            background-color: #0E1C36;
-            border-radius: 10px;
-            color: white;
-        }
-
-        .container button {
-            border: none;
-            border-radius: 5px;
-            margin-top: 30px;
-            background-color: white;
-            padding: 6px;
-            width: 60px;
-        }
-
-        .container button:hover {
-            background-color: #AFCBFF;
-        }
-
-        .div-tabella {
-            border-radius: 10px;
-            overflow: hidden;
-        }
-    </style>
+        <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="sfondo">
