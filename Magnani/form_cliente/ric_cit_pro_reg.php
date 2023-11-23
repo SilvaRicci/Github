@@ -135,6 +135,8 @@
                         $provincia = $_POST["provincia"];
                         $regione = $_POST["regione"];
 
+                        echo "Città: " . $citta;
+
                         $tfcitta = true;
                         $tfprovincia = true;
                         $tfregione = true;
