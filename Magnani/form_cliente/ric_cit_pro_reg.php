@@ -162,24 +162,24 @@
 
                         // tutte inserite
                         if ($tfcitta && $tfprovincia && $tfregione) {
-                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta=='$citta' && provincia='$provincia' && regione='$regione')");
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND provincia='$provincia' AND regione='$regione')");
                             $rows = $result->num_rows;
                         }
 
 
                         // solo 2 inserite
                         if ($tfcitta && $tfprovincia) {
-                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' && provincia='$provincia')");
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND provincia='$provincia')");
                             $rows = $result->num_rows;
                         }
 
                         if ($tfcitta && $tfregione) {
-                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' && regione='$regione')");
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta='$citta' AND regione='$regione')");
                             $rows = $result->num_rows;
                         }
 
                         if ($tfregione && $tfprovincia) {
-                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (regione='$regione' && provincia='$provincia')");
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (regione='$regione' AND provincia='$provincia')");
                             $rows = $result->num_rows;
                         }
 
@@ -203,7 +203,7 @@
 
 
 
-
+                        echo $rows;
                         if ($rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>
