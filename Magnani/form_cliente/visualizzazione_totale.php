@@ -48,49 +48,60 @@
 <body class="sfondo">
     <form action="#" method="POST">
         <div class="container">
-            
+
+            <table class="table table-hover table-bordered mb-0">
+                <tr>
+                    <th scope='row'>ID</th>
+                    <td>Cognome</td>
+                    <td>Nome</td>
+                    <td>Classe</td>
+                    <td>Sezione</td>
+                    <td>Indirizzo</td>
+                </tr>
 
 
-            <?php
-            include "connessione.php";
+                <?php
+                include "connessione.php";
 
+                $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password");
+                $rows = $result->num_rows;
 
+                if($row = $result->fetch_assoc()) //valore true
 
-            if (isset($_POST["invia"])) {
-                $codice_fiscale = $_POST["codice_fiscale"];
-                $cognome = $_POST["cognome"];
-                $nome = $_POST["nome"];
-                
-                $data_nascita = $_POST["data_nascita"];
-                $residenza = $_POST["residenza"];
-                $citta = $_POST["citta"];
-
-                $provincia = $_POST["provincia"];
-                $regione = $_POST["regione"];
-
-                $password = $_POST["password"];
-                $ripeti_password = $_POST["ripeti_password"];
 
                 
+                    $codice_fiscale = $_POST["codice_fiscale"];
+                    $cognome = $_POST["cognome"];
+                    $nome = $_POST["nome"];
 
-                if($password == $ripeti_password){
-                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password) 
-                    VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
+                    $data_nascita = $_POST["data_nascita"];
+                    $residenza = $_POST["residenza"];
+                    $citta = $_POST["citta"];
+
+                    $provincia = $_POST["provincia"];
+                    $regione = $_POST["regione"];
+
+                    $password = $_POST["password"];
+                    $ripeti_password = $_POST["ripeti_password"];
+
+
+
+
                     
-                    echo "Dati inseriti correttamente!";
-                    $db_connection->query($sql);
-                }else{
-                    echo "Le due password non corrispondono";
-                }
-                
-                    
-                
-                
 
 
-                $db_connection->close();
-            }
-            ?>
+
+
+
+
+
+                    $db_connection->close();
+                
+                ?>
+            </table>
+
+
+
         </div>
     </form>
 
