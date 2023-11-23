@@ -58,14 +58,14 @@
         <div class="text-vis">
             Ricerca per CF
         </div>
-        
-        <div>
-            <button id="invia" name="invia" type="submit">Invia</button>
+
+
+        <div class="mb-2 w-25">
+            <input type="text" class="form-control" id="ric_cf" name="ric_cf" placeholder="Codice fiscale da cercare">
         </div>
 
-
-        <div class="col mb-5 w-25 center">
-            <input type="text" class="form-control" id="ric_cf" name="ric_cf" placeholder="Codice fiscale da cercare">
+        <div class="mb-5">
+            <button id="invia" name="invia" type="submit">Invia</button>
         </div>
 
         <div class="">
@@ -85,11 +85,13 @@
                 <?php
                 include "connessione.php";
 
-                if (isset($_POST["invia"])) {
+                
                     $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
                     $rows = $result->num_rows;
 
                     $ric_cf = $_POST["ric_cf"];
+
+                    echo "ciao: " . $ric_cf;
 
                     if ($rows > 0) {
                         //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
@@ -113,7 +115,7 @@
                     }
                     $result->close();
                     $db_connection->close();
-                }
+                
 
 
                 ?>

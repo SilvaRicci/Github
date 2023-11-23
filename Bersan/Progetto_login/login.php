@@ -107,7 +107,7 @@
     $pass=$_POST["password"];
 
     $sql=<<<RICERCA
-    SELECT = frome Clienti 
+    SELECT = from Clienti 
     where cf=$cf
     and $pass=$password;
     RICERCA;

@@ -96,12 +96,6 @@
                 }else{
                     echo "Le due password non corrispondono";
                 }
-                
-                    
-                
-                
-
-
                 $db_connection->close();
             }
             ?>
