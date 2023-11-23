@@ -141,7 +141,28 @@
                         if ($rows > 0) {
                             //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
                             while ($row = $result->fetch_assoc()) {
-                                if ("$row[citta]" == "$ric_citta" && "$row[citta]" == "$ric_citta" ) {
+                                if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
+                                    echo "<tr>
+                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
+                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
+                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                }
+
+                                if ("$row[citta]" == "$ric_citta" && "$row[provincia]" == "$ric_provincia") {
+                                    echo "<tr>
+                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
+                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
+                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                }
+
+                                if ("$row[citta]" == "$ric_citta" && "$row[regione]" == "$ric_regione") {
+                                    echo "<tr>
+                                        <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
+                                        <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>
+                                        <td>$row[provincia]</td><td>$row[regione]</td></tr>";
+                                }
+
+                                if ("$row[provincia]" == "$ric_provincia" && "$row[regione]" == "$ric_regione") {
                                     echo "<tr>
                                         <td>$row[codice_fiscale]</td><td>$row[cognome]</td><td>$row[nome]</td>
                                         <td>$row[data_nascita]</td><td>$row[residenza]</td><td>$row[citta]</td>

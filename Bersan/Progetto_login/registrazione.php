@@ -9,7 +9,7 @@
   <body>
     
 
-  <form class="needs-validation" id="justValidateForm">
+  <form action="" >
   <div>
   <div class="form-group">
     <label for="exampleInputText">Codice Fiscale</label>
@@ -29,7 +29,7 @@
 </div>
   <div class="form-group">
     <label class="active" for="exampleInputTime">Indirizzo di residenza</label>
-    <input type=text" class="form-control" id="exampleInputTime" min="9:00" max="18:00">
+    <input type=text" class="form-control" id="exampleInputTime">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Città</label>
@@ -52,7 +52,46 @@
     <input type="password" data-bs-input class="form-control" id="exampleInputNumber">
   </div>
 </div>
+<div>
+   <center>
+    <button id="invia" name="invia" type="submit">Invia</button>
+     </center>
+    </div>
+
+    <?php
+            include "connessione.php";
+
+
+
+            if (isset($_POST["invia"])) {
+                $codice_fiscale = $_POST["codice_fiscale"];
+                $cognome = $_POST["cognome"];
+                $nome = $_POST["nome"];
+                
+                $data_nascita = $_POST["data_nascita"];
+                $residenza = $_POST["residenza"];
+                $citta = $_POST["citta"];
+
+                $provincia = $_POST["provincia"];
+                $regione = $_POST["regione"];
+
+                $password = $_POST["password"];
+                $ripeti_password = $_POST["ripeti_password"];
+
+                if($password == $ripeti_password){
+                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password) 
+                    VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
+                    
+                    echo "Dati inseriti correttamente!";
+                    $db_connection->query($sql);
+                }else{
+                    echo "Le due password non corrispondono";
+                }
+                $db_connection->close();
+            }
+            ?>
 </form>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
