@@ -58,6 +58,11 @@
         <div class="text-vis">
             Ricerca per CF
         </div>
+        
+        <div>
+            <button id="invia" name="invia" type="submit">Invia</button>
+        </div>
+
 
         <div class="col mb-5 w-25 center">
             <input type="text" class="form-control" id="ric_cf" name="ric_cf" placeholder="Codice fiscale da cercare">
@@ -80,16 +85,17 @@
                 <?php
                 include "connessione.php";
 
-                $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
-                $rows = $result->num_rows;
+                if (isset($_POST["invia"])) {
+                    $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
+                    $rows = $result->num_rows;
 
-                $ric_cf = $_POST["ric_cf"];
+                    $ric_cf = $_POST["ric_cf"];
 
-                if ($rows > 0) {
-                    //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
-                    while ($row = $result->fetch_assoc()) {
-                        if("$row[codice_fiscale]" == $ric_cf){
-                           echo "<tr>
+                    if ($rows > 0) {
+                        //se ci sono righe $result $row è true e i valori della riga vanno dentro $row, altrimenti false e non fa il while
+                        while ($row = $result->fetch_assoc()) {
+                            if ("$row[codice_fiscale]" == $ric_cf) {
+                                echo "<tr>
                             <td><a href='visualizzazione_singolo.php?idval=$row[codice_fiscale]' target='blank'>$row[codice_fiscale]</a></td>
                             <td>$row[cognome]</td>
                             <td>$row[nome]</td>
@@ -100,13 +106,16 @@
 
                             <td>$row[provincia]</td>
                             <td>$row[regione]</td>
-                        "; 
+                        ";
+                            }
+
                         }
-                        
                     }
+                    $result->close();
+                    $db_connection->close();
                 }
-                $result->close();
-                $db_connection->close();
+
+
                 ?>
             </table>
         </div>
