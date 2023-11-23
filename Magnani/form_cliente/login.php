@@ -67,17 +67,6 @@
             </div>
 
 
-
-        </div>
-    </form>
-
-
-</body>
-
-</html>
-
-
-
 <?php
 include "connessione.php";
 
@@ -109,3 +98,13 @@ if (isset($_POST["invia"])) {
     $db_connection->close();
 }
 ?>
+        </div>
+    </form>
+
+
+</body>
+
+</html>
+
+
+
