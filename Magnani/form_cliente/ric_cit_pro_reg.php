@@ -129,8 +129,7 @@
                     include "connessione.php";
 
                     if (isset($_POST["invia"])) {
-                        $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023");
-                        $rows = $result->num_rows;
+                        
 
                         $ric_citta = $_POST["citta"];
                         $ric_provincia = $_POST["provincia"];
@@ -150,7 +149,14 @@
                             $isCitta = false;
                         }
 
-                        if()
+                        if($tfcitta && $tfprovincia && $tfregione){
+                            echo "Inserire almeno un dato";
+                        }
+
+                        if($tfcitta == true && $tfprovincia == true && $tfregione == true){
+                            $result = $db_connection->query("SELECT codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password FROM clienti_20_11_2023 WHERE (citta=='$citta' && provincia=='$provincia' && regione=='$regione')");
+                            $rows = $result->num_rows;
+                        }
 
 
                         $result->close();
