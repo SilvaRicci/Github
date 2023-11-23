@@ -9,47 +9,47 @@
   <body>
     
 
-  <form action="" >
+  <form class="needs-validation" id="justValidateForm" action="#" method="POST">
   <div>
   <div class="form-group">
     <label for="exampleInputText">Codice Fiscale</label>
-    <input type="text" class="form-control" id="exampleInputText">
+    <input type="text" class="form-control" id="codice_fiscale">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Cognome</label>
-    <input type="text" class="form-control" id="exampleInputEmail1">
+    <input type="text" class="form-control" id="cognome">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Nome</label>
-    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="text" class="form-control" id="nome">
   </div>
   <div class="form-group">
     <label class="active" for="dateStandard">Data di Nascita</label>
-    <input type="date" id="dateStandard" name="dateStandard">
+    <input type="date" id="dateStandard" name="data_nascita">
 </div>
   <div class="form-group">
     <label class="active" for="exampleInputTime">Indirizzo di residenza</label>
-    <input type=text" class="form-control" id="exampleInputTime">
+    <input type=text" class="form-control" id="residenza">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Città</label>
-    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="text" data-bs-input class="form-control" id="citta">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Provincia</label>
-    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="text" data-bs-input class="form-control" id="provincia">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Regione</label>
-    <input type="text" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="text" data-bs-input class="form-control" id="regione">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Password</label>
-    <input type="password" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="password" data-bs-input class="form-control" id="password">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Ripeti Password</label>
-    <input type="password" data-bs-input class="form-control" id="exampleInputNumber">
+    <input type="password" data-bs-input class="form-control" id="ripeti_password">
   </div>
 </div>
 <div>
@@ -79,7 +79,7 @@
                 $ripeti_password = $_POST["ripeti_password"];
 
                 if($password == $ripeti_password){
-                    $sql = "INSERT INTO clienti_20_11_2023 (codice_fiscale, cognome, nome, data_nascita, residenza, citta, provincia, regione, password, ripeti_password) 
+                    $sql = "INSERT INTO Clienti (CodiceFiscale Cognome, Nome, DataNascita, Indirizzo, Citta, Provincia, Regione, Password, RipetiPassword) 
                     VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
                     
                     echo "Dati inseriti correttamente!";
