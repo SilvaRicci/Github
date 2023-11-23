@@ -67,7 +67,7 @@
                 <!--Provincia-->
                 <div class="col">
                     <select class="form-select" aria-label="Default select example" name="provincia">
-                        <option value="" selected disabled>Seleziona provincia</option>
+                        <option value="0" selected disabled>Seleziona provincia</option>
                         <?php
                         include "connessione.php";
                         $pro = $db_connection->query("SELECT DISTINCT provincia FROM clienti_20_11_2023");
@@ -86,7 +86,7 @@
                 <!--Regione-->
                 <div class="col">
                     <select class="form-select" aria-label="Default select example" name="regione">
-                        <option value="" selected disabled>Seleziona regione</option>
+                        <option value="0" selected disabled>Seleziona regione</option>
                         <?php
                         include "connessione.php";
                         $reg = $db_connection->query("SELECT DISTINCT regione FROM clienti_20_11_2023");
@@ -136,9 +136,23 @@
                         $ric_provincia = $_POST["provincia"];
                         $ric_regione = $_POST["regione"];
 
-                        
+                        $tfcitta = true;
+                        $tfprovincia = true;
+                        $tfregione = true;
 
-                        
+                        if ($regione == 0) {
+                            $isRegione = false;
+                        }
+                        if ($provincia == 0) {
+                            $isProvincia = false;
+                        }
+                        if ($citta == "") {
+                            $isCitta = false;
+                        }
+
+                        if()
+
+
                         $result->close();
                         $db_connection->close();
                     }
