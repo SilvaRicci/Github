@@ -13,14 +13,14 @@
 <div class="container">
 <form action="#" method="POST">
   <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6"><br>
       <label for="codiceFiscale">Codice fiscale</label>
       <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
     </div>
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-6"><br>
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-    </div>
+    </div><br><br>
 
   <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Login</button>
 </form>
