@@ -19,8 +19,8 @@ if($db_connection->connect_error){
     ✅ registrazione
     ✅visualizzazione tutti i dati 
     ✅visualizzazione singolo utente 
-    ❌ricerca per codice fiscale 
-    ❌ricerca per città, provincia, regione (leggi consegna) 
+    ✅ricerca per codice fiscale 
+    ✅ricerca per città, provincia, regione (leggi consegna) 
 */
 
 
