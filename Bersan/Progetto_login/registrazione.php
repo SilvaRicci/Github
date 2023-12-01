@@ -77,6 +77,7 @@
 
                 $password = $_POST["password"];
                 $ripeti_password = $_POST["ripeti_password"];
+                
 
                 if($password == $ripeti_password){
                     $sql = "INSERT INTO Clienti (CodiceFiscale Cognome, Nome, DataNascita, Indirizzo, Citta, Provincia, Regione, Password, RipetiPassword) 
