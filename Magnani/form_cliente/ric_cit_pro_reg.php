@@ -233,6 +233,7 @@
                         }
 
 
+                        
                         $result->close();
                         $db_connection->close();
                     }
