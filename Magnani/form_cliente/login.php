@@ -79,7 +79,7 @@ if (isset($_POST["invia"])) {
     //echo "cf: " . $codice_fiscale;
     //echo "---------password: " . $password; 
 
-    //creo una query che selezioni dal database la rig che ha questo cf e passwors
+    //creo una query che selezioni dal database la rig che ha questo cf e password
     $sql = <<<RICERCA
     SELECT * from clienti_20_11_2023
     where codice_fiscale = '$codice_fiscale'
