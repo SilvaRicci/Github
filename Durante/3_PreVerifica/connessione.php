@@ -1,6 +1,6 @@
 <?php
 
-$db = "Durante";                                                                                               //nome tabella database
+$db = "piattaforma";                                                                                               //nome tabella database
 $db_host = "localhost";                                                                                     //server host + porta su cui mi collego (127.0.0.1:8080)
 $db_user = "root";                                                                                          //utente root del database
 $db_password = "";                                                                               //psw di root
