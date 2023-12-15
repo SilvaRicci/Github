@@ -34,6 +34,9 @@
       echo '</select> </div>';
       ?>
 
+<button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Ricerca</button>
+    </form>
+
   <?php                                                                 
         
         if (isset($_POST["submit_btn"])) {
@@ -41,31 +44,27 @@
             $codiceFiscale = $_POST["codiceFiscale"];
 
             $result = $db_connection->query("SELECT CodContenuto,Data,Valutazione FROM valutazione WHERE CodFisc = '$codiceFiscale'");                      
-            $rows = $result->num_rows;                                                                                                                         
+            $rows = $result->num_rows;             
+            $result = $db_connection->query("SELECT Genere FROM contenuto_multimediale WHERE CodContenuto = ''");                                                                       
 
             if($rows > 0){  
                     echo ' <div class="container ml-5">
                     <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col"Codice contenuto</th>
+                    <th scope="col">Codice contenuto</th>
                     <th scope="col">Data</th>
                     <th scope="col">Valutazione</th>
                     </tr>
                 </thead>
                 <tbody>';
-                    while($row = $result->fetch_assoc()){                                                    
-                        echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
-                        echo "<th scope=."."row".">". "$row[cognome] </th>";
-                        echo "<th scope=."."row".">". "$row[nome] </th>";
-                        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-                        echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                        echo "<th scope=."."row".">". "$row[citta] </th>";
-                        echo "<th scope=."."row".">". "$row[provincia] </th>";
-                        echo "<th scope=."."row".">". "$row[regione] </th>";    
-                        
+                    while($row1 = $result->fetch_assoc()){                                                    
+                        echo "<tr> <th scope=."."row"."class="."secondary".">>". "$row1[CodContenuto] </a> </th>";
+                        echo "<th scope=."."row".">". "$row1[Data] </th>";
+                        echo "<th scope=."."row".">". "$row1[Valutazione] </th>";
+                        echo "</tr>";
                     }
-            }else{echo "Utente non trovato";}
+            }else{echo "Nessuna valutazione trovata";}
         }
         
         $result->close();                                                                               
