@@ -57,115 +57,27 @@
         
         if (isset($_POST["submit_btn"])) {
             
-            $regione = $_POST["regione"];
-            $provincia = $_POST["provincia"];
-            $citta = $_POST["citta"];
-            $isRegione=true;
-            $isProvincia=true;
-            $isCitta=true;
+            $codiceFiscale = $_POST["codiceFiscale"];
+            $codiceContenuto = $_POST["codiceContenuto"];
+            $isFiscale=true;
+            $isContenuto=true;
 
-            $ricercaDaEffettuare = true;
-
-            if($regione==0){
-              $isRegione=false;
+            if($codiceFiscale==0){
+              $isFiscale=false;
             }
-            if($provincia==0){
-              $isProvincia=false;
-            }
-            if($citta==""){
-              $isCitta=false;
+            if($codiceContenuto==0){
+              $isContenuto=false;
             }
 
-            if(!$isRegione AND !$isProvincia AND !$isCitta){
+            if(!$isFiscale AND !$isContenuto){
               echo "ao, inserisci qualcosa";
             }else{
-
-              if($isRegione AND $isProvincia AND $isCitta AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia' AND citta = '$citta')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
+                $result = $db_connection->query("DELETE * FROM valutazione WHERE (CodFisc = '$codiceFiscale' AND CodContenuto = '$isContenuto')");                      
+                echo("Operazione eseguita con successo!");
               }
-
-              if($isRegione AND $isProvincia AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND provincia = '$provincia')");                      
-                $rows = $result->num_rows; 
-                $ricercaDaEffettuare = false;  
-              }
-
-              if($isProvincia AND $isCitta AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia' AND citta = '$citta')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
-              }
-
-              if($isRegione AND $isCitta AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione' AND citta = '$citta')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
-              }
-              
-              if($isRegione AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (regione = '$regione')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
-              }
-
-              if($isProvincia AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (provincia = '$provincia')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
-              }
-
-              if($isCitta AND $ricercaDaEffettuare){
-                $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE (citta = '$citta')");                      
-                $rows = $result->num_rows;   
-                $ricercaDaEffettuare = false;
-              }
-
-              if($rows > 0){  
-                echo ' <div class="container ml-5">
-                <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">Codice fiscale</th>
-                <th scope="col">Cognome</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Data di nascita</th>
-                <th scope="col">Indirizzo di residenza</th>
-                <th scope="col">Città</th>
-                <th scope="col">Provincia</th>
-                <th scope="col">Regione</th>
-                </tr>
-            </thead>
-            <tbody>';
-                while($row = $result->fetch_assoc()){                                                    
-                    echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
-                    echo "<th scope=."."row".">". "$row[cognome] </th>";
-                    echo "<th scope=."."row".">". "$row[nome] </th>";
-                    echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-                    echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                    echo "<th scope=."."row".">". "$row[citta] </th>";
-                    echo "<th scope=."."row".">". "$row[provincia] </th>";
-                    echo "<th scope=."."row".">". "$row[regione] </th>";    
-                    
-                }
-            
-            }else{
-              echo "Nessun cliente trovato.";
-            }
-        }
       }
         $result->close();                                                                               
         $db_connection->close();                                                                                 
-        /*Pagina di ricerca avanzata
-La ricerca deve avvenire per:
-regione
-provincia
-città
-Non necessariamente devono essere scelti tutti e tre i campi, ma bisogna sceglierne obbligatoriamente uno.
-Regione e provincia devono essere due menu a tendina popolati con i valori presi dai rispettivi campi della tabella clienti (senza ripetizioni), città è un capo di testo.
-Se presente risultati visualizza tutte le  informazioni degli utenti(tranne la password), se non presente alcun risultato, visualizza a video un messaggio appropriato. */
-
 
 
     ?>
