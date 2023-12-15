@@ -44,8 +44,7 @@
             $codiceFiscale = $_POST["codiceFiscale"];
 
             $result = $db_connection->query("SELECT CodContenuto,Data,Valutazione FROM valutazione WHERE CodFisc = '$codiceFiscale'");                      
-            $rows = $result->num_rows;             
-            $result = $db_connection->query("SELECT Genere FROM contenuto_multimediale WHERE CodContenuto = ''");                                                                       
+            $rows = $result->num_rows;                                                                              
 
             if($rows > 0){  
                     echo ' <div class="container ml-5">
@@ -55,13 +54,17 @@
                     <th scope="col">Codice contenuto</th>
                     <th scope="col">Data</th>
                     <th scope="col">Valutazione</th>
+                    <th scope="col">Genere</th>
                     </tr>
                 </thead>
                 <tbody>';
-                    while($row1 = $result->fetch_assoc()){                                                    
-                        echo "<tr> <th scope=."."row"."class="."secondary".">>". "$row1[CodContenuto] </a> </th>";
+                    while($row1 = $result->fetch_assoc()){      
+                        $result = $db_connection->query("SELECT Genere FROM contenuto_multimediale WHERE CodContenuto = '$row1[CodContenuto] '");                                                    
+                        $row = $result->fetch_assoc();
+                        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row1[CodContenuto] </a> </th>";
                         echo "<th scope=."."row".">". "$row1[Data] </th>";
                         echo "<th scope=."."row".">". "$row1[Valutazione] </th>";
+                        echo "<th scope=."."row".">". "$row[Genere] </th>";
                         echo "</tr>";
                     }
             }else{echo "Nessuna valutazione trovata";}
