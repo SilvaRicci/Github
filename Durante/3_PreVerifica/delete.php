@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <<body style = "background-color:white">
-    <center><br><br><h1>Visualizzazione clienti tramite ricerca avanzata</h1><br>   
+    <center><br><br><h1>Cancellazione di valutazioni</h1><br>   
     
     <?php include "connessione.php"; ?>
 
@@ -49,7 +49,7 @@
 
     ?>
 
-  <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Ricerca</button>
+  <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Elimina</button>
 </form>
 </div>
 
@@ -72,7 +72,7 @@
             if(!$isFiscale AND !$isContenuto){
               echo "ao, inserisci qualcosa";
             }else{
-                $result = $db_connection->query("DELETE * FROM valutazione WHERE (CodFisc = '$codiceFiscale' AND CodContenuto = '$isContenuto')");                      
+                $result = $db_connection->query("DELETE FROM valutazione WHERE (CodFisc = '$codiceFiscale' AND CodContenuto = '$codiceContenuto')");                      
                 echo("Operazione eseguita con successo!");
               }
       }
