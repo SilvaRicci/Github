@@ -39,16 +39,11 @@
   <?php
       include "connessione.php";  
       if(isset($_POST["submit_btn"])){
-                                                                            
+        
+        $codiceFiscale = $_POST["codiceFiscale"];
         $cognome = $_POST["cognome"];
         $nome = $_POST["nome"];
         $dataNascita = $_POST["dataNascita"];
-        $indirizzoResidenza = $_POST["indirizzoResidenza"];
-        $citta = $_POST["citta"];
-        $provincia = $_POST["provincia"];
-        $regione = $_POST["regione"];
-        $password = $_POST["password"];
-        $ripetiPassword = $_POST["ripetiPassword"];
 
         $isOk=true;
         
@@ -64,41 +59,9 @@
           $isOk=false;
           echo "Data di nascita non inserita <br />";
         }
-        if($indirizzoResidenza==""){
-          $isOk=false;
-          echo "Indirizzo di residenza non inserito <br />";
-        }
-        if($citta==""){
-          $isOk=false;
-          echo "Città non inserita <br />";
-        }
-        if($provincia==""){
-          $isOk=false;
-          echo "Provincia non inserita <br />";
-        }
-        if($regione==""){
-          $isOk=false;
-          echo "Regione non inserita <br />";
-        }
-        if($password==""){
-          $isOk=false;
-          echo "Password non inserita <br />";
-        }
-        if($ripetiPassword=""){
-          $isOk=false;
-          echo "Ripeti password non inserita <br />";
-        }
-        $isOk2=true;
 
         if($isOk){
-          if($password!=$ripetiPassword){
-            $isOk2=false;
-            echo "Le due password non coincidono <br />";
-          }
-        }
-
-        if($isOk2){
-          $ok=$db_connection->query("INSERT INTO Cliente (cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword) VALUES //dacabiarmejsgjhsagjhsgjhsgj('$nome','$cognome','$classe','$sezione','$indirizzo')");
+          $ok=$db_connection->query("INSERT INTO utente (CodFisc,Nome,Cognome,AnnoDiNascita) VALUES ('$codiceFiscale','$nome','$cognome','$dataNascita')");
           if($ok==TRUE){
               echo "Inserimento dei dati nella tabella: 100% completato.";
           }else{
