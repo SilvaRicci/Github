@@ -10,27 +10,37 @@
     <center><br><br><h1>Visualizzazione clienti tramite ricerca semplice</h1><br>   
     
 
+    
+    <?php include "connessione.php"; ?>
+
     <div class="container">
 <form action="#" method="POST">
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="codiceFiscale">Codice fiscale</label>
-      <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
-    </div>
-    <br>
-  <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Ricerca</button>
-</form>
-</div>
+    <?php
 
-  <?php
+      echo '<div class="form-group my-2">
+    <label for="codiceFiscale">Codice fiscale</label>
+    <select id="codiceFiscale" name="codiceFiscale" class="form-control">
+      <option selected value="0">Scegli l utente</option>';
 
-        include "connessione.php";                                                                      
+      $result = $db_connection->query("SELECT DISTINCT CodFisc FROM utente");                      
+      $rows = $result->num_rows;  
+      echo $rows;
+      if($rows > 0){  
+        while($row = $result->fetch_assoc()){                                                    
+          echo '<option value='."$row[CodFisc]".'>'."$row[CodFisc]".'</option>';
+        }
+      }
+      echo '</select> </div>';
+      ?>
+
+  <?php                                                                 
         
         if (isset($_POST["submit_btn"])) {
             
             $codiceFiscale = $_POST["codiceFiscale"];
 
-            $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione FROM Cliente WHERE codiceFiscale = '$codiceFiscale'");                      
+            $result = $db_connection->query("SELECT CodContenuto,Data,Valutazione FROM valutazione WHERE CodFisc = '$codiceFiscale'");                      
             $rows = $result->num_rows;                                                                                                                         
 
             if($rows > 0){  
@@ -38,14 +48,9 @@
                     <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">Codice fiscale</th>
-                    <th scope="col">Cognome</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data di nascita</th>
-                    <th scope="col">Indirizzo di residenza</th>
-                    <th scope="col">Città</th>
-                    <th scope="col">Provincia</th>
-                    <th scope="col">Regione</th>
+                    <th scope="col"Codice contenuto</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Valutazione</th>
                     </tr>
                 </thead>
                 <tbody>';
