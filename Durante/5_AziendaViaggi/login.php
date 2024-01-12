@@ -34,17 +34,22 @@ if (isset($_POST["submit_btn"])) {
     $username = $conn->real_escape_string(stripslashes($_POST["username"]));
     $password = $conn->real_escape_string(stripslashes($_POST["password"]));
 
-
-    $sql = <<<RICERCA
-    SELECT * from Cliente
-    where codiceFiscale = '$codice_fiscale'
-    and password1 = '$password';
-    RICERCA;
-
     $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
     $rows = $result->num_rows;
 
     if($rows > 0){
+$counter = $result->num_rows;
+if ($counter-1){
+$row = $result->fetch_assoc();
+$psw = $row['password'];
+if (password_verify($password, $psw)) {
+Scontrollo true;
+if ($controllo) {
+session start();
+$_SESSION['email'] Semail;
+$_SESSION['password'] Spassc;
+header("Location: homepage.php");
+}
         echo "utente trovato ";
     }else{
         echo "utente non trovato ";
