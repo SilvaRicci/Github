@@ -46,11 +46,11 @@ include "connessione.php";
             if(password_verify($password,$psw)) {
 
                 echo "Utente loggato con successo! Trasferimento in corso...";
-
+                
                 session_start();
-                header("Location : home.php");
-
+                
                 $_SESSION['id'] = $row['id_utente'];
+                header("Location : home.php");
 
             }else{
                 echo "Password incorretta";
