@@ -34,8 +34,6 @@ include "connessione.php";
         $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
-        echo password_hash($password,PASSWORD_DEFAULT);
-
         $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
         $rows = $result->num_rows;
 
