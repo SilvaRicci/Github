@@ -1,4 +1,10 @@
 <!doctype html>
+
+<?php
+    $session_start();
+    if(isset)
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -9,7 +15,16 @@
   <body style = "background-color:white">
     <center><br><br><h1>Hub persona</h1><br>    
         <?php
-            if("$row[]")
+            include "connessione.php";  
+            
+            
+
+            $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
+            $rows = $result->num_rows;                                                                                                                         
+            $row = $result->fetch_assoc();   
+
+            if("$row[tipologia]"=="persona")
+                echo "<h3> Caro utente in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
         ?>
         <div class="container ml-5">
     <table class="table">
@@ -21,16 +36,10 @@
         </tr>
     </thead>
     <tbody>
-  <?php
-
-        include "connessione.php";                                                                      
-
-        $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
-        $rows = $result->num_rows;                                                                                                                         
-        $row = $result->fetch_assoc();                                           
-            echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
-            echo "<th scope=."."row".">". "$row[cognome] </th>";
-            echo "<th scope=."."row".">". "$row[username] </th></tr>";
+  <?php                                  
+        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
+        echo "<th scope=."."row".">". "$row[cognome] </th>";
+        echo "<th scope=."."row".">". "$row[username] </th></tr>";
     ?>
 
         <a class="btn btn-primary" role="button" href="registrazione.php"> Registrazione cliente </a> <br><br>
