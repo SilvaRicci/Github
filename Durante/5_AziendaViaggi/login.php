@@ -29,33 +29,33 @@
 <?php
 include "connessione.php";
 
-if (isset($_POST["submit_btn"])) {
+    if (isset($_POST["submit_btn"])) {
 
-    $username = $conn->real_escape_string(stripslashes($_POST["username"]));
-    $password = $conn->real_escape_string(stripslashes($_POST["password"]));
+        $username = $conn->real_escape_string(stripslashes($_POST["username"]));
+        $password = $conn->real_escape_string(stripslashes($_POST["password"]));
 
-    $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
-    $rows = $result->num_rows;
+        $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
+        $rows = $result->num_rows;
 
-    if($rows=1){
-        $counter = $result->num_rows;
-        if ($counter-1){
-            $row = $result->fetch_assoc();
-            $psw = $row['password'];
-            if (password_verify($password, $psw)) {
-                echo "Utente loggato con successo! Trasferimento in corso...";
-                session_start();
-                $_SESSION['username'] = $username;
-                $_SESSION['password'] = $psw;
-                header("Location: index.php");
+        if($rows > 0){
+            $counter = $result->num_rows;
+            if ($counter-1){
+                $row = $result->fetch_assoc();
+                $psw = $row['password'];
+                if (password_verify($password, $psw)) {
+                    echo "Utente loggato con successo! Trasferimento in corso...";
+                    session_start();
+                    $_SESSION['username'] = $username;
+                    $_SESSION['password'] = $psw;
+                }else{
+                    echo "Password incorretta";
+                }
             }
+        }else{
+            echo "Utente non trovato ";
         }
-    }else{
-        echo "Utente non trovato ";
-    }
-
     $db_connection->close();
-}
+    }
 ?>
 </center>
 
