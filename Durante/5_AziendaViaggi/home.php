@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body style = "background-color:white">
-    <center><br><br><h1>Hub persona</h1><br>    
+    <center><br><br><h1>Hub sito web</h1><br>    
     <?php
             include "connessione.php";  
 
@@ -26,11 +26,11 @@
             $row = $result->fetch_assoc();   
 
             if("$row[tipologia]"=="persona")
-                echo "<h3> Caro."."$row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
-            if("$row[tipologia]"=="persona")
-                echo "<h3> Caro."."$row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
-            if("$row[tipologia]"=="persona")
-                echo "<h3> Caro."."$row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
+                echo "<h3> Caro"." $row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
+            if("$row[tipologia]"=="organizzazione")
+                echo "<h3> Caro"." $row[username]"." in questo sito potrai prenotare i migliori viaggi per la tua organizzazione!</h3>";
+            if("$row[tipologia]"=="admin")
+                echo "<h3> Caro"." $row[username]".". Gestisci il sito. </h3>";
         ?>
         <div class="container ml-5">
     <table class="table">
