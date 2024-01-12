@@ -13,7 +13,7 @@
         
     <div class="container col-md-9">
 
-    <form action="registra.php " method="post">
+    <form action="#" method="POST">
 
         <div class="form-group col-md-3"><br>
             <label for="nome">Nome</label>
