@@ -15,8 +15,56 @@
 
     <form action="registra.php " method="post">
 
+        <div class="form-group col-md-3"><br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="cognome">Cognome</label>
+            <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="cittaNascita">Citt&agrave; di Nascita</label>
+            <input type="text" class="form-control" id="cittaNascita" name="cittaNascita" placeholder="Citt&agrave; di Nascita">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="cittaResidenza">Citt&agrave; di Residenza</label>
+            <input type="text" class="form-control" id="cittaResidenza" name="cittaResidenza" placeholder="Citt&agrave; di Residenza">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="via">Via</label>
+            <input type="text" class="form-control" id="via" name="via" placeholder="Via">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="civico">Civico</label>
+            <input type="number" class="form-control" id="civico" name="civico" placeholder="Civico">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="cap">CAP</label>
+            <input type="text" class="form-control" id="cap" name="cap" placeholder="CAP">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="codiceFiscale">Codice Fiscale</label>
+            <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice Fiscale">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
         Nome: <input type="text" name="nome"><br>
-        Cognome: <input type="text" name="cognome"><br> Data di Nascita cinput type="date" name="nascita"><br>
+        Cognome: <input type="text" name="cognome"><br> Data di Nascita <input type="date" name="nascita"><br>
         Citt&agrave; di Nascita: <input type="text" name="cittanascita"><br>
         Citt&agrave; di Residenza: <input type="text" name="citta"><br>
         Via: <input type="text" name="via"><br>
