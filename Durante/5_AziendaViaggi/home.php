@@ -2,7 +2,9 @@
 
 <?php
     $session_start();
-    if(isset)
+    if(!isset($_SESSION['id_utente'])){
+      header("Location: login.php");
+    }
 ?>
 
 <html lang="en">
@@ -16,15 +18,15 @@
     <center><br><br><h1>Hub persona</h1><br>    
         <?php
             include "connessione.php";  
-            
-            
 
+            $id_utente = $_SESSION['id_utente'];
+            
             $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
             $rows = $result->num_rows;                                                                                                                         
             $row = $result->fetch_assoc();   
 
             if("$row[tipologia]"=="persona")
-                echo "<h3> Caro utente in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
+                echo "<h3> Caro."."$row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
         ?>
         <div class="container ml-5">
     <table class="table">
