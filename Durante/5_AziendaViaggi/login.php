@@ -41,15 +41,17 @@ include "connessione.php";
 
             $row = $result->fetch_assoc();
             $psw = $row['password'];
-
-            if (password_verify($password, $psw)) {
+            echo $psw;
+            echo $password;
+            if(password_verify($password,$psw)) {
 
                 echo "Utente loggato con successo! Trasferimento in corso...";
 
                 session_start();
+                header("Location : home.php");
 
                 $_SESSION['id'] = $row['id_utente'];
-                
+
             }else{
                 echo "Password incorretta";
             }        
