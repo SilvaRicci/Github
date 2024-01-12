@@ -48,9 +48,8 @@ include "connessione.php";
 
                 session_start();
 
-                $_SESSION['username'] = $username;
-                $_SESSION['password'] = $psw;
-
+                $_SESSION['id'] = $row['id_utente'];
+                
             }else{
                 echo "Password incorretta";
             }        

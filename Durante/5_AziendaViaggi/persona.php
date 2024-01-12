@@ -8,46 +8,31 @@
   </head>
   <body style = "background-color:white">
     <center><br><br><h1>Hub persona</h1><br>    
-        <h3> Caro utente in questo sito potrai prenotare i tuoi migliori viaggi!</h3>
+        <?php
+            if("$row[]")
+        ?>
         <div class="container ml-5">
     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Cognome</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Data di nascita</th>
-      <th scope="col">Indirizzo di residenza</th>
-      <th scope="col">Città</th>
-      <th scope="col">Provincia</th>
-      <th scope="col">Regione</th>
-      <th scope="col">Password</th>
-      <th scope="col">Ripeti password</th>
-    </tr>
-  </thead>
-  <tbody>
+    <thead>
+        <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Cognome</th>
+        <th scope="col">Username</th>
+        </tr>
+    </thead>
+    <tbody>
   <?php
 
         include "connessione.php";                                                                      
 
-        $result = $db_connection->query("SELECT codiceFiscale,cognome,nome,dataNascita,indirizzoResidenza,citta,provincia,regione,password1,ripetiPassword FROM Cliente");                      
+        $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
         $rows = $result->num_rows;                                                                                                                         
+        $row = $result->fetch_assoc();                                           
+            echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
+            echo "<th scope=."."row".">". "$row[cognome] </th>";
+            echo "<th scope=."."row".">". "$row[username] </th></tr>";
+    ?>
 
-        if($rows > 0){  
-        
-            while($row = $result->fetch_assoc()){                                                       
-                echo "<tr> <th scope=."."row"."class="."secondary".">"."<a href="."oneElement.php?val=$row[codiceFiscale]".">". "$row[codiceFiscale] </a> </th>";
-                echo "<th scope=."."row".">". "$row[cognome] </th>";
-                echo "<th scope=."."row".">". "$row[nome] </th>";
-                echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-                echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
-                echo "<th scope=."."row".">". "$row[citta] </th>";
-                echo "<th scope=."."row".">". "$row[provincia] </th>";
-                echo "<th scope=."."row".">". "$row[regione] </th>";
-                echo "<th scope=."."row".">". "$row[password1] </th>";
-                echo "<th scope=."."row".">". "$row[ripetiPassword] </th></tr>";                             
-            }
-        }  
         <a class="btn btn-primary" role="button" href="registrazione.php"> Registrazione cliente </a> <br><br>
         <a class="btn btn-primary" role="button"  href="visualizzazione.php"> Visualizzazione clienti registrati </a> <br><br>
         <a class="btn btn-primary" role="button"  href="login.php"> Login</a> <br><br>
