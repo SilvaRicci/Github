@@ -76,13 +76,21 @@
             $isOk=false;
             echo "Nome non inserito <br />";
             }
-            if($dataNascita==""){
+            if($password==""){
             $isOk=false;
-            echo "Data di nascita non inserita <br />";
+            echo "Password non inserita <br />";
+            }
+            if($username==""){
+                $isOk=false;
+                echo "Username non inserito <br />";
+            }
+            if($tipologia=="-1"){
+                $isOk=false;
+                echo "Tipologia non inserita <br />";
             }
 
             if($isOk){
-            $ok=$db_connection->query("INSERT INTO utente (CodFisc,Nome,Cognome,AnnoDiNascita) VALUES ('$codiceFiscale','$nome','$cognome','$dataNascita')");
+            $ok=$db_connection->query("INSERT INTO utenti (nome,cognome,password,username,tipologia) VALUES ('$nome','$cognome','$password','$username','$tipologia')");
             if($ok==TRUE){
                 echo "Inserimento dei dati nella tabella: 100% completato.";
             }else{
