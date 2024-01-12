@@ -37,22 +37,21 @@ if (isset($_POST["submit_btn"])) {
     $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
     $rows = $result->num_rows;
 
-    if($rows > 0){
-$counter = $result->num_rows;
-if ($counter-1){
-$row = $result->fetch_assoc();
-$psw = $row['password'];
-if (password_verify($password, $psw)) {
-Scontrollo true;
-if ($controllo) {
-session start();
-$_SESSION['email'] Semail;
-$_SESSION['password'] Spassc;
-header("Location: homepage.php");
-}
-        echo "utente trovato ";
+    if($rows=1){
+        $counter = $result->num_rows;
+        if ($counter-1){
+            $row = $result->fetch_assoc();
+            $psw = $row['password'];
+            if (password_verify($password, $psw)) {
+                echo "Utente loggato con successo! Trasferimento in corso...";
+                session_start();
+                $_SESSION['username'] = $username;
+                $_SESSION['password'] = $psw;
+                header("Location: index.php");
+            }
+        }
     }else{
-        echo "utente non trovato ";
+        echo "Utente non trovato ";
     }
 
     $db_connection->close();
