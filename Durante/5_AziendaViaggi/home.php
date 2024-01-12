@@ -48,11 +48,6 @@
         echo "<th scope=."."row".">". "$row[username] </th></tr>";
     ?>
 
-        <a class="btn btn-primary" role="button" href="registrazione.php"> Registrazione cliente </a> <br><br>
-        <a class="btn btn-primary" role="button"  href="visualizzazione.php"> Visualizzazione clienti registrati </a> <br><br>
-        <a class="btn btn-primary" role="button"  href="login.php"> Login</a> <br><br>
-        <a class="btn btn-primary" role="button"  href="ricercaSimple.php"> Ricerca semplice</a> <br><br>
-        <a class="btn btn-primary" role="button"  href="ricercaAdvanced.php"> Ricerca avanzata</a> <br><br>
     </center>
 
   
