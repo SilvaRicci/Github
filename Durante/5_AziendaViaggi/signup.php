@@ -11,7 +11,7 @@
     <body style = "background-color:white">
         <center><br><br><h1>Registrazione Cliente</h1><br>       
         
-    <div class="container col-md-3">
+    <div class="container col-md-9">
 
     <form action="registra.php " method="post">
 
@@ -24,58 +24,24 @@
             <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
         </div>
         <div class="form-group col-md-3"><br>
-            <label for="cittaNascita">Citt&agrave; di Nascita</label>
-            <input type="text" class="form-control" id="cittaNascita" name="cittaNascita" placeholder="Citt&agrave; di Nascita">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
         </div>
         <div class="form-group col-md-3"><br>
-            <label for="cittaResidenza">Citt&agrave; di Residenza</label>
-            <input type="text" class="form-control" id="cittaResidenza" name="cittaResidenza" placeholder="Citt&agrave; di Residenza">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
-        <div class="form-group col-md-3"><br>
-            <label for="via">Via</label>
-            <input type="text" class="form-control" id="via" name="via" placeholder="Via">
+
+        <div class="form-group my-2">
+            <label for="tipologia">Tipologia</label>
+            <select id="id_prodotto" name="id_prodotto" class="form-control">
+                <option selected value="-1">Scegli il prodotto</option>';
+            </select>
         </div>
-        <div class="form-group col-md-3"><br>
-            <label for="civico">Civico</label>
-            <input type="number" class="form-control" id="civico" name="civico" placeholder="Civico">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="cap">CAP</label>
-            <input type="text" class="form-control" id="cap" name="cap" placeholder="CAP">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="codiceFiscale">Codice Fiscale</label>
-            <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice Fiscale">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-        </div>
-        <div class="form-group col-md-3"><br>
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-        </div>
-        Nome: <input type="text" name="nome"><br>
-        Cognome: <input type="text" name="cognome"><br> Data di Nascita <input type="date" name="nascita"><br>
-        Citt&agrave; di Nascita: <input type="text" name="cittanascita"><br>
-        Citt&agrave; di Residenza: <input type="text" name="citta"><br>
-        Via: <input type="text" name="via"><br>
-        Civico: <input type="number" name="civico"><br>
-        CAP: <input type="text" name="cap"><br>
-        Codice Fiscale <input type="text" name="cf"><br>
-        Telefono: <input type="text" name="telefono"><br>
-        Username: <input type="text" name="username"><br>
-        Email: <input type="text" name="email"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Registra">
+
+        <br><br>
+
+        <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button><br><br><br><br>
         
     </form>
 
