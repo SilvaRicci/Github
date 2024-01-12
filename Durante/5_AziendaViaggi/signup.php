@@ -52,9 +52,9 @@
         include "connessione.php";
         if(isset($_POST["submit_btn"])){
             
-            $nome = $_POST["nome"];
+            $nome = $_POST["nome"]; 
             $cognome = $_POST["cognome"];
-            $password = password_hash($POST["password"], PASSWORD_DEFAULT);
+            $password = password_hash($db_connection->real_escape_string(stripslashes($_POST["password"])),PASSWORD_DEFAULT);
             $username = $_POST["username"];
             $tipologia = $_POST["tipologia"];
 

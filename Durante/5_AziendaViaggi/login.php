@@ -30,24 +30,29 @@
 include "connessione.php";
 
     if (isset($_POST["submit_btn"])) {
-        echo "1";
+
         $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-        $password = $_POST["password"];
-        echo "2";
+
+        echo password_hash($password,PASSWORD_DEFAULT);
+
         $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
         $rows = $result->num_rows;
-        echo $rows;
+
         if($rows > 0){
-            echo "4";
+
             $row = $result->fetch_assoc();
             $psw = $row['password'];
-            echo "5";
+
             if (password_verify($password, $psw)) {
+
                 echo "Utente loggato con successo! Trasferimento in corso...";
+
                 session_start();
+
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $psw;
+
             }else{
                 echo "Password incorretta";
             }        
