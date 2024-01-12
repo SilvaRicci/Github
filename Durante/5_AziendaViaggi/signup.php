@@ -32,10 +32,12 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
 
-        <div class="form-group my-2">
+        <div class="form-group col-md-3"><br>
             <label for="tipologia">Tipologia</label>
-            <select id="id_prodotto" name="id_prodotto" class="form-control">
-                <option selected value="-1">Scegli il prodotto</option>';
+            <select id="tipologia" name="tipologia" class="form-control">
+                <option selected value="-1">Scegli la tipologia</option>;
+                <option value="persona">Persona</option>;
+                <option value="organizzazione">Organizzazione</option>;
             </select>
         </div>
 
@@ -47,9 +49,18 @@
 
     </div>
     <?php
-        include "connessione.php";  
+        include "connessione.php";
         if(isset($_POST["submit_btn"])){
             
+            $nome = $_POST["nome"];
+            $cognome = $_POST["cognome"];
+            $password = password_hash($POST["password"], PASSWORD_DEFAULT);
+            $username = $_POST["username"];
+            $tipologia = $_POST["tipologia"];
+
+
+
+
             $codiceFiscale = $_POST["codiceFiscale"];
             $cognome = $_POST["cognome"];
             $nome = $_POST["nome"];
