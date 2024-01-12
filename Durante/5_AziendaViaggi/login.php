@@ -30,8 +30,10 @@
 include "connessione.php";
 
 if (isset($_POST["submit_btn"])) {
-    $codice_fiscale = $_POST["codiceFiscale"];
-    $password = $_POST["password"];
+
+    $username = $conn->real_escape_string(stripslashes($_POST["username"]));
+    $password = $conn->real_escape_string(stripslashes($_POST["password"]));
+
 
     $sql = <<<RICERCA
     SELECT * from Cliente
@@ -39,7 +41,7 @@ if (isset($_POST["submit_btn"])) {
     and password1 = '$password';
     RICERCA;
 
-    $result = $db_connection->query($sql);
+    $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
     $rows = $result->num_rows;
 
     if($rows > 0){
