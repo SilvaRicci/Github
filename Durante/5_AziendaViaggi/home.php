@@ -23,7 +23,7 @@
             <th scope="col">Password</th>
             <th scope="col">Username</th>
             <th scope="col">Tipologia</th>
-            <th scope="col"></th> 
+            <th scope="col">ActionButton  </th> 
             </tr>
         </thead>
         <tbody>';
@@ -35,7 +35,7 @@
         echo "<th scope=."."row".">". "$rowAdmin[password] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[username] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[tipologia] </th>";
-        echo "</tr>";
+        echo "<th> <a style = 'color:blue' class='bi bi-trash'>dsfdfs  </i> </th> </tr>";
       }
   }
 
