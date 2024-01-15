@@ -18,13 +18,13 @@
     <center><br><br><h1>Hub sito web</h1><br>    
     <?php
             include "connessione.php";  
-
+            //recupero id utente con conseguente record dal database
             $id_utente = $_SESSION['id'];
             
             $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
             $rows = $result->num_rows;                                                                                                                         
             $row = $result->fetch_assoc();   
-
+            //vari title a seconda della tipologia e dell'username
             if("$row[tipologia]"=="persona")
                 echo "<h3> Caro"." $row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
             if("$row[tipologia]"=="organizzazione")
@@ -36,20 +36,46 @@
     
   <?php       
         if("$row[tipologia]"=="persona" || "$row[tipologia]"=="organizzazione"){
+          //visualizzazione base pagina per normali utenti
+          echo '<table class="table">
+          <thead>
+              <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Cognome</th>
+              <th scope="col">Username</th>
+              </tr>
+          </thead>
+          <tbody>';
 
           echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
           echo "<th scope=."."row".">". "$row[cognome] </th>";
           echo "<th scope=."."row".">". "$row[username] </th></tr>";
 
         }elseif("$row[tipologia]"=="admin"){
-
+            //apertura pannello di controllo dell'admin
             $result = $db_connection->query("SELECT * FROM utenti");                      
             $rows = $result->num_rows;
 
+            echo '<table class="table">
+              <thead>
+                  <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Cognome</th>
+                  <th scope="col">Password</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Tipologia</th>
+                  </tr>
+              </thead>
+              <tbody>';
+
             while($row = $result->fetch_assoc()){
-              echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
+              echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[id_utente]</th>";
+              echo "<th scope=."."row".">". "$row[nome] </th>";
               echo "<th scope=."."row".">". "$row[cognome] </th>";
-              echo "<th scope=."."row".">". "$row[username] </th></tr>";
+              echo "<th scope=."."row".">". "$row[password] </th>";
+              echo "<th scope=."."row".">". "$row[username] </th>";
+              echo "<th scope=."."row".">". "$row[tipologia] </th></tr>";
             }
         }
     ?>
