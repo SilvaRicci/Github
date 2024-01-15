@@ -6,7 +6,9 @@
 
     $deleteUser = $_GET["deleteUser_btn"];
 
-    $db_connection->query("DELETE FROM `utenti` WHERE `utenti`.`id_utente` = $deleteUser");
+    if(!($deleteUser = $_SESSION['id'])){
+        $db_connection->query("DELETE FROM `utenti` WHERE `utenti`.`id_utente` = $deleteUser");
+    }
 
     header("Location: home.php");
 ?>

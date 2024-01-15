@@ -49,7 +49,9 @@
 
         <br><br>
 
-        <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button><br><br><br><br>
+        <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button><br><br>
+        <p>Gia' registrato? <a href="login.php">Login</a></p>
+        <br>
         
     </form>
 
@@ -101,9 +103,8 @@
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
                 header("Location: login.php");
-            }else{
-                die("Errore: " . $db_connection->connect_error);  
             }
+            
             $db_connection->close();        
                                                                              
         }

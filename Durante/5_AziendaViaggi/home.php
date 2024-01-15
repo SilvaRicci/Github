@@ -23,7 +23,7 @@
             <th scope="col">Password</th>
             <th scope="col">Username</th>
             <th scope="col">Tipologia</th>
-            <th scope="col">ActionButton  </th> 
+            <th scope="col">T</th> 
             </tr>
         </thead>
         <tbody>';
@@ -35,7 +35,7 @@
         echo "<th scope=."."row".">". "$rowAdmin[password] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[username] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[tipologia] </th>";
-        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$rowAdmin[id_utente]' class='btn btn-danger'>Delete</button> </form> </th> </tr>";
+        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$rowAdmin[id_utente]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
       }
   }
 
