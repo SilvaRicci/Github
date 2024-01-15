@@ -50,8 +50,6 @@ include "connessione.php";
                 
                 $_SESSION['id'] = $row['id_utente'];
 
-                sleep(3);
-
                 header("Location: home.php");
                 
             }else{

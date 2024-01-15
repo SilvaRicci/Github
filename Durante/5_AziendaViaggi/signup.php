@@ -90,16 +90,16 @@
             }
 
             if($isOk){
-            $ok=$db_connection->query("INSERT INTO utenti (nome,cognome,password,username,tipologia) VALUES ('$nome','$cognome','$password','$username','$tipologia')");
-            if($ok==TRUE){
+                $ok=$db_connection->query("INSERT INTO utenti (nome,cognome,password,username,tipologia) VALUES ('$nome','$cognome','$password','$username','$tipologia')");
+                
                 echo "Inserimento dei dati nella tabella: 100% completato.";
-                sleep(3);
-                header("Location: signup.php");
+                
+                header("Location: login.php");
             }else{
                 die("Errore: " . $db_connection->connect_error);  
             }
             $db_connection->close();        
-            }                                                                     
+                                                                             
         }
         ?>
     </center>
