@@ -1,10 +1,41 @@
 <!doctype html>
 
 <?php
+include "connessione.php"; 
     session_start();
     if(!isset($_SESSION['id'])){
       header("Location: login.php");
     }
+?>
+
+<?php
+  function adminPanel(){
+      $resAdmin = $db_connection->query("SELECT * FROM utenti");                      
+      $rowsAdmin = $resultAdmin->num_rows;
+
+      echo '<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Password</th>
+            <th scope="col">Username</th>
+            <th scope="col">Tipologia</th>
+            </tr>
+        </thead>
+        <tbody>';
+
+      while($row = $result->fetch_assoc()){
+        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[id_utente]</th>";
+        echo "<th scope=."."row".">". "$row[nome] </th>";
+        echo "<th scope=."."row".">". "$row[cognome] </th>";
+        echo "<th scope=."."row".">". "$row[password] </th>";
+        echo "<th scope=."."row".">". "$row[username] </th>";
+        echo "<th scope=."."row".">". "$row[tipologia] </th></tr>";
+      }
+  }
+
 ?>
 
 <html lang="en">
@@ -16,8 +47,7 @@
   </head>
   <body style = "background-color:white">
     <center><br><br><h1>Hub sito web</h1><br>    
-    <?php
-            include "connessione.php";  
+    <?php 
             //recupero id utente con conseguente record dal database
             $id_utente = $_SESSION['id'];
             
@@ -53,30 +83,7 @@
 
         }elseif("$row[tipologia]"=="admin"){
             //apertura pannello di controllo dell'admin
-            $result = $db_connection->query("SELECT * FROM utenti");                      
-            $rows = $result->num_rows;
-
-            echo '<table class="table">
-              <thead>
-                  <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Cognome</th>
-                  <th scope="col">Password</th>
-                  <th scope="col">Username</th>
-                  <th scope="col">Tipologia</th>
-                  </tr>
-              </thead>
-              <tbody>';
-
-            while($row = $result->fetch_assoc()){
-              echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[id_utente]</th>";
-              echo "<th scope=."."row".">". "$row[nome] </th>";
-              echo "<th scope=."."row".">". "$row[cognome] </th>";
-              echo "<th scope=."."row".">". "$row[password] </th>";
-              echo "<th scope=."."row".">". "$row[username] </th>";
-              echo "<th scope=."."row".">". "$row[tipologia] </th></tr>";
-            }
+            adminPanel();
         }
     ?>
         <form action="logout.php">
