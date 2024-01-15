@@ -80,6 +80,8 @@
         }
     ?>
 
+        <button type="submit" id="logout_btn" name="submit_btn" class="btn btn-primary">Login</button>
+
     </center>
 
   
