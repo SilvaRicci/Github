@@ -43,7 +43,7 @@
                 echo "<th scope=."."row".">". "$row[indirizzoResidenza] </th>";
                 echo "<th scope=."."row".">". "$row[citta] </th>";
                 echo "<th scope=."."row".">". "$row[provincia] </th>";
-                echo "<th scope=."."row".">". "$row[regione] </th>";
+                echo "<th scope=."."row".">". "$row[regione] </ th>";
                 echo "<th scope=."."row".">". "$row[password1] </th>";
                 echo "<th scope=."."row".">". "$row[ripetiPassword] </th></tr>";                             
             }
