@@ -29,7 +29,7 @@
     </div><br><br>
 
   <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Login</button><br><br>
-  <p>Non sei registrato? <a href="signup.php">Registrati</a></p><br><br><br><br>
+  <p>Non sei registrato? <a href="signup.php">Registrati</a></p><br>
 </form>
 </div>
 
