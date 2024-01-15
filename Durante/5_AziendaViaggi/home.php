@@ -79,8 +79,9 @@
             }
         }
     ?>
-
-        <button type="submit" id="logout_btn" name="submit_btn" class="btn btn-primary">Login</button>
+        <form action="logout.php">
+          <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>
+        </form>
 
     </center>
 
