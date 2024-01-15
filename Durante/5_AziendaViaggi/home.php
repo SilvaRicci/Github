@@ -1,7 +1,7 @@
 <!doctype html>
 
 <?php
-include "connessione.php"; 
+    include "connessione.php"; 
     session_start();
     if(!isset($_SESSION['id'])){
       header("Location: login.php");
@@ -10,7 +10,8 @@ include "connessione.php";
 
 <?php
   function adminPanel(){
-      $resAdmin = $db_connection->query("SELECT * FROM utenti");                      
+      include "connessione.php"; 
+      $resultAdmin = $db_connection->query("SELECT * FROM utenti");                      
       $rowsAdmin = $resultAdmin->num_rows;
 
       echo '<table class="table">
@@ -22,17 +23,19 @@ include "connessione.php";
             <th scope="col">Password</th>
             <th scope="col">Username</th>
             <th scope="col">Tipologia</th>
+            <th scope="col"></th> 
             </tr>
         </thead>
         <tbody>';
 
-      while($row = $result->fetch_assoc()){
-        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[id_utente]</th>";
-        echo "<th scope=."."row".">". "$row[nome] </th>";
-        echo "<th scope=."."row".">". "$row[cognome] </th>";
-        echo "<th scope=."."row".">". "$row[password] </th>";
-        echo "<th scope=."."row".">". "$row[username] </th>";
-        echo "<th scope=."."row".">". "$row[tipologia] </th></tr>";
+      while($rowAdmin = $resultAdmin->fetch_assoc()){
+        echo "<tr> <th scope=."."row"."class="."secondary".">". "$rowAdmin[id_utente]</th>";
+        echo "<th scope=."."row".">". "$rowAdmin[nome] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[cognome] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[password] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[username] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[tipologia] </th>";
+        echo "</tr>";
       }
   }
 
