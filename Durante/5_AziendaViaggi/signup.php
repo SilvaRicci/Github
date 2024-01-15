@@ -93,6 +93,8 @@
             $ok=$db_connection->query("INSERT INTO utenti (nome,cognome,password,username,tipologia) VALUES ('$nome','$cognome','$password','$username','$tipologia')");
             if($ok==TRUE){
                 echo "Inserimento dei dati nella tabella: 100% completato.";
+                sleep(3);
+                header("Location: signup.php");
             }else{
                 die("Errore: " . $db_connection->connect_error);  
             }
