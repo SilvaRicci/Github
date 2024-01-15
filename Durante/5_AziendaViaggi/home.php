@@ -33,19 +33,25 @@
                 echo "<h3> Caro"." $row[username]".". Gestisci il sito. </h3>";
         ?>
         <div class="container ml-5">
-    <table class="table">
-    <thead>
-        <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Cognome</th>
-        <th scope="col">Username</th>
-        </tr>
-    </thead>
-    <tbody>
-  <?php                                  
-        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
-        echo "<th scope=."."row".">". "$row[cognome] </th>";
-        echo "<th scope=."."row".">". "$row[username] </th></tr>";
+    
+  <?php       
+        if("$row[tipologia]"=="persona" || "$row[tipologia]"=="organizzazione"){
+
+          echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
+          echo "<th scope=."."row".">". "$row[cognome] </th>";
+          echo "<th scope=."."row".">". "$row[username] </th></tr>";
+
+        }elseif("$row[tipologia]"=="admin"){
+
+            $result = $db_connection->query("SELECT * FROM utenti");                      
+            $rows = $result->num_rows;
+
+            while($row = $result->fetch_assoc()){
+              echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
+              echo "<th scope=."."row".">". "$row[cognome] </th>";
+              echo "<th scope=."."row".">". "$row[username] </th></tr>";
+            }
+        }
     ?>
 
     </center>
