@@ -59,8 +59,8 @@
                 <option selected value="-1">Scegli il genere</option>;
                 <option value="Uomo">Uomo</option>;
                 <option value="Donna">Donna</option>;
-                <option value="Donna">Donna</option>;
-                <option value="Donna">Donna</option>;
+                <option value="Non binary">Non binary</option>;
+                <option value="Elicottero d'assalto">Elicottero d'assalto</option>;
             </select>
         </div>
         <div class="form-group col-md-3"><br>
@@ -82,42 +82,63 @@
     <?php
         include "connessione.php";
         if(isset($_POST["submit_btn"])){
-            
+
+            $CF = $_POST["CF"];
+            $cognome = $_POST["cognome"];
             $nome = $_POST["nome"]; 
-            $cognome = $_POST["cognome"];
-            $password = password_hash($db_connection->real_escape_string(stripslashes($_POST["password"])),PASSWORD_DEFAULT);
-            $username = $_POST["username"];
-            $tipologia = $_POST["tipologia"];
-
-
-
-
-            $codiceFiscale = $_POST["codiceFiscale"];
-            $cognome = $_POST["cognome"];
-            $nome = $_POST["nome"];
+            $indirizzo = $_POST["indirizzo"];
+            $comune = $_POST["comune"];
+            $CAP = $_POST["CAP"];
+            $provincia = $_POST["provincia"];
             $dataNascita = $_POST["dataNascita"];
+            $genere = $_POST["genere"];
+            $password = password_hash($db_connection->real_escape_string(stripslashes($_POST["password"])),PASSWORD_DEFAULT);
 
             $isOk=true;
             
+            if($CF==""){
+                $isOk=false;
+                echo "Codice fiscale non inserito <br />";
+            }
+            if(!($CF.strlen())){
+                $isOk=false;
+                echo "Codice fiscale non inserito <br />";
+            }
             if($cognome==""){
-            $isOk=false;
-            echo "Cognome non inserito <br />";
+                $isOk=false;
+                echo "Cognome non inserito <br />";
             }
             if($nome==""){
-            $isOk=false;
-            echo "Nome non inserito <br />";
+                $isOk=false;
+                echo "Nome non inserito <br />";
+            }
+            if($indirizzo==""){
+                $isOk=false;
+                echo "Indirizzo non inserito <br />";
+            }
+            if($comune==""){
+                $isOk=false;
+                echo "Comune non inserito <br />";
+            }
+            if($CAP==""){
+                $isOk=false;
+                echo "CAP non inserito <br />";
+            }
+            if($provincia==""){
+                $isOk=false;
+                echo "Provincia non inserita <br />";
+            }
+            if($dataNascita==""){
+                $isOk=false;
+                echo "Data di nascita non inserita <br />";
+            }
+            if($genere=="-1"){
+                $isOk=false;
+                echo "Genere non inserito <br />";
             }
             if($password==""){
             $isOk=false;
             echo "Password non inserita <br />";
-            }
-            if($username==""){
-                $isOk=false;
-                echo "Username non inserito <br />";
-            }
-            if($tipologia=="-1"){
-                $isOk=false;
-                echo "Tipologia non inserita <br />";
             }
 
             if($isOk){
