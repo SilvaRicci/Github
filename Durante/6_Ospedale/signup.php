@@ -82,7 +82,7 @@
     <?php
         include "connessione.php";
         if(isset($_POST["submit_btn"])){
-
+            
             $CF = $_POST["CF"];
             $cognome = $_POST["cognome"];
             $nome = $_POST["nome"]; 
@@ -92,17 +92,17 @@
             $provincia = $_POST["provincia"];
             $dataNascita = $_POST["dataNascita"];
             $genere = $_POST["genere"];
-            $password = password_hash($db_connection->real_escape_string(stripslashes($_POST["password"])),PASSWORD_DEFAULT);
-
+            $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+            
             $isOk=true;
             
             if($CF==""){
                 $isOk=false;
                 echo "Codice fiscale non inserito <br />";
             }
-            if(!($CF.strlen())){
+            if(!(strlen($CF)==16) && $isOk){
                 $isOk=false;
-                echo "Codice fiscale non inserito <br />";
+                echo "Codice fiscale non valido <br />";
             }
             if($cognome==""){
                 $isOk=false;
@@ -140,9 +140,12 @@
             $isOk=false;
             echo "Password non inserita <br />";
             }
+            //eventuali nuovi controlli sulla password
 
             if($isOk){
-                $ok=$db_connection->query("INSERT INTO utenti (nome,cognome,password,username,tipologia) VALUES ('$nome','$cognome','$password','$username','$tipologia')");
+                $password = password_hash($password,PASSWORD_DEFAULT);
+
+                $ok=$db_connection->query("INSERT INTO utente (CF,cognome,nome,indirizzo,comune,CAP,provincia,dataNascita,genere,password) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')");
                 
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
