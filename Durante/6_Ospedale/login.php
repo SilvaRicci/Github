@@ -20,8 +20,8 @@
 <form action="#" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6"><br>
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+      <label for="CF">Codice Fiscale</label>
+      <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale">
     </div>
   <div class="form-group col-md-6"><br>
       <label for="password">Password</label>
@@ -38,10 +38,10 @@ include "connessione.php";
 
     if (isset($_POST["submit_btn"])) {
 
-        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
-        $result = $db_connection->query("SELECT * FROM utenti WHERE username='$username'");
+        $result = $db_connection->query("SELECT * FROM utente WHERE CF='$CF'");
         $rows = $result->num_rows;
 
         if($rows > 0){
