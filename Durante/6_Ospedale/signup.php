@@ -22,30 +22,53 @@
     <form action="#" method="POST">
 
         <div class="form-group col-md-3"><br>
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+            <label for="codiceFiscale">Codice fiscale</label>
+            <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
         </div>
         <div class="form-group col-md-3"><br>
             <label for="cognome">Cognome</label>
             <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome">
         </div>
         <div class="form-group col-md-3"><br>
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="indirizzo">Indirizzo</label>
+            <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Indirizzo">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="comune">Comune</label>
+            <input type="text" class="form-control" id="comune" name="comune" placeholder="Comune">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="cap">CAP</label>
+            <input type="text" class="form-control" id="cap" name="cap" placeholder="CAP">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="provincia">Provincia</label>
+            <input type="text" class="form-control" id="provincia" name="provincia" placeholder="Provincia">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="dataNascita">Data nascita</label>
+            <input type="date" class="form-control" id="dataNascita" name="dataNascita" placeholder="Data Nascita">
+        </div>
+        <div class="form-group col-md-3"><br>
+            <label for="genere">Genere</label>
+            <select id="genere" name="genere" class="form-control">
+                <option selected value="-1">Scegli il genere</option>;
+                <option value="Uomo">Uomo</option>;
+                <option value="Donna">Donna</option>;
+                <option value="Donna">Donna</option>;
+                <option value="Donna">Donna</option>;
+            </select>
         </div>
         <div class="form-group col-md-3"><br>
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
 
-        <div class="form-group col-md-3"><br>
-            <label for="tipologia">Tipologia</label>
-            <select id="tipologia" name="tipologia" class="form-control">
-                <option selected value="-1">Scegli la tipologia</option>;
-                <option value="persona">Persona</option>;
-                <option value="organizzazione">Organizzazione</option>;
-            </select>
-        </div>
+        
 
         <br><br>
 
