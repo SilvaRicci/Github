@@ -22,8 +22,8 @@
     <form action="#" method="POST">
 
         <div class="form-group col-md-3"><br>
-            <label for="codiceFiscale">Codice fiscale</label>
-            <input type="text" class="form-control" id="codiceFiscale" name="codiceFiscale" placeholder="Codice fiscale">
+            <label for="CF">Codice fiscale</label>
+            <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice fiscale">
         </div>
         <div class="form-group col-md-3"><br>
             <label for="cognome">Cognome</label>
@@ -88,12 +88,13 @@
             $nome = $_POST["nome"]; 
             $indirizzo = $_POST["indirizzo"];
             $comune = $_POST["comune"];
-            $CAP = $_POST["CAP"];
+            $CAP = $_POST["cap"];
             $provincia = $_POST["provincia"];
             $dataNascita = $_POST["dataNascita"];
             $genere = $_POST["genere"];
-            $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
             
+            $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+
             $isOk=true;
             
             if($CF==""){
