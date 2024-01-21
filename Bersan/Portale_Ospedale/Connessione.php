@@ -1,5 +1,5 @@
 <?php
-$db="Portale_Ospedale"; //nome db
+$db="Bersan_Portale_Ospedale"; //nome db
 $db_host="localhost";
 $db_user = "root";
 $db_password="";
