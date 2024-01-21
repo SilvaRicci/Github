@@ -55,7 +55,7 @@ include "connessione.php";
                 
                 session_start();
                 
-                $_SESSION['id'] = $row['id_utente'];
+                $_SESSION['CF'] = $row['CF'];
 
                 header("Location: home.php");
                 
