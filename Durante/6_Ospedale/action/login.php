@@ -44,7 +44,21 @@
                 echo "Password incorretta";
             }        
           }else{
-            echo "Utente non trovato ";
+            echo "Utente non trovato";
+
+          $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
+          $rowsAdmin = $result->num_rows;
+          $rowAdmin = 
+
+          if($password = "$row[password]"){ //dopo inserire hash password
+            //POPUP PER CODICE OTP
+
+            $ADMIN_PATH = $ADMIN_PATH+"";//evitare errore void
+
+            header("Location $ADMIN_PATH");
+          }
+
+
         }
         $db_connection->close();
     }
