@@ -53,8 +53,10 @@
 
           if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
             //POPUP PER CODICE OTP
-            echo "si";
-            $ADMIN_PATH = $ADMIN_PATH+"";//evitare errore void
+            session_start();
+              
+            $_SESSION['username'] = $CF;
+            $ADMIN_PATH = "../admin/admin.php";//evitare errore void || DA MODIFICARE
 
             header("Location: $ADMIN_PATH");
         }
