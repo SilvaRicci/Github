@@ -45,20 +45,18 @@
             }        
           }else{
             echo "Utente non trovato";
+          }
 
           $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
           $rowsAdmin = $resultAdmin->num_rows;
           $rowAdmin = $resultAdmin->fetch_assoc();
 
-          if($password = "$rowAdmin[password]"){ //dopo inserire hash password
+          if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
             //POPUP PER CODICE OTP
-
+            echo "si";
             $ADMIN_PATH = $ADMIN_PATH+"";//evitare errore void
 
-            header("Location $ADMIN_PATH");
-          }
-
-
+            header("Location: $ADMIN_PATH");
         }
         $db_connection->close();
     }
