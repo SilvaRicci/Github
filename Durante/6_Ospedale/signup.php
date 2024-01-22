@@ -3,6 +3,7 @@
 <!doctype html>
     <html lang="en">
     <?php
+        include ""
         session_start();
         if(isset($_SESSION['id'])){
             header("Location: home.php");
@@ -81,79 +82,7 @@
     </div>
     <?php
         include "connessione.php";
-        if(isset($_POST["submit_btn"])){
-            
-            $CF = $_POST["CF"];
-            $cognome = $_POST["cognome"];
-            $nome = $_POST["nome"]; 
-            $indirizzo = $_POST["indirizzo"];
-            $comune = $_POST["comune"];
-            $CAP = $_POST["cap"];
-            $provincia = $_POST["provincia"];
-            $dataNascita = $_POST["dataNascita"];
-            $genere = $_POST["genere"];
-            
-            $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-
-            $isOk=true;
-            
-            if($CF==""){
-                $isOk=false;
-                echo "Codice fiscale non inserito <br />";
-            }
-            if(!(strlen($CF)==16) && $isOk){
-                $isOk=false;
-                echo "Codice fiscale non valido <br />";
-            }
-            if($cognome==""){
-                $isOk=false;
-                echo "Cognome non inserito <br />";
-            }
-            if($nome==""){
-                $isOk=false;
-                echo "Nome non inserito <br />";
-            }
-            if($indirizzo==""){
-                $isOk=false;
-                echo "Indirizzo non inserito <br />";
-            }
-            if($comune==""){
-                $isOk=false;
-                echo "Comune non inserito <br />";
-            }
-            if($CAP==""){
-                $isOk=false;
-                echo "CAP non inserito <br />";
-            }
-            if($provincia==""){
-                $isOk=false;
-                echo "Provincia non inserita <br />";
-            }
-            if($dataNascita==""){
-                $isOk=false;
-                echo "Data di nascita non inserita <br />";
-            }
-            if($genere=="-1"){
-                $isOk=false;
-                echo "Genere non inserito <br />";
-            }
-            if($password==""){
-            $isOk=false;
-            echo "Password non inserita <br />";
-            }
-            //eventuali nuovi controlli sulla password
-
-            if($isOk){
-                $password = password_hash($password,PASSWORD_DEFAULT);
-
-                $ok=$db_connection->query("INSERT INTO utente (CF,cognome,nome,indirizzo,comune,CAP,provincia,dataNascita,genere,password) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')");
-                
-                echo "Inserimento dei dati nella tabella: 100% completato.";
-                
-                header("Location: login.php");
-            }
-            
-            $db_connection->close();        
+        if(isset($_POST["submit_btn"])){    
                                                                              
         }
         ?>

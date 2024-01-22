@@ -6,6 +6,13 @@
     if(!isset($_SESSION['CF'])){
       header("Location: login.php");
     }
+
+    //recupero id utente con conseguente record dal database
+    $CF = $_SESSION['CF'];
+            
+    $result = $db_connection->query("SELECT * FROM utente WHERE CF = '$CF'");                      
+    $rows = $result->num_rows;                                                                                                                         
+    $row = $result->fetch_assoc();   
 ?>
 
 <?php
@@ -59,19 +66,27 @@
   <body style = "background-color:white">
     <center><br><br><h1>Hub sito web</h1><br>    
     <?php 
-            //recupero id utente con conseguente record dal database
-            $id_utente = $_SESSION['CF'];
             
-            $result = $db_connection->query("SELECT * FROM utente WHERE CF = '$CF'");                      
-            $rows = $result->num_rows;                                                                                                                         
-            $row = $result->fetch_assoc();   
-            
+
         ?>
         
         <div class="container ml-5">
     
   <?php       
-       
+        //visualizzazione base pagina per normali utenti
+        echo '<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">CF</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>';
+
+        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
+        echo "<th scope=."."row".">". "$row[cognome] </th>";
+        echo "<th scope=."."row".">". "$row[nome] </th></tr>";
     ?>
         <form action="logout.php">
           <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>

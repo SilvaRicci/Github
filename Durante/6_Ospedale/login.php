@@ -2,10 +2,49 @@
 <!doctype html>
 <html lang="en">
 <?php
+    include "connessione.php";
     session_start();
     if(isset($_SESSION['id'])){
         header("Location: home.php");
     }
+?>
+
+<?php
+
+  //definizione metodo login
+    function login(){
+      include "connessione.php";
+      $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
+      $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+
+      $result = $db_connection->query("SELECT * FROM utente WHERE CF='$CF'");
+      $rows = $result->num_rows;
+
+      if($rows > 0){
+
+          $row = $result->fetch_assoc();
+          $psw = $row['password'];
+
+          if(password_verify($password,$psw)) {
+
+              echo "Utente loggato con successo! Trasferimento in corso...";
+              
+              session_start();
+              
+              $_SESSION['CF'] = $row['CF'];
+
+              header("Location: home.php");
+              
+            }else{
+                echo "Password incorretta";
+            }        
+          }else{
+            echo "Utente non trovato ";
+        }
+        $db_connection->close();
+    }
+  
+
 ?>
   <head>
     <meta charset="utf-8">
@@ -34,38 +73,9 @@
 </div>
 
 <?php
-include "connessione.php";
 
     if (isset($_POST["submit_btn"])) {
-
-        $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
-        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-
-        $result = $db_connection->query("SELECT * FROM utente WHERE CF='$CF'");
-        $rows = $result->num_rows;
-
-        if($rows > 0){
-
-            $row = $result->fetch_assoc();
-            $psw = $row['password'];
-
-            if(password_verify($password,$psw)) {
-
-                echo "Utente loggato con successo! Trasferimento in corso...";
-                
-                session_start();
-                
-                $_SESSION['CF'] = $row['CF'];
-
-                header("Location: home.php");
-                
-            }else{
-                echo "Password incorretta";
-            }        
-        }else{
-            echo "Utente non trovato ";
-        }
-    $db_connection->close();
+      login();
     }
 ?>
 </center>
