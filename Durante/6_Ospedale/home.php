@@ -9,22 +9,12 @@
 ?>
 
 <?php
+/*
   function adminPanel(){
       include "connessione.php"; 
       $resultAdmin = $db_connection->query("SELECT * FROM utente");                      
       $rowsAdmin = $resultAdmin->num_rows;
 
-      Testi completi
-      CF
-      cognome
-      nome
-      indirizzo
-      comune
-      CAP
-      provincia
-      dataNascita
-      genere
-      password
       echo '<table class="table">
         <thead>
             <tr>
@@ -50,11 +40,13 @@
         echo "<th scope=."."row".">". "$rowAdmin[comune] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[CAP] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[provincia] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[dataNascita] </th>";
+        echo "<th scope=."."row".">". "$rowAdmin[genere] </th>";
         echo "<th scope=."."row".">". "$rowAdmin[password] </th>";
-        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$rowAdmin[id_utente]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
+        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$rowAdmin[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
       }
   }
-
+*/
 ?>
 
 <html lang="en">
@@ -68,42 +60,18 @@
     <center><br><br><h1>Hub sito web</h1><br>    
     <?php 
             //recupero id utente con conseguente record dal database
-            $id_utente = $_SESSION['id'];
+            $id_utente = $_SESSION['CF'];
             
-            $result = $db_connection->query("SELECT * FROM utenti WHERE id_utente = '$id_utente'");                      
+            $result = $db_connection->query("SELECT * FROM utente WHERE CF = '$CF'");                      
             $rows = $result->num_rows;                                                                                                                         
             $row = $result->fetch_assoc();   
-            //vari title a seconda della tipologia e dell'username
-            if("$row[tipologia]"=="persona")
-                echo "<h3> Caro"." $row[username]"." in questo sito potrai prenotare i tuoi migliori viaggi!</h3>";
-            if("$row[tipologia]"=="organizzazione")
-                echo "<h3> Caro"." $row[username]"." in questo sito potrai prenotare i migliori viaggi per la tua organizzazione!</h3>";
-            if("$row[tipologia]"=="admin")
-                echo "<h3> Caro"." $row[username]".". Gestisci il sito. </h3>";
+            
         ?>
+        
         <div class="container ml-5">
     
   <?php       
-        if("$row[tipologia]"=="persona" || "$row[tipologia]"=="organizzazione"){
-          //visualizzazione base pagina per normali utenti
-          echo '<table class="table">
-          <thead>
-              <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Cognome</th>
-              <th scope="col">Username</th>
-              </tr>
-          </thead>
-          <tbody>';
-
-          echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[nome]</th>";
-          echo "<th scope=."."row".">". "$row[cognome] </th>";
-          echo "<th scope=."."row".">". "$row[username] </th></tr>";
-
-        }elseif("$row[tipologia]"=="admin"){
-            //apertura pannello di controllo dell'admin
-            adminPanel();
-        }
+       
     ?>
         <form action="logout.php">
           <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>
