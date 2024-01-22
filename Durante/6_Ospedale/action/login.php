@@ -3,15 +3,6 @@
 <html lang="en">
 
 <?php
-  $CONN_PATH = "../config/connessione.php";
-  $LOGIN_PATH = "../action/login.php";
-  $SIGNUP_PATH = "../action/signup.php";
-  $LOGOUT_PATH = "../action/logout.php";
-  $USER_PATH = "../user/home.php";
-  $ADMIN_PATH = "../admin/admin.php"
-?>
-<?php
-    include $GLOBALS['CONN_PATH'];
     session_start();
     if(isset($_SESSION['id'])){
         header("Location: ../user/home.php");
@@ -22,7 +13,8 @@
 
   //definizione metodo login
     function login(){
-      include $GLOBALS['CONN_PATH'];
+      include "../config/path.php";
+      include $CONN_PATH;
 
       $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));

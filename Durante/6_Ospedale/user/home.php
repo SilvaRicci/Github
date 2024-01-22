@@ -1,10 +1,11 @@
 <!doctype html>
 
 <?php
-    include "config/connessione.php"; 
+    include "../config/path.php";
+    include $CONN_PATH;
     session_start();
     if(!isset($_SESSION['CF'])){
-      header("Location: login.php");
+      header("Location: $LOGIN_PATH");
     }
 
     //recupero id utente con conseguente record dal database
@@ -88,7 +89,7 @@
         echo "<th scope=."."row".">". "$row[cognome] </th>";
         echo "<th scope=."."row".">". "$row[nome] </th></tr>";
     ?>
-        <form action="logout.php">
+        <form action="<?php echo"$LOGOUT_PATH"?>">
           <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>
         </form>
 
