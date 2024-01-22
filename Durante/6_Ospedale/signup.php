@@ -26,10 +26,10 @@
             $genere = $_POST["genere"];
             
             $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-
-            if($isOk){
+            //ciao
+            if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
                 $password = password_hash($password,PASSWORD_DEFAULT);
-
+                echo "ciao2";
                 $ok=$db_connection->query("INSERT INTO utente (CF,cognome,nome,indirizzo,comune,CAP,provincia,dataNascita,genere,password) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')");
                 
                 echo "Inserimento dei dati nella tabella: 100% completato.";
@@ -40,7 +40,7 @@
             $db_connection->close();    
         }
 
-        function dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere){
+        function dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password){
             $isOk=true;
             
             if($CF==""){
