@@ -26,7 +26,7 @@
             $genere = $_POST["genere"];
             
             $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-            //ciao
+            echo "ciao";
             if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
                 $password = password_hash($password,PASSWORD_DEFAULT);
                 echo "ciao2";
@@ -168,7 +168,7 @@
     <?php
         include "connessione.php";
         if(isset($_POST["submit_btn"])){    
-                                                                             
+            signup();                                            
         }
         ?>
     </center>
