@@ -36,7 +36,7 @@
               
               $_SESSION['CF'] = $row['CF'];
 
-              $HOME_PATH = $HOME_PATH+"";//evitare avvertimento void to string
+              $HOME_PATH = "../user/home.php";//evitare avvertimento void to string
 
               header("Location: $HOME_PATH");
               
