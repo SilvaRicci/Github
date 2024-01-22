@@ -3,7 +3,7 @@
 <!doctype html>
     <html lang="en">
     <?php
-        include "connessione.php";
+        include "config/connessione.php";
         session_start();
         if(isset($_SESSION['id'])){
             header("Location: home.php");
@@ -13,7 +13,7 @@
     <?php
         function signup(){
 
-            include "connessione.php";
+            include "config/connessione.php";
 
             $CF = $_POST["CF"];
             $cognome = $_POST["cognome"];
@@ -166,7 +166,7 @@
 
     </div>
     <?php
-        include "connessione.php";
+        include "config/connessione.php";
         if(isset($_POST["submit_btn"])){    
             signup();                                            
         }

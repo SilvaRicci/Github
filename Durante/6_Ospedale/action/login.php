@@ -2,10 +2,10 @@
 <!doctype html>
 <html lang="en">
 <?php
-    include "connessione.php";
+    include "config/connessione.php";
     session_start();
     if(isset($_SESSION['id'])){
-        header("Location: home.php");
+        header("Location: ../user/home.php");
     }
 ?>
 
@@ -13,7 +13,7 @@
 
   //definizione metodo login
     function login(){
-      include "connessione.php";
+      include "config/connessione.php";
       $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
@@ -33,7 +33,7 @@
               
               $_SESSION['CF'] = $row['CF'];
 
-              header("Location: home.php");
+              header("Location: ../user/home.php");
               
             }else{
                 echo "Password incorretta";

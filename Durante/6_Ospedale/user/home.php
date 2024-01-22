@@ -1,7 +1,7 @@
 <!doctype html>
 
 <?php
-    include "connessione.php"; 
+    include "config/connessione.php"; 
     session_start();
     if(!isset($_SESSION['CF'])){
       header("Location: login.php");
