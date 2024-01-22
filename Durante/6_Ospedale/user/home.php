@@ -27,7 +27,7 @@
   </head>
   <body style = "background-color:white">
 
-  <!-- Inizio navbar -->
+  <!-- Inizio navbar SISTEMARE DROPDOWN BUTTON https://getbootstrap.com/docs/4.0/components/navbar/ -->
   <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
 
     <!-- Torna a home.php -->
@@ -44,7 +44,7 @@
         </li>
         <!-- 2# button -> Vai a visite.php -->
         <li class="nav-item">
-          <a class="nav-link" href="visite.php">Vis ite</a>
+          <a class="nav-link" href="visite.php">Visite</a>
         </li>
         <!-- 3# button -> Vai a profilo.php/logout.php -->
         <li class="nav-item dropdown">
