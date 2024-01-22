@@ -3,9 +3,10 @@
 <html lang="en">
 
 <?php
+    include "../config/path.php";
     session_start();
     if(isset($_SESSION['id'])){
-        header("Location: ../user/home.php");
+        header("Location: $HOME_PATH");
     }
 ?>
 
@@ -35,7 +36,9 @@
               
               $_SESSION['CF'] = $row['CF'];
 
-              header("Location: ../user/home.php");
+              $HOME_PATH = $HOME_PATH+"";//evitare avvertimento void to string
+
+              header("Location: $HOME_PATH");
               
             }else{
                 echo "Password incorretta";

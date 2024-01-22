@@ -3,15 +3,16 @@
 <!doctype html>
     <html lang="en">
     <?php
+        include "../config/path.php";
         session_start();
         if(isset($_SESSION['id'])){
-            header("Location: home.php");
+            header("Location: $HOME_PATH");
         }
     ?>
 
     <?php
         function signup(){
-
+            
             include "../config/path.php";
             include $CONN_PATH;
 
@@ -34,7 +35,9 @@
                 
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
-                header("Location: login.php");
+                $LOGIN_PATH = $LOGIN_PATH+"";//evitare errore void
+
+                header("Location: $LOGIN_PATH");
             }
             
             $db_connection->close();    
@@ -159,14 +162,13 @@
         <br><br>
 
         <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button><br><br>
-        <p>Gia' registrato? <a href="login.php">Login</a></p>
+        <p>Gia' registrato? <a href="<?php echo'$LOGIN_PATH';?>">Login</a></p>
         <br>
         
     </form>
 
     </div>
     <?php
-        include "config/connessione.php";
         if(isset($_POST["submit_btn"])){    
             signup();                                            
         }
