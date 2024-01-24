@@ -27,18 +27,21 @@ ciao
     
     switch($type){
       case 0:{
-        $query = $queryUForCF;
+        $query = "SELECT * FROM utente WHERE 'CF' = '$data'";
         break;
       }
       case 1:{
-        $query = $queryUForCognome;
+        $query = "SELECT * FROM utente WHERE 'cognome' = '$data'";
         break;
       }
       case 2:{
-        $query = $queryUForNome;
+        $query = "SELECT * FROM utente WHERE 'nome' = '$data'";
         break;
       }
     }
+    echo $query;
+    $query=$query+"'"++"'";
+    echo $data;echo $type;
     echo $query;
     $resultSearch = $db_connection->query($query);
     
