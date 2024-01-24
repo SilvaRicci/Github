@@ -81,7 +81,7 @@ ciao
 
     $rows = $data->num_rows;
 
-    if($rows<0){
+    if($rows<=0){
       echo "Temporaneo, nessun risultato trovato";
       return;
     }
