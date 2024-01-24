@@ -4,5 +4,4 @@
     $SIGNUP_PATH = "../action/signup.php";
     $LOGOUT_PATH = "../action/logout.php";
     $USER_PATH = "../user/home.php";
-    $ADMIN_PATH = "../admin/admin.php"
-?>
+    $ADMIN_PATH = "../admin/admin.php";

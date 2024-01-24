@@ -16,20 +16,19 @@
     function login(){
       include "../config/path.php";
       include $CONN_PATH;
-      echo "fds";
+
       $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-      echo "fds1";
+
       $result = $db_connection->query("SELECT * FROM utente WHERE CF='$CF'");
       $rows = $result->num_rows;
 
       if($rows > 0){
-        echo "fds";
+
           $row = $result->fetch_assoc();
           $psw = $row['password'];
-          echo "fds";
+
           if(password_verify($password,$psw)) {
-            echo "fds";
               echo "Utente loggato con successo! Trasferimento in corso...";
               
               session_start();
@@ -46,18 +45,16 @@
           }else{
             echo "Utente non trovato";
           }
-          echo "fds";
+
           $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
           $rowsAdmin = $resultAdmin->num_rows;
           $rowAdmin = $resultAdmin->fetch_assoc();
-          echo "fds";
+
           if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
             //POPUP PER CODICE OTP
             session_start();
-            echo "fds";
             $_SESSION['username'] = $CF;
-            $ADMIN_PATH = "../admin/admin.php";//evitare errore void || DA MODIFICARE
-            echo "fds";
+            $ADMIN_PATH = "../admin/admin.php";
             header("Location: $ADMIN_PATH");
         }
         $db_connection->close();
