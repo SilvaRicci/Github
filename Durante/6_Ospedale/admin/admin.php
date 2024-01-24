@@ -26,15 +26,71 @@ ciao
     $queryForTipologia = "SELECT * FROM utente WHERE 'tipologia' = '$tipologia'";
 
 
-	function searchUser($data,$type){
+	function searchUser(){
     	
     include "../config/path.php";
     include $CONN_PATH;
-    	
-    	
-      
-    	$resultSearch = $db_connection->query();
     
+    $data = $_POST['inputData'];
+    $type = $_POST['type'];
+
+    $query = "";
+    
+    switch($type){
+      case 0:{
+        $query = $queryForCF;
+        break;
+      }
+      case 1:{
+        $query = $queryForCognome;
+        break;
+      }
+      case 2:{
+        $query = $queryForNome;
+        break;
+      }
+    }
+      
+    $resultSearch = $db_connection->query($query);
+    
+    printTable($resultSearch);
+
+    $resultSearch->close();
+    $db_connection->close();
+
+  }
+  function searchVisita(){
+    	
+    include "../config/path.php";
+    include $CONN_PATH;
+    
+    $data = $_POST['inputData'];
+    $type = $_POST['type'];
+
+    $query = "";
+    
+    switch($type){
+      case 0:{
+        $query = $queryForCF;
+        break;
+      }
+      case 1:{
+        $query = $queryForCognome;
+        break;
+      }
+      case 2:{
+        $query = $queryForNome;
+        break;
+      }
+    }
+      
+    $resultSearch = $db_connection->query($query);
+    
+    printTable($resultSearch);
+
+    $resultSearch->close();
+    $db_connection->close();
+
   }
 /*
   function adminPanel(){
