@@ -5,6 +5,10 @@ ciao
     include "../config/path.php";
     include $CONN_PATH;
     
+    session_start();
+    if(!isset($_SESSION['CF'])){
+      header("Location: $LOGIN_PATH");
+    }
     
         
 	function searchUserForCF(){
