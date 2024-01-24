@@ -54,8 +54,10 @@
             //POPUP PER CODICE OTP
             session_start();
             $_SESSION['username'] = $CF;
-            $ADMIN_PATH = "../admin/admin.php";
-            header("Location: $ADMIN_PATH");
+
+
+            $location = "Location: "+$ADMIN_PATH;
+            header($location);
         }
         $db_connection->close();
     }
