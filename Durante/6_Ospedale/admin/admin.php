@@ -10,12 +10,15 @@ ciao
       header("Location: $LOGIN_PATH");
     }
     
-        
+    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
+    $queryForNome = "SELECT * FROM utente WHERE 'cognome' = '$CF'";
+    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
+
 	function searchUserForCF(){
     	
     	
     	
-        return  "SELECT * FROM utente WHERE 'CF' = '$CF'";
+        return  ;
     	$resultSearch = $db_connection->query();
     
     }
