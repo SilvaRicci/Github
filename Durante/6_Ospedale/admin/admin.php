@@ -15,15 +15,12 @@ ciao
 
     include "../config/path.php";
     include $CONN_PATH;
-    include "query.php";
     
     $data = $_POST['inputData'];
     $type = $_POST['type'];
 
     $data = "DRMD5345JFJH3446";
     $type = 0;
-
-    $query = "";
     
     switch($type){
       case 0:{
@@ -39,12 +36,9 @@ ciao
         break;
       }
     }
-    echo $query;
-    $query=$query+"'"++"'";
-    echo $data;echo $type;
-    echo $query;
+
     $resultSearch = $db_connection->query($query);
-    
+
     printTable($resultSearch);
 
     $resultSearch->close();
@@ -55,7 +49,6 @@ ciao
     	
     include "../config/path.php";
     include $CONN_PATH;
-    include "query.php";
     
     $data = $_POST['inputData'];
     $type = $_POST['type'];
@@ -75,9 +68,6 @@ ciao
       }
     }
     
-    global $queryUForCF; 
-    
-    echo $queryVForID;
     $resultSearch = $db_connection->query($query);
     
     printTable($resultSearch);
@@ -88,7 +78,8 @@ ciao
   }
 
   function printTable($data){
-    $rows = $data->num_rows();
+
+    $rows = $data->num_rows;
 
     if($rows<0){
       echo "Temporaneo, nessun risultato trovato";
@@ -111,8 +102,9 @@ ciao
             </tr>
         </thead>
         <tbody>';
+        $row = $data->fetch_assoc();
+    //while($row = $data->fetch_assoc()){
 
-    while($row = $data->fetch_assoc()){
       echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
         echo "<th scope=."."row".">". "$row[cognome] </th>";
         echo "<th scope=."."row".">". "$row[nome] </th>";
@@ -124,7 +116,7 @@ ciao
         echo "<th scope=."."row".">". "$row[genere] </th>";
         echo "<th scope=."."row".">". "$row[password] </th>";
         echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
-    }
+    //}
 
   }
 
