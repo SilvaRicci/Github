@@ -57,7 +57,7 @@
               
             $_SESSION['username'] = $CF;
             $ADMIN_PATH = "../admin/admin.php";//evitare errore void || DA MODIFICARE
-
+            echo "sgdsdg";
             header("Location: $ADMIN_PATH");
         }
         $db_connection->close();
