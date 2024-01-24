@@ -12,18 +12,18 @@ ciao
     
     //query per ricerca persona
 
-    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
-    $queryForCognome = "SELECT * FROM utente WHERE 'cognome' = '$cognome'";
-    $queryForNome = "SELECT * FROM utente WHERE 'nome' = '$nome'";
+    $queryUForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
+    $queryUForCognome = "SELECT * FROM utente WHERE 'cognome' = '$cognome'";
+    $queryUForNome = "SELECT * FROM utente WHERE 'nome' = '$nome'";
     
     //indirizzo,comune,cap,provincia,range data nascita, genere
 
 
     //query per ricerca visita
 
-    $queryForID = "SELECT * FROM utente WHERE 'id' = '$id'";
-    $queryForCF = "SELECT * FROM utente WHERE 'CF_utente' = '$CF'";
-    $queryForTipologia = "SELECT * FROM utente WHERE 'tipologia' = '$tipologia'";
+    $queryVForID = "SELECT * FROM utente WHERE 'id' = '$id'";
+    $queryVForCF = "SELECT * FROM utente WHERE 'CF_utente' = '$CF'";
+    $queryVForTipologia = "SELECT * FROM utente WHERE 'tipologia' = '$tipologia'";
 
 
 	function searchUser(){
@@ -38,15 +38,15 @@ ciao
     
     switch($type){
       case 0:{
-        $query = $queryForCF;
+        $query = $queryUForCF;
         break;
       }
       case 1:{
-        $query = $queryForCognome;
+        $query = $queryUForCognome;
         break;
       }
       case 2:{
-        $query = $queryForNome;
+        $query = $queryUForNome;
         break;
       }
     }
@@ -71,15 +71,15 @@ ciao
     
     switch($type){
       case 0:{
-        $query = $queryForCF;
+        $query = $queryVForID;
         break;
       }
       case 1:{
-        $query = $queryForCognome;
+        $query = $queryVForCF;
         break;
       }
       case 2:{
-        $query = $queryForNome;
+        $query = $queryVForTipologia;
         break;
       }
     }
@@ -92,6 +92,50 @@ ciao
     $db_connection->close();
 
   }
+
+  function printTable($data){
+    $rows = $data->num_rows();
+
+    if($rows<0){
+      echo "Temporaneo, nessun risultato trovato";
+      return;
+    }
+
+    echo '<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Codice fiscale</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Indirizzo</th>
+            <th scope="col">Comune</th>
+            <th scope="col">CAP</th>
+            <th scope="col">Data di nascita</th>
+            <th scope="col">Genere</th>
+            <th scope="col">Password</th>
+            <th scope="col">T</th> 
+            </tr>
+        </thead>
+        <tbody>';
+
+    while($row = $data->fetch_assoc()){
+      echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
+        echo "<th scope=."."row".">". "$row[cognome] </th>";
+        echo "<th scope=."."row".">". "$row[nome] </th>";
+        echo "<th scope=."."row".">". "$row[indirizzo] </th>";
+        echo "<th scope=."."row".">". "$row[comune] </th>";
+        echo "<th scope=."."row".">". "$row[CAP] </th>";
+        echo "<th scope=."."row".">". "$row[provincia] </th>";
+        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
+        echo "<th scope=."."row".">". "$row[genere] </th>";
+        echo "<th scope=."."row".">". "$row[password] </th>";
+        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
+    }
+
+  }
+
+  
+
 /*
   function adminPanel(){
       include "connessione.php"; 
@@ -115,18 +159,18 @@ ciao
         </thead>
         <tbody>';
 
-      while($rowAdmin = $resultAdmin->fetch_assoc()){
-        echo "<tr> <th scope=."."row"."class="."secondary".">". "$rowAdmin[CF]</th>";
-        echo "<th scope=."."row".">". "$rowAdmin[cognome] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[nome] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[indirizzo] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[comune] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[CAP] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[provincia] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[dataNascita] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[genere] </th>";
-        echo "<th scope=."."row".">". "$rowAdmin[password] </th>";
-        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$rowAdmin[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
+      while($row = $resultAdmin->fetch_assoc()){
+        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
+        echo "<th scope=."."row".">". "$row[cognome] </th>";
+        echo "<th scope=."."row".">". "$row[nome] </th>";
+        echo "<th scope=."."row".">". "$row[indirizzo] </th>";
+        echo "<th scope=."."row".">". "$row[comune] </th>";
+        echo "<th scope=."."row".">". "$row[CAP] </th>";
+        echo "<th scope=."."row".">". "$row[provincia] </th>";
+        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
+        echo "<th scope=."."row".">". "$row[genere] </th>";
+        echo "<th scope=."."row".">". "$row[password] </th>";
+        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
       }
   }
 */
