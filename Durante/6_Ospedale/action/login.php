@@ -55,9 +55,8 @@
             session_start();
             $_SESSION['username'] = $CF;
 
-
-            $location = "Location: "+$ADMIN_PATH;
-            header($location);
+            $ADMIN_PATH = "../admin/admin.php";
+            header("Location: $ADMIN_PATH");
         }
         $db_connection->close();
     }

@@ -30,19 +30,20 @@ ciao
     	
     include "../config/path.php";
     include $CONN_PATH;
-    
+    echo "1";
     $data = $_POST['inputData'];
     $type = $_POST['type'];
-
+    echo "2";
     $data = "DRMD5345JFJH3446";
     $type = 0;
-
+    echo "3";
     $query = "";
-    
+    echo "4";
     switch($type){
       case 0:{
         $query = $queryUForCF;
-        break;
+    echo "4";
+    break;
       }
       case 1:{
         $query = $queryUForCognome;
@@ -191,7 +192,10 @@ ciao
   </head>
   <body style = "background-color:white">
     <center><br><br><h1>Hub azienda viaggi</h1><br>      
-        <button type="submit" id="submit_btn" name="submit" class="btn btn-primary">Login</button><br><br>
+      <form action="#" method="POST">
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Logfsin</button><br><br>
+      
+</form>
         <a class="btn btn-primary" role="button"  href="action/login.php"> Login  </a> <br><br>
     </center>
 
@@ -201,7 +205,7 @@ ciao
 
 
 <?php 
-  if(isset($_POST['submit'])){
+  if(isset($_POST["submit"])){
     searchUser();
   }
 ?>
