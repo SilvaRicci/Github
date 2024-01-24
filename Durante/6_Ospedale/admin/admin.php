@@ -1,6 +1,20 @@
 ciao
 
 <?php
+	
+    include "../config/path.php";
+    include $CONN_PATH;
+    
+    
+        
+	function searchUserForCF(){
+    	
+    	
+    	
+        return  "SELECT * FROM utente WHERE 'CF' = '$CF'";
+    	$resultSearch = $db_connection->query();
+    
+    }
 /*
   function adminPanel(){
       include "connessione.php"; 
