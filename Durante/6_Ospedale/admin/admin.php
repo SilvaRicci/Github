@@ -10,18 +10,32 @@ ciao
       header("Location: $LOGIN_PATH");
     }
     
-    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
-    $queryForNome = "SELECT * FROM utente WHERE 'cognome' = '$CF'";
-    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
+    //query per ricerca persona
 
-	function searchUserForCF(){
+    $queryForCF = "SELECT * FROM utente WHERE 'CF' = '$CF'";
+    $queryForCognome = "SELECT * FROM utente WHERE 'cognome' = '$cognome'";
+    $queryForNome = "SELECT * FROM utente WHERE 'nome' = '$nome'";
+    
+    //indirizzo,comune,cap,provincia,range data nascita, genere
+
+
+    //query per ricerca visita
+
+    $queryForID = "SELECT * FROM utente WHERE 'id' = '$id'";
+    $queryForCF = "SELECT * FROM utente WHERE 'CF_utente' = '$CF'";
+    $queryForTipologia = "SELECT * FROM utente WHERE 'tipologia' = '$tipologia'";
+
+
+	function searchUser($data,$type){
+    	
+    include "../config/path.php";
+    include $CONN_PATH;
     	
     	
-    	
-        return  ;
+      
     	$resultSearch = $db_connection->query();
     
-    }
+  }
 /*
   function adminPanel(){
       include "connessione.php"; 
@@ -60,4 +74,10 @@ ciao
       }
   }
 */
+?>
+
+<?php 
+  if(isset($_POST['submit'])){
+
+  }
 ?>
