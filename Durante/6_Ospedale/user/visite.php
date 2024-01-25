@@ -29,17 +29,24 @@
     $resultVisit = $db_connection->query($query);                      
     $rowsVisit = $resultVisit->num_rows;         
     
-    echo '<table class="table mt-5">
-        <thead>
-            <tr>
-            <th scope="col">Tipologia</th>
-            <th scope="col">Data</th>
-            <th scope="col">Ora</th>
-            <th scope="col">Modifica</th>
-            <th scope="col">Elimina</th>
-            </tr>
-        </thead>
-        <tbody>';
+    echo '
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <table class="table mt-5 table-success table-striped table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Tipologia</th>
+                <th scope="col">Data</th>
+                <th scope="col">Ora</th>
+                <th scope="col">Modifica</th>
+                <th scope="col">Elimina</th>
+                </tr>
+            </thead>
+            <tbody>
+        </div>
+        <div class="col-2"></div>
+      </div>';
 
     if($rowsVisit>0){
 
