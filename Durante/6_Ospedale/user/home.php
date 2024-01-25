@@ -79,8 +79,8 @@
         <tbody>';
 
         echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
-        echo "<th scope=."."row".">". "$row[cognome] </th>";
-        echo "<th scope=."."row".">". "$row[nome] </th></tr>";
+        echo "<th scope='row'> $row[cognome] </th>";
+        echo "<th scope='row'> $row[nome] </th>";
     ?>
         <form action="">
           <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>

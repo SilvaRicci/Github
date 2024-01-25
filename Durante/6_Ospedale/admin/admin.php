@@ -59,11 +59,11 @@ ciao
         break;
       }
       case 1:{
-        $query = $queryVForCF;
+        $query = "SELECT * FROM utente WHERE CF_utente = '$data'";
         break;
       }
       case 2:{
-        $query = $queryVForTipologia;
+        $query = "SELECT * FROM utente WHERE tipologia = '$data'";
         break;
       }
     }
