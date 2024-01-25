@@ -35,6 +35,8 @@
             <th scope="col">Tipologia</th>
             <th scope="col">Data</th>
             <th scope="col">Ora</th>
+            <th scope="col">Modifica</th>
+            <th scope="col">Elimina</th>
             </tr>
         </thead>
         <tbody>';
@@ -42,13 +44,17 @@
     if($rowsVisit>0){
 
       while($rowVisit = $resultVisit->fetch_assoc()){
-        echo "<tr> <th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
+        echo "<tr>";
+        echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
         echo "<th scope='row'> $rowVisit[data] </th>";
-        echo "<th scope='row'> $rowVisit[ora] </th></tr>";
+        echo "<th scope='row'> $rowVisit[ora] </th>";
+        echo "<th scope='row'> <button  id='deleteVis_btn' name='deleteVis_btn' value='$row[CF]' class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></th>";
+        echo "<th scope='row'> <button  id='deleteVis_btn' name='deleteVis_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></th>";
+        echo "</tr>";
       } 
     }
 
-    echo "<th scope='row'><a href='Aggiungi una visita.php'> Aggiungi una visita </a> </th>";
+    echo "<th scope='row'><a href='addVisita.php'> Aggiungi una visita </a> </th><th></th><th></th><th></th><th></th></tr>";
 
     echo '</tbody></table>';
   
