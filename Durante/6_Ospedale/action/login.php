@@ -13,7 +13,7 @@
     function login(){
       include "../config/path.php";
       include $CONN_PATH;
-
+      
       $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
@@ -39,6 +39,7 @@
             }        
           }else{
             echo "Utente non trovato";
+            //loginAdmin();
           }
         $db_connection->close();
     }
@@ -58,11 +59,13 @@
 
       if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
         //POPUP PER CODICE OTP
+
+        echo "Amministratore loggato con successo! Trasferimento in corso...";
+
         session_start();
-        echo "2";
+
         $_SESSION['username'] = $CF;
 
-        $ADMIN_PATH = "../admin/admin.php";
         header("Location: $ADMIN_PATH");
       }
     }
@@ -94,7 +97,7 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password">
     </div><br><br>
-
+  </div>
   <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Login</button><br><br>
   <p>Non sei registrato? <a href="signup.php">Registrati</a></p><br>
 </form>
@@ -105,11 +108,8 @@
 
 <?php
 
-    if (isset($_POST["submit_btn"])) {
-      echo "dfsfd";
-      loginAdmin();
+    if(isset($_POST["submit_btn"])){  
       login();
-      
     }
 ?>
 
