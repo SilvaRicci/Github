@@ -39,34 +39,36 @@
             }        
           }else{
             echo "Utente non trovato";
-            //loginAdmin();
+            loginAdmin();
           }
         $db_connection->close();
     }
 
     function loginAdmin(){
-      echo "dfsfd";
+      
       include "../config/path.php";
       include $CONN_PATH;
-      echo "dfsfd";
 
       $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
       $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
       $rowsAdmin = $resultAdmin->num_rows;
-      $rowAdmin = $resultAdmin->fetch_assoc();
 
-      if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
-        //POPUP PER CODICE OTP
+      if($rows > 0){
+        $rowAdmin = $resultAdmin->fetch_assoc();
 
-        echo "Amministratore loggato con successo! Trasferimento in corso...";
+        if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
+          //POPUP PER CODICE OTP
 
-        session_start();
+          echo "Amministratore loggato con successo! Trasferimento in corso...";
 
-        $_SESSION['username'] = $CF;
+          session_start();
 
-        header("Location: $ADMIN_PATH");
+          $_SESSION['username'] = $CF;
+
+          header("Location: $ADMIN_PATH");
+        }
       }
     }
   
