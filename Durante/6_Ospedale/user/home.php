@@ -37,16 +37,16 @@
         
         <!-- 1# button -> Torna a home.php -->
         <li class="nav-item active nav-underline px-5 pt-3">
-            <a class="nav-link active nav-underline" href="home.php">Home <span class="sr-only"></span></a>
+            <a class="nav-link active nav-underline" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
           </li>
 
         <!-- 2# button -> Vai a index.php -->
           <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="home.php">Panoramica <span class="sr-only"></span></a>
+            <a class="nav-link" href="<?php echo"$INDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
           </li>
 
           <!-- Torna a home.php -->
-          <a class="navbar-brand px-5" href="home.php">
+          <a class="navbar-brand px-5" href="<?php echo"$HOME_PATH"?>">
             <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
 
           <!-- 3# button -> Vai a visite.php -->
           <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="visite.php">Visite</a>
+            <a class="nav-link" href="<?php echo"$VISITE_PATH"?>">Visite</a>
           </li>
           
           <!-- 4# button -> Vai a profilo.php/logout.php -->
@@ -64,7 +64,7 @@
               Profilo
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="profilo.php">Visualizza</a></li>
+              <li><a class="dropdown-item" href="<?php echo"$PROFILE_PATH"?>">Visualizza</a></li>
               <li><hr class="dropdown-divider"></li>
               <?php 
                   if(!isset($_SESSION['CF'])){
@@ -82,8 +82,8 @@
       </div>
     </div>
   </nav>
-    <!-- Fine navbar -->
-    
+  <!-- Fine navbar -->
+
   <?php       
         //visualizzazione base pagina per normali utenti
         echo '<table class="table">
