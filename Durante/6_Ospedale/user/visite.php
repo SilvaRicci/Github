@@ -48,8 +48,9 @@
         echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
         echo "<th scope='row'> $rowVisit[data] </th>";
         echo "<th scope='row'> $rowVisit[ora] </th>";
-        echo "<th scope='row'> <button  id='deleteVis_btn' name='deleteVis_btn' value='$row[CF]' class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></th>";
-        echo "<th scope='row'> <button  id='deleteVis_btn' name='deleteVis_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></th>";
+        //BOTTONI DA SISTEMARE
+        echo "<th scope='row'> <button class='btn btn-primary'><i class='bi bi-trash-fill'><a href="."$HOME_PATH"."></a></i></button></th>";
+        echo "<th scope='row'> <button class='btn btn-danger'><i class='bi bi-trash-fill'><a href="."$HOME_PATH"."></a></i></button></th>";
         echo "</tr>";
       } 
     }
