@@ -1,3 +1,10 @@
+<?php
+
+  include "config/path.php";
+  session_start();
+  
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,17 +25,17 @@
         
         <!-- 1# button -> Torna a home.php -->
         <li class="nav-item active nav-underline px-5 pt-3">
-            <a class="nav-link active nav-underline" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
+            <a class="nav-link active nav-underline" href="<?php echo"$IHOME_PATH"?>">Home <span class="sr-only"></span></a>
           </li>
 
         <!-- 2# button -> Vai a index.php -->
           <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="index.php">Panoramica <span class="sr-only"></span></a>
+            <a class="nav-link" href="<?php echo"$IINDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
           </li>
 
           <!-- Torna a home.php -->
-          <a class="navbar-brand px-5" href="<?php echo"$HOME_PATH"?>">
-            <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
+          <a class="navbar-brand px-5" href="<?php echo"$IHOME_PATH"?>">
+            <img src="<?php echo"$ILOGO_PATH"?>" alt="Logo" width="50" height="50">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,7 +43,7 @@
 
           <!-- 3# button -> Vai a visite.php -->
           <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="<?php echo"$VISITE_PATH"?>">Visite</a>
+            <a class="nav-link" href="<?php echo"$IVISITE_PATH"?>">Visite</a>
           </li>
           
           <!-- 4# button -> Vai a profilo.php/logout.php -->
@@ -45,14 +52,14 @@
               Profilo
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="<?php echo"$PROFILE_PATH"?>">Visualizza</a></li>
+              <li><a class="dropdown-item" href="<?php echo"$IPROFILE_PATH"?>">Visualizza</a></li>
               <li><hr class="dropdown-divider"></li>
               <?php 
                   if(!isset($_SESSION['CF'])){
-                    echo '<li><a class="dropdown-item" href="'.$SIGNUP_PATH.'">Signup</a></li>';
-                    echo '<li><a class="dropdown-item" href="'.$LOGIN_PATH.'">Login</a></li>';
+                    echo '<li><a class="dropdown-item" href="'.$ISIGNUP_PATH.'">Signup</a></li>';
+                    echo '<li><a class="dropdown-item" href="'.$ILOGIN_PATH.'">Login</a></li>';
                   }else{
-                    echo '<li><a class="dropdown-item" href="'.$LOGOUT_PATH.'">Logout</a></li>';
+                    echo '<li><a class="dropdown-item" href="'.$ILOGOUT_PATH.'">Logout</a></li>';
                   }
               ?>
               
