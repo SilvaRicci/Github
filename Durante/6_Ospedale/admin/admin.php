@@ -55,7 +55,7 @@ ciao
     
     switch($type){
       case 0:{
-        $query = $queryVForID;
+        $query = "SELECT * FROM utente WHERE id = '$data'";
         break;
       }
       case 1:{

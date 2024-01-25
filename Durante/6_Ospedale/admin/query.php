@@ -10,7 +10,6 @@
    
        //query per ricerca visita
    
-       $queryVForID = "SELECT * FROM utente WHERE 'id' = ";
-       $queryVForCF = "SELECT * FROM utente WHERE 'CF_utente' = ";
-       $queryVForTipologia = "SELECT * FROM utente WHERE 'tipologia' = ";
+       
+       
    
