@@ -19,50 +19,43 @@
 
 
 <?php
-  function getVisitData(){
+
+  function insertData(){
+    
+    include "../config/path.php";
+    include $CONN_PATH;
+    
+    $CF = $_SESSION['CF'];  
+    $tipologia = $_POST['tipologia'];  
+    $data = $_POST['data'];  
+    $ora = $_POST['ora'];  
+
+    $query = "INSERT INTO `visita`(`id`,`CF_utente`, `tipologia`, `data`, `ora`) VALUES (NULL,'$CF','$tipologia','$data','$ora')";
+    
+    $db_connection->query($query);
+    
+    $db_connection->close();
+
+    header("Location: visite.php");
+  }
+
+  function getTypeData(){
     include "../config/path.php";
     include $CONN_PATH;
 
-    $CF = $_SESSION['CF'];
-    $id = $_GET['id'];
-
-    $query = "SELECT * FROM `visita` WHERE `CF_utente` = '$CF' AND `id` = '$id'";
-
-    $resultVisit = $db_connection->query($query);                      
-    $rowsVisit = $resultVisit->num_rows;         
-    
     echo '
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-          <table class="table mt-5 table-striped table-hover thead-success">
-            <thead>
-                <tr>
-                <th scope="col">Tipologia</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ora</th>
-                </tr>
-            </thead>
-            <tbody>
-        </div>
-        <div class="col-2"></div>
-      </div>';
+    <select id="tipologia" name="tipologia" class="form-control">
+        <option selected value="-1">Scegli la tipologia</option>;
+    ';
 
-    if($rowsVisit>0){
+    $query = "SELECT * FROM tipologieVisite";
+    $result = $db_connection->query($query);
 
-      while($rowVisit = $resultVisit->fetch_assoc()){
-        echo "<tr>";
-        echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
-        echo "<th scope='row'> $rowVisit[data] </th>";
-        echo "<th scope='row'> $rowVisit[ora] </th>";
-        echo "</tr>";
-      } 
+    while($row = $result->fetch_assoc()){
+        echo "<option value='$row[nome]'>$row[nome]</option>";
     }
-
-    echo "<th scope='row'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button><br><br></tr>";
-
-    echo '</tbody></table>';
-  
+    
+    echo '</select>';
   }
 ?>
 
@@ -133,8 +126,43 @@
   </nav>
   <!-- Fine navbar -->
 
+  <form action='#' method='POST'>
+    <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+            <table class="table mt-5 thead-success">
+                <thead>
+                    <tr>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Ora</th>
+                    </tr>
+                </thead>
+                <tbody>
+            </div>
+            <div class="col-2"></div>
+        </div>
+            <tr>
+                <th scope='row' class='secondary'>
+                    <input type="date" class="form-control" id="data" name="data">
+                </th>
+                <th scope='row'> 
+                    <input type="date" class="form-control" id="data" name="data">
+                </th>
+                <th scope='row'> 
+                    <input type="time" class="form-control" id="ora" name="ora">
+                </th>
+            </tr>
+
+        </tbody></table>
+
+        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button></center>
+    </form>
   <?php       
-        getVisitData();
+  
+        if(isset($_POST['submit_btn'])){
+            insertData();
+        }
     ?>
 
   

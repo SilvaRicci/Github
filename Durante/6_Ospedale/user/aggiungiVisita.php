@@ -33,7 +33,7 @@
     $query = "INSERT INTO `visita`(`id`,`CF_utente`, `tipologia`, `data`, `ora`) VALUES (NULL,'$CF','$tipologia','$data','$ora')";
     
     $db_connection->query($query);
-    echo 'fdf';
+    
     $db_connection->close();
 
     header("Location: visite.php");
@@ -126,37 +126,38 @@
   </nav>
   <!-- Fine navbar -->
 
-  <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-          <table class="table mt-5 thead-success">
-            <thead>
-                <tr>
-                <th scope="col">Tipologia</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ora</th>
-                </tr>
-            </thead>
-            <tbody>
+  <form action='#' method='POST'>
+    <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+            <table class="table mt-5 thead-success">
+                <thead>
+                    <tr>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Ora</th>
+                    </tr>
+                </thead>
+                <tbody>
+            </div>
+            <div class="col-2"></div>
         </div>
-        <div class="col-2"></div>
-    </div>
-        <tr>
-            <th scope='row' class='secondary'>
-                <?php getTypeData();?>
-            </th>
-            <th scope='row'> 
-                <input type="date" class="form-control" id="data" name="data">
-            </th>
-            <th scope='row'> 
-                <input type="time" class="form-control" id="ora" name="ora">
-            </th>
-        </tr>
+            <tr>
+                <th scope='row' class='secondary'>
+                    <?php getTypeData();?>
+                </th>
+                <th scope='row'> 
+                    <input type="date" class="form-control" id="data" name="data">
+                </th>
+                <th scope='row'> 
+                    <input type="time" class="form-control" id="ora" name="ora">
+                </th>
+            </tr>
 
-    </tbody></table>
+        </tbody></table>
 
-    <br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>
-
+        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></center>
+    </form>
   <?php       
   
         if(isset($_POST['submit_btn'])){
