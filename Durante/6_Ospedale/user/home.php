@@ -28,18 +28,25 @@
   <body style = "background-color:white">
 
   <!-- Inizio navbar SISTEMARE DROPDOWN BUTTON https://getbootstrap.com/docs/4.0/components/navbar/ -->
-  <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
-
-    <!-- 1# button -> Torna a home.php -->
+  <nav class="navbar navbar-dark navbar-expand-lg bg-success">
+    
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link active" href="home.php">Home <span class="sr-only"></span></a>
+
+      <!-- 4# button -> Vai a index.php -->
+      <ul class="navbar-nav mr-auto px-5 py-1">
+        <li class="nav-item">
+          <a class="nav-link" href="home.php">Panoramica <span class="sr-only"></span></a>
+        </li>
+
+      <!-- 1# button -> Torna a home.php -->
+      <ul class="navbar-nav mr-auto px-5 py-1">
+        <li class="nav-item active nav-underline">
+          <a class="nav-link active nav-underline" href="home.php">Home <span class="sr-only"></span></a>
         </li>
 
         <!-- Torna a home.php -->
         <a class="navbar-brand" href="home.php">
-          <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="30" height="24">
+          <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
