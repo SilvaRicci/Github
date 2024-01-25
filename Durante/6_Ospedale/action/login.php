@@ -42,20 +42,24 @@
           }else{
             echo "Utente non trovato";
           }
-
-          $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
-          $rowsAdmin = $resultAdmin->num_rows;
-          $rowAdmin = $resultAdmin->fetch_assoc();
-
-          if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
-            //POPUP PER CODICE OTP
-            session_start();
-            $_SESSION['username'] = $CF;
-
-            $ADMIN_PATH = "../admin/admin.php";
-            header("Location: $ADMIN_PATH");
-        }
         $db_connection->close();
+    }
+
+    function loginAdmin(){
+      
+      $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
+      $rowsAdmin = $resultAdmin->num_rows;
+      $rowAdmin = $resultAdmin->fetch_assoc();
+
+      if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
+        //POPUP PER CODICE OTP
+        session_start();
+        echo "2";
+        $_SESSION['username'] = $CF;
+
+        $ADMIN_PATH = "../admin/admin.php";
+        header("Location: $ADMIN_PATH");
+      }
     }
   
 
@@ -98,6 +102,7 @@
 
     if (isset($_POST["submit_btn"])) {
       login();
+      loginAdmin();
     }
 ?>
 
