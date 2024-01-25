@@ -34,7 +34,7 @@
               session_start();
               
               $_SESSION['CF'] = $row['CF'];
-              $HOME_PATH = $HOME_PATH+"";
+              //$HOME_PATH = $HOME_PATH+"";
 
               header("Location: $HOME_PATH");
               
@@ -76,7 +76,7 @@
             session_start();
   
             $_SESSION['username'] = $CF;
-            $ADMIN_PATH = $ADMIN_PATH+"";
+            //$ADMIN_PATH = $ADMIN_PATH+"";
 
             header("Location: $ADMIN_PATH");
           //}
