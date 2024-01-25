@@ -34,53 +34,49 @@
 
       <div class="row">
         <ul class="navbar-nav mr-auto">
+        
+        <!-- 1# button -> Torna a home.php -->
+        <li class="nav-item active nav-underline px-5 pt-3">
+            <a class="nav-link active nav-underline" href="home.php">Home <span class="sr-only"></span></a>
+          </li>
 
-          <div class="col-1">
-            <!-- 4# button -> Vai a index.php -->
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="home.php">Panoramica <span class="sr-only"></span></a>
-              </li>
-          </div>
+        <!-- 2# button -> Vai a index.php -->
+          <li class="nav-item px-5 pt-3">
+            <a class="nav-link" href="home.php">Panoramica <span class="sr-only"></span></a>
+          </li>
 
-          <div class="col-2">
-            <!-- 1# button -> Torna a home.php -->
-            <li class="nav-item active nav-underline">
-              <a class="nav-link active nav-underline" href="home.php">Home <span class="sr-only"></span></a>
-            </li>
-          </div>
+          <!-- Torna a home.php -->
+          <a class="navbar-brand px-5" href="home.php">
+            <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <!-- Torna a home.php -->
-            <div class="col-1">
-              <a class="navbar-brand" href="home.php">
-                <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-
-            <div class="col-2">
-              <!-- 2# button -> Vai a visite.php -->
-              <li class="nav-item">
-                <a class="nav-link" href="visite.php">Visite</a>
-              </li>
-            </div>
-
-            <div class="col-2">
-              <!-- 3# button -> Vai a profilo.php/logout.php -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Profilo
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="profilo.php">Visualizza</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="<?php echo"$LOGOUT_PATH"?>">Logout</a></li>
-                </ul>
-              </li>
-            </div>
-
+          <!-- 3# button -> Vai a visite.php -->
+          <li class="nav-item px-5 pt-3">
+            <a class="nav-link" href="visite.php">Visite</a>
+          </li>
+          
+          <!-- 4# button -> Vai a profilo.php/logout.php -->
+          <li class="nav-item dropdown px-5 pt-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profilo
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="profilo.php">Visualizza</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <?php 
+                  if(!isset($_SESSION['CF'])){
+                    header("Location: $LOGIN_PATH");
+                  }else{
+                    echo "<li><a class="dropdown-item" href="echo"$LOGOUT_PATH"?>">Logout</a></li>";
+                  }
+              ?>
+              
+            </ul>
+          </li>
+          
         </ul>
         <!-- 
         <form class="form-inline my-2 my-lg-0">
@@ -108,9 +104,6 @@
         echo "<th scope='row'> $row[cognome] </th>";
         echo "<th scope='row'> $row[nome] </th>";
     ?>
-        <form action="">
-          <button type="submit" id="logout_btn" name="logout_btn" class="btn btn-primary">Logout</button>
-        </form>
 
   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
