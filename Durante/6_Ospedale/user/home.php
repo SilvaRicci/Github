@@ -27,7 +27,7 @@
   </head>
   <body style = "background-color:white">
 
-  <!-- Inizio navbar SISTEMARE DROPDOWN BUTTON https://getbootstrap.com/docs/4.0/components/navbar/ -->
+  <!-- Inizio navbar -->
   <nav class="navbar navbar-dark navbar-expand-lg bg-success">
     
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
@@ -68,25 +68,21 @@
               <li><hr class="dropdown-divider"></li>
               <?php 
                   if(!isset($_SESSION['CF'])){
-                    header("Location: $LOGIN_PATH");
+                    echo '<li><a class="dropdown-item" href="'.$SIGNUP_PATH.'">Signup</a></li>';
+                    echo '<li><a class="dropdown-item" href="'.$LOGIN_PATH.'">Login</a></li>';
                   }else{
-                    echo "<li><a class="dropdown-item" href="echo"$LOGOUT_PATH"?>">Logout</a></li>";
+                    echo '<li><a class="dropdown-item" href="'.$LOGOUT_PATH.'">Logout</a></li>';
                   }
               ?>
               
             </ul>
-          </li>
-          
+          </li>       
         </ul>
-        <!-- 
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
 
       </div>
     </div>
   </nav>
+    <!-- Fine navbar -->
     
   <?php       
         //visualizzazione base pagina per normali utenti
