@@ -24,23 +24,38 @@
     
     include "../config/path.php";
     include $CONN_PATH;
-
+    
     $CF = $_SESSION['CF'];  
     $tipologia = $_POST['tipologia'];  
     $data = $_POST['data'];  
     $ora = $_POST['ora'];  
 
-    $query = "INSERT INTO `visita`(`CF_utente`, `tipologia`, `data`, `ora`) VALUES ('$CF','$tipologia','$data','$ora')";
-
+    $query = "INSERT INTO `visita`(`id`,`CF_utente`, `tipologia`, `data`, `ora`) VALUES (NULL,'$CF','$tipologia','$data','$ora')";
+    
     $db_connection->query($query);
-
+    echo 'fdf';
     $db_connection->close();
 
     header("Location: visite.php");
   }
 
   function getTypeData(){
+    include "../config/path.php";
+    include $CONN_PATH;
+
+    echo '
+    <select id="tipologia" name="tipologia" class="form-control">
+        <option selected value="-1">Scegli la tipologia</option>;
+    ';
+
+    $query = "SELECT * FROM tipologieVisite";
+    $result = $db_connection->query($query);
+
+    while($row = $result->fetch_assoc()){
+        echo "<option value='$row[nome]'>$row[nome]</option>";
+    }
     
+    echo '</select>';
   }
 ?>
 
