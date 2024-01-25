@@ -62,8 +62,10 @@
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
           
           echo("<script type='text/javascript'> var OTP = prompt('"."Inserisci la tua OTP"."'); </script>");
-          $OTP = "<script type='text/javascript'> document.write(OTP); </script>";
-          echo $OTP == "$rowAdmin[OTP]";
+          $OTP = "<script type='text/javascript'> document.write(OTP); </script>"+"";
+
+          echo $OTP . "$rowAdmin[OTP]";
+
           if($OTP == "$rowAdmin[OTP]"){
             
             echo "Amministratore loggato con successo! Trasferimento in corso...";
