@@ -2,7 +2,7 @@
 
   include "config/path.php";
   session_start();
-  
+
 ?>
 
 <!doctype html>
@@ -24,13 +24,13 @@
         <ul class="navbar-nav mr-auto">
         
         <!-- 1# button -> Torna a home.php -->
-        <li class="nav-item active nav-underline px-5 pt-3">
-            <a class="nav-link active nav-underline" href="<?php echo"$IHOME_PATH"?>">Home <span class="sr-only"></span></a>
+        <li class="nav-item px-5 pt-3">
+            <a class="nav-link" href="<?php echo"$IHOME_PATH"?>">Home <span class="sr-only"></span></a>
           </li>
 
         <!-- 2# button -> Vai a index.php -->
-          <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="<?php echo"$IINDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
+          <li class="nav-item active nav-underline px-5 pt-3">
+            <a class="nav-link active nav-underline" href="<?php echo"$IINDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
           </li>
 
           <!-- Torna a home.php -->
