@@ -2,7 +2,7 @@
 <?php
     include "../config/path.php";
     session_start();
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['CF'])){
         header("Location: $HOME_PATH");
     }
 ?>
@@ -32,8 +32,6 @@
               
               $_SESSION['CF'] = $row['CF'];
 
-              $HOME_PATH = "../user/home.php";//evitare avvertimento void to string
-
               header("Location: $HOME_PATH");
               
             }else{
@@ -46,7 +44,14 @@
     }
 
     function loginAdmin(){
-      
+      echo "dfsfd";
+      include "../config/path.php";
+      include $CONN_PATH;
+      echo "dfsfd";
+
+      $CF = $db_connection->real_escape_string(stripslashes($_POST["CF"]));
+      $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+
       $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
       $rowsAdmin = $resultAdmin->num_rows;
       $rowAdmin = $resultAdmin->fetch_assoc();
@@ -101,8 +106,10 @@
 <?php
 
     if (isset($_POST["submit_btn"])) {
-      login();
+      echo "dfsfd";
       loginAdmin();
+      login();
+      
     }
 ?>
 
