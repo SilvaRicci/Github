@@ -19,53 +19,24 @@
 
 
 <?php
-  function getVisitData(){
-    include "../config/path.php";
-    include $CONN_PATH;
-    
-    echo '
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-          <table class="table mt-5 thead-success">
-            <thead>
-                <tr>
-                <th scope="col">Tipologia</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ora</th>
-                </tr>
-            </thead>
-            <tbody>
-        </div>
-        <div class="col-2"></div>
-      </div>';
-
-    if($rowsVisit>0){
-
-      while($rowVisit = $resultVisit->fetch_assoc()){
-        echo "<tr>";
-        echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
-        echo "<th scope='row'> $rowVisit[data] </th>";
-        echo "<th scope='row'> $rowVisit[ora] </th>";
-        echo "</tr>";
-      } 
-    }
-
-    echo '</tbody></table>';
-
-    echo "<br><br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>";
-  }
-
 
   function insertData(){
+    
+    include "../config/path.php";
+    include $CONN_PATH;
+
     $CF = $_SESSION['CF'];  
     $tipologia = $_POST['tipologia'];  
     $data = $_POST['data'];  
     $ora = $_POST['ora'];  
 
-    $query = "INSERT INTO `visita`(`CF_utente`, `tipologia`, `data`, `ora`) VALUES ('$CF','$tipologia','$data','$ora')"
+    $query = "INSERT INTO `visita`(`CF_utente`, `tipologia`, `data`, `ora`) VALUES ('$CF','$tipologia','$data','$ora')";
 
-    $db_connection
+    $db_connection->query($query);
+
+    $db_connection->close();
+
+    header("Location: visite.php");
   }
 ?>
 
@@ -136,9 +107,39 @@
   </nav>
   <!-- Fine navbar -->
 
-  <?php       
-        getVisitData();
+  <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <table class="table mt-5 thead-success">
+            <thead>
+                <tr>
+                <th scope="col">Tipologia</th>
+                <th scope="col">Data</th>
+                <th scope="col">Ora</th>
+                </tr>
+            </thead>
+            <tbody>
+        </div>
+        <div class="col-2"></div>
+    </div>
+        <tr>
+            <th scope='row' class='secondary'>
+                <input type="text" class="form-control" id="tipologia" name="tipologia" placeholder="Tipologia"> 
+            </th>
+            <th scope='row'> 
+            <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale">
+            </th>
+            <th scope='row'> 
 
+            </th>
+        </tr>
+
+    </tbody></table>;
+
+    <br><br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>
+
+  <?php       
+  
         if(isset($_POST['submit_btn'])){
             insertData();
         }
