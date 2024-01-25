@@ -61,19 +61,19 @@
 
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
           
-          echo("<script type='text/javascript'> var answer = prompt("Inserisci la tua OTP","123456"); </script>");
+          echo("<script type='text/javascript'> var OTP = prompt('"."Inserisci la tua OTP"."'); </script>");
+          $OTP = "<script type='text/javascript'> document.write(OTP); </script>";
 
-          $answer = "<script type='text/javascript'> document.write(answer); </script>";
+          if($OTP == "123456"){
+            
+            echo "Amministratore loggato con successo! Trasferimento in corso...";
 
-          if(prompt())
-
-          echo "Amministratore loggato con successo! Trasferimento in corso...";
-
-          session_start();
-
-          $_SESSION['username'] = $CF;
-
-          header("Location: $ADMIN_PATH");
+            session_start();
+  
+            $_SESSION['username'] = $CF;
+  
+            header("Location: $ADMIN_PATH");
+          }
         }
       }
     }
