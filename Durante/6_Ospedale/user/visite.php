@@ -33,7 +33,7 @@
       <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-          <table class="table mt-5 table-success table-striped table-hover">
+          <table class="table mt-5 table-striped table-hover thead-success">
             <thead>
                 <tr>
                 <th scope="col">Tipologia</th>
