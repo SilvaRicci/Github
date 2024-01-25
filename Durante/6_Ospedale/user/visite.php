@@ -18,6 +18,39 @@
 ?>
 
 
+<?php
+  function getVisitData(){
+    include "../config/path.php";
+    include $CONN_PATH;
+    $CF = $_SESSION['CF'];
+
+    $query = "SELECT * FROM `visita` WHERE `CF_utente` = '$CF'";
+
+    $resultVisit = $db_connection->query($query);                      
+    $rowsVisit = $resultVisit->num_rows;         
+    
+    if($rowsVisit>0){
+
+      echo '<table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Tipologia</th>
+            <th scope="col">Data</th>
+            <th scope="col">Ora</th>
+            </tr>
+        </thead>
+        <tbody>';
+
+      while($rowVisit = $resultVisit->fetch_assoc()){
+        echo "<tr> <th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
+        echo "<th scope='row'> $rowVisit[data] </th>";
+        echo "<th scope='row'> $rowVisit[ora] </th>";
+      }
+    }
+    
+  }
+?>
+
 
 <html lang="en">
   <head>
@@ -86,20 +119,7 @@
   <!-- Fine navbar -->
 
   <?php       
-        //visualizzazione base pagina per normali utenti
-        echo '<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">CF</th>
-            <th scope="col">Cognome</th>
-            <th scope="col">Nome</th>
-            </tr>
-        </thead>
-        <tbody>';
-
-        echo "<tr> <th scope='row' class='secondary'>$row[CF]</th>";
-        echo "<th scope='row'> $row[cognome] </th>";
-        echo "<th scope='row'> $row[nome] </th>";
+        getVisitData();
     ?>
 
   
