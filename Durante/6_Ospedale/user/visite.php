@@ -29,9 +29,7 @@
     $resultVisit = $db_connection->query($query);                      
     $rowsVisit = $resultVisit->num_rows;         
     
-    if($rowsVisit>0){
-
-      echo '<table class="table">
+    echo '<table class="table mt-5">
         <thead>
             <tr>
             <th scope="col">Tipologia</th>
@@ -41,13 +39,19 @@
         </thead>
         <tbody>';
 
+    if($rowsVisit>0){
+
       while($rowVisit = $resultVisit->fetch_assoc()){
         echo "<tr> <th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
         echo "<th scope='row'> $rowVisit[data] </th>";
-        echo "<th scope='row'> $rowVisit[ora] </th>";
-      }
+        echo "<th scope='row'> $rowVisit[ora] </th></tr>";
+      } 
     }
-    
+
+    echo "<th scope='row'><a href='Aggiungi una visita.php'> Aggiungi una visita </a> </th>";
+
+    echo '</tbody></table>';
+  
   }
 ?>
 
