@@ -48,13 +48,14 @@
         </li>
         <!-- 3# button -> Vai a profilo.php/logout.php -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Profilo
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="profilo.php">Visualizza</a>
-            <a class="dropdown-item" href="<?php echo"$LOGOUT_PATH"?>">Logout</a>
-          </div>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="profilo.php">Visualizza</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?php echo"$LOGOUT_PATH"?>">Logout</a></li>
+          </ul>
         </li>
         
       </ul>
