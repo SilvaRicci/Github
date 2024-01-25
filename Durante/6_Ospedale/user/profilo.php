@@ -37,8 +37,8 @@
         <ul class="navbar-nav mr-auto">
         
         <!-- 1# button -> Torna a home.php -->
-        <li class="nav-item active nav-underline px-5 pt-3">
-            <a class="nav-link active nav-underline" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
+        <li class="nav-item px-5 pt-3">
+            <a class="nav-link" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
           </li>
 
         <!-- 2# button -> Vai a index.php -->
@@ -60,8 +60,8 @@
           </li>
           
           <!-- 4# button -> Vai a profilo.php/logout.php -->
-          <li class="nav-item dropdown px-5 pt-3">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown active nav-underline px-5 pt-3">
+            <a class="nav-link dropdown-toggle  active nav-underline" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Profilo
             </a>
             <ul class="dropdown-menu">

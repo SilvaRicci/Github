@@ -11,6 +11,8 @@
     $VISITE_PATH = "../user/visite.php";
     $HOME_PATH = "../user/home.php";
 
+    $ALOGO_PATH = "src/img/logo/Alogo.jpeg";
+
     //INDEX PATH
 
     $ICONN_PATH = "config/connessione.php";
