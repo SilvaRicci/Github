@@ -15,6 +15,7 @@
 
     $ALOGO_PATH = "../src/img/logo/Alogo.jpeg";
     $AUTENTI_PATH = "../admin/utenti.php";
+    $AVISITEUTENTI = "../admin/visiteUtenti.php";
     $AVISITE_PATH = "../admin/visite.php";
     $APROFILE_PATH = "../admin/profilo.php";
 

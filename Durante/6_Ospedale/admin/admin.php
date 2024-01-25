@@ -185,9 +185,16 @@
           </li>
 
         <!-- 2# button -> Vai a index.php -->
-          <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="<?php echo"$AUTENTI_PATH"?>">Utenti <span class="sr-only"></span></a>
-          </li>
+        <li class="nav-item dropdown px-5 pt-3">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Gestione
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="<?php echo"$AUTENTI_PATH"?>">Utenti</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="<?php echo"$AVISITEUTENTI_PATH"?>">Visite</a></li>
+            </ul>
+          </li> 
 
           <!-- Torna a home.php -->
           <a class="navbar-brand px-5" href="<?php echo"$ADMIN_PATH"?>">
