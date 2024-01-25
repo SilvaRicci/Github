@@ -19,43 +19,33 @@
 
 
 <?php
-
-  function insertData(){
-    
-    include "../config/path.php";
-    include $CONN_PATH;
-    
-    $CF = $_SESSION['CF'];  
-    $tipologia = $_POST['tipologia'];  
-    $data = $_POST['data'];  
-    $ora = $_POST['ora'];  
-
-    $query = "INSERT INTO `visita`(`id`,`CF_utente`, `tipologia`, `data`, `ora`) VALUES (NULL,'$CF','$tipologia','$data','$ora')";
-    
-    $db_connection->query($query);
-    
-    $db_connection->close();
-
-    header("Location: visite.php");
-  }
-
-  function getTypeData(){
+  function getTypeData($n){
     include "../config/path.php";
     include $CONN_PATH;
 
-    echo '
-    <select id="tipologia" name="tipologia" class="form-control">
-        <option selected value="-1">Scegli la tipologia</option>;
-    ';
+    $CF = $_SESSION['CF'];
+    $id = $_GET['id'];
 
-    $query = "SELECT * FROM tipologieVisite";
+    $query = "SELECT * FROM `visita` WHERE `CF_utente` = '$CF' AND `id` = $id";
     $result = $db_connection->query($query);
 
-    while($row = $result->fetch_assoc()){
-        echo "<option value='$row[nome]'>$row[nome]</option>";
+    if($result->num_rows > 0){
+        $row=$result->fetch_assoc();
+        
+        echo '
+        <tr>
+            <th scope='row' class='secondary'>
+                <?php getTypeData();?>
+            </th>
+            <th scope='row'> 
+                <input type="date" class="form-control" id="data" name="data">
+            </th>
+            <th scope='row'> 
+                <input type="time" class="form-control" id="ora" name="ora">
+            </th>
+        </tr>
+    '
     }
-    
-    echo '</select>';
   }
 ?>
 
@@ -142,21 +132,12 @@
             </div>
             <div class="col-2"></div>
         </div>
-            <tr>
-                <th scope='row' class='secondary'>
-                    <input type="date" class="form-control" id="data" name="data">
-                </th>
-                <th scope='row'> 
-                    <input type="date" class="form-control" id="data" name="data">
-                </th>
-                <th scope='row'> 
-                    <input type="time" class="form-control" id="ora" name="ora">
-                </th>
-            </tr>
+
+            <?php getTypeData(); ?>
 
         </tbody></table>
 
-        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button></center>
+        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></center>
     </form>
   <?php       
   
