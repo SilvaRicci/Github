@@ -55,7 +55,8 @@
       $resultAdmin = $db_connection->query("SELECT * FROM amministratore WHERE username='$CF'");
       $rowsAdmin = $resultAdmin->num_rows;
 
-      if($rows > 0){
+      if($rowsAdmin > 0){
+
         $rowAdmin = $resultAdmin->fetch_assoc();
 
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password

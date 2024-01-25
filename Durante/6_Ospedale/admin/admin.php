@@ -6,7 +6,7 @@ ciao
     include $CONN_PATH;
     
     session_start();
-    if(!isset($_SESSION['CF'])){
+    if(!isset($_SESSION['username'])){
       header("Location: $LOGIN_PATH");
     }
   
