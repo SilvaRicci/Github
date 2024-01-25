@@ -60,10 +60,10 @@
         $rowAdmin = $resultAdmin->fetch_assoc();
 
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
-          
+
           echo("<script type='text/javascript'> var OTP = prompt('"."Inserisci la tua OTP"."');</script>");
           $OTP = "<script type='text/javascript'> document.writeln(OTP);  </script>";
-          $OTP = "123456";
+
 
           if("$OTP" == "$rowAdmin[OTP]"){
             
