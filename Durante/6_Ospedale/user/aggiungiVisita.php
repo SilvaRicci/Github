@@ -38,6 +38,10 @@
 
     header("Location: visite.php");
   }
+
+  function getTypeData(){
+    
+  }
 ?>
 
 
@@ -124,19 +128,19 @@
     </div>
         <tr>
             <th scope='row' class='secondary'>
-                <input type="text" class="form-control" id="tipologia" name="tipologia" placeholder="Tipologia"> 
+                <?php getTypeData();?>
             </th>
             <th scope='row'> 
-            <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale">
+                <input type="date" class="form-control" id="data" name="data">
             </th>
             <th scope='row'> 
-
+                <input type="time" class="form-control" id="ora" name="ora">
             </th>
         </tr>
 
-    </tbody></table>;
+    </tbody></table>
 
-    <br><br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>
+    <br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>
 
   <?php       
   
