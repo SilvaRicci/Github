@@ -48,9 +48,10 @@
         echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
         echo "<th scope='row'> $rowVisit[data] </th>";
         echo "<th scope='row'> $rowVisit[ora] </th>";
+        
         //BOTTONI DA SISTEMARE
-        echo "<th scope='row'> <button class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></th>";
-        echo "<th scope='row'> <button class='btn btn-danger'><i class='bi bi-trash-fill'><a href="."$HOME_PATH"."></a></i></button></th>";
+        echo "<th scope='row'> <a href='modificaVisite.php?id=$rowVisit[id]'><button class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></a></th>";
+        echo "<th scope='row'> <a href='eliminaVisite.php?id=$rowVisit[id]'><button class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></a></th>";
         echo "</tr>";
       } 
     }
