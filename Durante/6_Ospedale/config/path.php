@@ -11,7 +11,12 @@
     $VISITE_PATH = "../user/visite.php";
     $HOME_PATH = "../user/home.php";
 
-    $ALOGO_PATH = "src/img/logo/Alogo.jpeg";
+    //ADMIN PATH
+
+    $ALOGO_PATH = "../src/img/logo/Alogo.jpeg";
+    $AUTENTI_PATH = "../admin/utenti.php";
+    $AVISITE_PATH = "../admin/visite.php";
+    $APROFILE_PATH = "../admin/profilo.php";
 
     //INDEX PATH
 
