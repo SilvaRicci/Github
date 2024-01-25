@@ -55,8 +55,15 @@
     $CF = $_SESSION['CF'];
     $id = $_GET['id'];
 
+    $data = $_POST['data'];  
+    $ora = $_POST['ora']; 
+    
     $query = "UPDATE `visita` SET `data`='$data',`ora`='$ora' WHERE `CF_utente` = '$CF' AND `id` = $id";
-    $result = $db_connection->query($query);
+    $db_connection->query($query);
+    
+    $db_connection->close();
+
+    header("Location: visite.php");
   }
 ?>
 
@@ -148,12 +155,12 @@
 
         </tbody></table>
 
-        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></center>
+        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button></center>
     </form>
   <?php       
   
         if(isset($_POST['submit_btn'])){
-            insertData();
+            modifyData();
         }
     ?>
 

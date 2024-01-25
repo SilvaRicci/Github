@@ -21,6 +21,8 @@
 <?php
 
   function insertData(){
+
+    //AGGIUNGI CONTROLLO STESSO GIORNO E STESSA ORA
     
     include "../config/path.php";
     include $CONN_PATH;
