@@ -32,19 +32,19 @@
     if($result->num_rows > 0){
         $row=$result->fetch_assoc();
         
-        echo '
-        <tr>
-            <th scope='row' class='secondary'>
-                <?php getTypeData();?>
-            </th>
-            <th scope='row'> 
-                <input type="date" class="form-control" id="data" name="data">
-            </th>
-            <th scope='row'> 
-                <input type="time" class="form-control" id="ora" name="ora">
-            </th>
-        </tr>
-    '
+        echo "
+<tr>
+<th scope='row' class='secondary'>
+<input type='text' class='form-control' id='tipologia' name='tipologia' value=$row["tipologia"]>
+</th>
+<th scope='row'>
+<input type='date' class='form-control' id='data' name='data'>
+</th>
+<th scope='row'>
+<input type='time' class='form-control' id='ora' name='ora'>
+</th>
+</tr>
+";
     }
   }
 ?>
