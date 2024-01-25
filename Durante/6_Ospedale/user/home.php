@@ -30,22 +30,26 @@
   <!-- Inizio navbar SISTEMARE DROPDOWN BUTTON https://getbootstrap.com/docs/4.0/components/navbar/ -->
   <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
 
-    <!-- Torna a home.php -->
-    <a class="navbar-brand" href="home.php">ISPedale</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
     <!-- 1# button -> Torna a home.php -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link active" href="home.php">Home <span class="sr-only"></span></a>
         </li>
+
+        <!-- Torna a home.php -->
+        <a class="navbar-brand" href="home.php">
+          <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="30" height="24">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <!-- 2# button -> Vai a visite.php -->
         <li class="nav-item">
           <a class="nav-link" href="visite.php">Visite</a>
         </li>
+        
         <!-- 3# button -> Vai a profilo.php/logout.php -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
