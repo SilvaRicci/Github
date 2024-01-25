@@ -60,7 +60,12 @@
         $rowAdmin = $resultAdmin->fetch_assoc();
 
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
-          //POPUP PER CODICE OTP
+          
+          echo("<script type='text/javascript'> var answer = prompt("Inserisci la tua OTP","123456"); </script>");
+
+          $answer = "<script type='text/javascript'> document.write(answer); </script>";
+
+          if(prompt())
 
           echo "Amministratore loggato con successo! Trasferimento in corso...";
 
@@ -119,7 +124,16 @@
 
 
 
-  
+    <script>
+      
+      <
+
+if (person != null) {
+  document.getElementById("demo").innerHTML =
+  "Hello " + person + "! How are you today?";
+}
+    
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
