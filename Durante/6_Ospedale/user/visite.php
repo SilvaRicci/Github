@@ -63,7 +63,7 @@
       } 
     }
 
-    echo "<th scope='row'><a href='addVisita.php'> Aggiungi una visita </a> </th><th></th><th></th><th></th><th></th></tr>";
+    echo "<th scope='row'><a href='aggiungiVisita.php'> Aggiungi una visita </a> </th><th></th><th></th><th></th><th></th></tr>";
 
     echo '</tbody></table>';
   

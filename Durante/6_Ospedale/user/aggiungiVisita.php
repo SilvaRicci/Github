@@ -35,7 +35,7 @@
       <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-          <table class="table mt-5 table-striped table-hover thead-success">
+          <table class="table mt-5 thead-success">
             <thead>
                 <tr>
                 <th scope="col">Tipologia</th>
@@ -59,7 +59,7 @@
       } 
     }
 
-    echo "<th scope='row'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button><br><br></tr>";
+    echo "<tr><th scope='row'></th><th scope='row'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button><br><br><th scope='row'></th></tr>";
 
     echo '</tbody></table>';
   
