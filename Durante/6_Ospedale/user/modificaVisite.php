@@ -19,7 +19,7 @@
 
 
 <?php
-  function getTypeData($n){
+  function getTypeData(){
     include "../config/path.php";
     include $CONN_PATH;
 
@@ -33,19 +33,30 @@
         $row=$result->fetch_assoc();
         
         echo "
-<tr>
-<th scope='row' class='secondary'>
-<input type='text' class='form-control' id='tipologia' name='tipologia' value=$row["tipologia"]>
-</th>
-<th scope='row'>
-<input type='date' class='form-control' id='data' name='data'>
-</th>
-<th scope='row'>
-<input type='time' class='form-control' id='ora' name='ora'>
-</th>
-</tr>
-";
+        <tr>
+            <th scope='row' class='secondary'>
+                <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
+            </th>
+            <th scope='row'>
+                <input type='date' class='form-control' id='data' name='data' value='$row[data]'>
+            </th>
+            <th scope='row'>
+                <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]'>
+            </th>
+        </tr>
+        ";
     }
+  }
+
+  function modifyData(){
+    include "../config/path.php";
+    include $CONN_PATH;
+
+    $CF = $_SESSION['CF'];
+    $id = $_GET['id'];
+
+    $query = "UPDATE `visita` SET `data`='$data',`ora`='$ora' WHERE `CF_utente` = '$CF' AND `id` = $id";
+    $result = $db_connection->query($query);
   }
 ?>
 
