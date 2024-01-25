@@ -78,7 +78,7 @@
         </thead>
         <tbody>';
 
-        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
+        echo "<tr> <th scope='row' class='secondary'>$row[CF]</th>";
         echo "<th scope='row'> $row[cognome] </th>";
         echo "<th scope='row'> $row[nome] </th>";
     ?>
