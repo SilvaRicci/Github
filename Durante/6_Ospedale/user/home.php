@@ -7,6 +7,7 @@
     if(!isset($_SESSION['CF'])){
       header("Location: $LOGIN_PATH");
     }
+    
 
     //recupero id utente con conseguente record dal database
     $CF = $_SESSION['CF'];

@@ -5,6 +5,9 @@
     if(isset($_SESSION['CF'])){
         header("Location: $HOME_PATH");
     }
+    if(isset($_SESSION['username'])){
+      header("Location: $ADMIN_PATH");
+    }
 ?>
 
 <?php
@@ -31,6 +34,7 @@
               session_start();
               
               $_SESSION['CF'] = $row['CF'];
+              $HOME_PATH = $HOME_PATH+"";
 
               header("Location: $HOME_PATH");
               
@@ -61,20 +65,21 @@
 
         if("$password" == "$rowAdmin[password]"){ //dopo inserire hash password
 
-          echo("<script type='text/javascript'> var OTP = prompt('"."Inserisci la tua OTP"."');</script>");
-          $OTP = "<script type='text/javascript'> document.writeln(OTP);  </script>";
+          //echo("<script type='text/javascript'> var OTP = prompt('"."Inserisci la tua OTP"."');</script>");
+          //$OTP = "<script type='text/javascript'> document.writeln(OTP);  </script>";
 
 
-          if("$OTP" == "$rowAdmin[OTP]"){
+          //if("$OTP" == "$rowAdmin[OTP]"){
             
             echo "Amministratore loggato con successo! Trasferimento in corso...";
 
             session_start();
   
             $_SESSION['username'] = $CF;
-  
+            $ADMIN_PATH = $ADMIN_PATH+"";
+
             header("Location: $ADMIN_PATH");
-          }
+          //}
         }
       }
     }

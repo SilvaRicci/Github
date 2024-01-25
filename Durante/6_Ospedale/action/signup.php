@@ -8,6 +8,9 @@
         if(isset($_SESSION['CF'])){
             header("Location: $HOME_PATH");
         }
+        if(isset($_SESSION['username'])){
+            header("Location: $ADMIN_PATH");
+          }
     ?>
 
     <?php
