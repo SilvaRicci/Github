@@ -24,15 +24,15 @@ ciao
     
     switch($type){
       case 0:{
-        $query = "SELECT * FROM utente WHERE 'CF' = '$data'";
+        $query = "SELECT * FROM utente WHERE CF = '$data'";
         break;
       }
       case 1:{
-        $query = "SELECT * FROM utente WHERE 'cognome' = '$data'";
+        $query = "SELECT * FROM utente WHERE cognome = '$data'";
         break;
       }
       case 2:{
-        $query = "SELECT * FROM utente WHERE 'nome' = '$data'";
+        $query = "SELECT * FROM utente WHERE nome = '$data'";
         break;
       }
     }
