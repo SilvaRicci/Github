@@ -22,14 +22,6 @@
   function getVisitData(){
     include "../config/path.php";
     include $CONN_PATH;
-
-    $CF = $_SESSION['CF'];
-    $id = $_GET['id'];
-
-    $query = "SELECT * FROM `visita` WHERE `CF_utente` = '$CF' AND `id` = '$id'";
-
-    $resultVisit = $db_connection->query($query);                      
-    $rowsVisit = $resultVisit->num_rows;         
     
     echo '
       <div class="row">
@@ -59,10 +51,21 @@
       } 
     }
 
-    echo "<tr><th scope='row'></th><th scope='row'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button><br><br><th scope='row'></th></tr>";
-
     echo '</tbody></table>';
-  
+
+    echo "<br><br><center><form action='#' method='POST'><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Prenota</button></form></center>";
+  }
+
+
+  function insertData(){
+    $CF = $_SESSION['CF'];  
+    $tipologia = $_POST['tipologia'];  
+    $data = $_POST['data'];  
+    $ora = $_POST['ora'];  
+
+    $query = "INSERT INTO `visita`(`CF_utente`, `tipologia`, `data`, `ora`) VALUES ('$CF','$tipologia','$data','$ora')"
+
+    $db_connection
   }
 ?>
 
@@ -135,6 +138,10 @@
 
   <?php       
         getVisitData();
+
+        if(isset($_POST['submit_btn'])){
+            insertData();
+        }
     ?>
 
   
