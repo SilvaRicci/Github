@@ -36,70 +36,38 @@
                 <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]' disabled>
               </div>
             </div>
             <div class='row'>
               <div class='col-3'>
-                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
+                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
+                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
+                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
+                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]' disabled>
               </div>
             </div>
             <div class='row'>
               <div class='col-4'>
-                <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]' disabled>
               </div>
               <div class='col-4'>
-                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+                <input type='text' class='form-control' id='genere' name='genere' value='$row[genere]' disabled>
               </div>
               <div class='col-4'>
-                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
+                <input type='password' class='form-control' id='password' name='password' value='$row[password]' disabled>
               </div>
             </div>
           </div>
-          <tr>
-              <th scope='row' class='secondary'>
-                  
-              </th>
-              <th scope='row'>
-                  
-              </th>
-              <th scope='row'>
-                  
-              </th>
-              <th scope='row'>
-                  
-              </th>
-              <th scope='row'>
-              
-              </th>
-              <th scope='row'>
-                  
-              </th>
-              <th scope='row'>
-                  
-              </th>
-              <th scope='row'>
-                  <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]'>
-              </th>
-              <th scope='row'>
-                  <input type='text' class='form-control' id='genere' name='genere' value='$row[genere]'>
-              </th>
-              <th scope='row'>
-                  <input type='password' class='form-control' id='password' name='password' value='$row[password]'>
-              </th>
-          </tr>
           ";
       }
     }
@@ -175,33 +143,7 @@
   <!-- Fine navbar -->
 
   <form action='#' method='POST'>
-    <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-            <table class="table mt-5 thead-success">
-                <thead>
-                    <tr>
-                    <th scope="col">CF</th>
-                    <th scope="col">Cognome</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Indirizzo</th>
-                    <th scope="col">Comune</th>
-                    <th scope="col">CAP</th>
-                    <th scope="col">Provincia</th>
-                    <th scope="col">Data di nascita</th>
-                    <th scope="col">Genere</th>
-                    <th scope="col">Password</th>
-                    </tr>
-                </thead>
-                <tbody>
-            </div>
-            <div class="col-2"></div>
-        </div>
-
-            <?php getTypeData(); ?>
-
-        </tbody></table>
-
+        <?php getTypeData(); ?>
         <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button></center>
     </form>
 
