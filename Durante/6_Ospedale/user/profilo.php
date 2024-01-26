@@ -28,17 +28,29 @@
   
       if($result->num_rows > 0){
           $row=$result->fetch_assoc();
-          <th scope="col">CF</th>
-                    <th scope="col">Cognome</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Indirizzo</th>
-                    <th scope="col">Comune</th>
-                    <th scope="col">CAP</th>
-                    <th scope="col">Provincia</th>
-                    <th scope="col">Data di nascita</th>
-                    <th scope="col">Genere</th>
-                    <th scope="col">Password</th>
+
           echo "
+          <div class=container text-center>
+            <div class=row>
+              <div class=col>
+                1 of 2
+              </div>
+              <div class=col>
+                2 of 2
+              </div>
+            </div>
+            <div class=row>
+              <div class=col>
+                1 of 3
+              </div>
+              <div class="col">
+                2 of 3
+              </div>
+              <div class="col">
+                3 of 3
+              </div>
+            </div>
+          </div>
           <tr>
               <th scope='row' class='secondary'>
                   <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
