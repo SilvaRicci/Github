@@ -85,21 +85,34 @@
   </nav>
   <!-- Fine navbar -->
 
-  <?php       
-        //visualizzazione base pagina per normali utenti
-        echo '<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">CF</th>
-            <th scope="col">Cognome</th>
-            <th scope="col">Nome</th>
-            </tr>
-        </thead>
-        <tbody>';
+  <form action='#' method='POST'>
+    <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+            <table class="table mt-5 thead-success">
+                <thead>
+                    <tr>
+                    <th scope="col">Tipologia</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Ora</th>
+                    </tr>
+                </thead>
+                <tbody>
+            </div>
+            <div class="col-2"></div>
+        </div>
 
-        echo "<tr> <th scope='row' class='secondary'>$row[CF]</th>";
-        echo "<th scope='row'> $row[cognome] </th>";
-        echo "<th scope='row'> $row[nome] </th>";
+            <?php getTypeData(); ?>
+
+        </tbody></table>
+
+        <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button></center>
+    </form>
+
+  <?php       
+        if(isset($_POST['submit_btn'])){
+          header()
+      }
     ?>
 
   
