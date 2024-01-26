@@ -64,7 +64,7 @@
                 <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
               </div>
               <div class='col-4'>
-              <input type='password' class='form-control' id='confermaPassword' name='confermaPassword' value='12345678' disabled>
+              <input type='password' class='form-control' id='newPsw' name='newPsw' value='' disabled>
               </div>
             </div>
           </div>
@@ -78,10 +78,22 @@
     
         $CF = $_SESSION['CF'];
     
-        $data = $_POST['data'];  
-        $ora = $_POST['ora']; 
+        $cognome = $_POST["cognome"];
+        $nome = $_POST["nome"]; 
+        $indirizzo = $_POST["indirizzo"];
+        $comune = $_POST["comune"];
+        $CAP = $_POST["cap"];
+        $provincia = $_POST["provincia"];
+        $dataNascita = $_POST["dataNascita"];
+
+        $newPsw = $_POST["newPsw"];
+
+        if($newPsw!=''){
+            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+        }else{
+            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+        }
         
-        $query = "UPDATE `utente` SET `data`='$data',`ora`='$ora' WHERE `CF_utente` = '$CF' AND `id` = $id";
         $db_connection->query($query);
         
         $db_connection->close();
