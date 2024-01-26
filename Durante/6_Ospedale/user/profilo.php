@@ -148,6 +148,7 @@
     </form>
 
   <?php       
+  
         if(isset($_POST['submit_btn'])){
           header("Location: modificaProfilo.php");
       }

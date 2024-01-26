@@ -36,35 +36,35 @@
                 <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]' disabled>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]' disabled>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
               </div>
             </div>
             <div class='row py-4'>
               <div class='col-3'>
-                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]' disabled>
+                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]' disabled>
+                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]' disabled>
+                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]' disabled>
+                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
               </div>
             </div>
             <div class='row py-4'>
               <div class='col-4'>
-                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]' disabled>
+                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]'>
               </div>
               <div class='col-4'>
                 <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
               </div>
               <div class='col-4'>
-              <input type='password' class='form-control' id='newPsw' name='newPsw' value='' disabled>
+              <input type='password' class='form-control' id='newPsw' name='newPsw' value=''>
               </div>
             </div>
           </div>
@@ -88,8 +88,12 @@
 
         $newPsw = $_POST["newPsw"];
 
+        //AGGIUNGERE CONTROLLO PER VECCHIA PASSWORD
+
+
         if($newPsw!=''){
-            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+            $password = password_hash($password,PASSWORD_DEFAULT);
+            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
         }else{
             $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
         }
