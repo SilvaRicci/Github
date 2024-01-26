@@ -71,6 +71,23 @@
           ";
       }
     }
+
+    function modifyData(){
+        include "../config/path.php";
+        include $CONN_PATH;
+    
+        $CF = $_SESSION['CF'];
+    
+        $data = $_POST['data'];  
+        $ora = $_POST['ora']; 
+        
+        $query = "UPDATE `utente` SET `data`='$data',`ora`='$ora' WHERE `CF_utente` = '$CF' AND `id` = $id";
+        $db_connection->query($query);
+        
+        $db_connection->close();
+    
+        header("Location: profilo.php");
+      }
   
 ?>
 
@@ -149,7 +166,7 @@
 
   <?php       
         if(isset($_POST['submit_btn'])){
-          header("Location: modificaProfilo.php");
+          modifyData();
       }
     ?>
 
