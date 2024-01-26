@@ -72,6 +72,41 @@
       }
     }
 
+    function dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita){
+        $isOk=true;
+
+        if($cognome==""){
+            $isOk=false;
+            echo "Cognome non inserito <br />";
+        }
+        if($nome==""){
+            $isOk=false;
+            echo "Nome non inserito <br />";
+        }
+        if($indirizzo==""){
+            $isOk=false;
+            echo "Indirizzo non inserito <br />";
+        }
+        if($comune==""){
+            $isOk=false;
+            echo "Comune non inserito <br />";
+        }
+        if($CAP==""){
+            $isOk=false;
+            echo "CAP non inserito <br />";
+        }
+        if($provincia==""){
+            $isOk=false;
+            echo "Provincia non inserita <br />";
+        }
+        if($dataNascita==""){
+            $isOk=false;
+            echo "Data di nascita non inserita <br />";
+        }
+        //eventuali nuovi controlli sulla password
+        return $isOk;
+    }
+
     function modifyData(){
         include "../config/path.php";
         include $CONN_PATH;
@@ -82,7 +117,7 @@
         $nome = $_POST["nome"]; 
         $indirizzo = $_POST["indirizzo"];
         $comune = $_POST["comune"];
-        $CAP = $_POST["cap"];
+        $CAP = $_POST["CAP"];
         $provincia = $_POST["provincia"];
         $dataNascita = $_POST["dataNascita"];
 
@@ -90,21 +125,25 @@
 
         //AGGIUNGERE CONTROLLO PER VECCHIA PASSWORD
 
-
-        if($newPsw!=''){
-            $password = password_hash($password,PASSWORD_DEFAULT);
-            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
+        if(dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita)){
+            if($newPsw!=''){
+                $password = password_hash($password,PASSWORD_DEFAULT);
+                $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
+            }else{
+                $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+            }
+            
+            $db_connection->query($query);
+            
+            $db_connection->close();
+        
+            header("Location: profilo.php");
         }else{
-            $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+            echo "Errore nel'inserimento dei dati";
         }
-        
-        $db_connection->query($query);
-        
-        $db_connection->close();
-    
-        header("Location: profilo.php");
       }
   
+
 ?>
 
 
