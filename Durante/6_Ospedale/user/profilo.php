@@ -30,48 +30,65 @@
           $row=$result->fetch_assoc();
 
           echo "
-          <div class=container text-center>
-            <div class=row>
-              <div class=col>
-                1 of 2
+          <div class='container text-center'>
+            <div class='row'>
+              <div class='col-6'>
+                <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
               </div>
-              <div class=col>
-                2 of 2
+              <div class='col-3'>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
               </div>
             </div>
-            <div class=row>
-              <div class=col>
-                1 of 3
+            <div class='row'>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
               </div>
-              <div class="col">
-                2 of 3
+              <div class='col-3'>
+                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
               </div>
-              <div class="col">
-                3 of 3
+              <div class='col-3'>
+                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-4'>
+                <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+              </div>
+              <div class='col-4'>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+              </div>
+              <div class='col-4'>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
               </div>
             </div>
           </div>
           <tr>
               <th scope='row' class='secondary'>
-                  <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+                  
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+                  
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
+                  
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
+                  
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
+              
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
+                  
               </th>
               <th scope='row'>
-                  <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
+                  
               </th>
               <th scope='row'>
                   <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]'>
