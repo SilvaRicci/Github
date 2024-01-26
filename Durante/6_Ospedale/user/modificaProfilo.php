@@ -137,7 +137,7 @@
             
             $db_connection->close();
         
-            header("Location: profilo.php");
+            header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER
         }else{
             echo "Errore nel'inserimento dei dati";
         }
