@@ -15,6 +15,66 @@
     $result = $db_connection->query("SELECT * FROM utente WHERE CF = '$CF'");                      
     $rows = $result->num_rows;                                                                                                                         
     $row = $result->fetch_assoc();   
+
+
+    function getTypeData(){
+      include "../config/path.php";
+      include $CONN_PATH;
+  
+      $CF = $_SESSION['CF'];
+  
+      $query = "SELECT * FROM `utente` WHERE `CF` = '$CF'";
+      $result = $db_connection->query($query);
+  
+      if($result->num_rows > 0){
+          $row=$result->fetch_assoc();
+          <th scope="col">CF</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Indirizzo</th>
+                    <th scope="col">Comune</th>
+                    <th scope="col">CAP</th>
+                    <th scope="col">Provincia</th>
+                    <th scope="col">Data di nascita</th>
+                    <th scope="col">Genere</th>
+                    <th scope="col">Password</th>
+          echo "
+          <tr>
+              <th scope='row' class='secondary'>
+                  <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
+              </th>
+              <th scope='row'>
+                  <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]'>
+              </th>
+              <th scope='row'>
+                  <input type='text' class='form-control' id='genere' name='genere' value='$row[genere]'>
+              </th>
+              <th scope='row'>
+                  <input type='password' class='form-control' id='password' name='password' value='$row[password]'>
+              </th>
+          </tr>
+          ";
+      }
+    }
+  
 ?>
 
 
@@ -92,9 +152,16 @@
             <table class="table mt-5 thead-success">
                 <thead>
                     <tr>
-                    <th scope="col">Tipologia</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Ora</th>
+                    <th scope="col">CF</th>
+                    <th scope="col">Cognome</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Indirizzo</th>
+                    <th scope="col">Comune</th>
+                    <th scope="col">CAP</th>
+                    <th scope="col">Provincia</th>
+                    <th scope="col">Data di nascita</th>
+                    <th scope="col">Genere</th>
+                    <th scope="col">Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,7 +178,7 @@
 
   <?php       
         if(isset($_POST['submit_btn'])){
-          header()
+          header("Location: modificaProfilo.php");
       }
     ?>
 
