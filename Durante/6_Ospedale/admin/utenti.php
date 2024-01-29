@@ -83,6 +83,7 @@
 
         $row = $data->fetch_assoc();
         echo "
+        <form action='#' method='POST'>
           <div class='container text-center'>
             <div class='row py-4'>
               <div class='col-6'>
@@ -117,7 +118,7 @@
                 <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
               </div>
               <div class='col-4'>
-              <input type='password' class='form-control' id='confermaPassword' name='confermaPassword' value='12345678' disabled>
+                <input type='password' class='form-control' id='confermaPassword' name='confermaPassword' value='12345678' disabled>
               </div>
             </div>
             <div class='row py-4'>
@@ -132,6 +133,7 @@
             <div class='col-3'></div>
             </div>
           </div>
+        </form>
           ";
 
   }
@@ -230,7 +232,7 @@
             <div class='col-5'></div>
         </div>
     </div>
-    
+    </form>
 
   <?php 
     if(isset($_POST["submit_btn"])){
@@ -238,14 +240,14 @@
     }
     if(isset($_POST["modify_btn"])){
         $CF = $_POST['CF'];
-        header("Location: modificaUtenti.php?CF=$CFì");
+        header("Location: modificaUtenti.php?CF=$CF");
     }
     if(isset($_POST["delete_btn"])){
         $CF = $_POST['CF'];
         header("Location: eliminaUtenti.php?CF=$CF");
     }
   ?>
-</form>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
