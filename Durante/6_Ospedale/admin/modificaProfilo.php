@@ -40,37 +40,40 @@
       }
     }
 
+    function dataVerify($username,$password){
+      $isOk=true;
+
+      if($username==""){
+          $isOk=false;
+          echo "Username non inserito <br />";
+      }
+      if($password==""){
+          $isOk=false;
+          echo "Password non inserita <br />";
+      }
+      //eventuali nuovi controlli sulla password
+      return $isOk;
+  }
     function modifyData(){
       include "../config/path.php";
       include $CONN_PATH;
   
-      $CF = $_SESSION['username'];
+      $username = $_SESSION['username'];
   
-      $cognome = $_POST["cognome"];
-      $nome = $_POST["nome"]; 
-      $indirizzo = $_POST["indirizzo"];
-      $comune = $_POST["comune"];
-      $CAP = $_POST["CAP"];
-      $provincia = $_POST["provincia"];
-      $dataNascita = $_POST["dataNascita"];
-
-      $newPsw = $_POST["newPsw"];
+      $newUsr = $_POST["username"];
+      $newPsw = $_POST["password"];
 
       //AGGIUNGERE CONTROLLO PER VECCHIA PASSWORD
 
-      if(dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita)){
-          if($newPsw!=''){
-              $password = password_hash($password,PASSWORD_DEFAULT);
-              $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
-          }else{
-              $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
-          }
-          
-          $db_connection->query($query);
-          
-          $db_connection->close();
-      
-          header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER
+      if(dataVerify($newUsr,$newPsw)){
+            $query = "UPDATE `amministratore` SET `username`='$newUsr',`password`='$newPsw' WHERE `username` = '$username'";  //cambia gestione admin con l'utilizzo degli ID
+            
+            $db_connection->query($query);
+            $db_connection->close();
+
+            $_SESSION['username'] = $CF;
+
+            header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER    
       }else{
           echo "Errore nel'inserimento dei dati";
       }
