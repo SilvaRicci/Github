@@ -150,7 +150,7 @@
   <?php       
   
         if(isset($_POST['submit_btn'])){
-          header("Location: visite.php");
+          header("Location: modificaProfilo.php");
       }
     ?>
 

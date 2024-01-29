@@ -28,15 +28,51 @@
             <div class='row py-4'>
             <div class='col-2'></div>
               <div class='col-4'>
-                <input type='text' class='form-control' id='username' name='username' value='$row[username]' disabled>
+                <input type='text' class='form-control' id='username' name='username' value='$row[username]'>
               </div>
               <div class='col-4'>
-                <input type='password' class='form-control' id='password' name='password' value='$row[password]' disabled>
+                <input type='password' class='form-control' id='password' name='password' value='$row[password]'>
               </div>
               <div class='col-2'></div>
             </div>
           </div>
           ";
+      }
+    }
+
+    function modifyData(){
+      include "../config/path.php";
+      include $CONN_PATH;
+  
+      $CF = $_SESSION['username'];
+  
+      $cognome = $_POST["cognome"];
+      $nome = $_POST["nome"]; 
+      $indirizzo = $_POST["indirizzo"];
+      $comune = $_POST["comune"];
+      $CAP = $_POST["CAP"];
+      $provincia = $_POST["provincia"];
+      $dataNascita = $_POST["dataNascita"];
+
+      $newPsw = $_POST["newPsw"];
+
+      //AGGIUNGERE CONTROLLO PER VECCHIA PASSWORD
+
+      if(dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita)){
+          if($newPsw!=''){
+              $password = password_hash($password,PASSWORD_DEFAULT);
+              $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
+          }else{
+              $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
+          }
+          
+          $db_connection->query($query);
+          
+          $db_connection->close();
+      
+          header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER
+      }else{
+          echo "Errore nel'inserimento dei dati";
       }
     }
   
@@ -119,7 +155,7 @@
   <?php       
   
         if(isset($_POST['submit_btn'])){
-          header("Location: modificaProfilo.php");
+          modifyData();
       }
     ?>
 
