@@ -29,7 +29,7 @@
             ";
             while($row=$result->fetch_assoc()){
               if("$row[nome]" == $nome){
-                echo "<input type='text' class='list-group-item list-group-item-action form-control' id='nome' name='nome'>";
+                echo "<input type='text' class='list-group-item list-group-item-action list-group-item-danger form-control' value='$row[nome]' id='nome' name='nome'>";
               }else{
                 echo "<a href='modificaNome.php?nome=$row[nome]' class='list-group-item list-group-item-action'>$row[nome]</a>";
               }
@@ -52,13 +52,14 @@
       }
     }
 
-    function addData(){
+    function modifyData(){
       include "../config/path.php";
       include $CONN_PATH;
   
-      $nome = $_POST["visita"];
+      $nomePrecedente = $_GET["nome"];
+      $nome = $_POST["nome"];
 
-      $query = "INSERT INTO `tipologieVisite`(`nome`) VALUES ('$nome')";
+      $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = $nomePrecedente";
       $result = $db_connection->query($query);
 
       header("visite.php");
@@ -144,7 +145,7 @@
 
   <?php
     if(isset($_POST["submit_btn"])){
-      addData();
+      modifyData();
     }
   ?>
 
