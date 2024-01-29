@@ -83,7 +83,6 @@
 
         $row = $data->fetch_assoc();
         echo "
-        <form action='#' method='POST'>
           <div class='container text-center'>
             <div class='row py-4'>
               <div class='col-6'>
@@ -133,7 +132,6 @@
             <div class='col-3'></div>
             </div>
           </div>
-        </form>
           ";
 
   }
@@ -237,14 +235,6 @@
   <?php 
     if(isset($_POST["submit_btn"])){
       searchUser();
-    }
-    if(isset($_POST["modify_btn"])){
-        $CF = $_POST['CF'];
-        header("Location: modificaUtenti.php?CF=$CF");
-    }
-    if(isset($_POST["delete_btn"])){
-        $CF = $_POST['CF'];
-        header("Location: eliminaUtenti.php?CF=$CF");
     }
   ?>
 
