@@ -81,37 +81,53 @@
       return;
     }
 
-    echo '<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Codice fiscale</th>
-            <th scope="col">Cognome</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Indirizzo</th>
-            <th scope="col">Comune</th>
-            <th scope="col">CAP</th>
-            <th scope="col">Data di nascita</th>
-            <th scope="col">Genere</th>
-            <th scope="col">Password</th>
-            <th scope="col">T</th> 
-            </tr>
-        </thead>
-        <tbody>';
         $row = $data->fetch_assoc();
-    //while($row = $data->fetch_assoc()){
-
-      echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
-        echo "<th scope=."."row".">". "$row[cognome] </th>";
-        echo "<th scope=."."row".">". "$row[nome] </th>";
-        echo "<th scope=."."row".">". "$row[indirizzo] </th>";
-        echo "<th scope=."."row".">". "$row[comune] </th>";
-        echo "<th scope=."."row".">". "$row[CAP] </th>";
-        echo "<th scope=."."row".">". "$row[provincia] </th>";
-        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-        echo "<th scope=."."row".">". "$row[genere] </th>";
-        echo "<th scope=."."row".">". "$row[password] </th>";
-        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
-    //}
+        echo "
+          <div class='container text-center'>
+            <div class='row py-4'>
+              <div class='col-6'>
+                <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+              <div class='col-4'>
+                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]' disabled>
+              </div>
+              <div class='col-4'>
+                <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
+              </div>
+              <div class='col-4'>
+              <input type='password' class='form-control' id='confermaPassword' name='confermaPassword' value='12345678' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+            <div class='col-3'></div>
+            
+            <div class='col-3'></div>
+            </div>
+            <button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button>
+          </div>
+          ";
 
   }
 
@@ -212,7 +228,7 @@
     </form>
 
   <?php 
-    if(isset($_POST["submit"])){
+    if(isset($_POST["submit_btn"])){
       searchUser();
     }
   ?>
