@@ -40,56 +40,6 @@
 
   }
 
-  function getVisitData(){
-    include "../config/path.php";
-    include $CONN_PATH;
-    $CF = $_SESSION['CF'];
-
-    $query = "SELECT * FROM `visita` WHERE `CF_utente` = '$CF'";
-
-    $resultVisit = $db_connection->query($query);                      
-    $rowsVisit = $resultVisit->num_rows;         
-    
-    echo '
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-          <table class="table mt-5 table-striped table-hover thead-success">
-            <thead>
-                <tr>
-                <th scope="col">Tipologia</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ora</th>
-                <th scope="col">Modifica</th>
-                <th scope="col">Elimina</th>
-                </tr>
-            </thead>
-            <tbody>
-        </div>
-        <div class="col-2"></div>
-      </div>';
-
-    if($rowsVisit>0){
-
-      while($rowVisit = $resultVisit->fetch_assoc()){
-        echo "<tr>";
-        echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
-        echo "<th scope='row'> $rowVisit[data] </th>";
-        echo "<th scope='row'> $rowVisit[ora] </th>";
-        
-        //BOTTONI DA SISTEMARE
-        echo "<th scope='row'> <a href='modificaVisite.php?id=$rowVisit[id]'><button class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></a></th>";
-        echo "<th scope='row'> <a href='eliminaVisite.php?id=$rowVisit[id]'><button class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></a></th>";
-        echo "</tr>";
-      } 
-    }
-
-    echo "<th scope='row'><a href='aggiungiVisita.php'> Aggiungi una visita </a> </th><th></th><th></th><th></th><th></th></tr>";
-
-    echo '</tbody></table>';
-  
-  }
-
   function printTable($data){
 
     $rows = $data->num_rows;

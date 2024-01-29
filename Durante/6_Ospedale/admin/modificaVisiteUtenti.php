@@ -13,9 +13,9 @@
       include "../config/path.php";
       include $CONN_PATH;
   
-      $CF = $_GET['CF'];
+      $id = $_GET['id'];
   
-      $query = "SELECT * FROM `utente` WHERE `CF` = '$CF'";
+      $query = "SELECT * FROM `visita` WHERE `id` = '$id'";
       $result = $db_connection->query($query);
   
       if($result->num_rows > 0){
@@ -25,77 +25,34 @@
           <div class='container text-center'>
             <div class='row py-4'>
               <div class='col-6'>
-                <input type='text' class='form-control' id='CF' name='CF' value='$row[CF]' disabled>
+                <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[cognome]'>
+                <input type='date' class='form-control' id='data' name='data' value='$row[data]'>
               </div>
               <div class='col-3'>
-                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]'>
+                <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]'>
               </div>
             </div>
-            <div class='row py-4'>
-              <div class='col-3'>
-                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]'>
-              </div>
-              <div class='col-3'>
-                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]'>
-              </div>
-              <div class='col-3'>
-                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]'>
-              </div>
-              <div class='col-3'>
-                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]'>
-              </div>
-            </div>
-            <div class='row py-4'>
-              <div class='col-4'>
-                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]'>
-              </div>
-              <div class='col-4'>
-                <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
-              </div>
-              <div class='col-4'>
-              <input type='password' class='form-control' id='newPsw' name='newPsw' value=''>
-              </div>
-            </div>
-          </div>
           ";
       }
     }
 
-    function dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita){
+    function dataVerify($tipologia,$data,$ora){
         $isOk=true;
 
-        if($cognome==""){
+        if($tipologia==""){
             $isOk=false;
-            echo "Cognome non inserito <br />";
+            echo "Tipologia non inserita <br />";
         }
-        if($nome==""){
+        if($data==""){
             $isOk=false;
-            echo "Nome non inserito <br />";
+            echo "Data non inserita <br />";
         }
-        if($indirizzo==""){
+        if($ora==""){
             $isOk=false;
-            echo "Indirizzo non inserito <br />";
+            echo "Ora non inserita <br />";
         }
-        if($comune==""){
-            $isOk=false;
-            echo "Comune non inserito <br />";
-        }
-        if($CAP==""){
-            $isOk=false;
-            echo "CAP non inserito <br />";
-        }
-        if($provincia==""){
-            $isOk=false;
-            echo "Provincia non inserita <br />";
-        }
-        if($dataNascita==""){
-            $isOk=false;
-            echo "Data di nascita non inserita <br />";
-        }
-        //eventuali nuovi controlli sulla password
         return $isOk;
     }
 
@@ -103,33 +60,19 @@
         include "../config/path.php";
         include $CONN_PATH;
     
-        $CF = $_GET['CF'];
+        $id = $_GET['id'];
     
-        $cognome = $_POST["cognome"];
-        $nome = $_POST["nome"]; 
-        $indirizzo = $_POST["indirizzo"];
-        $comune = $_POST["comune"];
-        $CAP = $_POST["CAP"];
-        $provincia = $_POST["provincia"];
-        $dataNascita = $_POST["dataNascita"];
+        $tipologia = $_POST["tipologia"];
+        $data = $_POST["data"]; 
+        $ora = $_POST["ora"];
 
-        $newPsw = $_POST["newPsw"];
-
-        //AGGIUNGERE CONTROLLO PER VECCHIA PASSWORD
-
-        if(dataVerify($cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita)){
-            if($newPsw!=''){
-                $password = password_hash($password,PASSWORD_DEFAULT);
-                $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita',`password`='$password' WHERE `CF` = '$CF'";
-            }else{
-                $query = "UPDATE `utente` SET `cognome`='$cognome',`nome`='$nome',`indirizzo`='$indirizzo',`comune`='$comune',`CAP`='$CAP',`provincia`='$provincia',`dataNascita`='$dataNascita' WHERE `CF` = '$CF'";
-            }
-            
-            $db_connection->query($query);
-            
-            $db_connection->close();
+        if(dataVerify($tipologia,$data,$ora)){
+          $query = "UPDATE `visita` SET `tipologia`='$tipologia',`data`='$data',`ora`='$ora' WHERE `id` = '$id'";
         
-            header("Location: utenti.php"); //NON FUNZIONANO GLI HEADER
+          $db_connection->query($query);
+          $db_connection->close();
+      
+          header("Location: visiteUtenti.php");
         }else{
             echo "Errore nel'inserimento dei dati";
         }
