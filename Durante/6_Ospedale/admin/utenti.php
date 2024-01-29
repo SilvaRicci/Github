@@ -122,10 +122,15 @@
             </div>
             <div class='row py-4'>
             <div class='col-3'></div>
-            
+            <div class='col-2'>
+                <button type='submit' id='modify_btn' name='modify_btn' class='btn btn-danger'>Modifica</button>
+            </div>
+            <div class='col-2'></div>
+            <div class='col-2'>
+                <button type='submit' id='delete_btn' name='delete_btn' class='btn btn-danger'>Elimina</button>
+            </div>
             <div class='col-3'></div>
             </div>
-            <button type='submit' id='submit_btn' name='submit_btn' class='btn btn-success'>Modifica</button>
           </div>
           ";
 
@@ -225,14 +230,22 @@
             <div class='col-5'></div>
         </div>
     </div>
-    </form>
+    
 
   <?php 
     if(isset($_POST["submit_btn"])){
       searchUser();
     }
+    if(isset($_POST["modify_btn"])){
+        $CF = $_POST['CF'];
+        header("Location: modificaUtenti.php?CF=$CFì");
+    }
+    if(isset($_POST["delete_btn"])){
+        $CF = $_POST['CF'];
+        header("Location: eliminaUtenti.php?CF=$CF");
+    }
   ?>
-
+</form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
