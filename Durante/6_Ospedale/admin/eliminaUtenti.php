@@ -8,7 +8,7 @@
 
         $CF = $_GET['CF'];
 
-        $query = "DELETE FROM `utente` WHERE `CF_utente` = '$CF'";
+        $query = "DELETE FROM `utente` WHERE `CF` = '$CF'";
         
         $db_connection->query($query);                      
         
