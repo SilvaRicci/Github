@@ -183,7 +183,8 @@
     </div>
   </nav>
   <!-- Fine navbar -->
-
+  <form action='#' method='POST'>
+    <br>
     <div class='container text-center'>
         <div class='row py-4'>
         <div class='col-2'></div>
@@ -191,13 +192,24 @@
                 <input type='text' class='form-control' id='inputData' name='inputData' placeholder='Inserisci un dato'>
             </div>
             <div class='col-4'>
-                <select id="tipologia" name="tipologia" class="form-control">
+                <select id="type" name="type" class="form-control">
                     <option selected value="-1">Scegli la tipologia</option>;
+                    <option value="0">Codice fiscale</option>;
+                    <option value="1">Cognome</option>;
+                    <option value="2">Nome</option>;
                 </select>
             </div>
             <div class='col-2'></div>
         </div>
+        <div class='row py-4'>
+            <div class='col-5'></div>
+            <div class='col-2'>
+                <button type='submit' id='submit_btn' name='submit_btn' class='btn btn-danger'>Ricerca</button>
+            </div>
+            <div class='col-5'></div>
+        </div>
     </div>
+    </form>
 
   <?php 
     if(isset($_POST["submit"])){
