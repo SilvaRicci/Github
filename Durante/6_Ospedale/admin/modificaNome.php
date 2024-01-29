@@ -59,7 +59,7 @@
       $nomePrecedente = $_GET["nome"];
       $nome = $_POST["nome"];
 
-      $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = $nomePrecedente";
+      $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
       $result = $db_connection->query($query);
 
       header("visite.php");
