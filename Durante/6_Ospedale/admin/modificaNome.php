@@ -12,6 +12,8 @@
     function getTypeData(){
       include "../config/path.php";
       include $CONN_PATH;
+
+      $nome = $_GET["nome"];
   
       $query = "SELECT * FROM `tipologieVisite` WHERE 1 = 1";
       $result = $db_connection->query($query);                                                                                                                                        
@@ -26,17 +28,22 @@
                 <ul class='list-group'>
             ";
             while($row=$result->fetch_assoc()){
-              echo " <a href='modificaNome.php?nome=$row[nome]' class='list-group-item list-group-item-action'>$row[nome]</a>";
+              if("$row[nome]" == $nome){
+                echo "<input type='text' class='list-group-item list-group-item-action form-control' id='nome' name='nome'>";
+              }else{
+                echo "<a href='modificaNome.php?nome=$row[nome]' class='list-group-item list-group-item-action'>$row[nome]</a>";
+              }
+              
             }
             echo" 
                 </ul>
               </div>
               <div class='col-4'>
                 <div class='row py-4'>
-                  <input type='text' class='form-control' id='visita' name='visita'>
+                  <input type='text' class='form-control' id='visita' name='visita' disabled>
                 </div>
                 <div class='row py-4'>
-                  <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-danger'>Inserisci</button></center>
+                  <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-danger'>Modifica</button></center>
                 </div>
               </div>
             </div>
