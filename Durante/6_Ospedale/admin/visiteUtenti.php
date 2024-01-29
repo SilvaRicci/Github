@@ -42,42 +42,46 @@
 
   function printTable($data){
 
-    $rows = $data->num_rows;
-
-    if($rows<=0){
-      echo "Temporaneo, nessun risultato trovato";
-      return;
-    }
-
-        $row = $data->fetch_assoc();
-        echo "
-          <div class='container text-center'>
-            <div class='row py-4'>
-              <div class='col-6'>
-                <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
-              </div>
-              <div class='col-3'>
-                <input type='date' class='form-control' id='data' name='data' value='$row[data]' disabled>
-              </div>
-              <div class='col-3'>
-                <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]' disabled>
-              </div>
-            </div>
-            <div class='row py-4'>
-            <div class='col-3'></div>
-            <div class='col-2'>
-                <a href='modificaUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Modifica</a>
-            </div>
-            <div class='col-2'></div>
-            <div class='col-2'>
-                <a href='eliminaUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Elimina</a>
-            </div>
-            <div class='col-3'></div>
-            </div>
+    
+    if($data->num_rows<0){
+    
+      echo '
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-8">
+            <table class="table mt-5 table-striped table-hover thead-success">
+              <thead>
+                  <tr>
+                  <th scope="col">Tipologia</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Ora</th>
+                  <th scope="col">Modifica</th>
+                  <th scope="col">Elimina</th>
+                  </tr>
+              </thead>
+              <tbody>
           </div>
-          ";
+          <div class="col-2"></div>
+        </div>';
 
-  }
+        while($rowVisit = $data->fetch_assoc()){
+          echo "<tr>";
+          echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
+          echo "<th scope='row'> $rowVisit[data] </th>";
+          echo "<th scope='row'> $rowVisit[ora] </th>";
+          
+          //BOTTONI DA SISTEMARE
+          echo "<th scope='row'> <a href='modificaVisiteUtenti.php?id=$rowVisit[id]'><button class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></a></th>";
+          echo "<th scope='row'> <a href='eliminaVisiteUtenti.php?id=$rowVisit[id]'><button class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></a></th>";
+          echo "</tr>";
+        } 
+        echo "</tr>";
+        echo '</tbody></table>';
+      }
+  
+      
+    
+    }
 
 ?>
 
