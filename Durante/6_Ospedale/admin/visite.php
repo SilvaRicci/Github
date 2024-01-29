@@ -12,14 +12,11 @@
     function getTypeData(){
       include "../config/path.php";
       include $CONN_PATH;
-
-      $username = $_SESSION['username'];
   
-      $query = "SELECT * FROM `tipologiaVisite` WHERE 1 = 1";
+      $query = "SELECT * FROM `tipologieVisite` WHERE 1 = 1";
       $result = $db_connection->query($query);                                                                                                                                        
     
       if($result->num_rows > 0){
-          $row=$result->fetch_assoc();
 
           echo "
           <div class='container text-center'>
@@ -27,20 +24,21 @@
               <div class='col-2'></div>
               <div class='col-4'>
                 <ul class='list-group'>
-                  <li class='list-group-item'>$row[nome]</li>>
+            ";
+            while($row=$result->fetch_assoc()){
+              echo "<li class='list-group-item'>$row[nome]</li>";
+            }
+            echo" 
                 </ul>
               </div>
               <div class='col-4'>
-                <input type='text' class='form-control' id='visita' name='visita'>
+                <div class='row py-4'>
+                  <input type='text' class='form-control' id='visita' name='visita'>
+                </div>
+                <div class='row py-4'>
+                  <br><center><button type='submit' id='submit_btn' name='submit_btn' class='btn btn-danger'>Inserisci</button></center>
+                </div>
               </div>
-              <div class='col-2'></div>
-            </div>
-            <div class='row py-4'>
-              <div class='col-6'></div>
-              <div class='col-4'>
-                <input type='text' class='form-control' id='visita' name='visita'> //BOTTONBE
-              </div>
-              <div class='col-2'></div>
             </div>
           </div>
           ";
@@ -115,22 +113,15 @@
   </nav>
   <!-- Fine navbar -->
 
- 
-  <div class='container text-center'>
-    <div class='row py-4'>
-    <div class='col-2'></div>
-      <div class='col-4'>
-        <input type='text' class='form-control' id='username' name='username' value='$row[username]' disabled>
-      </div>
-      <div class='col-4'>
-        <input type='password' class='form-control' id='password' name='password' value='$row[password]' disabled>
-      </div>
-      <div class='col-2'></div>
-    </div>
-  </div>
+  <form action='#' method='POST'>
+    <br>
+    <?php 
+      getTypeData();
+    ?>
+  </form>
 
-  <?php 
-    getTypeData();
+  <?php
+    if(isset($_POST[""]))
   ?>
 
 
