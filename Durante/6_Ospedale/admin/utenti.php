@@ -16,9 +16,6 @@
     
     $data = $_POST['inputData'];
     $type = $_POST['type'];
-
-    $data = "DRMD5345JFJH3446";
-    $type = 0;
     
     switch($type){
       case 0:{
@@ -118,47 +115,6 @@
 
   }
 
-  
-
-
-/*
-  function adminPanel(){
-      include "connessione.php"; 
-      $resultAdmin = $db_connection->query("SELECT * FROM utente");                      
-      $rowsAdmin = $resultAdmin->num_rows;
-
-      echo '<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Codice fiscale</th>
-            <th scope="col">Cognome</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Indirizzo</th>
-            <th scope="col">Comune</th>
-            <th scope="col">CAP</th>
-            <th scope="col">Data di nascita</th>
-            <th scope="col">Genere</th>
-            <th scope="col">Password</th>
-            <th scope="col">T</th> 
-            </tr>
-        </thead>
-        <tbody>';
-
-      while($row = $resultAdmin->fetch_assoc()){
-        echo "<tr> <th scope=."."row"."class="."secondary".">". "$row[CF]</th>";
-        echo "<th scope=."."row".">". "$row[cognome] </th>";
-        echo "<th scope=."."row".">". "$row[nome] </th>";
-        echo "<th scope=."."row".">". "$row[indirizzo] </th>";
-        echo "<th scope=."."row".">". "$row[comune] </th>";
-        echo "<th scope=."."row".">". "$row[CAP] </th>";
-        echo "<th scope=."."row".">". "$row[provincia] </th>";
-        echo "<th scope=."."row".">". "$row[dataNascita] </th>";
-        echo "<th scope=."."row".">". "$row[genere] </th>";
-        echo "<th scope=."."row".">". "$row[password] </th>";
-        echo "<th> <form action='deleteUser.php'> <button type='submit' id='deleteUser_btn' name='deleteUser_btn' value='$row[CF]' class='btn btn-danger'><i class='bi bi-trash-fill'></i></button> </form> </th> </tr>";
-      }
-  }
-*/
 ?>
 
 
@@ -227,6 +183,21 @@
     </div>
   </nav>
   <!-- Fine navbar -->
+
+    <div class='container text-center'>
+        <div class='row py-4'>
+        <div class='col-2'></div>
+            <div class='col-4'>
+                <input type='text' class='form-control' id='inputData' name='inputData' placeholder='Inserisci un dato'>
+            </div>
+            <div class='col-4'>
+                <select id="tipologia" name="tipologia" class="form-control">
+                    <option selected value="-1">Scegli la tipologia</option>;
+                </select>
+            </div>
+            <div class='col-2'></div>
+        </div>
+    </div>
 
   <?php 
     if(isset($_POST["submit"])){

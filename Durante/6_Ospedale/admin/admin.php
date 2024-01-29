@@ -7,7 +7,7 @@
     if(!isset($_SESSION['username'])){
       header("Location: $LOGIN_PATH");
     }
-  
+    
 ?>
 
 
