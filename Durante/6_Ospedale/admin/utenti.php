@@ -123,11 +123,11 @@
             <div class='row py-4'>
             <div class='col-3'></div>
             <div class='col-2'>
-                <button type='submit' id='modify_btn' name='modify_btn' class='btn btn-danger'>Modifica</button>
+                <a href='modificaUtenti.php?CF=$row[CF]' class='btn btn-danger' role='button'>Modifica</a>
             </div>
             <div class='col-2'></div>
             <div class='col-2'>
-                <button type='submit' id='delete_btn' name='delete_btn' class='btn btn-danger'>Elimina</button>
+                <a href='eliminaUtenti.php?CF=$row[CF]' class='btn btn-danger' role='button'>Elimina</a>
             </div>
             <div class='col-3'></div>
             </div>
