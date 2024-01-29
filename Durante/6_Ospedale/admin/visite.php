@@ -7,6 +7,45 @@
     if(!isset($_SESSION['username'])){
       header("Location: $LOGIN_PATH");
     }
+
+
+    function getTypeData(){
+      include "../config/path.php";
+      include $CONN_PATH;
+
+      $username = $_SESSION['username'];
+  
+      $query = "SELECT * FROM `tipologiaVisite` WHERE 1 = 1";
+      $result = $db_connection->query($query);                                                                                                                                        
+    
+      if($result->num_rows > 0){
+          $row=$result->fetch_assoc();
+
+          echo "
+          <div class='container text-center'>
+            <div class='row py-4'>
+              <div class='col-2'></div>
+              <div class='col-4'>
+                <ul class='list-group'>
+                  <li class='list-group-item'>$row[nome]</li>>
+                </ul>
+              </div>
+              <div class='col-4'>
+                <input type='text' class='form-control' id='visita' name='visita'>
+              </div>
+              <div class='col-2'></div>
+            </div>
+            <div class='row py-4'>
+              <div class='col-6'></div>
+              <div class='col-4'>
+                <input type='text' class='form-control' id='visita' name='visita'> //BOTTONBE
+              </div>
+              <div class='col-2'></div>
+            </div>
+          </div>
+          ";
+      }
+    }
 ?>
 
 
@@ -76,10 +115,22 @@
   </nav>
   <!-- Fine navbar -->
 
+ 
+  <div class='container text-center'>
+    <div class='row py-4'>
+    <div class='col-2'></div>
+      <div class='col-4'>
+        <input type='text' class='form-control' id='username' name='username' value='$row[username]' disabled>
+      </div>
+      <div class='col-4'>
+        <input type='password' class='form-control' id='password' name='password' value='$row[password]' disabled>
+      </div>
+      <div class='col-2'></div>
+    </div>
+  </div>
+
   <?php 
-    if(isset($_POST["submit"])){
-      searchUser();
-    }
+    getTypeData();
   ?>
 
 

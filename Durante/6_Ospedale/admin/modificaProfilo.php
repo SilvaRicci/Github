@@ -71,9 +71,9 @@
             $db_connection->query($query);
             $db_connection->close();
 
-            $_SESSION['username'] = $CF;
+            $_SESSION['username'] = $newUsr; //SE UTILIZZO ID NON NECESSITO QUESTA RIGA
 
-            header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER    
+            header("Location: profilo.php"); 
       }else{
           echo "Errore nel'inserimento dei dati";
       }
