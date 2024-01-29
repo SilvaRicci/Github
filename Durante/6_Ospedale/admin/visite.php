@@ -26,7 +26,7 @@
                 <ul class='list-group'>
             ";
             while($row=$result->fetch_assoc()){
-              echo "<li class='list-group-item'>$row[nome]</li>";
+              echo "<li class='list-group-item list-group-item-action'>$row[nome]</li>";
             }
             echo" 
                 </ul>
@@ -43,6 +43,21 @@
           </div>
           ";
       }
+    }
+
+    function addData(){
+      include "../config/path.php";
+      include $CONN_PATH;
+  
+      $nome = $_POST["visita"];
+
+      $query = "INSERT INTO `tipologieVisite`(`nome`) VALUES ('$nome')";
+      $result = $db_connection->query($query);
+
+      header("visite.php");
+
+      $result->close();
+      $db_connection->close();
     }
 ?>
 
@@ -121,7 +136,9 @@
   </form>
 
   <?php
-    if(isset($_POST[""]))
+    if(isset($_POST["submit_btn"])){
+      addData();
+    }
   ?>
 
 
