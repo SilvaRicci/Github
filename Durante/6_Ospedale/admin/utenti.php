@@ -37,44 +37,13 @@
     $db_connection->close();
 
   }
-  function searchVisita(){
-    	
-    include "../config/path.php";
-    include $CONN_PATH;
-    
-    $data = $_POST['inputData'];
-    $type = $_POST['type'];
-    
-    switch($type){
-      case 0:{
-        $query = "SELECT * FROM utente WHERE id = '$data'";
-        break;
-      }
-      case 1:{
-        $query = "SELECT * FROM utente WHERE CF_utente = '$data'";
-        break;
-      }
-      case 2:{
-        $query = "SELECT * FROM utente WHERE tipologia = '$data'";
-        break;
-      }
-    }
-    
-    $resultSearch = $db_connection->query($query);
-    
-    printTable($resultSearch);
-
-    $resultSearch->close();
-    $db_connection->close();
-
-  }
 
   function printTable($data){
 
     $rows = $data->num_rows;
 
     if($rows<=0){
-      echo "Temporaneo, nessun risultato trovato";
+      echo "Nessun risultato trovato";
       return;
     }
 

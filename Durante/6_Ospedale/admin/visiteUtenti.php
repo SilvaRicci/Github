@@ -8,13 +8,10 @@
       header("Location: $LOGIN_PATH");
     }
   
-  function searchVisita(){
+  function searchVisita($data,$type){
     	
     include "../config/path.php";
     include $CONN_PATH;
-    
-    $data = $_POST['inputData'];
-    $type = $_POST['type'];
     
     switch($type){
       case 0:{
@@ -42,46 +39,67 @@
 
   function printTable($data){
 
-    
-    if($data->num_rows<0){
-    
-      echo '
-        <div class="row">
-          <div class="col-2"></div>
-          <div class="col-8">
-            <table class="table mt-5 table-striped table-hover thead-success">
-              <thead>
-                  <tr>
-                  <th scope="col">Tipologia</th>
-                  <th scope="col">Data</th>
-                  <th scope="col">Ora</th>
-                  <th scope="col">Modifica</th>
-                  <th scope="col">Elimina</th>
-                  </tr>
-              </thead>
-              <tbody>
-          </div>
-          <div class="col-2"></div>
-        </div>';
+    $rows = $data->num_rows;
 
-        while($rowVisit = $data->fetch_assoc()){
-          echo "<tr>";
-          echo "<th scope='row' class='secondary'>$rowVisit[tipologia]</th>";
-          echo "<th scope='row'> $rowVisit[data] </th>";
-          echo "<th scope='row'> $rowVisit[ora] </th>";
-          
-          //BOTTONI DA SISTEMARE
-          echo "<th scope='row'> <a href='modificaVisiteUtenti.php?id=$rowVisit[id]'><button class='btn btn-primary'><i class='bi bi-trash-fill'></i></button></a></th>";
-          echo "<th scope='row'> <a href='eliminaVisiteUtenti.php?id=$rowVisit[id]'><button class='btn btn-danger'><i class='bi bi-trash-fill'></i></button></a></th>";
-          echo "</tr>";
-        } 
-        echo "</tr>";
-        echo '</tbody></table>';
-      }
-  
-      
-    
+    if($rows<=0){
+      echo "Nessun risultato trovato";
+      return;
     }
+
+        $row = $data->fetch_assoc();
+        echo "
+          <div class='container text-center'>
+            <div class='row py-4'>
+              <div class='col-6'>
+                <input type='text' class='form-control' id='CF' name='CF' value='$row[id]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='cognome' name='cognome' value='$row[CF_utente]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='nome' name='nome' value='$row[nome]' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='indirizzo' name='indirizzo' value='$row[indirizzo]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='comune' name='comune' value='$row[comune]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='CAP' name='CAP' value='$row[CAP]' disabled>
+              </div>
+              <div class='col-3'>
+                <input type='text' class='form-control' id='provincia' name='provincia' value='$row[provincia]' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+              <div class='col-4'>
+                <input type='date' class='form-control' id='dataNascita' name='dataNascita' value='$row[dataNascita]' disabled>
+              </div>
+              <div class='col-4'>
+                <input type='password' class='form-control' id='password' name='password' value='12345678' disabled>
+              </div>
+              <div class='col-4'>
+                <input type='password' class='form-control' id='confermaPassword' name='confermaPassword' value='12345678' disabled>
+              </div>
+            </div>
+            <div class='row py-4'>
+            <div class='col-3'></div>
+            <div class='col-2'>
+                <a href='modificaUtenti.php?CF=$row[CF]' class='btn btn-danger' role='button'>Modifica</a>
+            </div>
+            <div class='col-2'></div>
+            <div class='col-2'>
+                <a href='eliminaUtenti.php?CF=$row[CF]' class='btn btn-danger' role='button'>Elimina</a>
+            </div>
+            <div class='col-3'></div>
+            </div>
+          </div>
+          ";
+
+  }
 
 ?>
 
@@ -162,9 +180,9 @@
             <div class='col-4'>
                 <select id="type" name="type" class="form-control">
                     <option selected value="-1">Scegli la tipologia</option>;
-                    <option value="0">Codice fiscale</option>;
-                    <option value="1">Cognome</option>;
-                    <option value="2">Nome</option>;
+                    <option value="0">ID</option>;
+                    <option value="1">CF Utenti</option>;
+                    <option value="2">Tipologia</option>;
                 </select>
             </div>
             <div class='col-2'></div>
@@ -180,8 +198,15 @@
     </form>
 
   <?php 
+  
+    if(isset($_GET['id'])){
+      searchVisita($_GET['id'],0);
+    }
+
     if(isset($_POST["submit_btn"])){
-      searchUser();
+      $data = $_POST['inputData'];
+      $type = $_POST['type'];
+      searchVisita($data,$type);
     }
   ?>
 
