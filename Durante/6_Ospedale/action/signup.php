@@ -34,8 +34,10 @@
             if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
                 $password = password_hash($password,PASSWORD_DEFAULT);
                 
-                $ok=$db_connection->query("INSERT INTO utente (CF,cognome,nome,indirizzo,comune,CAP,provincia,dataNascita,genere,password) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')");
-                $ok->
+                $query = "INSERT INTO `utente`(`CF`, `cognome`, `nome`, `indirizzo`, `comune`, `CAP`, `provincia`, `dataNascita`, `genere`, `password`) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')";
+                $ok=$db_connection->query($query);
+                echo "".$db_connection->connect_error;
+                
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
                 //$LOGIN_PATH = $LOGIN_PATH+"";
