@@ -119,7 +119,7 @@
   <?php       
   
         if(isset($_POST['submit_btn'])){
-          header("Location: modificaProfilo.php");
+          echo '<script>  window.location.href = "modificaProfilo.php"; </script>';
       }
     ?>
 

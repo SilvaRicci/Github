@@ -38,7 +38,7 @@
     
     $db_connection->close();
 
-    header("Location: visite.php");
+    echo '<script>  window.location.href = "visite.php"; </script>';
   }
 
   function getTypeData(){

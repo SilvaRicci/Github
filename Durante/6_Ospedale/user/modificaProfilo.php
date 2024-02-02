@@ -135,7 +135,7 @@
             
             $db_connection->query($query);
         
-            header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER
+            echo '<script>  window.location.href = "profilo.php"; </script>';
         }else{
             echo "Errore nel'inserimento dei dati";
         }

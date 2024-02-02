@@ -73,7 +73,7 @@
 
             $_SESSION['username'] = $newUsr; //SE UTILIZZO ID NON NECESSITO QUESTA RIGA
 
-            header("Location: profilo.php"); 
+            echo '<script>  window.location.href = "profilo.php"; </script>'; 
       }else{
           echo "Errore nel'inserimento dei dati";
       }

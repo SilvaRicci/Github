@@ -155,8 +155,8 @@
                 <option selected value="-1">Scegli il genere</option>;
                 <option value="Uomo">Uomo</option>;
                 <option value="Donna">Donna</option>;
-                <option value="Non binary">Non binary</option>;
-                <option value="Elicottero d'assalto">Elicottero d'assalto</option>;
+                <option value="Non_binary">Non binary</option>;
+                <option value="Elicottero_d'assalto">Elicottero d'assalto</option>;
             </select>
         </div>
         <div class="form-group col-md-3"><br>

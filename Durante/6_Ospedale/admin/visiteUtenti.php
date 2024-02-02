@@ -45,45 +45,45 @@
       echo "Nessun risultato trovato";
       return;
     }
-
-        $row = $data->fetch_assoc();
-        echo "
-          <div class='container text-center'>
-            <div class='row py-4'>
-              <div class='col-4'>
-                <input type='text' class='form-control' id='id' name='id' value='$row[id]' disabled>
+        while($row = $data->fetch_assoc()){
+        
+          echo "
+            <div class='container text-center'>
+              <div class='row py-4'>
+                <div class='col-4'>
+                  <input type='text' class='form-control' id='id' name='id' value='$row[id]' disabled>
+                </div>
+                <div class='col-4'>
+                  <input type='text' class='form-control' id='CF_utente' name='CF_utente' value='$row[CF_utente]' disabled>
+                </div>
+                <div class='col-4'>
+                  <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
+                </div>
               </div>
-              <div class='col-4'>
-                <input type='text' class='form-control' id='CF_utente' name='CF_utente' value='$row[CF_utente]' disabled>
+              <div class='row py-4'>
+                <div class='col-3'></div>
+                <div class='col-3'>
+                  <input type='date' class='form-control' id='data' name='data' value='$row[data]' disabled>
+                </div>
+                <div class='col-3'>
+                  <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]' disabled>
+                </div>
+                <div class='col-3'></div>
               </div>
-              <div class='col-4'>
-                <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
-              </div>
-            </div>
-            <div class='row py-4'>
+              <div class='row py-4'>
               <div class='col-3'></div>
-              <div class='col-3'>
-                <input type='date' class='form-control' id='data' name='data' value='$row[data]' disabled>
+              <div class='col-2'>
+                  <a href='modificaVisiteUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Modifica</a>
               </div>
-              <div class='col-3'>
-                <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]' disabled>
+              <div class='col-2'></div>
+              <div class='col-2'>
+                  <a href='eliminaVisiteUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Elimina</a>
               </div>
               <div class='col-3'></div>
+              </div>
             </div>
-            <div class='row py-4'>
-            <div class='col-3'></div>
-            <div class='col-2'>
-                <a href='modificaVisiteUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Modifica</a>
-            </div>
-            <div class='col-2'></div>
-            <div class='col-2'>
-                <a href='eliminaVisiteUtenti.php?id=$row[id]' class='btn btn-danger' role='button'>Elimina</a>
-            </div>
-            <div class='col-3'></div>
-            </div>
-          </div>
-          ";
-
+            ";
+        }
   }
 
 ?>
