@@ -54,10 +54,7 @@
       $query = "INSERT INTO `tipologieVisite`(`nome`) VALUES ('$nome')";
       $result = $db_connection->query($query);
 
-      header("visite.php");
-
-      $result->close();
-      $db_connection->close();
+      header("Location: visite.php");
     }
 ?>
 
@@ -138,6 +135,7 @@
   <?php
     if(isset($_POST["submit_btn"])){
       addData();
+      header("Location: visite.php");
     }
   ?>
 

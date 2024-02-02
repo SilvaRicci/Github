@@ -134,8 +134,6 @@
             }
             
             $db_connection->query($query);
-            
-            $db_connection->close();
         
             header("Location: profilo.php"); //NON FUNZIONANO GLI HEADER
         }else{
