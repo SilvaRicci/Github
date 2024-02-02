@@ -36,7 +36,7 @@
               $_SESSION['CF'] = $row['CF'];
               //$HOME_PATH = $HOME_PATH+"";
 
-              header("Location: $HOME_PATH");
+              echo '<script>  window.location.href = "'.$HOME_.'"; </script>';
               
             }else{
                 echo "Password incorretta";

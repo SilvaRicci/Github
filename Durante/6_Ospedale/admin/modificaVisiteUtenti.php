@@ -40,13 +40,9 @@
       }
     }
 
-    function dataVerify($tipologia,$data,$ora){
+    function dataVerify($data,$ora){
         $isOk=true;
 
-        if($tipologia==""){
-            $isOk=false;
-            echo "Tipologia non inserita <br />";
-        }
         if($data==""){
             $isOk=false;
             echo "Data non inserita <br />";
@@ -63,18 +59,17 @@
         include $CONN_PATH;
     
         $id = $_GET['id'];
-    
-        $tipologia = $_POST["tipologia"];
+
         $data = $_POST["data"]; 
         $ora = $_POST["ora"];
 
-        if(dataVerify($tipologia,$data,$ora)){
-          $query = "UPDATE `visita` SET `tipologia`='$tipologia',`data`='$data',`ora`='$ora' WHERE `id` = '$id'";
+        if(dataVerify($data,$ora)){
+          $query = "UPDATE `visita` SET `data`='$data',`ora`='$ora' WHERE `id` = '$id'";
         
           $db_connection->query($query);
           $db_connection->close();
       
-          echo '<script>  window.location.href = "visite.php"; </script>';
+          echo '<script>  window.location.href = "visiteUtenti.php?id='.$id.'"; </script>';
         }else{
             echo "Errore nel'inserimento dei dati";
         }

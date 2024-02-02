@@ -6,7 +6,7 @@
       header("Location: $LOGIN_PATH");
     }else{
 
-        $CF = $_GET['id'];
+        $id = $_GET['id'];
 
         $query = "DELETE FROM `visita` WHERE `id` = '$id'";
         
