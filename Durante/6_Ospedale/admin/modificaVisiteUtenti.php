@@ -22,18 +22,20 @@
           $row=$result->fetch_assoc();
 
           echo "
-          <div class='container text-center'>
-            <div class='row py-4'>
-              <div class='col-6'>
-                <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
+          <form action='#' method='POST'>
+            <div class='container text-center'>
+              <div class='row py-4'>
+                <div class='col-6'>
+                  <input type='text' class='form-control' id='tipologia' name='tipologia' value='$row[tipologia]' disabled>
+                </div>
+                <div class='col-3'>
+                  <input type='date' class='form-control' id='data' name='data' value='$row[data]'>
+                </div>
+                <div class='col-3'>
+                  <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]'>
+                </div>
               </div>
-              <div class='col-3'>
-                <input type='date' class='form-control' id='data' name='data' value='$row[data]'>
-              </div>
-              <div class='col-3'>
-                <input type='time' class='form-control' id='ora' name='ora' value='$row[ora]'>
-              </div>
-            </div>
+            </form>
           ";
       }
     }
@@ -72,7 +74,7 @@
           $db_connection->query($query);
           $db_connection->close();
       
-          header("Location: visiteUtenti.php");
+          echo '<script>  window.location.href = "visite.php"; </script>';
         }else{
             echo "Errore nel'inserimento dei dati";
         }
