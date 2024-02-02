@@ -129,7 +129,7 @@
             
             $db_connection->close();
         
-            header("Location: utenti.php"); //NON FUNZIONANO GLI HEADER
+            echo '<script>  window.location.href = "utenti.php"; </script>';
         }else{
             echo "Errore nel'inserimento dei dati";
         }

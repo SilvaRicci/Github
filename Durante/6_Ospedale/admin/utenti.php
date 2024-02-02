@@ -7,6 +7,10 @@
     if(!isset($_SESSION['username'])){
       header("Location: $LOGIN_PATH");
     }
+
+    if(isset($_GET['data']) && isset($_GET['type']) ){
+      
+    }
   
 
 	function searchUser(){

@@ -65,15 +65,14 @@
         $query = "DELETE FROM `tipologieVisite` WHERE `nome` = '$nomePrecedente'";
         $result = $db_connection->query($query);
 
-        header("visite.php");
+        echo '<script>  window.location.href = "visite.php"; </script>';
 
       }else{
         //cambia nome alla visita
         $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
         $result = $db_connection->query($query);
-
         
-        echo '<script>  window.location.href = ""; </script>';
+        echo '<script>  window.location.href = "visite.php"; </script>';
 
       }
         
