@@ -59,13 +59,24 @@
       $nomePrecedente = $_GET["nome"];
       $nome = $_POST["nome"];
 
-      $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
-      $result = $db_connection->query($query);
+      if($nome = ""){
+        //cancella la visita
+        $query = "DELETE `tipologieVisite` WHERE `nome` = '$nomePrecedente'";
+        $result = $db_connection->query($query);
 
-      header("visite.php");
+        header("visite.php");
 
-      $result->close();
-      $db_connection->close();
+      }else{
+        //cambia nome alla visita
+        $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
+        $result = $db_connection->query($query);
+
+        header("visite.php");
+
+      }
+        
+
+      
     }
 ?>
 
