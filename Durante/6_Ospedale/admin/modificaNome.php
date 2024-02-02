@@ -59,9 +59,10 @@
       $nomePrecedente = $_GET["nome"];
       $nome = $_POST["nome"];
 
-      if($nome = ""){
+      if($nome == ""){
+        echo "das";
         //cancella la visita
-        $query = "DELETE `tipologieVisite` WHERE `nome` = '$nomePrecedente'";
+        $query = "DELETE FROM `tipologieVisite` WHERE `nome` = '$nomePrecedente'";
         $result = $db_connection->query($query);
 
         header("visite.php");
@@ -71,7 +72,8 @@
         $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
         $result = $db_connection->query($query);
 
-        echo '<meta http-equiv="refresh" content="5; url=visite.php">';
+        
+        echo '<script>  window.location.href = ""; </script>';
 
       }
         
