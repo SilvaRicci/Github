@@ -85,22 +85,6 @@
   </nav>
   <!-- Fine navbar -->
 
-  <?php       
-        //visualizzazione base pagina per normali utenti
-        echo '<table class="table">
-        <thead>
-            <tr>
-            <th scope="col">CF</th>
-            <th scope="col">Cognome</th>
-            <th scope="col">Nome</th>
-            </tr>
-        </thead>
-        <tbody>';
-
-        echo "<tr> <th scope='row' class='secondary'>$row[CF]</th>";
-        echo "<th scope='row'> $row[cognome] </th>";
-        echo "<th scope='row'> $row[nome] </th>";
-    ?>
 
   
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
