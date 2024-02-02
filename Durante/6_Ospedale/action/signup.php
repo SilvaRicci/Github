@@ -28,6 +28,8 @@
             $provincia = $_POST["provincia"];
             $dataNascita = $_POST["dataNascita"];
             $genere = $_POST["genere"];
+
+            echo "$dataNascita";
             
             $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
             
@@ -36,7 +38,7 @@
                 
                 $query = "INSERT INTO `utente`(`CF`, `cognome`, `nome`, `indirizzo`, `comune`, `CAP`, `provincia`, `dataNascita`, `genere`, `password`) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')";
                 $ok=$db_connection->query($query);
-                echo "".$db_connection->connect_error;
+
                 
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
