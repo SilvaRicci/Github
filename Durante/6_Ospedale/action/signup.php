@@ -18,7 +18,7 @@
             
             include "../config/path.php";
             include $CONN_PATH;
-
+            
             $CF = $_POST["CF"];
             $cognome = $_POST["cognome"];
             $nome = $_POST["nome"]; 
@@ -35,12 +35,12 @@
                 $password = password_hash($password,PASSWORD_DEFAULT);
                 
                 $ok=$db_connection->query("INSERT INTO utente (CF,cognome,nome,indirizzo,comune,CAP,provincia,dataNascita,genere,password) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')");
-                
+                $ok->
                 echo "Inserimento dei dati nella tabella: 100% completato.";
                 
                 //$LOGIN_PATH = $LOGIN_PATH+"";
 
-                header("Location: $LOGIN_PATH");
+                echo '<script>  window.location.href = "'.$LOGIN_PATH.'"; </script>';
             }
             
             $db_connection->close();    
@@ -165,7 +165,7 @@
         <br><br>
 
         <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Registrati</button><br><br>
-        <p>Gia' registrato? <a href="<?php echo'$LOGIN_PATH';?>">Login</a></p>
+        <p>Gia' registrato? <a href="<?php echo ''.$LOGIN_PATH;?>">Login</a></p>
         <br>
         
     </form>
