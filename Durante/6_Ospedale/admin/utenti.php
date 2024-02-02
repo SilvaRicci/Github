@@ -7,19 +7,12 @@
     if(!isset($_SESSION['username'])){
       header("Location: $LOGIN_PATH");
     }
-
-    if(isset($_GET['data']) && isset($_GET['type']) ){
-      
-    }
   
 
-	function searchUser(){
+	function searchUser($data,$type){
 
     include "../config/path.php";
     include $CONN_PATH;
-    
-    $data = $_POST['inputData'];
-    $type = $_POST['type'];
     
     switch($type){
       case 0:{
@@ -237,8 +230,15 @@
     </form>
 
   <?php 
+  
+    if(isset($_GET['CF'])){
+      searchUser($_GET['CF'],0);
+    }
+
     if(isset($_POST["submit_btn"])){
-      searchUser();
+      $data = $_POST['inputData'];
+      $type = $_POST['type'];
+      searchUser($data,$type);
     }
   ?>
 

@@ -129,7 +129,7 @@
             
             $db_connection->close();
         
-            echo '<script>  window.location.href = "utenti.php"; </script>';
+            echo '<script>  window.location.href = "utenti.php?CF='.$CF.'"; </script>';
         }else{
             echo "Errore nel'inserimento dei dati";
         }
