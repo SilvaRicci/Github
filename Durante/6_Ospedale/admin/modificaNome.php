@@ -71,7 +71,7 @@
         $query = "UPDATE `tipologieVisite` SET `nome`='$nome' WHERE `nome` = '$nomePrecedente'";
         $result = $db_connection->query($query);
 
-        header("visite.php");
+        echo '<meta http-equiv="refresh" content="5; url=visite.php">';
 
       }
         

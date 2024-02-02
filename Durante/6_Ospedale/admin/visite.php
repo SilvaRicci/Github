@@ -133,7 +133,7 @@
   <?php
     if(isset($_POST["submit_btn"])){
       addData();
-      header("Refresh:0;");
+      echo("<meta http-equiv='refresh' content='1'>"); //Refresh by HTTP 'meta'
     }
   ?>
 
