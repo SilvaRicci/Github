@@ -36,6 +36,10 @@
               $_SESSION['CF'] = $row['CF'];
               //$HOME_PATH = $HOME_PATH+"";
 
+              if($_POST["ricordami"]){
+                itsCookieTime($CF,$password);
+              }
+
               echo '<script>  window.location.href = "'.$HOME_PATH.'"; </script>';
               
             }else{
@@ -78,10 +82,23 @@
             $_SESSION['username'] = $CF;
             //$ADMIN_PATH = $ADMIN_PATH+"";
 
+            if($_POST["ricordami"]){
+              itsCookieTime($CF,$password);
+            }
+
             echo '<script>  window.location.href = "'.$ADMIN_PATH.'"; </script>';
           //}
         }
       }
+    }
+
+    function itsCookieTime($CF, $psw){
+      $cookie_name = "codiceFiscale";
+      $cookie_value = $CF;
+      setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
+      $cookie_name = "password";
+      $cookie_value = $psw;
+      setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
     }
   
 
@@ -104,12 +121,13 @@
 <form action="#" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6"><br>
+
       <label for="CF">Codice Fiscale</label>
-      <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale">
+      <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale" value="<?php $_COOKIE["codiceFiscale"] ?>">
     </div>
   <div class="form-group col-md-6"><br>
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php $_COOKIE["password"] ?>">
     </div><br><br>
   </div>
   
