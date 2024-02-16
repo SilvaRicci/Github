@@ -123,11 +123,11 @@
     <div class="form-group col-md-6"><br>
 
       <label for="CF">Codice Fiscale</label>
-      <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale" value="<?php $_COOKIE["codiceFiscale"] ?>">
+      <input type="text" class="form-control" id="CF" name="CF" placeholder="Codice Fiscale" value="<?php echo $_COOKIE["codiceFiscale"]; ?>">
     </div>
   <div class="form-group col-md-6"><br>
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php $_COOKIE["password"] ?>">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $_COOKIE["password"]; ?>">
     </div><br><br>
   </div>
   
