@@ -129,17 +129,21 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="<?php echo $_COOKIE["password"]; ?>">
     </div><br><br>
-  </div>>
+  </div>
   </div class="row">
     <div class="col-5"></div>
+    <div class="mb-3 form-check d-flex align-items-start">
+        <input type="checkbox" class="form-check-input" id="ricordami" name="ricordami">
+        <label class="form-check-label" for="ricordami">Ricordami</label>
+      </div><br>
     <div class ="col-1">
-    <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Login</button><br><br>
-    <p>Non sei registrato? <a href="signup.php">Registrati</a></p><br>
-  </div>
-  <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="ricordami" name="ricordami">
-      <label class="form-check-label" for="ricordami">Ricordami</label>
+      <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Login</button><br><br>
+      <p>Non sei registrato? <a href="signup.php">Registrati</a></p><br>
     </div>
+    <div class="col-1">
+      
+    </div>
+    <div class="col-4"></div>
 </form>
 </div>
 </center>
