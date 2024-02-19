@@ -22,6 +22,16 @@
   function getColorData(){
     include "../config/path.php";
     include $CONN_PATH;
+
+    //IL COOKIE COLORI SARA' UNA STRINGA FORMATA CODICECOLORE1_CODICECOLORE2_FONT CON NOME CODICE FISCALE DELL'UTENTE CHE LO USA
+    if(isset($_COOKIE[$_SESSION['CF']])){
+        $OUT = $_COOKIE['CF'];
+    }
+    
+    $array = str_split($OUT);
+
+    $codiceNavbar = "";
+    for(int $i = 0; )
         
         echo "
         <tr>
@@ -29,10 +39,9 @@
                 <input type='color' class='form-control' id='navbarColor' name='navbarColor' value='#ff0000'>
             </th>
             <th scope='row'>
-                <input type='date' class='form-control' id='data' name='data' value='saddsa'>
-            </th>
+                <input type='color' class='form-control' id='backgroundColor' name='backgroundColor' value='#ff0000'>
             <th scope='row'>
-                <input type='time' class='form-control' id='ora' name='ora' value='asdsa'>
+                <input type='text' class='form-control' id='font' name='font' value='asdsa'>
             </th>
         </tr>
         ";
