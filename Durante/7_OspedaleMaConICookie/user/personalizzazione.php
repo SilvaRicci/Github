@@ -26,22 +26,40 @@
     //IL COOKIE COLORI SARA' UNA STRINGA FORMATA CODICECOLORE1_CODICECOLORE2_FONT CON NOME CODICE FISCALE DELL'UTENTE CHE LO USA
     if(isset($_COOKIE[$_SESSION['CF']])){
         $OUT = $_COOKIE['CF'];
+
+        $array = str_split($OUT);
+
+        $codiceNavbar = "";
+        for($i= 0; $i<7;$i++){
+            $codiceNavbar.=$array[$i];
+        }
+
+        $codiceSfondo = "";
+        for($i= 8; $i<15;$i++){
+            $codiceSfondo.=$array[$i];
+        }
+
+        $codiceFont = "";
+        for($i= 14; $i<24;$i++){  //DA CAMBIARE, DIPENDE DA LUNGHEZZA DEL FONT
+            $codiceFont.=$array[$i];
+        }
+    }else{
+        $codiceNavbar = "#198754";
+        $codiceSfondo = "#ffffff";
+        $codiceFont = "Default";
     }
     
-    $array = str_split($OUT);
-
-    $codiceNavbar = "";
-    for(int $i = 0; )
+    
         
         echo "
         <tr>
             <th scope='row' class='secondary'>
-                <input type='color' class='form-control' id='navbarColor' name='navbarColor' value='#ff0000'>
+                <input type='color' class='form-control' id='navbarColor' name='navbarColor' value='".$codiceNavbar."'>
             </th>
             <th scope='row'>
-                <input type='color' class='form-control' id='backgroundColor' name='backgroundColor' value='#ff0000'>
+                <input type='color' class='form-control' id='backgroundColor' name='backgroundColor' value='".$codiceSfondo."'>
             <th scope='row'>
-                <input type='text' class='form-control' id='font' name='font' value='asdsa'>
+                <input type='text' class='form-control' id='font' name='font' value='".$codiceFont."'>
             </th>
         </tr>
         ";
