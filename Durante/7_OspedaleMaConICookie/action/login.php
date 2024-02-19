@@ -38,9 +38,11 @@
 
               if($_POST["ricordami"]){
                 itsCookieTime($CF,$password);
+              }}else{
+                noMoreCookie();
               }
 
-              echo '<script>  window.location.href = "'.$HOME_PATH.'"; </script>';
+              //echo '<script>  window.location.href = "'.$HOME_PATH.'"; </script>';
               
             }else{
                 echo "Password incorretta";
@@ -84,6 +86,8 @@
 
             if($_POST["ricordami"]){
               itsCookieTime($CF,$password);
+            }else{
+              noMoreCookie();
             }
 
             echo '<script>  window.location.href = "'.$ADMIN_PATH.'"; </script>';
@@ -92,13 +96,24 @@
       }
     }
 
-    function itsCookieTime($CF, $psw){
+    function itsCookieTime($CF, $psw){  //creo 2 cookie per una settimana
+
       $cookie_name = "codiceFiscale";
       $cookie_value = $CF;
       setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
       $cookie_name = "password";
       $cookie_value = $psw;
       setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
+
+    }
+
+    function noMoreCookie(){  //cancello i cookie
+      echo "fafaaf";
+      $cookie_name = "codiceFiscale";
+      setcookie("$cookie_name", "", time() - 3600);
+      $cookie_name = "password";
+      setcookie("$cookie_name", "", time() - 3600);
+
     }
   
 
@@ -151,19 +166,6 @@
     }
 ?>
 
-
-
-
-    <script>
-      
-      <
-
-if (person != null) {
-  document.getElementById("demo").innerHTML =
-  "Hello " + person + "! How are you today?";
-}
-    
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
