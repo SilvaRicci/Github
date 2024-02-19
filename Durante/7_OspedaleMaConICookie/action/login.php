@@ -110,11 +110,11 @@
     function noMoreCookie(){  //cancello i cookie
 
       $cookie_name = "codiceFiscale";
-      //unset($_COOKIE[$cookie_name]);
-      setcookie($cookie_name, "d", time() + 3600);
+      unset($_COOKIE[$cookie_name]);
+      setcookie($cookie_name, "", time() - 3600, "/");
       $cookie_name = "password";
       unset($_COOKIE[$cookie_name]);  
-      setcookie($cookie_name, "d", time() + 3600);
+      setcookie($cookie_name, "", time() - 3600, "/");
 
     }
   
