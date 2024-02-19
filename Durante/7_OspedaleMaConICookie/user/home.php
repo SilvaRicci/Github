@@ -36,28 +36,29 @@
       <div class="row">
         <ul class="navbar-nav mr-auto">
         
-        <!-- 1# button -> Torna a home.php -->
-        <li class="nav-item active nav-underline px-5 pt-3">
-            <a class="nav-link active nav-underline" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
+          <!-- 1# button -> Torna a home.php -->
+          <li class="nav-item active nav-underline px-5 pt-3">
+              <a class="nav-link active nav-underline" href="<?php echo"$HOME_PATH"?>">Home <span class="sr-only"></span></a>
           </li>
 
-        <!-- 2# button -> Vai a index.php -->
-          <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="<?php echo"$INDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
-          </li>
+          <!-- 2# button -> Vai a index.php -->
+            <li class="nav-item px-5 pt-3">
+              <a class="nav-link" href="<?php echo"$INDEX_PATH"?>">Panoramica <span class="sr-only"></span></a>
+            </li>
 
-          <!-- Torna a home.php -->
-          <a class="navbar-brand px-5" href="<?php echo"$HOME_PATH"?>">
-            <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <!-- Torna a home.php -->
+            <a class="navbar-brand px-5" href="<?php echo"$HOME_PATH"?>">
+              <img src="<?php echo"$LOGO_PATH"?>" alt="Logo" width="50" height="50">
+            </a>
 
-          <!-- 3# button -> Vai a visite.php -->
-          <li class="nav-item px-5 pt-3">
-            <a class="nav-link" href="<?php echo"$VISITE_PATH"?>">Visite</a>
-          </li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 3# button -> Vai a visite.php -->
+            <li class="nav-item px-5 pt-3">
+              <a class="nav-link" href="<?php echo"$VISITE_PATH"?>">Visite</a>
+            </li>
           
           <!-- 4# button -> Vai a profilo.php/logout.php -->
           <li class="nav-item dropdown px-5 pt-3">
