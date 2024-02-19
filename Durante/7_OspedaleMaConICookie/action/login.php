@@ -38,11 +38,11 @@
 
               if($_POST["ricordami"]){
                 itsCookieTime($CF,$password);
-              }}else{
+              }else{
                 noMoreCookie();
               }
 
-              //echo '<script>  window.location.href = "'.$HOME_PATH.'"; </script>';
+              echo '<script>  window.location.href = "'.$HOME_PATH.'"; </script>';
               
             }else{
                 echo "Password incorretta";
@@ -108,11 +108,13 @@
     }
 
     function noMoreCookie(){  //cancello i cookie
-      echo "fafaaf";
+
       $cookie_name = "codiceFiscale";
-      setcookie("$cookie_name", "", time() - 3600);
+      //unset($_COOKIE[$cookie_name]);
+      setcookie($cookie_name, "d", time() + 3600);
       $cookie_name = "password";
-      setcookie("$cookie_name", "", time() - 3600);
+      unset($_COOKIE[$cookie_name]);  
+      setcookie($cookie_name, "d", time() + 3600);
 
     }
   
