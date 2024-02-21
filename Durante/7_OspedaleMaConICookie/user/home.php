@@ -67,7 +67,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="<?php echo"$PROFILE_PATH"?>">Visualizza</a></li>
-              <li><a class="dropdown-item" href="<?php echo"$PROFILE_PATH"?>">Visualizza</a></li>
+              <li><a class="dropdown-item" href="<?php echo"$PERSONALIZZA_PATH"?>">Personalizza</a></li>
               <li><hr class="dropdown-divider"></li>
               <?php 
                   if(!isset($_SESSION['CF'])){

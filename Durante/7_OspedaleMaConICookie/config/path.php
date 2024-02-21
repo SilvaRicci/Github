@@ -9,6 +9,7 @@
     $INDEX_PATH = "../index.php";
     $PROFILE_PATH = "../user/profilo.php";
     $VISITE_PATH = "../user/visite.php";
+    $PERSONALIZZA_PATH = "../user/personalizzazione.php";
     $HOME_PATH = "../user/home.php";
 
     //ADMIN PATH
