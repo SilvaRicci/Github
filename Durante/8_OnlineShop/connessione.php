@@ -1,6 +1,6 @@
 <?php
 
-$db = "Durante_prodotto";                                                                                               
+$db = "Durante_OnlineShop";                                                                                               
 $db_host = "localhost";                                                                                     
 $db_user = "root";                                                                                         
 $db_password = "";                                                                              

@@ -48,7 +48,7 @@
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT nome_prodotto, FROM prodotto");                      
+        $result = $db_connection->query("SELECT nome_prodotto,qnt_prodotto,pvu_prodotto FROM prodotto");                      
         $rows = $result->num_rows;  
         
         $nCol = 0;
@@ -68,7 +68,7 @@
                 '
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="src/img/pasta." class="card-img-top" alt="Pasta bella">
+                        <img src="src/img/'.$row["nome_prodotto"].'" class="card-img-top" alt="Pasta bella">
                         <div class="card-body">
                             <h5 class="card-title">Pasta</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
@@ -92,43 +92,6 @@
         
 
     ?>
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                <!--  Card   -->
-                <div class="card" style="width: 18rem;">
-                    <img src="src/img/pasta." class="card-img-top" alt="Pasta bella">
-                    <div class="card-body">
-                        <h5 class="card-title">Pasta</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <!--  Card   -->
-            </div>
-            <div class="col">
-            Column
-            </div>
-            <div class="col">
-            Column
-            </div>
-        </div>
-        </div>
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-            Column
-            </div>
-            <div class="col">
-            Column
-            </div>
-            <div class="col">   
-            Column
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
