@@ -1,6 +1,19 @@
 <?php
     function aggiungiAlCarrello($id,$quantita){
-        echo "d".$id."d".$quantita;
+
+        if(!isset($_SESSION['carrello'])){
+            $_SESSION['carrello'][] = array();
+        }
+
+        if(isset($_SESSION['carrello'][$id])){
+            $_SESSION['carrello'][$quantita]=$_SESSION['carrello'][$quantita]+$quantita;
+        }else{
+            $item = array(
+                'id' => $id,
+                'quantita' => $quantita
+            );
+            $_SESSION['carrello'][$id] = $item;
+        }
     }
 ?>
 
