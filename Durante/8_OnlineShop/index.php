@@ -48,7 +48,7 @@
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT nome_prodotto,qnt_prodotto,pvu_prodotto FROM prodotto");                      
+        $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto");                      
         $rows = $result->num_rows;  
         
         $nCol = 0;
@@ -73,11 +73,14 @@
                         <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
                         <div class="card-body">
                             <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
+
+                            <input type="number" class="form-control" id="quantita" name="quantita" aria-describedby="emailHelp">
+
                             <div class="input-group mb-3">
                                 <span class="input-group-text">€</span>
                                 <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
                             </div>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+
                             <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
                         </div>
                     </div>
