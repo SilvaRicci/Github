@@ -48,10 +48,48 @@
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT nome_prodotto, FROM prodotti");                      
+        $result = $db_connection->query("SELECT nome_prodotto, FROM prodotto");                      
         $rows = $result->num_rows;  
+        
+        $nCol = 0;
 
-        while()
+        if($rows > 0){
+            while($row = $result->fetch_assoc()){
+
+                if($nCol == 0){
+                    echo
+                    '
+                    <div class="container text-center">
+                        <div class="row">
+                    ';
+                }
+
+                echo 
+                '
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="src/img/pasta." class="card-img-top" alt="Pasta bella">
+                        <div class="card-body">
+                            <h5 class="card-title">Pasta</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                ';
+
+                $nCol = $nCol + 1;
+
+                if($nCol == 3){
+                    echo '
+                        </div>
+                    </div>
+                    ';
+                    $nCol=0;
+                }
+            }
+        }
+        
 
     ?>
 
