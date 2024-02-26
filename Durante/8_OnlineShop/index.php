@@ -44,7 +44,7 @@
     </div>
     </nav>
 
-    <form action="#" method="POST">
+    <form action="aggiungiCarrello.php" method="POST">
 
     <?php 
         
@@ -90,9 +90,11 @@
                                 <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
                             </div>
 
+                            <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
+
                             <br>
 
-                            <a href="aggiungiCarrello.php?id='.$row["id_prodotto"].',qnt='.$row["id_prodotto"].'" class="btn btn-primary">Aggiungi al carrello</a>
+                            <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
                         </div>
                     </div>
                 </div>
@@ -116,16 +118,6 @@
     </form>
 
     <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
-
-    <?php
-
-        if(isset($_POST['submit_btn'])){
-            $id = $_POST["id"];
-            $quantita = $_POST['quantita'];
-
-            echo "1".$id.$quantita;
-        }
-    ?>
 
     
 
