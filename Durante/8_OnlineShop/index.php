@@ -1,3 +1,7 @@
+<?php
+    
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,8 +48,6 @@
     </div>
     </nav>
 
-    <form action="aggiungiCarrello.php" method="POST">
-
     <?php 
         
         include "connessione.php";
@@ -70,34 +72,36 @@
 
                 echo 
                 '
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
-                        <div class="card-body">
-                            <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
+                <form action="#" method="POST">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
+                            <div class="card-body">
+                                <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
 
-                            <br>
+                                <br>
 
-                            <div class="input-group">
-                                <span class="input-group-text">Quantità</span>
-                                <input type="number" class="form-control" id="quantita" name="quantita">
+                                <div class="input-group">
+                                    <span class="input-group-text">Quantità</span>
+                                    <input type="number" class="form-control" id="quantita" name="quantita">
+                                </div>
+
+                                <br>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">€</span>
+                                    <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
+                                </div>
+
+                                <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
+
+                                <br>
+
+                                <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
                             </div>
-
-                            <br>
-
-                            <div class="input-group">
-                                <span class="input-group-text">€</span>
-                                <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
-                            </div>
-
-                            <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
-
-                            <br>
-
-                            <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
                         </div>
                     </div>
-                </div>
+                </form>
                 ';
 
                 $nCol = $nCol + 1;
@@ -115,11 +119,19 @@
 
     ?>
 
-    </form>
-
     <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
 
     
+<?php
+
+    if(isset($_POST['submit_btn'])){
+        $id = $_POST["id"];
+        $quantita = $_POST['quantita'];
+
+        aggiungiAlCarrello($id,$quantita);
+    }
+
+?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
