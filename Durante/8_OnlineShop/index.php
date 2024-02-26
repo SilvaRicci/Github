@@ -87,9 +87,8 @@
                                 <span class="input-group-text">€</span>
                                 <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
                             </div>
-                            <div class="input-group">
-                                
-                            </div>
+
+                            <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
 
                             <br>
 
@@ -115,7 +114,13 @@
     ?>
 
     <?php
-        $quantita = $_POST['quantita'];
+
+        if(isset($_POST['submit_btn'])){
+            $id = $_POST["id"];
+            $quantita = $_POST['quantita'];
+
+            echo "1".$id.$quantita;
+        }
     ?>
 
     <a href="carrello.php" class="btn btn-primary">Vai al carrello</a>
