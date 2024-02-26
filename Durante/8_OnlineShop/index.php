@@ -59,6 +59,8 @@
                 if($nCol == 0){
                     echo
                     '
+                    <br>
+                    <br>
                     <div class="container text-center">
                         <div class="row">
                     ';
@@ -68,11 +70,15 @@
                 '
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="src/img/'.$row["nome_prodotto"].'" class="card-img-top" alt="Pasta bella">
+                        <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
                         <div class="card-body">
-                            <h5 class="card-title">Pasta</h5>
+                            <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">€</span>
+                                <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
+                            </div>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
                         </div>
                     </div>
                 </div>
