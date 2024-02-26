@@ -48,7 +48,7 @@
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto");                      
+        $result = $db_connection->query("SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto");                      
         $rows = $result->num_rows;  
         
         $nCol = 0;
@@ -93,7 +93,7 @@
 
                             <br>
 
-                            <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                            <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
                         </div>
                     </div>
                 </div>
@@ -113,6 +113,12 @@
         
 
     ?>
+
+    <?php
+        $quantita = $_POST['quantita'];
+    ?>
+
+    <a href="carrello.php" class="btn btn-primary">Vai al carrello</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
