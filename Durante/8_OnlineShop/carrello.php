@@ -48,21 +48,23 @@
     
 <?php
 
+
     session_start();
 
     if(!isset($_SESSION['carrello'])){
+
         $carrello = $_SESSION['carrello'];
 
-        foreach($carrello as $item){
-            $result = $db_connection->query("SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto");                      
-            $rows = $result->num_rows;  
-        }
+        print_r($carrello);
 
-        
-        echo $rows;
-        if($rows > 0){  
-            while($row = $result->fetch_assoc()){                                                    
-                echo '<option value='."$row[id_prodotto]".'>'."$row[nome_prodotto]".'</option>';
+        foreach($carrello as $item){
+            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");                      
+            $rows = $result->num_rows;  
+
+            if($rows > 0){  
+                while($row = $result->fetch_assoc()){                                                    
+                    echo '<option value='."$row[nome_prodotto]".'>'."$row[nome_prodotto]".'</option>';
+                }
             }
         }
     }
