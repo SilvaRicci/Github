@@ -51,9 +51,12 @@
 
     session_start();
 
-    if(!isset($_SESSION['carrello'])){
+    if(isset($_SESSION['carrello'])){
+        echo "ciao";
 
         $carrello = $_SESSION['carrello'];
+
+        echo $_SESSION['carrello'][1];
 
         print_r($carrello);
 
