@@ -74,12 +74,24 @@
                         <div class="card-body">
                             <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
 
-                            <input type="number" class="form-control" id="quantita" name="quantita" aria-describedby="emailHelp">
+                            <br>
 
-                            <div class="input-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Quantità</span>
+                                <input type="number" class="form-control" id="quantita" name="quantita">
+                            </div>
+
+                            <br>
+
+                            <div class="input-group">
                                 <span class="input-group-text">€</span>
                                 <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
                             </div>
+                            <div class="input-group">
+                                
+                            </div>
+
+                            <br>
 
                             <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
                         </div>
