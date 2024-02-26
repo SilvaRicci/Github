@@ -44,6 +44,8 @@
     </div>
     </nav>
 
+    <form action="#" method="POST">
+
     <?php 
         
         include "connessione.php";
@@ -88,11 +90,9 @@
                                 <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
                             </div>
 
-                            <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
-
                             <br>
 
-                            <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
+                            <a href="aggiungiCarrello.php?id='.$row["id_prodotto"].',qnt='.$row["id_prodotto"].'" class="btn btn-primary">Aggiungi al carrello</a>
                         </div>
                     </div>
                 </div>
@@ -113,6 +113,10 @@
 
     ?>
 
+    </form>
+
+    <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
+
     <?php
 
         if(isset($_POST['submit_btn'])){
@@ -123,7 +127,7 @@
         }
     ?>
 
-    <a href="carrello.php" class="btn btn-primary">Vai al carrello</a>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
