@@ -1,5 +1,7 @@
 <?php
-    
+    function aggiungiAlCarrello($id,$quantita){
+        echo "d".$id."d".$quantita;
+    }
 ?>
 
 <!doctype html>
@@ -72,8 +74,8 @@
 
                 echo 
                 '
-                <form action="#" method="POST">
-                    <div class="col">
+                <div class="col">
+                    <form action="#" method="POST">
                         <div class="card" style="width: 18rem;">
                             <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
                             <div class="card-body">
@@ -100,8 +102,8 @@
                                 <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 ';
 
                 $nCol = $nCol + 1;
