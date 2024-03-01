@@ -62,6 +62,7 @@ session_start();
             <th scope="col">Prodotto</th>
             <th scope="col">Prezzo</th>
             <th scope="col">Quantità</th>
+            <th scope="col">Totale</th>
         </tr>
         </thead>
         <tbody>';
@@ -79,6 +80,7 @@ session_start();
                     echo '<td>'."$row[nome_prodotto]".'</td>';   
                     echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
                     echo '<td>'."$item[quantita]".'</td>';   
+                    echo '<td>'."$item[quantita]" * "$row[pvu_prodotto]".' € </td>';   
                     echo '<tr>';
                 }
 
