@@ -50,7 +50,6 @@
 
 
     session_start();
-    echo $_SESSION['carrello'][1]['quantita'];
 
     if(isset($_SESSION['carrello'])){
         echo "ciao";
