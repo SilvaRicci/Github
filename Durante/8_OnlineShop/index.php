@@ -10,6 +10,7 @@
         if(isset($_SESSION['carrello'][$id])){
             $_SESSION['carrello'][$quantita]=$_SESSION['carrello'][$quantita]+$quantita;
         }else{
+            
             $item = array(
                 'id' => $id,
                 'quantita' => $quantita
