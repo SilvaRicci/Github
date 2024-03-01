@@ -14,7 +14,7 @@
                 'id' => $id,
                 'quantita' => $quantita
             );
-            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][$id]['quantita'];
+            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][$id]['quantita'];print_r($_SESSION);
         }
     }
 ?>
@@ -157,7 +157,9 @@
 
 <?php
  if(isset($_POST['a'])){
+    session_start();
     ECHO "CIAO";
+    print_r($_SESSION);
     if(isset($_SESSION['carrello'])){
         echo "ciao";
 
