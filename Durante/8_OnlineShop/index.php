@@ -9,7 +9,7 @@ session_start();
         }
 
         if(isset($_SESSION['carrello'][$id])){
-            $_SESSION['carrello'][$quantita]=$_SESSION['carrello'][$quantita]+$quantita;
+            $_SESSION['carrello'][$id]['quantita']=$_SESSION['carrello'][$id]['quantita']+$quantita;
         }else{
             $item = array(
                 'id' => $id,

@@ -55,40 +55,40 @@ session_start();
 
         $carrello = $_SESSION['carrello'];
 
+                        
+        echo '<table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Prodotto</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Quantità</th>
+        </tr>
+        </thead>
+        <tbody>';
+
         foreach($carrello as $item){  
             include "connessione.php";
-              
-            echo "ciao";
+
             $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$item['id']."'");            
             $rows = $result->num_rows;  
-            echo "ciao";
+
             if($rows > 0){  
-                
-                echo '<table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Prezzo</th>
-                    <th scope="col">Quantità</th>
-                </tr>
-                </thead>
-                <tbody>';
 
                 while($row = $result->fetch_assoc()){
                     echo '<tr>';
-                    echo '<th scope="row">1</th>';
                     echo '<td>'."$row[nome_prodotto]".'</td>';   
                     echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
                     echo '<td>'."$item[quantita]".'</td>';   
                     echo '<tr>';
                 }
 
-                echo '            
-                </tbody>
-                </table>';
+                
             }
         }
+
+        echo '            
+                </tbody>
+                </table>';
     }
 
 ?>
