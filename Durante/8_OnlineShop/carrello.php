@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -48,17 +51,9 @@
     
 <?php
 
-
-    session_start();
-
     if(isset($_SESSION['carrello'])){
-        echo "ciao";
 
         $carrello = $_SESSION['carrello'];
-
-        echo $_SESSION['carrello'][1]['quantita'];
-
-        print_r($carrello);
 
         foreach($carrello as $item){
             $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");                      
@@ -66,7 +61,7 @@
 
             if($rows > 0){  
                 while($row = $result->fetch_assoc()){                                                    
-                    echo '<option value='."$row[nome_prodotto]".'>'."$row[nome_prodotto]".'</option>';
+                    echo '<p>'."$row[nome_prodotto]".'</p>';
                 }
             }
         }
