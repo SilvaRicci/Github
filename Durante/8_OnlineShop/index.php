@@ -70,7 +70,7 @@ session_start();
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto");                      
+        $result = $db_connection->query("SELECT id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto INNER JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto");                      
         $rows = $result->num_rows;  
         
         $nCol = 0;

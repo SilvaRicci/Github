@@ -56,50 +56,35 @@ session_start();
         $carrello = $_SESSION['carrello'];
 
         foreach($carrello as $item){
-            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");                      
+            echo "ciao";
+            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");        echo "ciao";              
             $rows = $result->num_rows;  
-
-
-            echo '<table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Prodotto</th>
-                <th scope="col">Prezzo</th>
-                <th scope="col">Quantità</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>'
-
+            echo "ciao";
             if($rows > 0){  
-                while($row = $result->fetch_assoc()){        
-                    <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+                
+                echo '<table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Prodotto</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Quantità</th>
+                </tr>
+                </thead>
+                <tbody>';
+
+                while($row = $result->fetch_assoc()){
                     echo '<tr>';
-                    echo '<th scope="row">1</th>'   
+                    echo '<th scope="row">1</th>';
                     echo '<td>'."$row[nome_prodotto]".'</td>';   
                     echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
-                    echo '<td>'."$item['quantita']".'</td>';   
+                    echo '<td>'."$item[quantita]".'</td>';   
+                    echo '<tr>';
                 }
+
+                echo '            
+                </tbody>
+                </table>';
             }
         }
     }
