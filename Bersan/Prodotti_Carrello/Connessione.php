@@ -1,5 +1,5 @@
 <?php
-$db="portale_ospedale"; //nome db
+$db="mercatinoprodotti"; //nome db
 $db_host="localhost";
 $db_user = "root";
 $db_password="";

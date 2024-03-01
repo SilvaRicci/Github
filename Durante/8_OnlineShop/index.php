@@ -1,7 +1,8 @@
 <?php
+session_start();
     function aggiungiAlCarrello($id,$quantita){
 
-        session_start();
+        
 
         if(!isset($_SESSION['carrello'])){
             $_SESSION['carrello'][] = array();
@@ -14,7 +15,7 @@
                 'id' => $id,
                 'quantita' => $quantita
             );
-            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][$id]['quantita'];print_r($_SESSION);
+            $_SESSION['carrello'][$id] = $item;
         }
     }
 ?>
@@ -159,7 +160,7 @@
  if(isset($_POST['a'])){
     session_start();
     ECHO "CIAO";
-    print_r($_SESSION);
+    
     if(isset($_SESSION['carrello'])){
         echo "ciao";
 

@@ -13,43 +13,43 @@
   <div>
   <div class="form-group">
     <label for="exampleInputText">Codice Fiscale</label>
-    <input type="text" class="form-control" id="codice_fiscale">
+    <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Cognome</label>
-    <input type="text" class="form-control" id="cognome">
+    <input type="text" class="form-control" id="cognome" name="cognome">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Nome</label>
-    <input type="text" class="form-control" id="nome">
+    <input type="text" class="form-control" id="nome" name="nome">
   </div>
   <div class="form-group">
     <label class="active" for="dateStandard">Data di Nascita</label>
-    <input type="date" id="dateStandard" name="data_nascita">
+    <input type="date" id="data_nascita" name="data_nascita">
 </div>
   <div class="form-group">
     <label class="active" for="exampleInputTime">Indirizzo di residenza</label>
-    <input type=text" class="form-control" id="residenza">
+    <input type="text" class="form-control" id="residenza" name="residenza">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Città</label>
-    <input type="text" data-bs-input class="form-control" id="citta">
+    <input type="text" data-bs-input class="form-control" id="citta" name="citta">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Provincia</label>
-    <input type="text" data-bs-input class="form-control" id="provincia">
+    <input type="text" data-bs-input class="form-control" id="provincia" name="provincia">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Regione</label>
-    <input type="text" data-bs-input class="form-control" id="regione">
+    <input type="text" data-bs-input class="form-control" id="regione" name="regione">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Password</label>
-    <input type="password" data-bs-input class="form-control" id="password">
+    <input type="password" data-bs-input class="form-control" id="password" name="password">
   </div>
   <div class="form-group">
     <label for="exampleInputNumber">Ripeti Password</label>
-    <input type="password" data-bs-input class="form-control" id="ripeti_password">
+    <input type="password" data-bs-input class="form-control" id="ripeti_password" name="ripeti_password">
   </div>
 </div>
 <div>
@@ -60,7 +60,6 @@
 
     <?php
             include "connessione.php";
-
 
 
             if (isset($_POST["invia"])) {
@@ -77,10 +76,9 @@
 
                 $password = $_POST["password"];
                 $ripeti_password = $_POST["ripeti_password"];
-                
 
                 if($password == $ripeti_password){
-                    $sql = "INSERT INTO Clienti (CodiceFiscale Cognome, Nome, DataNascita, Indirizzo, Citta, Provincia, Regione, Password, RipetiPassword) 
+                    $sql = "INSERT INTO clienti (CodiceFiscale Cognome, Nome, DataNascita, Indirizzo, Citta, Provincia, Regione, Password, RipetiPassword) 
                     VALUES ('$codice_fiscale', '$cognome', '$nome', '$data_nascita', '$residenza', '$citta', '$provincia', '$regione', '$password', '$ripeti_password')";
                     
                     echo "Dati inseriti correttamente!";
