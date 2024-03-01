@@ -70,7 +70,10 @@ session_start();
         
         include "connessione.php";
 
-        $result = $db_connection->query("SELECT id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto INNER JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto");                      
+        //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto INNER JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
+        $query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
+
+        $result = $db_connection->query($query);                      
         $rows = $result->num_rows;  
         
         $nCol = 0;
@@ -138,9 +141,7 @@ session_start();
     ?>
 
     <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
-    <form action="#" method="POST">
-    <button type="submit" id="a" name="a" class="btn btn-primary">Aggiungi al af</button>
-    </form>
+
 <?php
 
     if(isset($_POST['submit_btn'])){
@@ -154,34 +155,6 @@ session_start();
         }
     }
 
-?>
-
-<?php
- if(isset($_POST['a'])){
-    session_start();
-    ECHO "CIAO";
-    
-    if(isset($_SESSION['carrello'])){
-        echo "ciao";
-
-        $carrello = $_SESSION['carrello'];
-
-        echo $_SESSION['carrello'][1]['quantita'];
-
-        print_r($carrello);
-
-        foreach($carrello as $item){
-            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");                      
-            $rows = $result->num_rows;  
-
-            if($rows > 0){  
-                while($row = $result->fetch_assoc()){                                                    
-                    echo '<option value='."$row[nome_prodotto]".'>'."$row[nome_prodotto]".'</option>';
-                }
-            }
-        }
-    }
-}
 ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
