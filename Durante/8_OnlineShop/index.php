@@ -15,7 +15,7 @@
                 'id' => $id,
                 'quantita' => $quantita
             );
-            $_SESSION['carrello'][$id] = $item;
+            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][1];
         }
     }
 ?>
@@ -146,7 +146,11 @@
         $id = $_POST["id"];
         $quantita = $_POST['quantita'];
 
-        aggiungiAlCarrello($id,$quantita);
+        if($quantita<0){
+            echo "Inserisci la quantità.";
+        }else{
+            aggiungiAlCarrello($id,$quantita);
+        }
     }
 
 ?>
