@@ -13,7 +13,7 @@ session_start();
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="index.php">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -63,6 +63,7 @@ session_start();
             <th scope="col">Prezzo</th>
             <th scope="col">Quantità</th>
             <th scope="col">Totale</th>
+            <th scope="col">Rimuovi</th>
         </tr>
         </thead>
         <tbody>';
@@ -81,6 +82,7 @@ session_start();
                     echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
                     echo '<td>'."$item[quantita]".'</td>';   
                     echo '<td>'."$item[quantita]" * "$row[pvu_prodotto]".' € </td>';   
+                    echo '<td> <a href="elimina.php?id='."$item[id]".'"> Rimuovi </a> </td>';
                     echo '<tr>';
                 }
 
@@ -92,8 +94,9 @@ session_start();
                 </tbody>
                 </table>';
     }
-
 ?>
+
+    <p> <a href="logout.php" class="btn btn-danger">Svuota il carrello</a> </p>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
