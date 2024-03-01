@@ -55,9 +55,11 @@ session_start();
 
         $carrello = $_SESSION['carrello'];
 
-        foreach($carrello as $item){
+        foreach($carrello as $item){  
+            include "connessione.php";
+              
             echo "ciao";
-            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");        echo "ciao";              
+            $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$item['id']."'");            
             $rows = $result->num_rows;  
             echo "ciao";
             if($rows > 0){  
