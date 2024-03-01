@@ -70,8 +70,8 @@ session_start();
         
         include "connessione.php";
 
-        //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto INNER JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
-        $query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
+        $query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto INNER JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
+        //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
 
         $result = $db_connection->query($query);                      
         $rows = $result->num_rows;  
@@ -86,7 +86,7 @@ session_start();
                     '
                     <br>
                     <br>
-                    <div class="container text-center">
+                    <div class="container text-center"> 
                         <div class="row">
                     ';
                 }
@@ -96,7 +96,7 @@ session_start();
                 <div class="col">
                     <form action="#" method="POST">
                         <div class="card" style="width: 18rem;">
-                            <img src="src/img/'.$row["nome_prodotto"].'.png" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
+                            <img src="'.$row["img"].'" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
                             <div class="card-body">
                                 <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
 
