@@ -50,13 +50,14 @@
 
 
     session_start();
+    echo $_SESSION['carrello'][1]['quantita'];
 
     if(isset($_SESSION['carrello'])){
         echo "ciao";
 
         $carrello = $_SESSION['carrello'];
 
-        echo $_SESSION['carrello'][1];
+        echo $_SESSION['carrello'][1]['quantita'];
 
         print_r($carrello);
 

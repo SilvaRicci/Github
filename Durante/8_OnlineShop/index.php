@@ -10,12 +10,11 @@
         if(isset($_SESSION['carrello'][$id])){
             $_SESSION['carrello'][$quantita]=$_SESSION['carrello'][$quantita]+$quantita;
         }else{
-            
             $item = array(
                 'id' => $id,
                 'quantita' => $quantita
             );
-            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][1];
+            $_SESSION['carrello'][$id] = $item; echo $_SESSION['carrello'][$id]['quantita'];
         }
     }
 ?>
@@ -138,8 +137,9 @@
     ?>
 
     <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
-
-    
+    <form action="#" method="POST">
+    <button type="submit" id="a" name="a" class="btn btn-primary">Aggiungi al af</button>
+    </form>
 <?php
 
     if(isset($_POST['submit_btn'])){
@@ -155,6 +155,31 @@
 
 ?>
 
+<?php
+ if(isset($_POST['a'])){
+    ECHO "CIAO";
+    if(isset($_SESSION['carrello'])){
+        echo "ciao";
+
+        $carrello = $_SESSION['carrello'];
+
+        echo $_SESSION['carrello'][1]['quantita'];
+
+        print_r($carrello);
+
+        foreach($carrello as $item){
+            $result = $db_connection->query("SELECT nome_prodotto,pvu_prodotto FROM prodotto WHERE id_prodotto = '".$item['id']."'");                      
+            $rows = $result->num_rows;  
+
+            if($rows > 0){  
+                while($row = $result->fetch_assoc()){                                                    
+                    echo '<option value='."$row[nome_prodotto]".'>'."$row[nome_prodotto]".'</option>';
+                }
+            }
+        }
+    }
+}
+?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
