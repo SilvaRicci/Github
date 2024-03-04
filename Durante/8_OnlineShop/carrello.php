@@ -58,19 +58,18 @@
         $carrello = $_SESSION['carrello'];
 
                         
-        echo '<table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Prodotto</th>
-            <th scope="col">Prezzo</th>
-            <th scope="col">Quantità</th>
-            <th scope="col">Totale</th>
-            <th scope="col">Rimuovi</th>
-        </tr>
-        </thead>
-        <tbody>';
-
-        print_r($carrello);
+        echo '
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Prodotto</th>
+                    <th scope="col">Prezzo</th>
+                    <th scope="col">Quantità</th>
+                    <th scope="col">Totale</th>
+                    <th scope="col">Rimuovi</th>
+                </tr>
+            </thead>
+            <tbody>';
 
         foreach($carrello as $item){  
             include "connessione.php";
@@ -79,24 +78,21 @@
             $rows = $result->num_rows;  
 
             if($rows > 0){  
+                $row = $result->fetch_assoc();
 
-                while($row = $result->fetch_assoc()){
-                    echo '<tr>';
-                    echo '<td>'."$row[nome_prodotto]".'</td>';   
-                    echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
-                    echo '<td>'."$item[quantita]".'</td>';   
-                    echo '<td>'."$item[quantita]" * "$row[pvu_prodotto]".' € </td>';   
-                    echo '<td> <a href="elimina.php?id='."$item[id]".'"> Rimuovi </a> </td>';
-                    echo '<tr>';
-                }
-
-                
+                echo '<tr>';
+                echo '<td>'."$row[nome_prodotto]".'</td>';   
+                echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
+                echo '<td>'."$item[quantita]".'</td>';   
+                echo '<td>'."$item[quantita]" * "$row[pvu_prodotto]".' € </td>';   
+                echo '<td> <a href="elimina.php?id='."$item[id]".'"> Rimuovi </a> </td>';
+                echo '<tr>';    
+                   
             }
         }
-
         echo '            
-                </tbody>
-                </table>';
+            </tbody>
+        </table>';
     }
 ?>
 
