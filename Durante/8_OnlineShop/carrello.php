@@ -68,6 +68,8 @@ session_start();
         </thead>
         <tbody>';
 
+        print_r($carrello);
+
         foreach($carrello as $item){  
             include "connessione.php";
 
