@@ -62,6 +62,42 @@
         ?>
 
     <div class="container">
+        <?php
+            foreach($result as $item){
+
+            }
+        ?>
+
+            <div class="col">
+                    <form action="#" method="POST">
+                        <div class="card" style="width: 18rem;">
+                            <img src="$item[img]" class="card-img-top" alt="'.$row["nome_prodotto"].' bello/a">
+                            <div class="card-body">
+                                <h5 class="card-title">'.$row["nome_prodotto"].'</h5>
+
+                                <br>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">Quantità</span>
+                                    <input type="number" class="form-control" id="quantita" name="quantita">
+                                </div>
+
+                                <br>
+
+                                <div class="input-group">
+                                    <span class="input-group-text">€</span>
+                                    <span class="input-group-text">'.$row["pvu_prodotto"].'</span>
+                                </div>
+
+                                <input type="hidden" name="id" id="id" value='.$row["id_prodotto"].' readonly>
+
+                                <br>
+
+                                <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
 <?php 
