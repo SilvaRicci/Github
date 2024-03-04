@@ -51,14 +51,8 @@
     </nav>
 
     
-<?php
+    <?php if(isset($_SESSION['carrello'])): ?>
 
-    if(isset($_SESSION['carrello'])){
-
-        $carrello = $_SESSION['carrello'];
-
-                        
-        echo '
         <table class="table">
             <thead>
                 <tr>
@@ -69,32 +63,36 @@
                     <th scope="col">Rimuovi</th>
                 </tr>
             </thead>
-            <tbody>';
+            <tbody>
 
-        foreach($carrello as $item){  
-            include "connessione.php";
+        <?php
+            $carrello = $_SESSION['carrello'];
 
-            $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$item['id']."'");            
-            $rows = $result->num_rows;  
+            foreach($carrello as $item):
 
-            if($rows > 0){  
-                $row = $result->fetch_assoc();
+                $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$item['id']."'");            
+                $rows = $result->num_rows;  
 
-                echo '<tr>';
-                echo '<td>'."$row[nome_prodotto]".'</td>';   
-                echo '<td>'."$row[pvu_prodotto]".'</td>';                                         
-                echo '<td>'."$item[quantita]".'</td>';   
-                echo '<td>'."$item[quantita]" * "$row[pvu_prodotto]".' € </td>';   
-                echo '<td> <a href="elimina.php?id='."$item[id]".'"> Rimuovi </a> </td>';
-                echo '<tr>';    
-                   
-            }
-        }
-        echo '            
+                if($rows > 0):  
+                    $row = $result->fetch_assoc();
+        ?>
+
+            
+
+                <tr>
+                <td><?php echo $row['nome_prodotto']; ?></td>  
+                <td><?php echo $row[pvu_prodotto]</td>                                       
+                <td><?php echo $item[quantita]</td>
+                <td>$item[quantita] * $row[pvu_prodotto] € </td>   
+                <td> <a href="elimina.php?id='."$item[id]".'"> Rimuovi </a> </td>
+                <tr>   
+
+            <?php endif; ?>
+        <?php endforeach; ?>
+
             </tbody>
-        </table>';
-    }
-?>
+        </table>
+<?php endif; ?>
 
     <p> <a href="logout.php" class="btn btn-danger">Svuota il carrello</a> </p>
 
