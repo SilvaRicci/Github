@@ -1,23 +1,7 @@
 <?php
-session_start();
-    function aggiungiAlCarrello($id,$quantita){
-
-        
-
-        if(!isset($_SESSION['carrello'])){
-            $_SESSION['carrello'][] = array();
-        }
-
-        if(isset($_SESSION['carrello'][$id])){
-            $_SESSION['carrello'][$id]['quantita']=$_SESSION['carrello'][$id]['quantita']+$quantita;
-        }else{
-            $item = array(
-                'id' => $id,
-                'quantita' => $quantita
-            );
-            $_SESSION['carrello'][$id] = $item;
-        }
-    }
+    session_start();
+    include "connessione.php";
+    include "src.php";
 ?>
 
 <!doctype html>
@@ -67,17 +51,22 @@ session_start();
     </nav>
 
     <?php 
-        
-        include "connessione.php";
-
+    
         $query = "SELECT prodotto.id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto LEFT JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
         //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
 
         $result = $db_connection->query($query);                      
         $rows = $result->num_rows;  
         
-        $nCol = 0;
+        
+        ?>
 
+    <div class="container">
+
+
+<?php 
+        /*
+        $nCol = 0;
         if($rows > 0){
             while($row = $result->fetch_assoc()){
 
@@ -136,7 +125,7 @@ session_start();
                 }
             }
         }
-        
+        */
 
     ?>
 

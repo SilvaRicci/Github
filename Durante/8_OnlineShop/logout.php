@@ -1,5 +1,5 @@
 <?php session_start();
-    $SESSION[] = array();
+    $SESSION['carrello'] = array();
     session_destroy();
     session_unset();
     echo "Carrello pulito, arrivederci";
