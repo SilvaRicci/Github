@@ -28,12 +28,12 @@
         <form>
         <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
-        <input type="submit" class="fadeIn fourth" value="Log In">
+        <input type="submit" class="fadeIn fourth" value="Login">
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-        <a class="underlineHover" href="#">Forgot Password?</a>
+        <a class="underlineHover" href="fottiti.html">Password dimentica?</a>
         </div>
 
     </div>
