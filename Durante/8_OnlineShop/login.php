@@ -21,12 +21,13 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
+        <!-- DA CAMBIARE -->
         <img src="https://static-00.iconduck.com/assets.00/home-assistant-icon-2048x2048-ar79ra8x.png" id="icon" alt="User Icon" />
         </div>
 
         <!-- Login Form -->
         <form>
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username o E-mail">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
         <input type="submit" class="fadeIn fourth" value="Login">
         </form>
