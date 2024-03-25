@@ -46,6 +46,20 @@
       $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
+      if(login($username,$password)){
+
+        echo "Utente loggato con successo! Trasferimento in corso...";
+                
+        session_start();
+        
+        $_SESSION['username'] = $username;
+
+        echo '<script>  window.location.href = "index.php"; </script>';
+
+      }else{
+        echo "Errore durante il login. Username/email non esistente o password errata.";
+      }
+
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
