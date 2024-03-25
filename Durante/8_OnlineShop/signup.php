@@ -32,7 +32,7 @@
         <input type="text" id="nome" class="fadeIn third" name="nome" placeholder="Nome">
         <input type="text" id="cognome" class="fadeIn third" name="cognome" placeholder="Cognome">
         <input type="date" id="dataNascita" class="fadeIn third" name="dataNascita" value="01/01/2000">
-        <input type="text" id="dataNascita" class="fadeIn fourth" name="citta" placeholder="Città">
+        <input type="text" id="citta" class="fadeIn fourth" name="citta" placeholder="Città">
         <input type="text" id="cap" class="fadeIn fourth" name="cap" placeholder="00000">
         <input type="text" id="provincia" class="fadeIn fourth" name="provincia" placeholder="Provincia">
         <input type="text" id="via" class="fadeIn fourth" name="via" placeholder="Via">
@@ -52,17 +52,17 @@
     </div>
 
     <?php
-      $username = $_POST["username"];
-      $email = $_POST["email"];
-      $nome = $_POST["nome"];
-      $cognome = $_POST["cognome"]; 
-      $dataNascita = $_POST["dataNascita"];
-      $dataNascita = $_POST["comune"];
-      $CAP = $_POST["cap"];
-      $provincia = $_POST["provincia"];
-      $dataNascita = $_POST["dataNascita"];
-      $genere = $_POST["genere"];
+      $username = $db_connection->real_escape_string(stripslashes($_POST["username"]);
+      $email = $db_connection->real_escape_string(stripslashes($_POST["email"]);
+      $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]);
+      $cognome = $db_connection->real_escape_string(stripslashes($_POST["cognome"]); 
+      $dataNascita = $db_connection->real_escape_string(stripslashes($_POST["dataNascita"]);
+      $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]);
+      $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]);
+      $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"];
+      $via = $db_connection->real_escape_string(stripslashes($_POST["via"])." ".$db_connection->real_escape_string(stripslashes($_POST["via2"])." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]);
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+      $password = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
