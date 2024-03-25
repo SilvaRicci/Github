@@ -52,15 +52,15 @@
     </div>
 
     <?php
-      $username = $db_connection->real_escape_string(stripslashes($_POST["username"]);
-      $email = $db_connection->real_escape_string(stripslashes($_POST["email"]);
-      $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]);
-      $cognome = $db_connection->real_escape_string(stripslashes($_POST["cognome"]); 
-      $dataNascita = $db_connection->real_escape_string(stripslashes($_POST["dataNascita"]);
-      $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]);
-      $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]);
-      $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"];
-      $via = $db_connection->real_escape_string(stripslashes($_POST["via"])." ".$db_connection->real_escape_string(stripslashes($_POST["via2"])." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]);
+      $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+      $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
+      $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]));
+      $cognome = $db_connection->real_escape_string(stripslashes($_POST["cognome"])); 
+      $dataNascita = $db_connection->real_escape_string(stripslashes($_POST["dataNascita"]));
+      $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]));
+      $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]));
+      $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"]));
+      $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
     ?>
