@@ -31,10 +31,15 @@
         <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail@mail.com">
         <input type="text" id="nome" class="fadeIn third" name="nome" placeholder="Nome">
         <input type="text" id="cognome" class="fadeIn third" name="cognome" placeholder="Cognome">
-        <input type="date" id="dataNascita" class="fadeIn third" name="dataNascita" placeholder="01/01/2000">
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
-        <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
-        <input type="submit" class="fadeIn fourth my-3" value="Login">
+        <input type="date" id="dataNascita" class="fadeIn third" name="dataNascita" value="01/01/2000">
+        <input type="text" id="citta" class="fadeIn fourth" name="citta" placeholder="Città">
+        <input type="text" id="cap" class="fadeIn fourth" name="cap" placeholder="00000">
+        <input type="text" id="provincia" class="fadeIn fourth" name="provincia" placeholder="Provincia">
+        <input type="text" id="via" class="fadeIn fourth" name="via" placeholder="Via">
+        <input type="text" id="via2" class="fadeIn fourth" name="via2" placeholder="Seconda riga (opzionale)">
+        <input type="text" id="via3" class="fadeIn fourth" name="via3" placeholder="Terza riga (opzionale)">
+        <input type="password" id="password" class="fadeIn fifth" name="password" placeholder="********">
+        <input type="submit" class="fadeIn sixth my-3" value="Login">
         </form>
 
         <!-- Remind Passowrd -->
