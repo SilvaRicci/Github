@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Registrazione</title>
     <link rel="stylesheet" href="src/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
@@ -27,7 +27,12 @@
 
         <!-- Login Form -->
         <form>
-        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username o E-mail">
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
+        <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail@mail.com">
+        <input type="text" id="nome" class="fadeIn third" name="nome" placeholder="Nome">
+        <input type="text" id="cognome" class="fadeIn third" name="cognome" placeholder="Cognome">
+        <input type="date" id="dataNascita" class="fadeIn third" name="dataNascita" placeholder="01/01/2000">
+        <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
         <input type="submit" class="fadeIn fourth my-3" value="Login">
         </form>
