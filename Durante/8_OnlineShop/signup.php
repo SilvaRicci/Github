@@ -57,8 +57,9 @@
     </div>
 
     <?php
+
     if(isset($_POST["signup"])){
-      echo "almeno parte";
+      echo "almeno parte";/*
         $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
         $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
         $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]));
@@ -76,7 +77,7 @@
           echo '<script>  window.location.href = "login.php"; </script>';
         }else{
           echo "Registrazione fallita!";
-        }
+        }*/
     }
 
     ?>
