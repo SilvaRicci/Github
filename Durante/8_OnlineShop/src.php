@@ -43,17 +43,6 @@
             
         include "connessione.php";
         
-        $CF = $_POST["CF"];
-        $cognome = $_POST["cognome"];
-        $nome = $_POST["nome"]; 
-        $indirizzo = $_POST["indirizzo"];
-        $comune = $_POST["comune"];
-        $CAP = $_POST["cap"];
-        $provincia = $_POST["provincia"];
-        $dataNascita = $_POST["dataNascita"];
-        $genere = $_POST["genere"];
-        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-        
         if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
             $password = password_hash($password,PASSWORD_DEFAULT);
             
@@ -71,53 +60,64 @@
         $db_connection->close();    
     }
 
-    function dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password){
-        $isOk=true;
-        
-        if($CF==""){
-            $isOk=false;
-            echo "Codice fiscale non inserito <br />";
+    function dataVerify($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password){
+        $isOk = true; // Inizialmente impostiamo la variabile a true, se uno dei controlli fallisce, diventerà false
+
+        if($username == ""){
+            $isOk = false;
+            echo "Username non inserito <br />";
         }
-        if(!(strlen($CF)==16) && $isOk){
-            $isOk=false;
-            echo "Codice fiscale non valido <br />";
+
+        if($email == ""){
+            $isOk = false;
+            echo "Email non inserita <br />";
         }
-        if($cognome==""){
-            $isOk=false;
-            echo "Cognome non inserito <br />";
-        }
-        if($nome==""){
-            $isOk=false;
+
+        if($nome == ""){
+            $isOk = false;
             echo "Nome non inserito <br />";
         }
-        if($indirizzo==""){
-            $isOk=false;
-            echo "Indirizzo non inserito <br />";
+
+        if($cognome == ""){
+            $isOk = false;
+            echo "Cognome non inserito <br />";
         }
-        if($comune==""){
-            $isOk=false;
-            echo "Comune non inserito <br />";
-        }
-        if($CAP==""){
-            $isOk=false;
-            echo "CAP non inserito <br />";
-        }
-        if($provincia==""){
-            $isOk=false;
-            echo "Provincia non inserita <br />";
-        }
-        if($dataNascita==""){
-            $isOk=false;
+
+        if($dataNascita == ""){
+            $isOk = false;
             echo "Data di nascita non inserita <br />";
         }
-        if($genere=="-1"){
-            $isOk=false;
-            echo "Genere non inserito <br />";
+
+        if($citta == ""){
+            $isOk = false;
+            echo "Città non inserita <br />";
         }
-        if($password==""){
-        $isOk=false;
-        echo "Password non inserita <br />";
+
+        if($cap == ""){
+            $isOk = false;
+            echo "CAP non inserito <br />";
         }
+
+        if($provincia == ""){
+            $isOk = false;
+            echo "Provincia non inserita <br />";
+        }
+
+        if($via == ""){
+            $isOk = false;
+            echo "Indirizzo non inserito <br />";
+        }
+
+        if($password == ""){
+            $isOk = false;
+            echo "Password non inserita <br />";
+        }
+
+        if($confermaPassword == ""){
+            $isOk = false;
+            echo "Conferma Password non inserita <br />";
+        }
+
         //eventuali nuovi controlli sulla password
         return $isOk;
     }

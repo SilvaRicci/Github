@@ -43,7 +43,7 @@
         <input type="submit" class="fadeIn sixth my-3" value="Login">
         </form>
 
-        <!-- Remind Passowrd -->
+        <!-- Forgot password? -->
         <div id="formFooter">
         <a class="underlineHover text-black" href="forgotPassword.php">Password dimentica?</a>
         </div>
@@ -63,6 +63,8 @@
       $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
+
+      
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
