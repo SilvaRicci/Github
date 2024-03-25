@@ -55,6 +55,8 @@
     </nav>
 
     <?php 
+
+        echo "Benvenuto".$_SESSION['username'];
     
         $query = "SELECT prodotto.id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto LEFT JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
         //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
