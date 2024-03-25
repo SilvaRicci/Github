@@ -52,13 +52,12 @@
         $provincia = $_POST["provincia"];
         $dataNascita = $_POST["dataNascita"];
         $genere = $_POST["genere"];
-        
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
         
         if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
             $password = password_hash($password,PASSWORD_DEFAULT);
             
-            $query = "INSERT INTO `utente`(`CF`, `cognome`, `nome`, `indirizzo`, `comune`, `CAP`, `provincia`, `dataNascita`, `genere`, `password`) VALUES ('$CF','$cognome','$nome','$indirizzo','$comune','$CAP','$provincia','$dataNascita','$genere','$password')";
+            $query = "INSERT INTO `utente`(`id_user`, `nome_user`, `cognome_user`, `dataDiNascita_user`, `citta_user`, `cap_user`, `provincia_user`, `via_user`, `email_user`, `username_user`, `password_user`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]')";
             $ok=$db_connection->query($query);
 
             
