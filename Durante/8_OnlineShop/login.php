@@ -2,6 +2,10 @@
     session_start();
     include "connessione.php";
     include "src.php";
+
+    if(isset($_SESSION['username'])){
+      header("Location: index.php");
+    }
 ?>
 
 <!doctype html>
@@ -26,10 +30,11 @@
         </div>
 
         <!-- Login Form -->
-        <form>
+        <form action="#" method="POST">
         <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username o E-mail">
         <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
-        <input type="submit" class="fadeIn fourth my-3" value="Login">
+        <input type="submit" class="fadeIn fourth my-3" value="login"><br>
+        <a class="underlineHover text-black" href="signup.php">oppure registrati!</a>
         </form>
 
         <!-- Remind Passowrd -->
@@ -41,23 +46,24 @@
     </div>
 
     <?php
-      include "connessione.php";
+      if(isset($_POST["login"])){
+        include "connessione.php";
 
-      $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
-      $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
-      if(login($username,$password)){
+        if(login($username,$password)){
 
-        echo "Utente loggato con successo! Trasferimento in corso...";
-        
-        $_SESSION['username'] = $username;
+          echo "Utente loggato con successo! Trasferimento in corso...";
+          
+          $_SESSION['username'] = $username;
 
-        echo '<script>  window.location.href = "index.php"; </script>';
+          echo '<script>  window.location.href = "index.php"; </script>';
 
-      }else{
-        echo "Errore durante il login. Username/email non esistente o password errata.";
+        }else{
+          echo "Errore durante il login. Username/email non esistente o password errata.";
+        }
       }
-
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -2,6 +2,10 @@
     session_start();
     include "connessione.php";
     include "src.php";
+
+    if(isset($_SESSION['username'])){
+      header("Location: index.php");
+    }
 ?>
 
 <!doctype html>
@@ -25,8 +29,8 @@
         <img src="https://mivatek.global/wp-content/uploads/2021/07/placeholder.png" id="icon" alt="User Icon" />
         </div>
 
-        <!-- Login Form -->
-        <form>
+        <!-- Signup Form -->
+        <form action="#" method="POST">
         <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username">
         <input type="email" id="email" class="fadeIn second" name="email" placeholder="E-mail@mail.com">
         <input type="text" id="nome" class="fadeIn third" name="nome" placeholder="Nome">
@@ -40,7 +44,8 @@
         <input type="text" id="via3" class="fadeIn fourth" name="via3" placeholder="Terza riga (opzionale)">
         <input type="password" id="password" class="fadeIn fifth" name="password" placeholder="********">
         <input type="password" id="confermaPassword" class="fadeIn fifth" name="confermaPassword" placeholder="********">
-        <input type="submit" class="fadeIn sixth my-3" value="Login">
+        <input type="submit" class="fadeIn sixth my-3" value="signup"><br>
+        <a class="underlineHover text-black" href="signup.php">oppure accedi!</a>
         </form>
 
         <!-- Forgot password? -->
@@ -52,24 +57,26 @@
     </div>
 
     <?php
-      $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
-      $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
-      $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]));
-      $cognome = $db_connection->real_escape_string(stripslashes($_POST["cognome"])); 
-      $dataNascita = $db_connection->real_escape_string(stripslashes($_POST["dataNascita"]));
-      $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]));
-      $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]));
-      $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"]));
-      $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
-      $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-      $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
+    if(isset($_POST["signup"])){
+        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
+        $nome = $db_connection->real_escape_string(stripslashes($_POST["nome"]));
+        $cognome = $db_connection->real_escape_string(stripslashes($_POST["cognome"])); 
+        $dataNascita = $db_connection->real_escape_string(stripslashes($_POST["dataNascita"]));
+        $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]));
+        $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]));
+        $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"]));
+        $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
+        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+        $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
 
-      if(signup($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
-        echo "Registrazione avvenuta con successo!";
-        echo '<script>  window.location.href = "login.php"; </script>';
-      }else{
-        echo "Registrazione fallita!";
-      }
+        if(signup($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
+          echo "Registrazione avvenuta con successo!";
+          echo '<script>  window.location.href = "login.php"; </script>';
+        }else{
+          echo "Registrazione fallita!";
+        }
+    }
 
     ?>
 

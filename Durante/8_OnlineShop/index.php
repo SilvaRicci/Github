@@ -2,6 +2,10 @@
     session_start();
     include "connessione.php";
     include "src.php";
+
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+      }
 ?>
 
 <!doctype html>
