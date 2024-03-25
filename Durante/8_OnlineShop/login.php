@@ -49,8 +49,6 @@
       if(login($username,$password)){
 
         echo "Utente loggato con successo! Trasferimento in corso...";
-                
-        session_start();
         
         $_SESSION['username'] = $username;
 

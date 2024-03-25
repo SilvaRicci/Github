@@ -62,9 +62,15 @@
       $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"]));
       $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
       $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
-      $password = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
+      $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
 
-      
+      if(signup($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
+        echo "Registrazione avvenuta con successo!";
+        echo '<script>  window.location.href = "login.php"; </script>';
+      }else{
+        echo "Registrazione fallita!";
+      }
+
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

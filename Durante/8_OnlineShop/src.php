@@ -39,28 +39,25 @@
           return $output;
       }
 
-      function signup(){
+      function signup($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword){
             
         include "connessione.php";
+        $output = false;
         
-        if(dataVerify($CF,$cognome,$nome,$indirizzo,$comune,$CAP,$provincia,$dataNascita,$genere,$password)){
+        if(dataVerify($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
             $password = password_hash($password,PASSWORD_DEFAULT);
             
-            $query = "INSERT INTO `utente`(`id_user`, `nome_user`, `cognome_user`, `dataDiNascita_user`, `citta_user`, `cap_user`, `provincia_user`, `via_user`, `email_user`, `username_user`, `password_user`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]','[value-9]','[value-10]','[value-11]')";
+            $query = "INSERT INTO `utente`(`nome_user`, `cognome_user`, `dataDiNascita_user`, `citta_user`, `cap_user`, `provincia_user`, `via_user`, `email_user`, `username_user`, `password_user`) VALUES ($nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$email,$username,$password)";
             $ok=$db_connection->query($query);
 
-            
-            echo "Inserimento dei dati nella tabella: 100% completato.";
-            
-            //$LOGIN_PATH = $LOGIN_PATH+"";
-
-            echo '<script>  window.location.href = "'.$LOGIN_PATH.'"; </script>';
+            $output = true;
         }
         
-        $db_connection->close();    
+        $db_connection->close(); 
+        return $output;   
     }
 
-    function dataVerify($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password){
+    function dataVerify($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword){
         $isOk = true; // Inizialmente impostiamo la variabile a true, se uno dei controlli fallisce, diventerà false
 
         if($username == ""){
@@ -118,7 +115,11 @@
             echo "Conferma Password non inserita <br />";
         }
 
-        //eventuali nuovi controlli sulla password
+        if($password != $confermaPassword){
+            $isOk = false;
+            echo "Le password non coincidono <br />";
+        }
+
         return $isOk;
     }
 
