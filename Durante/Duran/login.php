@@ -4,8 +4,7 @@ session_start();
 if(isset($_SESSION['username'])){
     header("Location: welcome.php");
 }
-include "connessione.php";
-
+include("connessione.php");
 
 //INSERITO ULTERIORE UTENTE usr: test psw: test
 
