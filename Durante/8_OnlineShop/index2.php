@@ -22,7 +22,7 @@
         }
     </style>
     <title>Homepage</title>
-    <link href= rel="stylesheet">
+    <link rel="stylesheet" href="src/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
@@ -41,19 +41,13 @@
     <div class="container">
         <div class="row py-3">
             <?php foreach($result as $item):?>
-                <div class="col-3">
                         <form action="#" method="POST">
-
-                        <div class="container" style="margin-top:50px;">
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="card-sl">
                                         <div class="card-image">
                                             <img
                                                 src="<?php echo $item['img']; ?>" />
                                         </div>
-
-                                        <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
                                         <div class="card-heading">
                                             <?php echo $item['nome_prodotto']; ?>
                                         </div>
@@ -66,16 +60,10 @@
                                             € <?php echo $item['pvu_prodotto']; ?>
                                         </div>
                                         <button class="card-button" type="submit" id="addToCart_btn" name="addToCart_btn">Aggiungi al carrello</button>
-                                        <button class="card-button" type="submit" id="buyNow_btn" name="buyNow_btn">Acquista ora</button>
+                                        <button class="card-button1" type="submit" id="buyNow_btn" name="buyNow_btn">Acquista ora</button>
                                     </div>
                                 </div>
-                            </div>  
-
-                                    
-                                </div>
-                            </div><br>
                         </form>
-                    </div>
             <?php endforeach; ?>
         </div>
     </div>
