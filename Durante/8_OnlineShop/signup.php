@@ -67,7 +67,7 @@
         $citta = $db_connection->real_escape_string(stripslashes($_POST["citta"]));
         $cap = $db_connection->real_escape_string(stripslashes($_POST["cap"]));
         $provincia = $db_connection->real_escape_string(stripslashes($_POST["provincia"]));
-        $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via2"]))." ".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
+        $via = $db_connection->real_escape_string(stripslashes($_POST["via"]))."//".$db_connection->real_escape_string(stripslashes($_POST["via2"]))."//".$db_connection->real_escape_string(stripslashes($_POST["via3"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
         $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
 
