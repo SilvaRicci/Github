@@ -47,7 +47,7 @@
         if(dataVerify($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
             $password = password_hash($password,PASSWORD_DEFAULT);
             
-            $query = "INSERT INTO `utente`(`nome_user`, `cognome_user`, `dataDiNascita_user`, `citta_user`, `cap_user`, `provincia_user`, `via_user`, `email_user`, `username_user`, `password_user`) VALUES ($nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$email,$username,$password)";
+            $query = "INSERT INTO `utente`(`nome_user`, `cognome_user`, `dataDiNascita_user`, `citta_user`, `cap_user`, `provincia_user`, `via_user`, `email_user`, `username_user`, `password_user`) VALUES ('$nome','$cognome','$dataNascita','$citta','$cap','$provincia','$via','$email','$username','$password')";
             $ok=$db_connection->query($query);
 
             $output = true;

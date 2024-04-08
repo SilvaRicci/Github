@@ -71,6 +71,7 @@
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
         $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
 
+
         if(signup($username,$email,$nome,$cognome,$dataNascita,$citta,$cap,$provincia,$via,$password,$confermaPassword)){
           echo "Registrazione avvenuta con successo!";
           echo '<script>  window.location.href = "login.php"; </script>';
