@@ -151,7 +151,7 @@
         if($quantita<0){
             echo "Inserisci la quantità.";
         }else{
-            echo '<script>  window.location.href = "acquista.php"; </script>';
+            echo '<script>  window.location.href = "acquista.php?id='.$id.'&quantita='.$quantita.'"; </script>';
         }
     }
 
