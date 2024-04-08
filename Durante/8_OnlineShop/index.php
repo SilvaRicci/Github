@@ -67,10 +67,14 @@
             <!-- Left links -->
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Carrello</a>
+                    <a class="nav-link" aria-current="page" href="carrello.php">
+                        <img src="src/img/cart.png" alt="Carrello" height="40px" width="50px">
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Account</a>
+                    <a class="nav-link" aria-current="page" href="account.php">
+                        <img src="src/img/account.png" alt="Account" height="40px" width="40px">
+                    </a>
                 </li>
             </ul>
             <!-- Left links -->
