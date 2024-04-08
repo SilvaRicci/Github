@@ -62,7 +62,7 @@
             <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
-            <!-- Collapsible wrapper -->
+            <!-- Collapsible wrapper2 -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <!-- Left links -->
             <ul class="navbar-nav mb-2 mb-lg-0">
@@ -79,7 +79,7 @@
             </ul>
             <!-- Left links -->
             </div>
-            <!-- Collapsible wrapper -->
+            <!-- Collapsible wrapper2 -->
             
         </div>
         <!-- Container wrapper -->
