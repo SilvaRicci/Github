@@ -46,7 +46,7 @@
             </button>
 
             <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <!-- Left links -->
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -90,26 +90,35 @@
             <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <!-- Left links -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Account</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            
         </div>
         <!-- Container wrapper -->
         </nav>
         <!-- Navbar -->
 
     <?php 
-
-        echo "Benvenuto".$_SESSION['username'];
     
         $query = "SELECT prodotto.id_prodotto,nome_prodotto,pvu_prodotto,img FROM prodotto LEFT JOIN immagini ON immagini.id_prodotto=prodotto.id_prodotto";
         //$query = "SELECT id_prodotto,nome_prodotto,pvu_prodotto FROM prodotto";
 
         $result = $db_connection->query($query);                      
         $rows = $result->num_rows;  
-        
-        
+           
         ?>
 
     <div class="container">
-        <div class="row">
+        <div class="row py-3">
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
