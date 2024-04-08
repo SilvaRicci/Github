@@ -122,6 +122,7 @@
                                     <br>
 
                                     <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
+                                    <p> <a href="acquista.php?id=<?php echo $item['id_prodotto'];?>&quantita=" class="btn btn-danger">Svuota il carrello</a> </p>
                                 </div>
                             </div><br>
                         </form>
