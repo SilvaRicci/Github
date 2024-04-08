@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="account.php">
+                    <a class="nav-link" aria-current="page" href="logout.php">
                         <img src="src/img/account.png" alt="Account" height="45px" width="45px">
                     </a>
                 </li>
@@ -98,8 +98,8 @@
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
-                            <div class="card border-primary mb-3 text-center" style="width: 19rem;height: 625px;">
-                                <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a" style="width: 300px;height: 300px">
+                            <div class="card border-primary mb-3 text-center" style="width: 19rem;height: 575px;">
+                                <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a" style="width: 275px;height: 300px"> <!-- DA RIVEDERE LA LARGHEZZA E ALTEZZA DELLE IMMAGINI-->
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['nome_prodotto']; ?></h5>
 
