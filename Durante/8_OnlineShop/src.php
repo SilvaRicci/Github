@@ -158,8 +158,8 @@
         return $magazzino;
     }
 
-    function alert(){
-        
+    function alert($text){
+        echo '<script>  alert("'. $text .'"); </script>';
     }
 
 

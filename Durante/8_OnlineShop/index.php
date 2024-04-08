@@ -75,8 +75,6 @@
         </div>
     </div>
 
-    <input type="button" value = "Test the alert" onclick="alert('Alert this pages');" />
-
 <?php
 
     if(isset($_POST['addToCart_btn'])){
@@ -87,10 +85,10 @@
             echo "Inserisci la quantità.";
         }else{
             $magazzino = aggiungiAlCarrello($id,$quantita);
-            if($magazzino){
+            if($magazzino==1){
                 alert("Prodotto aggiunto con successo al carrello!");
             }else{
-                alert("Impossibile aggiungere al carrello. Quantità in magazzino: "+$magazzino);
+                alert("Impossibile aggiungere al carrello. Quantità in magazzino: ".$magazzino);
             }
         }
     }
