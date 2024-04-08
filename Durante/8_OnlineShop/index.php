@@ -75,6 +75,8 @@
         </div>
     </div>
 
+    <input type="button" value = "Test the alert" onclick="alert('Alert this pages');" />
+
 <?php
 
     if(isset($_POST['addToCart_btn'])){

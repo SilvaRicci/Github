@@ -2,6 +2,6 @@
     if(!isset($_SESSION['username'])){
         header("Location: login.php");
     }
-    $SESSION['carrello'] = array();
+    $_SESSION['carrello'] = array();
     echo "Carrello pulito, arrivederci";
     header("Location: carrello.php");
