@@ -51,12 +51,10 @@
                                         <div class="card-heading">
                                             <?php echo $item['nome_prodotto']; ?>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-text">Quantità</span>
-                                            <input type="number" class="form-control" id="quantita" name="quantita">
-                                        </div>
                                         <input type="hidden" name="id" id="id" value='<?php echo $item['id_prodotto']; ?>' readonly>
                                         <div class="card-text">
+                                            Qnt
+                                            <input type="number" id="quantita" name="quantita" value="0">
                                             € <?php echo $item['pvu_prodotto']; ?>
                                         </div>
                                         <button class="card-button" type="submit" id="addToCart_btn" name="addToCart_btn">Aggiungi al carrello</button>
