@@ -2,7 +2,8 @@
 
     function aggiungiAlCarrello($id,$quantita){ 
 
-        if(controllaMagazzino($quantita)){
+        $magazzino = controllaMagazzino($id,$quantita);
+        if($magazzino){
             if(!isset($_SESSION['carrello'])){
                 $_SESSION['carrello'][] = array();
             }
@@ -16,9 +17,9 @@
                 );
                 $_SESSION['carrello'][$id] = $item;
             }
-            return true;
+            return $magazzino;
         }else{
-            return false;
+            return $magazzino;
         }  
     }
 
@@ -137,6 +138,22 @@
 
     function recoverCart($cart){
 
+    }
+
+    function controllaMagazzino($id,$quantita){
+
+        include "connessione.php";
+
+        $magazzino = true;
+
+        $result = $db_connection->query("SELECT qnt_prodotto FROM prodotto WHERE id_prodotto='$id'");
+        $qnt = $result['qnt_prodotto'];
+
+        if($quantita > $qnt){
+            $magazzino = $qnt;
+        }
+
+        return $magazzino;
     }
 
 
