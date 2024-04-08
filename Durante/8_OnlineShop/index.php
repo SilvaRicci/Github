@@ -73,7 +73,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="account.php">
-                        <img src="src/img/account.png" alt="Account" height="40px" width="40px">
+                        <img src="src/img/account.png" alt="Account" height="45px" width="45px">
                     </a>
                 </li>
             </ul>
@@ -101,7 +101,7 @@
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
-                            <div class="card" style="width: 18rem;height: 625px;">
+                            <div class="card text-center item-center" style="width: 18rem;height: 625px;">
                                 <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['nome_prodotto']; ?></h5>
@@ -132,8 +132,6 @@
             <?php endforeach; ?>
         </div>
     </div>
-
-    <p> <a href="carrello.php" class="btn btn-primary">Vai al carrello</a> </p>
 
 <?php
 
