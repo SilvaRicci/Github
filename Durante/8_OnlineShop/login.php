@@ -33,8 +33,8 @@
         <form action="#" method="POST">
           <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username o E-mail">
           <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
-          <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br><br>
-          <a class="underlineHover text-black" href="signup.php">oppure registrati!</a>
+          <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br>
+          <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
 
         <!-- Remind Passowrd -->
