@@ -98,7 +98,7 @@
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
-                            <div class="card border-primary mb-3 text-center" style="width: 19rem;height: 575px;">
+                            <div class="card border-primary mb-3 text-center" style="width: 19rem;height: 625px;">
                                 <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a" style="width: 275px;height: 300px"> <!-- DA RIVEDERE LA LARGHEZZA E ALTEZZA DELLE IMMAGINI-->
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['nome_prodotto']; ?></h5>
@@ -121,8 +121,8 @@
 
                                     <br>
 
-                                    <button type="submit" id="submit_btn" name="submit_btn" class="btn btn-primary">Aggiungi al carrello</button>
-                                    <p> <a href="acquista.php?id=<?php echo $item['id_prodotto'];?>&quantita=" class="btn btn-danger">Svuota il carrello</a> </p>
+                                    <button type="submit" id="addToCart_btn" name="addToCart_btn" class="btn btn-primary">Aggiungi al carrello</button><br><br>
+                                    <button type="submit" id="buyNow_btn" name="buyNow_btn" class="btn btn-success">Acquista ora</button>
                                 </div>
                             </div><br>
                         </form>
@@ -133,7 +133,7 @@
 
 <?php
 
-    if(isset($_POST['submit_btn'])){
+    if(isset($_POST['addToCart_btn'])){
         $id = $_POST["id"];
         $quantita = $_POST['quantita'];
 
@@ -141,6 +141,17 @@
             echo "Inserisci la quantità.";
         }else{
             aggiungiAlCarrello($id,$quantita);
+        }
+    }
+
+    if(isset($_POST['buyNow_btn'])){
+        $id = $_POST["id"];
+        $quantita = $_POST['quantita'];
+
+        if($quantita<0){
+            echo "Inserisci la quantità.";
+        }else{
+            echo '<script>  window.location.href = "acquista.php"; </script>';
         }
     }
 
