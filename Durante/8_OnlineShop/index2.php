@@ -38,36 +38,31 @@
            
         ?>
 
-    <div class="container">
-        <div class="row py-3">
             <?php foreach($result as $item):?>
                         <form action="#" method="POST">
-                                <div class="col-md-3">
-                                    <div class="card-sl">
-                                        <div class="card-image">
-                                            <img
-                                                src="<?php echo $item['img']; ?>" />
+                            <div class="container">
+                                <div class="row py-3">
+                                    <div class="col-md-3">
+                                        <div class="card-sl">
+                                            <div class="card-image">
+                                                <img
+                                                    src="<?php echo $item['img']; ?>" />
+                                            </div>
+                                            <div class="card-heading">
+                                                <?php echo $item['nome_prodotto']; ?>
+                                            </div>
+                                            <div class="card-text">
+                                            Quantità:
+                                            <input type="number" name="quantita" id="quantita" value="0">
+                                            </div>
+                                            <input type="hidden" name="id" id="id" value='<?php echo $item['id_prodotto']; ?>' readonly>
+                                            <div class="card-text">
+                                                € <?php echo $item['pvu_prodotto']; ?>
+                                            </div>
+                                            <button class="card-button" type="submit" id="addToCart_btn" name="addToCart_btn">Aggiungi al carrello</button>
+                                            <button class="card-button1" type="submit" id="buyNow_btn" name="buyNow_btn">Acquista ora</button>
                                         </div>
-                                        <div class="card-heading">
-                                            <?php echo $item['nome_prodotto']; ?>
-                                        </div>
-                                        <div class="input-group quantity-selector quantity-selector-sm">
-  <input type="number" id="inputQuantitySelectorSm" class="form-control" aria-live="polite" data-bs-step="counter" name="quantity" title="quantity" value="0" min="0" max="10" step="1" data-bs-round="0" aria-label="Quantity selector">
-  <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="down">
-    <span class="visually-hidden">Step down</span>
-  </button>
-  <button type="button" class="btn btn-icon btn-secondary btn-sm" aria-describedby="inputQuantitySelectorSm" data-bs-step="up">
-    <span class="visually-hidden">Step up</span>
-  </button>
-</div>
-                                        <input type="hidden" name="id" id="id" value='<?php echo $item['id_prodotto']; ?>' readonly>
-                                        <div class="card-text">
-                                            € <?php echo $item['pvu_prodotto']; ?>
-                                        </div>
-                                        <button class="card-button" type="submit" id="addToCart_btn" name="addToCart_btn">Aggiungi al carrello</button>
-                                        <button class="card-button1" type="submit" id="buyNow_btn" name="buyNow_btn">Acquista ora</button>
                                     </div>
-                                </div>
                         </form>
             <?php endforeach; ?>
         </div>
