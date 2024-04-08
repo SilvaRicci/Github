@@ -23,7 +23,7 @@
 
         $output = false;
 
-        $result = $db_connection->query("SELECT password_user FROM utente WHERE username_user='$username' OR email_user='$username'");
+        $result = $db_connection->query("SELECT password_user,cart_user FROM utente WHERE username_user='$username' OR email_user='$username'");
         $rows = $result->num_rows;
   
         if($rows > 0){
@@ -33,6 +33,7 @@
   
             if(password_verify($password,$psw)) {
                 $output = true;
+                recoverCart($row['cart_user']);
               }
             }
           $db_connection->close();
@@ -126,7 +127,13 @@
     function saveCartToDB(){
         include "connessione.php";
 
+
+    }
+
+    function recoverCart($cart){
         
     }
+
+
 
 ?>
