@@ -84,7 +84,11 @@
         if($quantita<0){
             echo "Inserisci la quantità.";
         }else{
-            aggiungiAlCarrello($id,$quantita);
+            if(aggiungiAlCarrello($id,$quantita)){
+                alert("Prodotto aggiunto con successo al carrello!");
+            }else{
+                alert("Impossibile aggiungere al carrello. Quantità in magazzino: "+)
+            }
         }
     }
 
