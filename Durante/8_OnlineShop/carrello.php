@@ -80,7 +80,7 @@
                 if($rows > 0):  
                     $row = $result->fetch_assoc();
         ?>
-
+<!-- https://bootsnipp.com/snippets/e3q3a -->
                 <tr>
                 <td><?php echo $row['nome_prodotto']; ?></td>  
                 <td><?php echo $row['pvu_prodotto']; ?></td>                                       
