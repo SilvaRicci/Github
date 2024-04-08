@@ -98,8 +98,8 @@
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
-                            <div class="card text-center item-center" style="width: 18rem;height: 625px;">
-                                <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a">
+                            <div class="card border-primary mb-3 text-center" style="width: 19rem;height: 625px;">
+                                <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a" style="width: 300px;height: 300px">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['nome_prodotto']; ?></h5>
 
