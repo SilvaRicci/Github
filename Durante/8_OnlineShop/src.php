@@ -3,7 +3,8 @@
     function aggiungiAlCarrello($id,$quantita){ 
 
         $magazzino = controllaMagazzino($id,$quantita);
-        if($magazzino){
+
+        if($magazzino==1){
             if(!isset($_SESSION['carrello'])){
                 $_SESSION['carrello'][] = array();
             }
@@ -143,11 +144,12 @@
     function controllaMagazzino($id,$quantita){
 
         include "connessione.php";
-
+        
         $magazzino = true;
 
         $result = $db_connection->query("SELECT qnt_prodotto FROM prodotto WHERE id_prodotto='$id'");
-        $qnt = $result['qnt_prodotto'];
+        $row = $result->fetch_assoc();
+        $qnt = $row['qnt_prodotto'];
 
         if($quantita > $qnt){
             $magazzino = $qnt;
