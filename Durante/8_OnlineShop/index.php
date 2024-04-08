@@ -72,7 +72,7 @@
             <?php foreach($result as $item):?>
                 <div class="col-3">
                         <form action="#" method="POST">
-                            <div class="card" style="width: 18rem;">
+                            <div class="card" style="width: 18rem;height: 625px;">
                                 <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="<?php echo $item['nome_prodotto']; ?> bello/a">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $item['nome_prodotto']; ?></h5>

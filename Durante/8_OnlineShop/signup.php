@@ -44,7 +44,7 @@
           <input type="text" id="via3" class="fadeIn fourth" name="via3" placeholder="Terza riga (opzionale)">
           <input type="password" id="password" class="fadeIn fifth" name="password" placeholder="********">
           <input type="password" id="confermaPassword" class="fadeIn fifth" name="confermaPassword" placeholder="********">
-          <input type="submit" class="fadeIn sixth my-3" value="signup" id="signup" name="signup"><br>
+          <input type="submit" class="fadeIn sixth my-3" value="signup" id="signup" name="signup"><br><br>
           <a class="underlineHover text-black" href="login.php">oppure accedi!</a>
         </form>
 
