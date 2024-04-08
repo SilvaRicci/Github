@@ -123,4 +123,10 @@
         return $isOk;
     }
 
+    function saveCartToDB(){
+        include "connessione.php";
+
+        
+    }
+
 ?>
