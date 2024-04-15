@@ -6,9 +6,12 @@
     if(isset($_SESSION['username'])){
       header("Location: index.php");
     }
-    //if(!isset($_SESSION['email'])){
-      //  header("Location: login.php");
-    //}
+    if(!isset($_SESSION['email'])){
+        header("Location: login.php");
+    }
+    if(!isset($_SESSION['code'])){
+        header("Location: login.php");
+    }
 ?>
 
 <!doctype html>
@@ -39,19 +42,23 @@
       if(isset($_POST["changePsw"])){
         include "connessione.php";
 
-        $email = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
         $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
-
+        
         if($password == $confermaPassword){
             if($email == $_SESSION["email"]){
                 if(changePassword($email,$password)){
                     alert("Cambio password avvenuto con successo.");
+
+                    //resetto le variabili di sessione utilizzate
+                    $_SESSION['email']=null;
+                    $_SESSION['code']=null;
+
                     //windowHREF("index.php",2);
                     echo '<script>  window.location.href = "index.php"; </script>';
                 }
-            }
-            
+            }      
         }else{
             alert("Le password non coincidono");
         }

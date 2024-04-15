@@ -68,6 +68,7 @@
         if($code!=-1){ // se è -1 l'utente non esiste o il codice non è stato inviato
 
             alert("Controlla la posta elettronica associata all'account per ricevere il codice!");
+            $_SESSION['email'] = $email;
 
             //nascondo il vecchio form
             echo '
@@ -89,11 +90,10 @@
 
         $code = 123456; //VISTO CHE IL CODE NON è MANDATO TRAMITE EMAIL (NO SMTP) ALLORA IL CODICE DI DEFAULT è QUESTO SOSTITUITO A QUELLO GENERATO RANDOM 
 
-        $email = $db_connection->real_escape_string(stripslashes($_POST["email2"]));
         $codeForm = $db_connection->real_escape_string(stripslashes($_POST["code"]));
         if($codeForm == $code){
             alert("Codice verificato!");
-            $_SESSION['email'] = $email;
+            $_SESSION['code'] = $code;
             echo '<script>  window.location.href = "changePassword.php"; </script>';
         }else{
             alert("Codice errato!");
