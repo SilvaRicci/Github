@@ -32,7 +32,7 @@
         <!-- Recovery Form -->
         <form action="#" method="POST">
           <input type="email" id="email" class="fadeIn second" name="email" placeholder="Inserisci l'e-mail">
-          <input type="submit" class="fadeIn fourth my-3" value="Codice" id="sendCode" name="sendCode"><br>
+          <input type="submit" class="fadeIn fourth my-3" value="Invia" id="sendCode" name="sendCode"><br>
           <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
 
@@ -45,22 +45,24 @@
     </div>
 
     <?php
-      if(isset($_POST["login"])){
-        include "connessione.php";
+      if(isset($_POST["sendCode"])){
 
-        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
-        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+        $code = controllaEmail($email);
+        if($code!=-1){ // se è -1 l'utente non esiste o il codice non è stato inviato
 
-        if(login($username,$password)){
+            alert("Controlla la posta elettronica associata all'account per ricevere il codice!");
 
-          echo "Utente loggato con successo! Trasferimento in corso...";
-          
-          $_SESSION['username'] = $username;
+            echo '
 
-          echo '<script>  window.location.href = "index.php"; </script>';
+            <!-- Recovery Form -->
+            <form action="#" method="POST">
+              <input type="text" id="code" name="code" placeholder="Inserisci il codice">
+              <input type="submit" class="fadeIn fourth my-3" value="Invia" id="verifyCode" name="verifyCode"><br>
+              <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
+            </form>
 
-        }else{
-          echo "Errore durante il login. Username/email non esistente o password errata.";
+            ';
+
         }
       }
     ?>
