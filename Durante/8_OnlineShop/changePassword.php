@@ -36,7 +36,7 @@
     </div>
 
     <?php
-      if(isset($_POST["login"])){
+      if(isset($_POST["changePsw"])){
         include "connessione.php";
 
         $email = $db_connection->real_escape_string(stripslashes($_POST["username"]));
@@ -45,24 +45,15 @@
 
         if($password == $confermaPassword){
             if($email == $_SESSION["email"]){
-                if(changePassword()){
-                    alert("")
+                if(changePassword($email,$password)){
+                    alert("Cambio password avvenuto con successo.");
+                    //windowHREF("index.php",2);
+                    echo '<script>  window.location.href = "index.php"; </script>';
                 }
             }
             
         }else{
             alert("Le password non coincidono");
-        }
-        if(login($username,$password)){
-
-          echo "Utente loggato con successo! Trasferimento in corso...";
-          
-          $_SESSION['username'] = $username;
-
-          
-
-        }else{
-          echo "Errore durante il login. Username/email non esistente o password errata.";
         }
       }
     ?>

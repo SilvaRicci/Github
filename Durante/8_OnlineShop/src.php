@@ -181,4 +181,19 @@
         return $code;
     }
 
+    function changePassword($email,$password){
+        include "connessione.php";
+        
+        $done = false;
+        echo $password;
+        $password = password_hash($password,PASSWORD_DEFAULT);
+
+        $result = $db_connection->query("UPDATE `utente` SET `password_user`='$password' WHERE `email_user`='$email'");
+        if($row = $result->fetch_assoc()){
+             $done = true;
+        }
+        
+        return $done;     
+    }
+
 ?>
