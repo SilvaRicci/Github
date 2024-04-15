@@ -185,13 +185,21 @@
         include "connessione.php";
         
         $done = false;
-        echo $password;
         $password = password_hash($password,PASSWORD_DEFAULT);
-
+echo "ciao";
+echo "UPDATE `utente` SET `password_user`='$password' WHERE `email_user`='$email'";
         $result = $db_connection->query("UPDATE `utente` SET `password_user`='$password' WHERE `email_user`='$email'");
-        if($row = $result->fetch_assoc()){
-             $done = true;
-        }
+        echo $result;
+        $done = true;
+        //verifico che la query sia andata a buon fine
+        //$query_upd = msql_querry($result);
+
+        //affected_rows($query_upd); //numero di righe con cambiamenti
+
+        //if (affected_rows($query_upd) == 0) {
+            //update eseguito
+            //$done = true;
+        //}
         
         return $done;     
     }

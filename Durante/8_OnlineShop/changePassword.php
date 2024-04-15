@@ -47,9 +47,7 @@
         $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
         
         if($password == $confermaPassword){
-            echo "ciuao".$email;
             if(changePassword($email,$password)){
-                echo "due";
                 alert("Cambio password avvenuto con successo.");
 
                 //resetto le variabili di sessione utilizzate
