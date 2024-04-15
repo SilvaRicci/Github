@@ -48,11 +48,6 @@
           <a class="underlineHover text-black" href="login.php">oppure accedi!</a><br><br>
         </form>
 
-        <!-- Forgot password? -->
-        <div id="formFooter">
-        <a class="underlineHover text-black" href="forgotPassword.php">Password dimentica?</a>
-        </div>
-
     </div>
     </div>
 

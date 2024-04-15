@@ -162,6 +162,25 @@
         echo '<script>  alert("'. $text .'"); </script>';
     }
 
+    function controllaEmail($email){
+        include "connessione.php";
+        
+        $esiste = -1;
+
+        $result = $db_connection->query("SELECT email_user FROM utente WHERE email_user='$email'");
+        $row = $result->fetch_assoc();
+        $email_user = $row['email_user'];
+
+        
+
+        if($quantita > $qnt){
+            $magazzino = $qnt;
+        }
+
+        return $magazzino;
+    }
+    }
+
 
 
 ?>
