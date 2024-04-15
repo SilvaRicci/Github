@@ -31,8 +31,8 @@
 
         <!-- Login Form -->
         <form action="#" method="POST">
-          <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username o E-mail">
-          <input type="password" id="password" class="fadeIn third" name="password" placeholder="********">
+          <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username / e-mail">
+          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
           <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br>
           <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
