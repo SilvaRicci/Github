@@ -57,7 +57,7 @@
 
     </div>
     </div>
-
+    
     <?php
       if(isset($_POST["sendCode"])){
         include "connessione.php";
