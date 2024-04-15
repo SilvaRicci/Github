@@ -30,10 +30,17 @@
         </div>
 
         <!-- Recovery Form -->
-        <form action="#" method="POST">
+        <form action="#" method="POST" id="emailForm">
           <input type="email" id="email" class="fadeIn second" name="email" placeholder="Inserisci l'e-mail">
           <input type="submit" class="fadeIn fourth my-3" value="Invia" id="sendCode" name="sendCode"><br>
           <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
+        </form>
+
+        <!-- Code Form -->
+        <form action="#" method="POST" id="verifyForm">
+              <input type="text" id="code" name="code" placeholder="Inserisci il codice">
+              <input type="submit" class="fadeIn fourth my-3" value="Invia" id="verifyCode" name="verifyCode"><br>
+              <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
 
         <!-- Back to login -->
@@ -54,15 +61,15 @@
 
             alert("Controlla la posta elettronica associata all'account per ricevere il codice!");
 
+            //nascondo il vecchio form
             echo '
-
-            <!-- Recovery Form -->
-            <form action="#" method="POST">
-              <input type="text" id="code" name="code" placeholder="Inserisci il codice">
-              <input type="submit" class="fadeIn fourth my-3" value="Invia" id="verifyCode" name="verifyCode"><br>
-              <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
-            </form>
-
+                var textForm = document.getElementsId("emailForm")[0];
+                textForm.style.display = "none";
+            ';
+            //rendo visibile il nuovo form
+            echo '
+                var textForm = document.getElementsId("verifyForm")[0];
+                textForm.style.display = "inline";
             ';
 
         }
