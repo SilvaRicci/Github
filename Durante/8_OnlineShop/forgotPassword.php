@@ -43,6 +43,13 @@
               <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
 
+        <script>
+        
+        //nascondo il form verifyForm
+        document.getElementById("verifyForm").style.display = "none";
+
+        </script>
+
         <!-- Back to login -->
         <div id="formFooter">
         <a class="underlineHover text-black" href="login.php">Torna la login</a>
@@ -57,19 +64,22 @@
 
         $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
         $code = controllaEmail($email);
+
         if($code!=-1){ // se è -1 l'utente non esiste o il codice non è stato inviato
 
             alert("Controlla la posta elettronica associata all'account per ricevere il codice!");
 
             //nascondo il vecchio form
             echo '
-                var textForm = document.getElementsId("emailForm")[0];
-                textForm.style.display = "none";
+                <script>
+                    document.getElementById("emailForm").style.display = "none";
+                </script>
             ';
             //rendo visibile il nuovo form
             echo '
-                var textForm = document.getElementsId("verifyForm")[0];
-                textForm.style.display = "inline";
+                <script>
+                    document.getElementById("verifyForm").style.display = "inline";
+                </script>
             ';
 
         }
