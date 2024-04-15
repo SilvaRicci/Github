@@ -24,27 +24,14 @@
 
     <div class="wrapper fadeInDown">
     <div id="formContent">
-        <!-- Tabs Titles -->
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-        <!-- DA CAMBIARE PLACEHOLDER.PNG ATTUALMENTE -->
-        <img src="https://mivatek.global/wp-content/uploads/2021/07/placeholder.png" id="icon" alt="User Icon" />
-        </div>
-
-        <!-- Login Form -->
+        <!-- Change password Form -->
         <form action="#" method="POST">
           <input type="email" id="email" class="fadeIn second" name="email" placeholder="<?php echo $_SESSION['email']; ?>" disabled>
           <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-          <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br>
-          <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
+          <input type="password" id="confermaPassword" class="fadeIn third" name="confermaPassword" placeholder="Conferma la password">
+          <input type="submit" class="fadeIn fourth my-3" value="Invia" id="changePsw" name="changePsw"><br>
         </form>
-
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-        <a class="underlineHover text-black" href="forgotPassword.php">Password dimentica?</a>
-        </div>
-
     </div>
     </div>
 
@@ -52,16 +39,27 @@
       if(isset($_POST["login"])){
         include "connessione.php";
 
-        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $email = $db_connection->real_escape_string(stripslashes($_POST["username"]));
         $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
+        $confermaPassword = $db_connection->real_escape_string(stripslashes($_POST["confermaPassword"]));
 
+        if($password == $confermaPassword){
+            if($email == $_SESSION["email"]){
+                if(changePassword()){
+                    alert("")
+                }
+            }
+            
+        }else{
+            alert("Le password non coincidono");
+        }
         if(login($username,$password)){
 
           echo "Utente loggato con successo! Trasferimento in corso...";
           
           $_SESSION['username'] = $username;
 
-          echo '<script>  window.location.href = "index.php"; </script>';
+          
 
         }else{
           echo "Errore durante il login. Username/email non esistente o password errata.";

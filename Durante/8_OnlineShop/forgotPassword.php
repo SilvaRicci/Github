@@ -46,8 +46,9 @@
 
     <?php
       if(isset($_POST["sendCode"])){
+        include "connessione.php";
 
-        $email = $_POST["email"];
+        $email = $db_connection->real_escape_string(stripslashes($_POST["email"]));
         $code = controllaEmail($email);
         if($code!=-1){ // se è -1 l'utente non esiste o il codice non è stato inviato
 
@@ -71,7 +72,7 @@
 
         $code = 123456; //VISTO CHE IL CODE NON è MANDATO TRAMITE EMAIL (NO SMTP) ALLORA IL CODICE DI DEFAULT è QUESTO SOSTITUITO A QUELLO GENERATO RANDOM 
 
-        $codeForm = $_POST["code"];
+        $codeForm = $db_connection->real_escape_string(stripslashes($_POST["code"]));
         if($codeForm == $code){
             alert("Codice verificato!");
             $_SESSION['email'] = $email;
