@@ -168,19 +168,17 @@
         $esiste = -1;
 
         $result = $db_connection->query("SELECT email_user FROM utente WHERE email_user='$email'");
-        $row = $result->fetch_assoc();
-        $email_user = $row['email_user'];
-
-        
-
-        if($quantita > $qnt){
-            $magazzino = $qnt;
+        if($row = $result->fetch_assoc()){
+             $esiste = sendCode($email);
         }
-
-        return $magazzino;
+        
+        return $esiste;     
     }
+
+    function sendCode($email){
+        //NON FUNZIONA, MANCA SERVER SMTP (ANCHE SE IL NUMERO VIENE GENERATO VIENE USATO UN CODICE STANDARD PER TEST)
+        $code = mt_rand(111111, 999999);
+        return $code;
     }
-
-
 
 ?>
