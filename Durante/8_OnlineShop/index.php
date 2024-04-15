@@ -41,6 +41,9 @@ if (!isset($_SESSION['username'])) {
                 <div class="col-md-3">
                     <form action="#" method="POST" class="py-3">
                         <div class="card-sl">
+                            <div class="height:1000px border">
+                                
+                            </div>
                             <div class="card-image">
                                 <img src="<?php echo $item['img']; ?>"/>
                             </div>
