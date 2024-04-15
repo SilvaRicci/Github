@@ -6,6 +6,9 @@
     if(isset($_SESSION['username'])){
       header("Location: index.php");
     }
+    if(!(isset($_SESSION['email']))){
+        header("Location: login.php");
+      }
 ?>
 
 <!doctype html>
@@ -29,55 +32,39 @@
         <img src="https://mivatek.global/wp-content/uploads/2021/07/placeholder.png" id="icon" alt="User Icon" />
         </div>
 
-        <!-- Recovery Form -->
+        <!-- Login Form -->
         <form action="#" method="POST">
-          <input type="email" id="email" class="fadeIn second" name="email" placeholder="Inserisci l'e-mail">
-          <input type="submit" class="fadeIn fourth my-3" value="Invia" id="sendCode" name="sendCode"><br>
+          <input type="email" id="email" class="fadeIn second" name="email" placeholder="<?php echo $_SESSION['email']; ?>" disabled>
+          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+          <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br>
           <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
         </form>
 
-        <!-- Back to login -->
+        <!-- Remind Passowrd -->
         <div id="formFooter">
-        <a class="underlineHover text-black" href="login.php">Torna la login</a>
+        <a class="underlineHover text-black" href="forgotPassword.php">Password dimentica?</a>
         </div>
 
     </div>
     </div>
 
     <?php
-      if(isset($_POST["sendCode"])){
+      if(isset($_POST["login"])){
+        include "connessione.php";
 
-        $email = $_POST["email"];
-        $code = controllaEmail($email);
-        if($code!=-1){ // se è -1 l'utente non esiste o il codice non è stato inviato
+        $username = $db_connection->real_escape_string(stripslashes($_POST["username"]));
+        $password = $db_connection->real_escape_string(stripslashes($_POST["password"]));
 
-            alert("Controlla la posta elettronica associata all'account per ricevere il codice!");
+        if(login($username,$password)){
 
-            echo '
+          echo "Utente loggato con successo! Trasferimento in corso...";
+          
+          $_SESSION['username'] = $username;
 
-            <!-- Recovery Form -->
-            <form action="#" method="POST">
-              <input type="text" id="code" name="code" placeholder="Inserisci il codice">
-              <input type="submit" class="fadeIn fourth my-3" value="Invia" id="verifyCode" name="verifyCode"><br>
-              <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
-            </form>
+          echo '<script>  window.location.href = "index.php"; </script>';
 
-            ';
-
-        }
-      }
-
-      if(isset($_POST["verifyCode"])){
-
-        $code = 123456; //VISTO CHE IL CODE NON è MANDATO TRAMITE EMAIL (NO SMTP) ALLORA IL CODICE DI DEFAULT è QUESTO SOSTITUITO A QUELLO GENERATO RANDOM 
-
-        $codeForm = $_POST["code"];
-        if($codeForm == $code){
-            alert("Codice verificato!");
-            $_SESSION['email'] = $email;
-            echo '<script>  window.location.href = "changePassword.php"; </script>';
         }else{
-            alert("Codice errato!");
+          echo "Errore durante il login. Username/email non esistente o password errata.";
         }
       }
     ?>
