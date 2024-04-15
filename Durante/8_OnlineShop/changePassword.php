@@ -6,9 +6,9 @@
     if(isset($_SESSION['username'])){
       header("Location: index.php");
     }
-    if(!(isset($_SESSION['email']))){
-        header("Location: login.php");
-      }
+    //if(!isset($_SESSION['email'])){
+      //  header("Location: login.php");
+    //}
 ?>
 
 <!doctype html>
@@ -26,8 +26,8 @@
     <div id="formContent">
 
         <!-- Change password Form -->
-        <form action="#" method="POST">
-          <input type="email" id="email" class="fadeIn second" name="email" placeholder="<?php echo $_SESSION['email']; ?>" disabled>
+        <form action="#" method="POST"><br>
+          <input type="email" id="email" class="fadeIn second" name="email" value="<?php echo $_SESSION['email']; ?>" disabled>
           <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
           <input type="password" id="confermaPassword" class="fadeIn third" name="confermaPassword" placeholder="Conferma la password">
           <input type="submit" class="fadeIn fourth my-3" value="Invia" id="changePsw" name="changePsw"><br>
