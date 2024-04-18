@@ -40,9 +40,9 @@ if (!isset($_SESSION['username'])) {
             <?php foreach ($result as $item): ?>
                 <div class="col-md-3">
                     <form action="#" method="POST" class="py-3">
-                        <div class="card-sl">
+                        <div class="card-sl" style="height: 750px;">
                             <div class="card-image">
-                                <img src="<?php echo $item['img']; ?>"/>
+                                <img src="<?php echo $item['img']; ?>"  style="height: 500px;"/>
                             </div>
                             <div class="card-heading">
                                 <?php echo $item['nome_prodotto']; ?>

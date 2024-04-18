@@ -31,23 +31,22 @@ if (!isset($_SESSION['username'])) {
     
     $result = $db_connection->query($query);
     $rows = $result->num_rows;
+    $row = $result->fetch_assoc();
 
     ?>
 
     <div class="container">
         <div class="row py-3">
-                <div class="col-md-3">
-                    <form action="#" method="POST" class="py-3">
+                <div class="col-md-12">
                         <div class="card-sl">
                             <div class="card-heading">
-                                <?php echo $item['username_user']; ?>
+                                <?php echo $row['username_user']; ?>
                             </div>
-                            <button class="card-button" type="submit" id="logout" name="logout" href="logout.php">Logout</button>
+                            <a class="card-button" type="submit" id="logout" name="logout" href="logout.php">Logout</a>
                         </div>
-                    </form>
                 </div>
         </div>
-    </div><br><br><br><br><br><br><br><br><br><br><br>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
