@@ -42,7 +42,7 @@ if (!isset($_SESSION['username'])) {
                     <form action="#" method="POST" class="py-3">
                         <div class="card-sl">
                             <div class="card-image">
-                                <img src="<?php echo $item['img']; ?>"  style="height: 350px;"/>
+                                <img src="<?php echo $item['img']; ?>"  style="height: 350px; object-fit: cover"/>
                             </div>
                             <div class="card-heading">
                                 <?php echo $item['nome_prodotto']; ?>
