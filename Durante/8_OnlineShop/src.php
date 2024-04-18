@@ -198,6 +198,7 @@
 
     function addToNewsletter($email){
         include "connessione.php";
+        $isDone = false;
 
         $query = "SELECT * FROM `newsletter` WHERE `email` = '$email'";
         $check = $db_connection->query($query);
@@ -207,8 +208,9 @@
         if($rows == 0){
             $query = "INSERT INTO `newsletter` (`email`) VALUES ('$email')";
             $ok=$db_connection->query($query);
+            $isDone = true;
         }
         
         $db_connection->close(); 
-        return $
+        return $isDone;
     }
