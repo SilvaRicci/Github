@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
 
     <?php
 
-    $query = "SELECT * FROM utente WHERE username_user='".$_SESSION['username']."'";        ww
+    $query = "SELECT * FROM utente WHERE username_user='".$_SESSION['username']."'";
     
     $result = $db_connection->query($query);
     $rows = $result->num_rows;
@@ -36,66 +36,19 @@ if (!isset($_SESSION['username'])) {
 
     <div class="container">
         <div class="row py-3">
-            <?php foreach ($result as $item): ?>
                 <div class="col-md-3">
                     <form action="#" method="POST" class="py-3">
                         <div class="card-sl">
-                            <div class="card-image">
-                                <img src="<?php echo $item['img']; ?>"/>
-                            </div>
                             <div class="card-heading">
-                                <?php echo $item['nome_prodotto']; ?>
+                                <?php echo $item['username_user']; ?>
                             </div>
-                            <div class="card-text">
-                                Quantità:
-                                <input type="number" name="quantita" id="quantita" value="0">
-                            </div>
-                            <input type="hidden" name="id" id="id" value='<?php echo $item['id_prodotto']; ?>' readonly>
-                            <div class="card-text">
-                                €
-                                <?php echo $item['pvu_prodotto']; ?>
-                            </div>
-                            <button class="card-button" type="submit" id="addToCart_btn" name="addToCart_btn">Aggiungi al
-                                carrello</button>
-                            <button class="card-button1" type="submit" id="buyNow_btn" name="buyNow_btn">Acquista
-                                ora</button>
+                            <button class="card-button" type="submit" id="logout" name="logout" href="logout.php">Logout</button>
                         </div>
                     </form>
                 </div>
-            <?php endforeach; ?>
         </div>
-    </div>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
 
-    <?php
-
-    if (isset($_POST['addToCart_btn'])) {
-        $id = $_POST["id"];
-        $quantita = $_POST['quantita'];
-
-        if ($quantita <= 0) {
-            alert("Quantità non valida!");
-        } else {
-            $magazzino = aggiungiAlCarrello($id, $quantita);
-            if ($magazzino == 1) {
-                alert("Prodotto aggiunto con successo al carrello!");
-            } else {
-                alert("Impossibile aggiungere al carrello. Quantità in magazzino: " . $magazzino);
-            }
-        }
-    }
-
-    if (isset($_POST['buyNow_btn'])) {
-        $id = $_POST["id"];
-        $quantita = $_POST['quantita'];
-
-        if ($quantita <= 0) {
-            alert("Quantità non valida!");
-        } else {
-            echo '<script>  window.location.href = "acquista.php?id=' . $id . '&quantita=' . $quantita . '"; </script>';
-        }
-    }
-
-    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
