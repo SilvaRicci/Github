@@ -214,3 +214,7 @@
         $db_connection->close(); 
         return $isDone;
     }
+
+    function acquista(){
+        
+    }
