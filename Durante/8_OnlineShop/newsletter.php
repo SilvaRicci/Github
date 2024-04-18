@@ -4,10 +4,15 @@
             include "src.php";
             
             $email = $_POST["email-newsletter"];
-            addToNewsletter($email);
+            if(addToNewsletter($email)){
+                alert("Iscrizione avvenuta con successo! Buona giornata.");
+                echo "<script> window.location.href = 'index.php'; </script>";
+            }else{
+                alert("Email già presente nel database. Buona giornata.");
+                echo "<script> window.location.href = 'index.php'; </script>";
+            }
 
-            alert("Iscrizione avvenuta con successo! Buona giornata.");
-            echo "window.setTimeout(function(){window.location.href = 'index.php';}, 5000);"
+            
         ?>
     </body>
 </html>
