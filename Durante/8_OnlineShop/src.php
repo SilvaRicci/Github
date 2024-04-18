@@ -199,7 +199,7 @@
     function addToNewsletter($email){
         include "connessione.php";
 
-        $query = "INSERT INTO `newsletter`(`email`) VALUES ('$email')";
+        $query = "INSERT INTO `newsletter` (`email`) VALUES ('$email')";
         $ok=$db_connection->query($query);
 
         
