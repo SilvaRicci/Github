@@ -275,7 +275,7 @@
 
     function aggiungiAlMagazzino($nome,$descrizione,$quantita,$pvu,$immagine){
         if(dataVerifyProduct($nome,$quantita,$pvu)){
-            
+            //DSDFGFGGF
         }else{
             return false;
         }
