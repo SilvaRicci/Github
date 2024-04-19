@@ -47,11 +47,12 @@ if(isset($_POST["submit"])){
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
+            $image2 = base64_encode(file_get_contents(addslashes($image)));
 
             // Insert image content into database 
-            echo $query = "INSERT INTO `tbl_image`(`imageId`, `imageData`) VALUES (null,'".$imgContent."'";
+            echo $query = "INSERT INTO `tbl_image`(`imageId`, `imageData`) VALUES (null,'".$image2."'";
             $insert = $db_connection->query($query); 
-            if($insert){ 
+            if($insert){    
                 $status = 'success'; 
                 $statusMsg = "File uploaded successfully."; 
             }else{ 
