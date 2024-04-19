@@ -242,13 +242,22 @@
     }
 
     function getIDUser(){
-        $id_user = null;
+        include "connessione.php";
 
-        return null;
+        $id_user = null;
+        if(isset($_SESSION['username'])){
+            $usr = $_SESSION['username'];
+            $query = "SELECT `id_user` FROM `utente` WHERE `username_user` = ".$usr;
+            $result = $db_connection->query($query);
+            $row = $result->fetch_assoc();
+            $id_user = $row["id_user"];
+        }
+
+        return $id_user;
     }
 
-    function getIDUser(){
-        $id_user = null;
+    function getTotal($id,$quantita){
+        $total= null;
 
-        return null;
+        return $total;
     }
