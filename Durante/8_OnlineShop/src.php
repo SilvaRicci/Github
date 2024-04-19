@@ -268,3 +268,7 @@
 
         return $total;
     }
+
+    function clearCart(){
+        $_SESSION['carrello'] = array();
+    }

@@ -28,22 +28,19 @@
 
     <?php
         $id = $_GET['id'];
-
+        alert("Conferma acquisto");
         if($id == -1){
             $carrello = $_SESSION['carrello'];
-            echo $_SESSION['carrello'][0]['id'];
-            echo $_SESSION['carrello'][0]['quantita'];
             foreach($carrello as $item_acquisto){
-                echo "banana: ".$item_acquisto['id'] . " " .$item_acquisto['quantita'] ."da carrello".$_SESSION['carrello']['id'];
                 acquista($item_acquisto['id'],$item_acquisto['quantita']);
             }
+            clearCart();
             alert("Acquista carrello");
         }else{
             // acquista ora
             $quantita = $_GET['quantita'];
             acquista($id,$quantita);
             alert("Acquista prodotto con id".$id."e quantita".$quantita);
-
         }
     ?>
 
