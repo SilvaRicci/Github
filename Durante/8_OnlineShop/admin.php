@@ -51,8 +51,8 @@ if (!isset($_SESSION['username'])) {
                         <input class="form-control" type="file" id="immagine" name="immagine">
                     </div>
                     <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
-  </div>
+                        <button type="submit" class="btn btn-primary mb-3" id="submit" name="submit">Aggiungi</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -60,7 +60,15 @@ if (!isset($_SESSION['username'])) {
 
     <?php
 
-    if (isset($_POST['addToCart_btn'])) {
+    if (isset($_POST['submit'])) {
+        $nome = $_POST["nome"];
+        $descrizione = null;
+        $quantita = $_POST["quantita"];
+        $nome = $_POST["nome"];
+        $nome = $_POST["nome"];
+        if(isset($_POST['descrizione'])){
+
+        }
         $id = $_POST["id"];
         $quantita = $_POST['quantita'];
 
