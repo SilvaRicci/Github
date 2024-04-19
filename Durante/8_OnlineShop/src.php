@@ -223,15 +223,15 @@
             echo "Quantità verificata! test:". $id;
 
             $id_user = getIdUser();
-            $date = date("Y/m/d");
+            $date = date("Y-m-d");
             $time = date("h:i:sa");
             $total = getTotal($id,$quantita);
-
+            echo "variabili ottenute";
             $queryAcquisto = "UPDATE `prodotto` SET `qnt_prodotto`=`qnt_prodotto`-".$quantita." WHERE `id_prodotto`='".$id."';";
             $queryTracking = "INSERT INTO `shopTracking`(`id_user`, `id_prodotto`, `qnt_acquistata`, `data_diAcquisto`, `ora_diAcquisto`, `spesa_totale`) VALUES ('$id_user','$id','$quantita','$date','$time','$total')";
-            
-            $result = $db_connection->query($queryAcquisto);
-            $tracking = $db_connection->query($queryTracking);
+        
+            $result = $db_connection->query($queryAcquisto); echo "query result";
+            $tracking = $db_connection->query($queryTracking); echo "query tracking";
             
             echo "Acquisto effettuato: ".$id;
         }
