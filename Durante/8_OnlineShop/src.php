@@ -221,6 +221,15 @@
         //verifica quantità dal magazzino prima di acquistare
         if(controllaMagazzino($id,$quantita)){
             echo "Quantità verificata! test:". $id;
+
+            $query = "";
+            
+            $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto`,`qnt_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$id."'");            
+            $rows = $result->num_rows;  
+
+            if($rows > 0){
+                $row = $result->fetch_assoc();
+            }
         }
 
 
