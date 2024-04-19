@@ -23,7 +23,7 @@
         <div class="phppot-container tile-container">
             <label>Upload Image File:</label>
             <div class="row">
-                <input name="userImage" id="userImage" type="file" class="full-width" />
+                <input name="image" id="image" type="file" class="full-width" />
             </div>
             <div class="row">
                 <input type="submit" value="Submit" id="submit" name="submit" />
@@ -31,6 +31,46 @@
         </div>
     </form>
     <?php
+
+
+$status = $statusMsg = ''; 
+if(isset($_POST["submit"])){ 
+    
+    include "connesione.php";
+    $status = 'error'; 
+    if(!empty($_FILES["image"]["name"])) { 
+        // Get file info 
+        $fileName = basename($_FILES["image"]["name"]); 
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+         
+        // Allow certain file formats 
+        $allowTypes = array('jpg','png','jpeg','gif'); 
+        if(in_array($fileType, $allowTypes)){ 
+            $image = $_FILES['image']['tmp_name']; 
+            $imgContent = addslashes(file_get_contents($image)); 
+         
+            // Insert image content into database 
+            $insert = $db_connection->query("INSERT into tbl_image (imageData) VALUES ('$imgContent')"); 
+             
+            if($insert){ 
+                $status = 'success'; 
+                $statusMsg = "File uploaded successfully."; 
+            }else{ 
+                $statusMsg = "File upload failed, please try again."; 
+            }  
+        }else{ 
+            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+        } 
+    }else{ 
+        $statusMsg = 'Please select an image file to upload.'; 
+    } 
+} 
+
+
+
+
+
+    /*
         if(isset($_POST['submit'])){ 
             //$imgData = file_get_contents($_FILES['userImage']['tmp_name']);
             $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name'])); 
@@ -39,7 +79,7 @@
 
         }
         
-        
+     */   
 ?>
 </BODY>
 </HTML>

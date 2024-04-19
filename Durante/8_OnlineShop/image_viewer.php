@@ -5,5 +5,4 @@
     $result = $db_connection->query($query);
     $row = $result->fetch_array();
 ?>
-<img src="sesso" width = "80px" height = "80px/> 
-
+<img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['imageData']); ?>"/> 
