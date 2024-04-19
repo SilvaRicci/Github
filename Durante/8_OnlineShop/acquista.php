@@ -31,11 +31,12 @@
 
         if($id == -1){
             $carrello = $_SESSION['carrello'];
-            echo $_SESSION['carrello'][1]['id'];
-            foreach($carrello as $item):
-                echo "banana: ".$item['id'] . " " .$item['quantita'] ."da carrello".$_SESSION['carrello']['id'];
-                acquista($item['id'],$item['quantita']);
-            endforeach;
+            echo $_SESSION['carrello'][0]['id'];
+            echo $_SESSION['carrello'][0]['quantita'];
+            foreach($carrello as $item_acquisto){
+                echo "banana: ".$item_acquisto['id'] . " " .$item_acquisto['quantita'] ."da carrello".$_SESSION['carrello']['id'];
+                acquista($item_acquisto['id'],$item_acquisto['quantita']);
+            }
             alert("Acquista carrello");
         }else{
             // acquista ora
