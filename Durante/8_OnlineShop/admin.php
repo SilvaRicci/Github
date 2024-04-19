@@ -23,30 +23,36 @@ if (!isset($_SESSION['username'])) {
 </head>
 
 <body>
-    <?php include "navbar.html"; ?>
-    <h3> Aggiungi un prodotto </h3>
+    <?php include "navbar.html"; ?><br><br><br>
+    <center> <h3> Aggiungi un prodotto </h3> </center><br><br><br>
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-4"></div>
+            <div class="col-4">
                 <form method="POST" action="#">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">Nome</span>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome prodotto" aria-label="Nome" aria-describedby="addon-wrapping">
-                    </div>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome prodotto" aria-label="Nome" aria-describedby="addon-wrapping" required>
+                    </div><br>
                     <div class="mb-3">
-                        <label for="descrizione" class="form-label">Descrizione</label>
-                        <textarea class="form-control" id="descrizione" name="descrizione" rows="3"></textarea>
+                        <textarea class="form-control" id="descrizione" placeholder="Descrizione prodotto" name="descrizione" rows="3"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Quantità</span>
+                        <input type="number" class="form-control" name="quantita" id="quantita" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">€</span>
                         <span class="input-group-text">0.00</span>
-                        <input type="text" class="form-control" name="pvu" id="pvu" aria-label="Dollar amount (with dot and two decimal places)">
+                        <input type="text" class="form-control" name="pvu" id="pvu" aria-label="Dollar amount (with dot and two decimal places)" required>
                     </div>
                     <div class="mb-3">
-                        <label for="immagine" class="form-label">Immagine</label>
                         <input class="form-control" type="file" id="immagine" name="immagine">
                     </div>
+                    <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+  </div>
                 </form>
             </div>
         </div>
@@ -91,6 +97,7 @@ if (!isset($_SESSION['username'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <?php include "footer.html"; ?>
 </body>
 
