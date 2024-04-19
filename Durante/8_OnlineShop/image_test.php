@@ -18,7 +18,7 @@
 </style>
 </HEAD>
 <BODY>
-    <form name="frmImage" enctype="multipart/form-data" action=""
+    <form action="#"
         method="post">
         <div class="phppot-container tile-container">
             <label>Upload Image File:</label>
@@ -31,11 +31,10 @@
         </div>
     </form>
     <?php
-        if(isset($_POST['submit'])){
+        if(isset($_POST['submit'])){ 
             $imgData = file_get_contents($_FILES['userImage']['tmp_name']);
-            $imgType = $_FILES['userImage']['type'];
-            echo $sql = "INSERT INTO tbl_image(imageType ,imageData) VALUES('".$imgData."', '".$imgType.")'";
-            //$result = $db_connection->query($sql);
+            $sql = "INSERT INTO tbl_image(imageType) VALUES($imgData)";
+            $result = $db_connection->query($sql);
 
         }
         
