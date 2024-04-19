@@ -223,19 +223,17 @@
             echo "Quantità verificata! test:". $id;
 
             $id_user = getIdUser();
-            $date = null;
-            $time = null;
+            $date = date("Y/m/d");
+            $time = date("h:i:sa");
             $total = getTotal($id,$quantita);
 
             $queryAcquisto = "UPDATE `prodotto` SET `qnt_prodotto`=`qnt_prodotto`-".$quantita." WHERE `id_prodotto`='".$id."';";
             $queryTracking = "INSERT INTO `shopTracking`(`id_user`, `id_prodotto`, `qnt_acquistata`, `data_diAcquisto`, `ora_diAcquisto`, `spesa_totale`) VALUES ('$id_user','$id','$quantita','$date','$time','$total')";
             
-            $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto`,`qnt_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$id."'");            
-            $rows = $result->num_rows;  
-
-            if($rows > 0){
-                $row = $result->fetch_assoc();
-            }
+            $result = $db_connection->query($queryAcquisto);
+            $tracking = $db_connection->query($queryTracking);
+            
+            echo "Acquisto effettuato: ".$id;
         }
 
 
@@ -247,7 +245,7 @@
         $id_user = null;
         if(isset($_SESSION['username'])){
             $usr = $_SESSION['username'];
-            $query = "SELECT `id_user` FROM `utente` WHERE `username_user` = ".$usr;
+            $query = "SELECT `id_user` FROM `utente` WHERE `username_user` = '".$usr."'";
             $result = $db_connection->query($query);
             $row = $result->fetch_assoc();
             $id_user = $row["id_user"];
@@ -257,7 +255,15 @@
     }
 
     function getTotal($id,$quantita){
+        include "connessione.php";
+
         $total= null;
+
+        $result = $db_connection->query("SELECT pvu_prodotto FROM prodotto WHERE id_prodotto='$id'");
+        $row = $result->fetch_assoc();
+        $pvu = $row['pvu_prodotto'];
+
+        $total = $pvu * $quantita;
 
         return $total;
     }
