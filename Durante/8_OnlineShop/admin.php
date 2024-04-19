@@ -59,25 +59,25 @@ if (!isset($_SESSION['username'])) {
     </div>
 
     <?php
-    include "src.php";
 
-    if (isset($_POST['submit'])) {
-        $nome = $_POST["nome"];
-        $descrizione = null;
-        $quantita = $_POST["quantita"];
-        $pvu = $_POST["pvu"];
-        $immagine = null;
+        if (isset($_POST['submit'])) {
+            $nome = $_POST["nome"];
+            $descrizione = null;
+            $quantita = $_POST["quantita"];
+            $pvu = $_POST["pvu"];
+            $immagine = null;
 
-        if(isset($_POST['descrizione'])){
-            $descrizione = $_POST["descrizione"];
+            if(isset($_POST['descrizione'])){
+                $descrizione = $_POST["descrizione"];
+            }
+            if(isset($_POST['immagine'])){
+                $immagine = $_POST["immagine"];
+            }
+            
+            aggiungiAlMagazzino($nome,$descrizione,$quantita,$pvu,$immagine);
+
         }
-        if(isset($_POST['immagine'])){
-            $immagine = $_POST["immagine"];
-        }
 
-        aggiungiAlMagazzino($nome,$descrizione,$quantita,$pvu,$immagine);
-
-    }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

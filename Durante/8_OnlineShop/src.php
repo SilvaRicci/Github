@@ -274,7 +274,6 @@
     }
 
     function aggiungiAlMagazzino($nome,$descrizione,$quantita,$pvu,$immagine){
-
         if(dataVerifyProduct($nome,$quantita,$pvu)){
             
         }else{
@@ -292,12 +291,17 @@
 
         if($quantita == ""){
             $isOk = false;
-            alert("quantita non inserita <br />");
+            alert("Quantità disponibile del prodotto non inserita <br />");
         }
 
         if($pvu == ""){
             $isOk = false;
             alert("Prezzo unitario del prodotto non inserito <br />");
+        }
+
+        if(!(is_numeric($pvu))){
+            $isOk = false;
+            alert("Prezzo unitario del prodotto inserito con un formato errato! <br />");
         }
 
         return $isOk;
