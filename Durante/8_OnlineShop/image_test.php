@@ -19,7 +19,7 @@
 </HEAD>
 <BODY>
     <form action="#"
-        method="post">
+        method="post" enctype="multipart/form-data">
         <div class="phppot-container tile-container">
             <label>Upload Image File:</label>
             <div class="row">
@@ -39,7 +39,6 @@ if(isset($_POST["submit"])){
     include "connesione.php";
     $status = 'error'; 
     if(!empty($_FILES["image"]["name"])) { 
-        // Get file info 
         $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
          
@@ -48,10 +47,10 @@ if(isset($_POST["submit"])){
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
-         
+
             // Insert image content into database 
-            $insert = $db_connection->query("INSERT into tbl_image (imageData) VALUES ('$imgContent')"); 
-             
+            echo $query = "INSERT INTO `tbl_image`(`imageId`, `imageData`) VALUES (null,'".$imgContent."'";
+            $insert = $db_connection->query($query); 
             if($insert){ 
                 $status = 'success'; 
                 $statusMsg = "File uploaded successfully."; 
@@ -64,6 +63,8 @@ if(isset($_POST["submit"])){
     }else{ 
         $statusMsg = 'Please select an image file to upload.'; 
     } 
+
+    echo $statusMsg;
 } 
 
 
