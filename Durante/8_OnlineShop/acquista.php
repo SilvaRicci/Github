@@ -26,41 +26,20 @@
   </head>
   <body>
 
-  <?php
-            $carrello = $_SESSION['carrello'];
-
-            foreach($carrello as $item):
-
-                $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$item['id']."'");            
-                $rows = $result->num_rows;  
-
-                if($rows > 0):  
-                    $row = $result->fetch_assoc();
-        ?>
-<!-- https://bootsnipp.com/snippets/e3q3a -->
-                <tr>
-                <td><?php echo $row['nome_prodotto']; ?></td>  
-                <td><?php echo $row['pvu_prodotto']; ?></td>                                       
-                <td><?php echo $item['quantita']; ?></td>
-                <td><?php echo $item['quantita'] * $row['pvu_prodotto']; ?> € </td>   
-                <td> <a href="deleteItem.php?id=<?php echo $item['id']; ?>"> Rimuovi </a> </td>
-                <tr>   
-
-            <?php endif; ?>
-        <?php endforeach; ?>    
-
-
     <?php
         $id = $_GET['id'];
 
         if($id == -1){
-            // acquisto tutto il carrello 
-            echo "Acquista carrelo";
+            $carrello = $_SESSION['carrello'];
+            foreach($carrello as $item):
+                acquista($item['id'],$item['quantita']);
+            endforeach;
+            alert("Acquista carrello");
         }else{
             // acquista ora
             $quantita = $_GET['quantita'];
             acquista($id,$quantita);
-            echo "Acquista prodotto con id".$id."e quantita".$quantita;
+            alert("Acquista prodotto con id".$id."e quantita".$quantita);
 
         }
     ?>

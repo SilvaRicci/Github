@@ -215,6 +215,13 @@
         return $isDone;
     }
 
-    function acquista(){
-        
+    function acquista($id,$quantita){
+        include "connessione.php";
+
+        //verifica quantità dal magazzino prima di acquistare
+        if(controllaMagazzino($id,$quantita)){
+            echo "Quantità verificata! test:". $id;
+        }
+
+
     }
