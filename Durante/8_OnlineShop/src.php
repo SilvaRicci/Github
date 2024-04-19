@@ -222,7 +222,7 @@
         if(controllaMagazzino($id,$quantita)){
             echo "Quantità verificata! test:". $id;
 
-            $query = "";
+            $query = "UPDATE";
             
             $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto`,`qnt_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$id."'");            
             $rows = $result->num_rows;  
