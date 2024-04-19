@@ -32,8 +32,9 @@
     </form>
     <?php
         if(isset($_POST['submit'])){ 
-            $imgData = file_get_contents($_FILES['userImage']['tmp_name']);
-            $sql = "INSERT INTO tbl_image(imageType) VALUES($imgData)";
+            //$imgData = file_get_contents($_FILES['userImage']['tmp_name']);
+            $imgData = addslashes(file_get_contents($_FILES['userImage']['tmp_name'])); 
+            $sql = "INSERT INTO `tbl_image` (`imageId`, `imageData`) VALUES (NULL,$imgData)";
             $result = $db_connection->query($sql);
 
         }
