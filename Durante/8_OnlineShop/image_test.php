@@ -23,7 +23,7 @@
         <div class="phppot-container tile-container">
             <label>Upload Image File:</label>
             <div class="row">
-                <input name="userImage" type="file" class="full-width" />
+                <input name="userImage" id="userImage" type="file" class="full-width" />
             </div>
             <div class="row">
                 <input type="submit" value="Submit" id="submit" name="submit" />
@@ -34,8 +34,8 @@
         if(isset($_POST['submit'])){
             $imgData = file_get_contents($_FILES['userImage']['tmp_name']);
             $imgType = $_FILES['userImage']['type'];
-            $sql = "INSERT INTO tbl_image(imageType ,imageData) VALUES('".$imgData."', '".$imgType.")'";
-            $result = $db_connection->query($sql);
+            echo $sql = "INSERT INTO tbl_image(imageType ,imageData) VALUES('".$imgData."', '".$imgType.")'";
+            //$result = $db_connection->query($sql);
 
         }
         
