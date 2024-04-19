@@ -36,7 +36,7 @@
 $status = $statusMsg = ''; 
 if(isset($_POST["submit"])){ 
     
-    include "connesione.php";
+    include "connessione.php";
     $status = 'error'; 
     if(!empty($_FILES["image"]["name"])) { 
         $fileName = basename($_FILES["image"]["name"]); 
@@ -47,10 +47,9 @@ if(isset($_POST["submit"])){
         if(in_array($fileType, $allowTypes)){ 
             $image = $_FILES['image']['tmp_name']; 
             $imgContent = addslashes(file_get_contents($image)); 
-            $image2 = base64_encode(file_get_contents(addslashes($image)));
 
             // Insert image content into database 
-            echo $query = "INSERT INTO `tbl_image`(`imageId`, `imageData`) VALUES (null,'".$image2."'";
+            echo $query = "INSERT INTO `tbl_image`(`imageId`, `imageData`) VALUES (null,'".$imgContent."')";
             $insert = $db_connection->query($query); 
             if($insert){    
                 $status = 'success'; 
