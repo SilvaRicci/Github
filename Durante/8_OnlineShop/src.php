@@ -222,8 +222,13 @@
         if(controllaMagazzino($id,$quantita)){
             echo "Quantità verificata! test:". $id;
 
+            $id_user = getIdUser();
+            $date = null;
+            $time = null;
+            $total = getTotal($id,$quantita);
+
             $queryAcquisto = "UPDATE `prodotto` SET `qnt_prodotto`=`qnt_prodotto`-".$quantita." WHERE `id_prodotto`='".$id."';";
-            $queryTracking = "";
+            $queryTracking = "INSERT INTO `shopTracking`(`id_user`, `id_prodotto`, `qnt_acquistata`, `data_diAcquisto`, `ora_diAcquisto`, `spesa_totale`) VALUES ('$id_user','$id','$quantita','$date','$time','$total')";
             
             $result = $db_connection->query("SELECT `nome_prodotto`,`pvu_prodotto`,`qnt_prodotto` FROM `prodotto` WHERE `id_prodotto` = '".$id."'");            
             $rows = $result->num_rows;  
@@ -234,4 +239,16 @@
         }
 
 
+    }
+
+    function getIDUser(){
+        $id_user = null;
+
+        return null;
+    }
+
+    function getIDUser(){
+        $id_user = null;
+
+        return null;
     }
