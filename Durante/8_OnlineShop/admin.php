@@ -29,7 +29,25 @@ if (!isset($_SESSION['username'])) {
     <div class="container">
         <div class="row">
             <div class="col">
-                <form method="POST" action="#"
+                <form method="POST" action="#">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">Nome</span>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome prodotto" aria-label="Nome" aria-describedby="addon-wrapping">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descrizione" class="form-label">Descrizione</label>
+                        <textarea class="form-control" id="descrizione" name="descrizione" rows="3"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">€</span>
+                        <span class="input-group-text">0.00</span>
+                        <input type="text" class="form-control" name="pvu" id="pvu" aria-label="Dollar amount (with dot and two decimal places)">
+                    </div>
+                    <div class="mb-3">
+                        <label for="immagine" class="form-label">Immagine</label>
+                        <input class="form-control" type="file" id="immagine" name="immagine">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
