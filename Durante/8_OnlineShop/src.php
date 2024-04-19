@@ -272,3 +272,33 @@
     function clearCart(){
         $_SESSION['carrello'] = array();
     }
+
+    function aggiungiAlMagazzino($nome,$descrizione,$quantita,$pvu,$immagine){
+
+        if(dataVerifyProduct($nome,$quantita,$pvu)){
+            
+        }else{
+            return false;
+        }
+    }
+
+    function dataVerifyProduct($nome,$quantita,$pvu){
+        $isOk = true; // Inizialmente impostiamo la variabile a true, se uno dei controlli fallisce, diventerà false
+
+        if($nome == ""){
+            $isOk = false;
+            alert("Nome prodotto non inserito <br />");
+        }
+
+        if($quantita == ""){
+            $isOk = false;
+            alert("quantita non inserita <br />");
+        }
+
+        if($pvu == ""){
+            $isOk = false;
+            alert("Prezzo unitario del prodotto non inserito <br />");
+        }
+
+        return $isOk;
+    }
