@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php include "style.html"; ?>
-    <title>Homepage</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="src/css/base.css">
     <link rel="stylesheet" href="src/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,31 +24,14 @@ if (!isset($_SESSION['username'])) {
 
 <body>
     <?php include "navbar.html"; ?>
+    <h3> Aggiungi un prodotto </h3>
 
-    <div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
-
-        <!-- Icon -->
-        <div class="fadeIn first">
-        <!-- DA CAMBIARE PLACEHOLDER.PNG ATTUALMENTE -->
-        <img src="https://mivatek.global/wp-content/uploads/2021/07/placeholder.png" id="icon" alt="User Icon" />
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form method="POST" action="#"
+            </div>
         </div>
-
-        <!-- Login Form -->
-        <form action="#" method="POST">
-          <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username / e-mail">
-          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
-          <input type="submit" class="fadeIn fourth my-3" value="login" id="login" name="login"><br>
-          <a class="underlineHover text-black" href="signup.php">oppure registrati!</a><br><br>
-        </form>
-
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-        <a class="underlineHover text-black" href="forgotPassword.php">Password dimenticata?</a>
-        </div>
-
-    </div>
     </div>
 
     <?php
