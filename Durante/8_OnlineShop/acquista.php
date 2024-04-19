@@ -31,8 +31,9 @@
 
         if($id == -1){
             $carrello = $_SESSION['carrello'];
+            echo $_SESSION['carrello'][1]['id'];
             foreach($carrello as $item):
-                echo $item['id'] . " " .$item['quantita'];
+                echo "banana: ".$item['id'] . " " .$item['quantita'] ."da carrello".$_SESSION['carrello']['id'];
                 acquista($item['id'],$item['quantita']);
             endforeach;
             alert("Acquista carrello");
